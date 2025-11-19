@@ -1,4 +1,3 @@
-import { useEffect, useRef, useState } from "react";
 import "./App.css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -10,6 +9,8 @@ const sliderSettings = {
   slidesToShow: 3,
   slidesToScroll: 1,
   arrows: true,
+  autoplay: true,
+  autoplaySpeed: 2500,
   swipeToSlide: true,
   responsive: [
     {
@@ -39,84 +40,53 @@ function App() {
     { title: "Obra / Projeto 4", text: "Outro trabalho aqui." },
   ];
 
-  const carouselRef = useRef<HTMLDivElement | null>(null);
-  const [cardWidth, setCardWidth] = useState(260); // fallback
+  const techCards = [
+    {
+      title: "Menis – Synths & Pedais",
+      text: "Marca própria de instrumentos, pedais e módulos de síntese, com foco em experimentação sonora e acessibilidade.",
+    },
+    {
+      title: "Dub Siren / Dub Tools",
+      text: "Placas dedicadas para dub, sirenes, delays e explorações de feedback em performance ao vivo.",
+    },
+    {
+      title: "ESP32 & DaisySP",
+      text: "Projetos de áudio embarcado usando ESP32, Daisy e bibliotecas abertas para síntese e processamento digital de sinais.",
+    },
+    {
+      title: "Modular Patch A",
+      text: "Experimentos com patches modulares e feedback controlado em instalação.",
+    },
+    {
+      title: "Pedal Prototype",
+      text: "Protótipo de pedal de delay com circuito híbrido analógico/digital.",
+    },
+    {
+      title: "Live Set – 2018",
+      text: "Conjunto de performances ao vivo usando circuit bending e síntese granular.",
+    },
+  ];
 
-  // calcula largura do passo (largura do card + gap) depois do mount
-  useEffect(() => {
-    const el = carouselRef.current;
-    if (!el) return;
+  const softwareCards = [
+    {
+      title: "Desenvolvimento Web",
+      text: "Experiência com JavaScript, TypeScript, Node.js, React, Next.js, Docker, AWS e outras tecnologias, em empresas como UOL.",
+    },
+    {
+      title: "Ferramentas para Artistas",
+      text: "Pequenos apps, patches e sistemas que facilitam a criação sonora, a performance e o ensino de computação musical.",
+    },
+    {
+      title: "Patch Builder",
+      text: "Uma pequena ferramenta para construir patches modulares em browser.",
+    },
+    {
+      title: "Visualizer",
+      text: "Experimentos com visualização reativa para performance sonora.",
+    },
+  ];
 
-    const computeWidth = () => {
-      const children = el.querySelectorAll(".card.small");
-      if (children.length >= 2) {
-        const a = children[0] as HTMLElement;
-        const b = children[1] as HTMLElement;
-        const gap = b.offsetLeft - a.offsetLeft - a.offsetWidth;
-        const cw = a.offsetWidth + gap;
-        setCardWidth(cw);
-        return cw;
-      } else if (children.length === 1) {
-        const a = children[0] as HTMLElement;
-        setCardWidth(a.offsetWidth);
-        return a.offsetWidth;
-      }
-      return cardWidth;
-    };
-
-    // inicializa posição para o primeiro card real (índice 1, pois o índice 0 é clone do último)
-    const init = () => {
-      // aguarda render
-      requestAnimationFrame(() => {
-        if (!el) return;
-        const children = el.querySelectorAll(".card.small");
-        if (children.length > 1) {
-          const cw = computeWidth();
-          // posiciona no primeiro real
-          el.scrollLeft = cw;
-        }
-      });
-    };
-
-    init();
-    window.addEventListener("resize", computeWidth);
-    return () => window.removeEventListener("resize", computeWidth);
-  }, [carouselRef]);
-
-  // navegação por setas (avança/recua um passo)
-  const scrollByStep = (dir: number) => {
-    const el = carouselRef.current;
-    if (!el) return;
-    el.scrollBy({ left: dir * cardWidth, behavior: "smooth" });
-  };
-
-  // lógica de loop: quando chegar ao clone, pula para a posição real correspondente sem animação
-  const onScroll = () => {
-    const el = carouselRef.current;
-    if (!el) return;
-    const children = el.querySelectorAll(".card.small");
-    const n = cards.length; // número de cards reais
-    if (children.length < n + 2) return; // sanity
-
-    const idxFloat = el.scrollLeft / cardWidth;
-
-    // tolerância para detectar os clones (mais robusto durante animação/smooth scroll)
-    // se estamos no clone do último (índice ~0) -> pula para último real (índice n)
-    if (idxFloat <= 0.5) {
-      el.style.scrollBehavior = "auto";
-      el.scrollLeft = cardWidth * n;
-      setTimeout(() => (el.style.scrollBehavior = "smooth"), 60);
-      return;
-    }
-
-    // se estamos no clone do primeiro (índice ~n+1) -> pula para primeiro real (índice 1)
-    if (idxFloat >= n + 0.5) {
-      el.style.scrollBehavior = "auto";
-      el.scrollLeft = cardWidth;
-      setTimeout(() => (el.style.scrollBehavior = "smooth"), 60);
-      return;
-    }
-  };
+  
   return (
     <div className="app">
       <header className="navbar">
@@ -231,29 +201,16 @@ function App() {
             Desenvolvimento de instrumentos eletrônicos, síntese embarcada e
             ferramentas para artistas e pesquisadores.
           </p>
-          <div className="cards-grid">
-            <article className="card">
-              <h3>Menis – Synths & Pedais</h3>
-              <p>
-                Marca própria de instrumentos, pedais e módulos de síntese, com
-                foco em experimentação sonora e acessibilidade.
-              </p>
-            </article>
-            <article className="card">
-              <h3>Dub Siren / Dub Tools</h3>
-              <p>
-                Placas dedicadas para dub, sirenes, delays e explorações de
-                feedback em performance ao vivo.
-              </p>
-            </article>
-            <article className="card">
-              <h3>ESP32 & DaisySP</h3>
-              <p>
-                Projetos de áudio embarcado usando ESP32, Daisy e bibliotecas
-                abertas para síntese e processamento digital de sinais.
-              </p>
-            </article>
-          </div>
+          <Slider {...sliderSettings}>
+            {techCards.map((c, i) => (
+              <div key={i}>
+                <article className="card small">
+                  <h3>{c.title}</h3>
+                  <p>{c.text}</p>
+                </article>
+              </div>
+            ))}
+          </Slider>
         </section>
 
         {/* SOFTWARE */}
@@ -263,22 +220,16 @@ function App() {
             Atuação como desenvolvedor web e criador de ferramentas digitais
             para áudio, arte e educação.
           </p>
-          <div className="cards-grid">
-            <article className="card">
-              <h3>Desenvolvimento Web</h3>
-              <p>
-                Experiência com JavaScript, TypeScript, Node.js, React, Next.js,
-                Docker, AWS e outras tecnologias, em empresas como UOL.
-              </p>
-            </article>
-            <article className="card">
-              <h3>Ferramentas para Artistas</h3>
-              <p>
-                Pequenos apps, patches e sistemas que facilitam a criação
-                sonora, a performance e o ensino de computação musical.
-              </p>
-            </article>
-          </div>
+          <Slider {...sliderSettings}>
+            {softwareCards.map((c, i) => (
+              <div key={i}>
+                <article className="card small">
+                  <h3>{c.title}</h3>
+                  <p>{c.text}</p>
+                </article>
+              </div>
+            ))}
+          </Slider>
         </section>
 
         {/* RESEARCH */}
