@@ -1,6 +1,7 @@
 import { useParams } from "./lib/routerShim";
 import "./App.css";
 import Carousel from "./components/Carousel";
+import Highlights from "./components/Highlights";
 import Header from "./components/Header";
 import Detail from "./pages/Detail";
 
@@ -125,6 +126,10 @@ function App() {
                 Ver projetos de tecnologia
               </a>
             </div>
+          </div>
+
+          <div className="hero-highlights-wrapper">
+            <Highlights />
           </div>
 
           {/* <div className="hero-pillars">
