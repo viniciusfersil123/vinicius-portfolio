@@ -1,32 +1,15 @@
+import { useParams } from "./lib/routerShim";
 import "./App.css";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import Carousel from "./components/Carousel";
+import Header from "./components/Header";
+import Detail from "./pages/Detail";
 
-const sliderSettings = {
-  infinite: true,
-  speed: 500,
-  slidesToShow: 3,
-  slidesToScroll: 1,
-  arrows: true,
-  autoplay: true,
-  autoplaySpeed: 2500,
-  swipeToSlide: true,
-  responsive: [
-    {
-      breakpoint: 900,
-      settings: {
-        slidesToShow: 2,
-      },
-    },
-    {
-      breakpoint: 600,
-      settings: {
-        slidesToShow: 1,
-      },
-    },
-  ],
-};
+function slugify(s: string) {
+  return s
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
 
 function App() {
   // dados dos cards (fácil de manter e reutilizar)
@@ -48,6 +31,7 @@ function App() {
     {
       title: "Dub Siren / Dub Tools",
       text: "Placas dedicadas para dub, sirenes, delays e explorações de feedback em performance ao vivo.",
+    
     },
     {
       title: "ESP32 & DaisySP",
@@ -86,26 +70,38 @@ function App() {
     },
   ];
 
-  
+  // (allItems moved to src/data/items.ts if needed)
+
+  const params = useParams();
+
+  // if a slug is present in the URL, show the standalone detail page
+  if (params.slug) {
+    return (
+      <div className="app">
+        <Detail />
+        <footer className="footer">
+          <p>
+            © {new Date().getFullYear()} Vinícius Fernandes — Arte, som &
+            tecnologia.
+          </p>
+        </footer>
+      </div>
+    );
+  }
+
+  // onItem click: just change URL (Detail reads slug from path)
+  const openItem = (it: any) => {
+    const slug = (it.slug as string) || slugify(it.title || "");
+    const url = `/item/${slug}`;
+    window.history.pushState({}, "", url);
+    window.dispatchEvent(new PopStateEvent("popstate"));
+  };
+
+  // closeDetail not needed; Detail uses back navigation
+
   return (
     <div className="app">
-      <header className="navbar">
-        <div
-          className="logo"
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          style={{ cursor: "pointer" }}
-        >
-          Vinícius Fernandes
-        </div>
-        <nav>
-          <a href="#about">Sobre</a>
-          <a href="#art">Arte</a>
-          <a href="#tech">Hardware & DSP</a>
-          <a href="#software">Software</a>
-          <a href="#research">Pesquisa</a>
-          <a href="#contact">Contato</a>
-        </nav>
-      </header>
+      <Header />
 
       <main>
         {/* HERO */}
@@ -182,16 +178,7 @@ function App() {
             colaborativos.
           </p>
 
-          <Slider {...sliderSettings}>
-            {cards.map((c, i) => (
-              <div key={i}>
-                <article className="card small">
-                  <h3>{c.title}</h3>
-                  <p>{c.text}</p>
-                </article>
-              </div>
-            ))}
-          </Slider>
+          <Carousel items={cards} slidesToShow={3} autoplay={true} onItemClick={openItem} />
         </section>
 
         {/* TECH */}
@@ -201,16 +188,7 @@ function App() {
             Desenvolvimento de instrumentos eletrônicos, síntese embarcada e
             ferramentas para artistas e pesquisadores.
           </p>
-          <Slider {...sliderSettings}>
-            {techCards.map((c, i) => (
-              <div key={i}>
-                <article className="card small">
-                  <h3>{c.title}</h3>
-                  <p>{c.text}</p>
-                </article>
-              </div>
-            ))}
-          </Slider>
+          <Carousel items={techCards} slidesToShow={3} autoplay={true} onItemClick={openItem} />
         </section>
 
         {/* SOFTWARE */}
@@ -220,19 +198,10 @@ function App() {
             Atuação como desenvolvedor web e criador de ferramentas digitais
             para áudio, arte e educação.
           </p>
-          <Slider {...sliderSettings}>
-            {softwareCards.map((c, i) => (
-              <div key={i}>
-                <article className="card small">
-                  <h3>{c.title}</h3>
-                  <p>{c.text}</p>
-                </article>
-              </div>
-            ))}
-          </Slider>
+          <Carousel items={softwareCards} slidesToShow={2} autoplay={true} onItemClick={openItem} />
         </section>
 
-        {/* RESEARCH */}
+  {/* RESEARCH */}
         <section id="research" className="section">
           <h2>Pesquisa</h2>
           <p>
@@ -266,6 +235,9 @@ function App() {
           </ul>
         </section>
       </main>
+
+  {/* Detail overlay / page (shown when URL contains /item/:slug) */}
+  {params.slug && <Detail />}
 
       <footer className="footer">
         <p>
