@@ -1,8 +1,14 @@
+import { useLanguage } from "../context/LanguageContext";
+import { useTranslation } from "../hooks/useTranslation";
+
 type Props = {
   onLogoClick?: () => void;
 };
 
 export default function Header({ onLogoClick }: Props) {
+  const { lang, setLang } = useLanguage();
+  const { t } = useTranslation();
+
   return (
     <header className="navbar">
       <div
@@ -12,14 +18,28 @@ export default function Header({ onLogoClick }: Props) {
       >
         Vinícius Fernandes
       </div>
+
       <nav>
-        <a href="#about">Sobre</a>
-        <a href="#art">Arte</a>
-        <a href="#tech">Hardware & DSP</a>
-        <a href="#software">Software</a>
-        <a href="#research">Pesquisa</a>
-        <a href="#contact">Contato</a>
+        <a href="#about">{t("nav.sobre")}</a>
+        <a href="#art">{t("nav.arte")}</a>
+        <a href="#tech">{t("nav.tech")}</a>
+        <a href="#software">{t("nav.software")}</a>
+        <a href="#research">{t("nav.pesquisa")}</a>
+        <a href="#contact">{t("nav.contato")}</a>
       </nav>
+
+      <div style={{ marginLeft: "1rem" }}>
+        <select
+          value={lang}
+          onChange={(e) => setLang(e.target.value as any)}
+          aria-label="Select language"
+          style={{ background: "transparent", color: "#ddd", border: "1px solid rgba(255,255,255,0.06)", padding: "0.25rem 0.5rem", borderRadius: "6px" }}
+        >
+          <option value="pt-br">🇧🇷 PT</option>
+          <option value="en">🇬🇧 EN</option>
+          <option value="de">🇩🇪 DE</option>
+        </select>
+      </div>
     </header>
   );
 }

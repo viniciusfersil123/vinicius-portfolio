@@ -1,10 +1,12 @@
 import Header from "../components/Header";
 import { useParams, useNavigate } from "../lib/routerShim";
 import { allItems } from "../data/items";
+import { useTranslation } from "../hooks/useTranslation";
 
 export default function Detail() {
   const { slug } = useParams();
   const navigate = useNavigate();
+  const { lang } = useTranslation();
   const item = allItems.find((it) => it.slug === slug);
 
   if (!item) {
@@ -29,8 +31,8 @@ export default function Detail() {
           ← Voltar
         </button>
         <article className="card" style={{ padding: "1.5rem" }}>
-          <h2>{item.title}</h2>
-          <p>{item.text}</p>
+          <h2>{typeof item.title === "string" ? item.title : item.title[lang] || item.title["pt-br"]}</h2>
+          <p>{typeof item.text === "string" ? item.text : item.text[lang] || item.text["pt-br"]}</p>
           <hr style={{ margin: "1rem 0" }} />
           <p>
             Descrição detalhada (mock): Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
