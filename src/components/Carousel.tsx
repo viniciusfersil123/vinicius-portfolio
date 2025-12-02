@@ -32,7 +32,7 @@ export default function Carousel({
     slidesToScroll: 1,
     arrows: true,
     autoplay,
-    autoplaySpeed: 2500,
+    autoplaySpeed: 7000,
     swipeToSlide: true,
     dots,
     responsive: [

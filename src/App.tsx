@@ -15,7 +15,10 @@ function slugify(s: string) {
 function App() {
   // dados dos cards (fácil de manter e reutilizar)
   const cards = [
-    { title: "Obra / Projeto 1", text: "Descrição curtinha, ano, contexto." },
+    {
+      title: "TUDOS",
+      text: `TUDOS is a label that its focus lies on launching artists working with experimental songwriting.`,
+    },
     {
       title: "Obra / Projeto 2",
       text: "Instalação sonora apresentada na USP.",
@@ -32,7 +35,6 @@ function App() {
     {
       title: "Dub Siren / Dub Tools",
       text: "Placas dedicadas para dub, sirenes, delays e explorações de feedback em performance ao vivo.",
-    
     },
     {
       title: "ESP32 & DaisySP",
@@ -155,23 +157,26 @@ function App() {
         <section id="about" className="section">
           <h2>Sobre</h2>
           <p>
-            Vinícius Fernandes é artista, pesquisador e desenvolvedor, atuando
-            desde 2014 em arte sonora, síntese, hardware musical e
-            desenvolvimento de software. Sua trajetória inclui participação na
-            32ª Bienal de São Paulo, performances e apresentações em cidades
-            como Berlim, Nápoles, Riga, Tallinn, Vilnius e Barcelona, além de
-            projetos em instituições como SESC e Espaço das Artes (USP). É
-            criador da Menis, dedicada a hardware e ferramentas de áudio, e
-            também trabalhou como desenvolvedor web em empresas como UOL e Nexo
-            Jornal. Atualmente é doutorando em cotutela entre a USP (IME) e a TU
-            Berlin, pesquisando áudio embarcado, DSP e plataformas abertas de
-            áudio sob uma perspectiva crítica e situada.{" "}
-          </p>
-          <p>
-            Atualmente faço doutorado em áudio embarcado entre a USP e a TU
-            Berlin, pesquisando plataformas abertas de áudio, acessibilidade
-            tecnológica e práticas de desenvolvimento situadas — sempre em
-            diálogo com arte sonora e práticas experimentais.
+            Vinícius Fernandes é desenvolvedor, pesquisador, músico e artista
+            sonoro. Nascido em São Paulo, formou-se em Estudos Literários
+            (UNICAMP) e tem título de mestre em Sonologia (USP). Atualmente, realiza
+            um doutorado em áudio embarcado em cotutela entre o IME-USP e a
+            Technische Universität Berlin (DAAD), investigando plataformas
+            abertas de áudio, DSP em hardware de baixa potência, acessibilidade
+            técnica e práticas de desenvolvimento situadas. Coordena um grupo de
+            pesquisa em sistemas embarcados para música na USP e contribui
+            ativamente para projetos de código aberto, como a DaisySP Library,
+            trabalhando com C/C++, drivers e programação de microcontroladores.
+            Profissionalmente, atuou no Nexo Jornal e na UOL como desenvolvedor
+            web (Node.js, TypeScript, Docker, Next.js). É fundador da Menis Tech
+            Design, criando instrumentos eletrônicos customizados, projetos de
+            tecnologia criativa e cursos em eletrônica, síntese e controladores
+            MIDI. No campo artístico, produz desde 2014 o selo experimental
+            TUDOS e já se apresentou em eventos como o I Colóquio
+            Franco-Brasileiro de Análise e Criação Musicais (ao lado de Gérard
+            Assayag/IRCAM), a 32ª Bienal de São Paulo e turnês europeias com o
+            trio Cassini. Publica regularmente artigos sobre práticas sonoras
+            experimentais, mídia e literatura.{" "}
           </p>
         </section>
 
@@ -183,7 +188,12 @@ function App() {
             colaborativos.
           </p>
 
-          <Carousel items={cards} slidesToShow={3} autoplay={true} onItemClick={openItem} />
+          <Carousel
+            items={cards}
+            slidesToShow={3}
+            autoplay={true}
+            onItemClick={openItem}
+          />
         </section>
 
         {/* TECH */}
@@ -193,7 +203,12 @@ function App() {
             Desenvolvimento de instrumentos eletrônicos, síntese embarcada e
             ferramentas para artistas e pesquisadores.
           </p>
-          <Carousel items={techCards} slidesToShow={3} autoplay={true} onItemClick={openItem} />
+          <Carousel
+            items={techCards}
+            slidesToShow={3}
+            autoplay={true}
+            onItemClick={openItem}
+          />
         </section>
 
         {/* SOFTWARE */}
@@ -203,10 +218,15 @@ function App() {
             Atuação como desenvolvedor web e criador de ferramentas digitais
             para áudio, arte e educação.
           </p>
-          <Carousel items={softwareCards} slidesToShow={2} autoplay={true} onItemClick={openItem} />
+          <Carousel
+            items={softwareCards}
+            slidesToShow={2}
+            autoplay={true}
+            onItemClick={openItem}
+          />
         </section>
 
-  {/* RESEARCH */}
+        {/* RESEARCH */}
         <section id="research" className="section">
           <h2>Pesquisa</h2>
           <p>
@@ -241,8 +261,8 @@ function App() {
         </section>
       </main>
 
-  {/* Detail overlay / page (shown when URL contains /item/:slug) */}
-  {params.slug && <Detail />}
+      {/* Detail overlay / page (shown when URL contains /item/:slug) */}
+      {params.slug && <Detail />}
 
       <footer className="footer">
         <p>
