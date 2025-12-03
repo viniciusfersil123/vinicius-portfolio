@@ -17,59 +17,90 @@ function App() {
   const cards = [
     {
       title: "TUDOS",
-      text: `TUDOS is a label that its focus lies on launching artists working with experimental songwriting.`,
+      text: `TUDOS is a label that its focus lies on launching artists working with experimental songwriting.
+`,
+      image: "/tudos_thumb.jpg",
     },
     {
-      title: "Obra / Projeto 2",
-      text: "Instalação sonora apresentada na USP.",
+      title: "9 chifres",
+      text: "Peça eletrônica baseada na canção lituana Kalėdų rytu rožė inžydo, apresentada na 32ª Bienal de São Paulo.",
+      image: "/9chifres_thumb.jpg",
     },
-    { title: "Obra / Projeto 3", text: "Performance colaborativa." },
-    { title: "Obra / Projeto 4", text: "Outro trabalho aqui." },
+    {
+      title: "Metempsicose",
+      text: "Sound Installation. A radio tuned in a random local station drives two modified speakers that are connected to a guitar and a tamtam.",
+      image: "/metempsicose_thumb.jpg",
+    },
+    {
+      title: "¿Música?",
+      text: "Série de performances/exposições de arte sonora/música experimental realizada desde 2005",
+      image: "/musica_thumb.jpg",
+    },
+    {
+      title: "Móbile de vaca morta com vergalhões de ferro [...]",
+      text: "Instalação com ossos, alto-falantes, vergalhões de ferro e com áudio de álbuns kitsch de Augusto Piccinini",
+      image: "/mobile_thumb.jpg",
+    },
+    {
+      title: "Fitosintetizadores",
+      text: "Outro trabalho aqui.",
+      image: "/placeholder.jpg",
+    },
+    {
+      title: "Esponjas",
+      text: "Outro trabalho aqui.",
+      image: "/placeholder.jpg",
+    },
+    {
+      title: "Discografia",
+      text: "Reunião de todos discos, singles e colaborações",
+      image: "/discografia_thumb.jpg",
+    },
   ];
 
   const techCards = [
     {
-      title: "Menis – Synths & Pedais",
-      text: "Marca própria de instrumentos, pedais e módulos de síntese, com foco em experimentação sonora e acessibilidade.",
-    },
-    {
-      title: "Dub Siren / Dub Tools",
-      text: "Placas dedicadas para dub, sirenes, delays e explorações de feedback em performance ao vivo.",
-    },
-    {
-      title: "ESP32 & DaisySP",
-      text: "Projetos de áudio embarcado usando ESP32, Daisy e bibliotecas abertas para síntese e processamento digital de sinais.",
-    },
-    {
-      title: "Modular Patch A",
-      text: "Experimentos com patches modulares e feedback controlado em instalação.",
+      title: "Menis — Synths & Pedais",
+      text: "Desenvolvimento de instrumentos eletrônicos, síntese embarcada e ferramentas para artistas e pesquisadores.",
+      image: "/placeholder.jpg",
     },
     {
       title: "Pedal Prototype",
       text: "Protótipo de pedal de delay com circuito híbrido analógico/digital.",
+      image: "/placeholder.jpg",
     },
     {
-      title: "Live Set – 2018",
-      text: "Conjunto de performances ao vivo usando circuit bending e síntese granular.",
+      title: "DSP Module",
+      text: "Módulo DSP para processamento de áudio embarcado e experimentação sonora.",
+      image: "/placeholder.jpg",
+    },
+    {
+      title: "Sensor Interface",
+      text: "Interface de sensores para performances e instalações interativas.",
+      image: "/placeholder.jpg",
     },
   ];
 
   const softwareCards = [
     {
-      title: "Desenvolvimento Web",
-      text: "Experiência com JavaScript, TypeScript, Node.js, React, Next.js, Docker, AWS e outras tecnologias, em empresas como UOL.",
+      title: "Web Audio Tools",
+      text: "Ferramentas web para manipulação e visualização de áudio em tempo real.",
+      image: "/placeholder.jpg",
     },
     {
-      title: "Ferramentas para Artistas",
-      text: "Pequenos apps, patches e sistemas que facilitam a criação sonora, a performance e o ensino de computação musical.",
+      title: "Live Coding",
+      text: "Ambiente para criação e performance de código sonoro ao vivo.",
+      image: "/placeholder.jpg",
     },
     {
-      title: "Patch Builder",
-      text: "Uma pequena ferramenta para construir patches modulares em browser.",
+      title: "Interactive App",
+      text: "Aplicativo interativo para educação em áudio e síntese.",
+      image: "/placeholder.jpg",
     },
     {
-      title: "Visualizer",
-      text: "Experimentos com visualização reativa para performance sonora.",
+      title: "Plugins & Utils",
+      text: "Coleção de utilitários e plugins para fluxo de trabalho em áudio.",
+      image: "/placeholder.jpg",
     },
   ];
 
@@ -159,9 +190,9 @@ function App() {
           <p>
             Vinícius Fernandes é desenvolvedor, pesquisador, músico e artista
             sonoro. Nascido em São Paulo, formou-se em Estudos Literários
-            (UNICAMP) e tem título de mestre em Sonologia (USP). Atualmente, realiza
-            um doutorado em áudio embarcado em cotutela entre o IME-USP e a
-            Technische Universität Berlin (DAAD), investigando plataformas
+            (UNICAMP) e tem título de mestre em Sonologia (USP). Atualmente,
+            realiza um doutorado em áudio embarcado em cotutela entre o IME-USP
+            e a Technische Universität Berlin (DAAD), investigando plataformas
             abertas de áudio, DSP em hardware de baixa potência, acessibilidade
             técnica e práticas de desenvolvimento situadas. Coordena um grupo de
             pesquisa em sistemas embarcados para música na USP e contribui
@@ -182,7 +213,7 @@ function App() {
 
         {/* ART */}
         <section id="art" className="section">
-          <h2>Art & Sound (Arquivo 2014–2019)</h2>
+          <h2>Art & Sound</h2>
           <p>
             Uma seleção de performances, instalações sonoras e projetos
             colaborativos.

@@ -5,17 +5,17 @@ import "slick-carousel/slick/slick-theme.css";
 const highlights = [
   {
     title: "Instalação sonora — SESC",
-    img: "/vinicius.jpg",
+    img: "/placeholder.jpg",
     caption: "Performance e instalação (2018)",
   },
   {
     title: "Residência — Berlim",
-    img: "/cut.jpeg",
+    img: "/placeholder.jpg",
     caption: "Pesquisa sonora (2017)",
   },
   {
     title: "Live Set — Riga",
-    img: "/vinicius.jpg",
+    img: "/placeholder.jpg",
     caption: "Performance ao vivo (2016)",
   },
 ];

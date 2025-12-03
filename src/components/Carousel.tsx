@@ -5,7 +5,7 @@ import Card from "./Card";
 import { useNavigate } from "../lib/routerShim";
 import { useTranslation } from "../hooks/useTranslation";
 
-type Item = { title: string; text: string };
+type Item = { title: string; text: string; image?: string };
 
 type Props = {
   items: Item[];
@@ -50,11 +50,13 @@ export default function Carousel({
           // item may have translations
           const title = (it as any).title?.[lang] || (it as any).title || "";
           const text = (it as any).text?.[lang] || (it as any).text || "";
+          const img = (it as any).image || (it as any).img || undefined; // <-- pega imagem se existir
           return (
             <div key={i}>
               <Card
                 title={title}
                 text={text}
+                image={img}
                 size="small"
                 onClick={() => {
                   if (onItemClick) return onItemClick(it);

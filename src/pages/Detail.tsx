@@ -28,9 +28,14 @@ export default function Detail() {
       <Header />
       <main className="section">
         <button className="button secondary" onClick={() => navigate(-1)} style={{ marginBottom: "1rem" }}>
-          ← Voltar
+          {t ? t("back") : "← Voltar"}
         </button>
         <article className="card" style={{ padding: "1.5rem" }}>
+          {item.image && (
+            <div style={{ marginBottom: "1rem" }}>
+              <img src={item.image} alt={typeof item.title === "string" ? item.title : item.title[lang] || item.title["pt-br"]} style={{ width: "100%", maxHeight: 360, objectFit: "cover", borderRadius: 12 }} />
+            </div>
+          )}
           <h2>{typeof item.title === "string" ? item.title : item.title[lang] || item.title["pt-br"]}</h2>
           <p>{typeof item.text === "string" ? item.text : item.text[lang] || item.text["pt-br"]}</p>
           <hr style={{ margin: "1rem 0" }} />
