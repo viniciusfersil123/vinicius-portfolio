@@ -1,4 +1,5 @@
-import { useLanguage } from "../context/LanguageContext";
+import React from "react";
+import { useLanguage } from "../context/LanguageProvider";
 import { useTranslation } from "../hooks/useTranslation";
 
 type Props = {
@@ -6,14 +7,16 @@ type Props = {
 };
 
 export default function Header({ onLogoClick }: Props) {
-  const { lang, setLang } = useLanguage();
+  const { lang, setLang, openLangModal } = useLanguage();
   const { t } = useTranslation();
 
   return (
     <header className="navbar">
       <div
         className="logo"
-        onClick={() => (onLogoClick ? onLogoClick() : window.scrollTo({ top: 0, behavior: "smooth" }))}
+        onClick={() =>
+          onLogoClick ? onLogoClick() : window.scrollTo({ top: 0, behavior: "smooth" })
+        }
         style={{ cursor: "pointer" }}
       >
         Vinícius Fernandes
@@ -28,13 +31,32 @@ export default function Header({ onLogoClick }: Props) {
         <a href="#contact">{t("nav.contato")}</a>
       </nav>
 
-      <div style={{ marginLeft: "1rem" }}>
-        <select
-          value={lang}
-          onChange={(e) => setLang(e.target.value as any)}
-          aria-label="Select language"
-          style={{ background: "transparent", color: "#ddd", border: "1px solid rgba(255,255,255,0.06)", padding: "0.25rem 0.5rem", borderRadius: "6px" }}
+      <div style={{ marginLeft: "1rem", display: "flex", alignItems: "center", gap: "0.5rem" }}>
+        <button
+          className="lang-open"
+          onClick={() => (openLangModal ? openLangModal() : undefined)}
+          aria-label={t("header.alterarIdioma") || "Alterar idioma"}
+          style={{ background: "transparent", color: "#ddd", border: "none", cursor: "pointer" }}
         >
+          {lang === "pt-br" && "🇧🇷 PT"}
+          {lang === "en" && "🇬🇧 EN"}
+          {lang === "de" && "🇩🇪 DE"}
+          {!lang && "🌐"}
+        </button>
+
+        <select
+          value={lang || ""}
+          onChange={(e) => (setLang ? setLang(e.target.value as any) : undefined)}
+          aria-label={t("header.selecaoIdioma") || "Seleção de idioma"}
+          style={{
+            background: "transparent",
+            color: "#ddd",
+            border: "1px solid rgba(255,255,255,0.06)",
+            padding: "0.25rem 0.5rem",
+            borderRadius: "6px",
+          }}
+        >
+          <option value="">{t("header.escolher") || "Escolher"}</option>
           <option value="pt-br">🇧🇷 PT</option>
           <option value="en">🇬🇧 EN</option>
           <option value="de">🇩🇪 DE</option>

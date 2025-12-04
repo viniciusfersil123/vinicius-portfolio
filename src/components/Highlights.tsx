@@ -26,7 +26,7 @@ const highlights = [
   {
     title: "Echos of the deep",
     img: "/teaser_5.jpg",
-    caption: "Vila do Conde, Portugal (2025)",
+    caption: "Vila do Conde, Portugal (2019)",
   },
 ];
 

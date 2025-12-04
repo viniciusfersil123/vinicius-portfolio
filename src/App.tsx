@@ -17,7 +17,7 @@ function App() {
   const cards = [
     {
       title: "TUDOS",
-      text: `TUDOS is a label that its focus lies on launching artists working with experimental songwriting.
+      text: `Selo dedicado ao lançamento de artistas que trabalham com composição experimental.
 `,
       image: "/tudos_thumb.jpg",
     },
@@ -28,7 +28,7 @@ function App() {
     },
     {
       title: "Metempsicose",
-      text: "Sound Installation. A radio tuned in a random local station drives two modified speakers that are connected to a guitar and a tamtam.",
+      text: "nstalação sonora. Um rádio sintonizado em uma estação local aleatória controla dois alto-falantes modificados conectados a uma guitarra e a um tamtamonnected to a guitar and a tamtam.",
       image: "/metempsicose_thumb.jpg",
     },
     {
