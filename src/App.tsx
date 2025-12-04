@@ -42,14 +42,14 @@ function App() {
       image: "/mobile_thumb.jpg",
     },
     {
-      title: "Fitosintetizadores",
-      text: "Outro trabalho aqui.",
-      image: "/placeholder.jpg",
+      title: "Fitosintetizador",
+      text: "Instalação sonora interativa que utiliza plantas como controladoras de síntese sonora.",
+      image: "/fitosintetizador_thumb.jpg",
     },
     {
-      title: "Esponjas",
-      text: "Outro trabalho aqui.",
-      image: "/placeholder.jpg",
+      title: "Echos of the deep",
+      text: "Software de sonificação de dados metabólicos de esponjas marinhas. Apresentado no contexto 12th World Sponge Conference",
+      image: "/sponges_thumb.jpg",
     },
     {
       title: "Discografia",
@@ -60,47 +60,53 @@ function App() {
 
   const techCards = [
     {
-      title: "Menis — Synths & Pedais",
+      title: "Menis",
       text: "Desenvolvimento de instrumentos eletrônicos, síntese embarcada e ferramentas para artistas e pesquisadores.",
-      image: "/placeholder.jpg",
+      image: "/menis_thumb.jpg",
     },
     {
-      title: "Pedal Prototype",
-      text: "Protótipo de pedal de delay com circuito híbrido analógico/digital.",
-      image: "/placeholder.jpg",
+      title: "Granular Player - daisySP",
+      text: "Contribuição para a DaisySP Library com um player granular otimizado para hardware Daisy.",
+      image: "/granular_thumb.jpg",
     },
     {
-      title: "DSP Module",
-      text: "Módulo DSP para processamento de áudio embarcado e experimentação sonora.",
-      image: "/placeholder.jpg",
-    },
-    {
-      title: "Sensor Interface",
-      text: "Interface de sensores para performances e instalações interativas.",
-      image: "/placeholder.jpg",
+      title: "Grupo de Embarcados IME-USP",
+      text: "Grupo de pesquisa e desenvolvimento em sistemas embarcados para música e áudio.",
+      image: "/embarcados_thumb.jpg",
     },
   ];
 
   const softwareCards = [
     {
-      title: "Web Audio Tools",
-      text: "Ferramentas web para manipulação e visualização de áudio em tempo real.",
-      image: "/placeholder.jpg",
+      title: "UOL",
+      text: "Desenvolvimento de backend e frontend para o maior portal de notícias da América Latina.",
+      image: "/uol_thumb.jpg",
     },
     {
-      title: "Live Coding",
-      text: "Ambiente para criação e performance de código sonoro ao vivo.",
-      image: "/placeholder.jpg",
+      title: "Nexo Jornal",
+      text: "Atualização de stack, integração de dados e desenvolvimento de novas funcionalidades para o portal de notícias.",
+      image: "/nexo_thumb.jpg",
+    },
+  ];
+
+  // nova coleção: Pesquisa & Publicações
+  const publicationCards = [
+    {
+      title: "Cut-Up as Political Practice",
+      text: "Artigo para a revista Norient analisando o cut-up de Burroughs como prática política contra manipulação midiática.",
+      image: "/cutup_thumb.jpg",
     },
     {
-      title: "Interactive App",
-      text: "Aplicativo interativo para educação em áudio e síntese.",
-      image: "/placeholder.jpg",
+      title:
+        "A Emergência do Sujeito na Narrativa do Prelúdio Op. 28 no. 14 de Chopin",
+      text: "Artigo publicado na revista Musica Theorica",
+      image: "/chopin_thumb.jpg",
     },
     {
-      title: "Plugins & Utils",
-      text: "Coleção de utilitários e plugins para fluxo de trabalho em áudio.",
-      image: "/placeholder.jpg",
+      title:
+        "The medium becomes infected by the message: Boris Groys' submedial suspicion as viral tropes in William Burroughs.",
+      text: "Análise das cut-ups de Burroughs via Groys, apresentada e publicada nos proceedings da Sonologia 2019.",
+      image: "/sonologia_thumb.jpg",
     },
   ];
 
@@ -242,6 +248,22 @@ function App() {
           />
         </section>
 
+        {/* RESEARCH & PUBLICATIONS (nova seção) */}
+        <section id="publications" className="section">
+          <h2>Pesquisa & Publicações</h2>
+          <p>
+            Seleção de artigos, capítulos, apresentações e relatórios
+            relacionados à pesquisa e produção acadêmica.
+          </p>
+
+          <Carousel
+            items={publicationCards}
+            slidesToShow={3}
+            autoplay={false}
+            onItemClick={openItem}
+          />
+        </section>
+
         {/* SOFTWARE */}
         <section id="software" className="section">
           <h2>Software & Web Development</h2>
@@ -255,22 +277,6 @@ function App() {
             autoplay={true}
             onItemClick={openItem}
           />
-        </section>
-
-        {/* RESEARCH */}
-        <section id="research" className="section">
-          <h2>Pesquisa</h2>
-          <p>
-            Doutorado em áudio embarcado entre o Instituto de Matemática e
-            Estatística da USP e a TU Berlin (Audio Communication Group), com
-            foco em plataformas abertas, autonomia tecnológica e crítica das
-            infraestruturas de desenvolvimento.
-          </p>
-          <p>
-            Aqui você pode depois listar textos, apresentações, slides e
-            projetos de pesquisa relacionados à sua tese e colaborações
-            internacionais.
-          </p>
         </section>
 
         {/* CONTACT */}

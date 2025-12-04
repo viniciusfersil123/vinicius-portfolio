@@ -4,19 +4,29 @@ import "slick-carousel/slick/slick-theme.css";
 
 const highlights = [
   {
-    title: "Instalação sonora — SESC",
-    img: "/placeholder.jpg",
-    caption: "Performance e instalação (2018)",
+    title: "Hardware Terceiro Mundo",
+    img: "/teaser_2.jpg",
+    caption: "Curso de Eletrônica (2019)",
   },
   {
-    title: "Residência — Berlim",
-    img: "/placeholder.jpg",
-    caption: "Pesquisa sonora (2017)",
+    title: "Pássro-concreto",
+    img: "/teaser_1.jpg",
+    caption: "Apresentação na Casa das Rosas, São Paulo (2016)",
   },
   {
-    title: "Live Set — Riga",
-    img: "/placeholder.jpg",
-    caption: "Performance ao vivo (2016)",
+    title: "Hardware musical artesanal",
+    img: "/teaser_3.jpg",
+    caption: "Fauhaus, São Paulo (2020)",
+  },
+  {
+    title: "Atelier pessoal",
+    img: "/teaser_4.jpg",
+    caption: "São Paulo, Brasil (2021)",
+  },
+  {
+    title: "Echos of the deep",
+    img: "/teaser_5.jpg",
+    caption: "Vila do Conde, Portugal (2025)",
   },
 ];
 
