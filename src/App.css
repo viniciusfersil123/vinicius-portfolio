@@ -5,6 +5,9 @@
   width: 100% !important;
   color: #111;
   background-color: #050507;
+
+  /* altura do header fixo (ajuste conforme necessário) */
+  --header-offset: 16px;
 }
 
 
@@ -411,4 +414,10 @@ body {
 
   /* espaço entre cards no carrossel */
   margin-right: 1rem; /* ajuste fino: aumente para mais espaço, diminua para menos */
+}
+
+/* garante espaçamento no topo do conteúdo das páginas de item */
+.detail-page .section,
+.detail-page main {
+  padding-top: var(--header-offset);
 }
