@@ -110,26 +110,25 @@ function App() {
     },
   ];
 
-  // (allItems moved to src/data/items.ts if needed)
+  // expõe arrays no window para o Detail
+  (window as any).__APP_CARDS__ = cards;
+  (window as any).__APP_TECH__ = techCards;
+  (window as any).__APP_SOFT__ = softwareCards;
+  (window as any).__APP_PUBS__ = publicationCards;
 
   const params = useParams();
 
-  // if a slug is present in the URL, show the standalone detail page
   if (params.slug) {
     return (
       <div className="app">
         <Detail />
         <footer className="footer">
-          <p>
-            © {new Date().getFullYear()} Vinícius Fernandes — Arte, som &
-            tecnologia.
-          </p>
+          <p>© {new Date().getFullYear()} Vinícius Fernandes — Arte, som & tecnologia.</p>
         </footer>
       </div>
     );
   }
 
-  // onItem click: just change URL (Detail reads slug from path)
   const openItem = (it: any) => {
     const slug = (it.slug as string) || slugify(it.title || "");
     const url = `/item/${slug}`;
@@ -137,12 +136,9 @@ function App() {
     window.dispatchEvent(new PopStateEvent("popstate"));
   };
 
-  // closeDetail not needed; Detail uses back navigation
-
   return (
     <div className="app">
       <Header />
-
       <main>
         {/* HERO */}
         <section className="hero">
@@ -298,14 +294,8 @@ function App() {
         </section>
       </main>
 
-      {/* Detail overlay / page (shown when URL contains /item/:slug) */}
-      {params.slug && <Detail />}
-
       <footer className="footer">
-        <p>
-          © {new Date().getFullYear()} Vinícius Fernandes — Arte, som &
-          tecnologia.
-        </p>
+        <p>© {new Date().getFullYear()} Vinícius Fernandes — Arte, som & tecnologia.</p>
       </footer>
     </div>
   );

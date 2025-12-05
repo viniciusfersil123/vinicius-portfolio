@@ -4,8 +4,9 @@ import "slick-carousel/slick/slick-theme.css";
 import Card from "./Card";
 import { useNavigate } from "../lib/routerShim";
 import { useTranslation } from "../hooks/useTranslation";
+import { useT } from "../context/LanguageProvider"; // adiciona helper de tradução
 
-type Item = { title: string; text: string; image?: string };
+type Item = { title: any; text: any; image?: string; slug?: string };
 
 type Props = {
   items: Item[];
@@ -25,6 +26,8 @@ export default function Carousel({
   onItemClick,
 }: Props) {
   const navigate = useNavigate();
+  const t = useT(); // função: recebe string ou objeto {pt-br,en,de} e devolve string
+
   const settings = {
     infinite: true,
     speed: 500,
@@ -41,26 +44,28 @@ export default function Carousel({
     ],
   };
 
-  const { lang } = useTranslation();
-
   return (
     <div className={`carousel-wrapper-component ${className}`}>
       <Slider {...settings}>
         {items.map((it, i) => {
-          // item may have translations
-          const title = (it as any).title?.[lang] || (it as any).title || "";
-          const text = (it as any).text?.[lang] || (it as any).text || "";
-          const img = (it as any).image || (it as any).img || undefined; // <-- pega imagem se existir
+          // garante strings para o Card
+          const titleStr = t((it as any).title);
+          const textStr = t((it as any).text);
+          const img = (it as any).image || (it as any).img || undefined;
+
           return (
             <div key={i}>
               <Card
-                title={title}
-                text={text}
+                title={titleStr}
+                text={textStr}
                 image={img}
                 size="small"
                 onClick={() => {
                   if (onItemClick) return onItemClick(it);
-                  const slug = (it as any).slug || (title || "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+                  const base = titleStr || "";
+                  const slug =
+                    (it as any).slug ||
+                    base.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
                   navigate(`/item/${slug}`);
                 }}
               />

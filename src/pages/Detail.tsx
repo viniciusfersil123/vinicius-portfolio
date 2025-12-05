@@ -1,50 +1,51 @@
+import React from "react";
 import Header from "../components/Header";
 import { useParams, useNavigate } from "../lib/routerShim";
-import { allItems } from "../data/items";
-import { useTranslation } from "../hooks/useTranslation";
+
+// simples: o App injeta as coleções em window para o Detail ler.
+// você pode trocar depois para importar de src/data/items.
+type Item = { title: string; text: string; image?: string };
+const getAll = (): Item[] => {
+  const w = window as any;
+  return [
+    ...(w.__APP_CARDS__ || []),
+    ...(w.__APP_TECH__ || []),
+    ...(w.__APP_SOFT__ || []),
+    ...(w.__APP_PUBS__ || []),
+  ];
+};
+
+function slugify(s: string) {
+  return s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+}
 
 export default function Detail() {
-  const { slug } = useParams();
+  const { slug } = useParams() as { slug?: string };
   const navigate = useNavigate();
-  const { lang } = useTranslation();
-  const item = allItems.find((it) => it.slug === slug);
 
-  if (!item) {
-    return (
-      <div className="detail-page">
-        <Header />
-        <main className="section">
-          <p>Item não encontrado.</p>
-          <button className="button secondary" onClick={() => navigate(-1)}>
-            ← Voltar
-          </button>
-        </main>
-      </div>
-    );
-  }
+  const all = getAll();
+  const item =
+    all.find((it) => slugify(it.title) === (slug || "")) || null;
 
   return (
     <div className="detail-page">
       <Header />
-      <main className="section">
-        <button className="button secondary" onClick={() => navigate(-1)} style={{ marginBottom: "1rem" }}>
-          {t ? t("back") : "← Voltar"}
-        </button>
-        <article className="card" style={{ padding: "1.5rem" }}>
-          {item.image && (
-            <div style={{ marginBottom: "1rem" }}>
-              <img src={item.image} alt={typeof item.title === "string" ? item.title : item.title[lang] || item.title["pt-br"]} style={{ width: "100%", maxHeight: 360, objectFit: "cover", borderRadius: 12 }} />
-            </div>
-          )}
-          <h2>{typeof item.title === "string" ? item.title : item.title[lang] || item.title["pt-br"]}</h2>
-          <p>{typeof item.text === "string" ? item.text : item.text[lang] || item.text["pt-br"]}</p>
-          <hr style={{ margin: "1rem 0" }} />
-          <p>
-            Descrição detalhada (mock): Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-            nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh
-            elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper
-            porta. Mauris massa.
-          </p>
+      <main className="section" style={{ maxWidth: 1100, margin: "0 auto" }}>
+        <div style={{ display: "flex", gap: "1rem", alignItems: "center", marginBottom: "1rem" }}>
+          <button className="button secondary" onClick={() => navigate(-1)}>
+            ← Voltar
+          </button>
+          <h1 style={{ margin: 0 }}>{item ? item.title : slug}</h1>
+        </div>
+
+        {item?.image && (
+          <div style={{ borderRadius: 12, overflow: "hidden", marginBottom: "1rem" }}>
+            <img src={item.image} alt={item.title} style={{ width: "100%", height: "auto" }} />
+          </div>
+        )}
+
+        <article>
+          <p>{item ? item.text : "Item não encontrado."}</p>
         </article>
       </main>
     </div>
