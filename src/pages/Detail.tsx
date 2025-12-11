@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo, useRef } from "react";
 import Header from "../components/Header";
 import { useParams, useNavigate } from "../lib/routerShim";
 
@@ -9,53 +9,85 @@ function slugify(s: string) {
     .replace(/(^-|-$)/g, "");
 }
 
+type Item = {
+  title: string;
+  text: string;
+  description?: string;
+  image?: string;
+  images_details?: string[];
+  embeds?: string[]; // novo: lista de embeds (iframes) por item
+};
+
 export default function Detail() {
   const { slug } = useParams() as { slug?: string };
   const navigate = useNavigate();
-  const allItems: Array<{ title: string; text: string; description?: string; image?: string }> =
-    (window as any).__APP_ALL__ || [];
 
+  const allItems: Item[] = (window as any).__APP_ALL__ || [];
   const item =
     allItems.find((it) => slugify(it.title) === (slug || "")) || null;
 
-  if (!item) {
-    return (
-      <div className="detail-page">
-        <Header />
-        <main className="section">
-          <button className="button secondary" onClick={() => navigate(-1)}>
-            ← Voltar
-          </button>
-          <p style={{ marginTop: "1rem" }}>Item não encontrado.</p>
-        </main>
-      </div>
-    );
-  }
+  const images = useMemo(() => {
+    const arr = item?.images_details && item.images_details.length
+      ? item.images_details
+      : item?.image
+        ? [item.image]
+        : ["/placeholder.jpg", "/placeholder.jpg", "/placeholder.jpg"];
+    return arr.concat(arr);
+  }, [item]);
+
+  const trackRef = useRef<HTMLDivElement | null>(null);
+
+  const scrollBySlide = (dir: "left" | "right") => {
+    const el = trackRef.current;
+    if (!el) return;
+    const slideWidth = el.querySelector<HTMLElement>(".detail-slide")?.offsetWidth || 300;
+    const gap = 12;
+    el.scrollBy({ left: dir === "right" ? slideWidth + gap : -(slideWidth + gap), behavior: "smooth" });
+  };
 
   return (
     <div className="detail-page">
       <Header />
-      <main className="section">
-        <div style={{ display: "flex", gap: "1rem", alignItems: "center", marginBottom: "1rem" }}>
-          <button className="button secondary" onClick={() => navigate(-1)}>
+
+      <main className="section detail-section">
+        <div className="detail-header">
+          <button className="button secondary" onClick={() => { try { navigate(-1); } catch { navigate("/"); } }}>
             ← Voltar
           </button>
-          <h1 style={{ margin: 0 }}>{item.title}</h1>
+          <h1 className="detail-title">{item ? item.title : "Item"}</h1>
         </div>
 
-        {item.image && (
-          <div style={{ borderRadius: 12, overflow: "hidden", marginBottom: "1rem" }}>
-            <img
-              src={item.image}
-              alt={item.title}
-              style={{ width: "100%", height: "auto", display: "block" }}
-            />
+        <div className="detail-carousel">
+          <button className="detail-btn left" aria-label="Slide anterior" onClick={() => scrollBySlide("left")}>‹</button>
+          <div className="detail-track" ref={trackRef}>
+            {images.map((src, i) => (
+              <div key={`${src}-${i}`} className="detail-slide">
+                <img src={src} alt={`${item?.title || "Imagem"} ${i + 1}`} />
+              </div>
+            ))}
           </div>
-        )}
+          <button className="detail-btn right" aria-label="Próximo slide" onClick={() => scrollBySlide("right")}>›</button>
+        </div>
 
-        <article>
-          <p>{item.description || item.text}</p>
+        <article className="detail-content">
+          <p>{item?.description || item?.text || "Descrição indisponível."}</p>
         </article>
+
+        {/* EMBEDS: aparecem logo abaixo do carrossel/descrição */}
+        {item?.embeds && item.embeds.length > 0 && (
+          <section className="detail-embeds">
+            <h2 className="detail-embeds-title">Ouça/Veja</h2>
+            <div className="detail-embeds-grid">
+              {item.embeds.map((html, idx) => (
+                <div
+                  key={idx}
+                  className="embed-card"
+                  dangerouslySetInnerHTML={{ __html: html }}
+                />
+              ))}
+            </div>
+          </section>
+        )}
       </main>
     </div>
   );

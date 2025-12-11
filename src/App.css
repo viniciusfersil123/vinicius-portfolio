@@ -11,6 +11,10 @@
 }
 
 
+/* compensar header fixo sem JS */
+:root { --header-offset: 16px; }
+.detail-page .detail-section { padding-top: var(--header-offset); }
+
 body {
   margin: 0;
   background: radial-gradient(circle at top, #111 0, #050507 60%);
@@ -420,4 +424,95 @@ body {
 .detail-page .section,
 .detail-page main {
   padding-top: var(--header-offset);
+}
+
+/* cabeçalho da página de detalhe */
+.detail-header {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.detail-title { margin: 0; font-size: 1.75rem; }
+
+/* carrossel */
+.detail-carousel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  margin: 0.75rem 0 1rem;
+  background: rgba(255,255,255,0.05);
+}
+.detail-track {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  width: max-content;
+  animation: detail-scroll 28s linear infinite;
+}
+.detail-slide {
+  min-width: 60vw;          /* grande e imersivo */
+  max-width: 1100px;
+  height: 48vh;             /* destaque vertical */
+  border-radius: 12px;
+  overflow: hidden;
+  flex: 0 0 auto;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.35);
+}
+@media (max-width: 900px) {
+  .detail-slide { min-width: 85vw; height: 38vh; }
+}
+.detail-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* animação de rolagem suave */
+@keyframes detail-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* metade porque duplicamos as imagens */
+}
+
+/* bloco de texto */
+.detail-content {
+  color: rgba(255,255,255,0.9);
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+/* Embeds (Bandcamp, YouTube, etc.) */
+.detail-embeds {
+  margin-top: 1.5rem;
+}
+.detail-embeds-title {
+  font-size: 1.25rem;
+  margin: 0 0 0.75rem 0;
+}
+.detail-embeds-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 0.75rem;
+}
+.embed-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 12px;
+  padding: 0.5rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+}
+/* Normaliza iframes dentro do embed-card */
+.embed-card iframe {
+  width: 100% !important;
+  height: 470px;            /* altura padrão para o exemplo do Bandcamp */
+  border: 0;
+  border-radius: 8px;
+  display: block;
+  background: #111;
+}
+@media (max-width: 600px) {
+  .embed-card iframe {
+    height: 380px;
+  }
 }

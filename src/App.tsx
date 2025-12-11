@@ -20,10 +20,18 @@ function App() {
       title: "TUDOS",
       text: `Selo dedicado ao lançamento de artistas que trabalham com composição experimental.
 `,
-      //descrição longa para a seção interna
       description: `O TUDOS é um selo independente fundado por Vinícius Fernandes em 2014, focado na divulgação de obras experimentais que exploram as fronteiras entre música, arte sonora e tecnologia. O selo busca promover artistas que desafiam convenções sonoras, utilizando técnicas como síntese sonora, manipulação de áudio, instalações interativas e performances ao vivo. Com uma abordagem colaborativa, o TUDOS tem como objetivo criar uma plataforma para a experimentação sonora e a inovação artística, incentivando a troca de ideias e a expansão dos limites da criação musical contemporânea.
 `,
       image: "/tudos_thumb.jpg",
+      images_details: [
+        "/placeholder.jpg",
+        "/placeholder.jpg",
+        "/placeholder.jpg",
+        "/placeholder.jpg",
+      ],
+      embeds: [
+        `<iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=1846535594/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://tudos.bandcamp.com/album/tds013-muito-nasty">[tds013] Muito Nasty von Muito Nasty</a></iframe>`
+      ],
     },
     {
       title: "9 chifres",
@@ -31,6 +39,12 @@ function App() {
       description: `A obra "9 chifres" é uma peça eletrônica que se inspira na canção lituana Kalėdų rytu rožė inžydo. Apresentada na 32ª Bienal de São Paulo, a peça explora a relação entre música e tecnologia, utilizando recursos eletrônicos para criar uma experiência sonora imersiva e inovadora. Através da manipulação de sons e da incorporação de elementos culturais, "9 chifres" convida o público a refletir sobre as conexões entre tradição e modernidade na música contemporânea.
 `,
       image: "/9chifres_thumb.jpg",
+      images_details: [
+        "/placeholder.jpg",
+        "/placeholder.jpg",
+        "/placeholder.jpg",
+        "/placeholder.jpg",
+      ],
     },
     {
       title: "Metempsicose",
@@ -38,6 +52,12 @@ function App() {
       description: `A instalação sonora "Metempsicose" explora a ideia de transformação e reencarnação através do som. Utilizando um rádio sintonizado em uma estação local aleatória, a obra cria uma conexão dinâmica entre o ambiente sonoro capturado e dois alto-falantes modificados, que são conectados a uma guitarra e a um tamtam. Essa interação gera uma paisagem sonora única e em constante evolução, convidando os espectadores a refletirem sobre os ciclos de vida, morte e renascimento presentes na natureza e na experiência humana.
 `,
       image: "/metempsicose_thumb.jpg",
+      images_details: [
+        "/placeholder.jpg",
+        "/placeholder.jpg",
+        "/placeholder.jpg",
+        "/placeholder.jpg",
+      ],
     },
     {
       title: "¿Música?",
@@ -45,6 +65,12 @@ function App() {
       description: `¿Música? é uma série de performances e exposições que exploram os limites entre arte sonora e música experimental. Iniciada em 2005, a série apresenta uma variedade de abordagens criativas, desde instalações interativas até composições sonoras inovadoras. Cada evento busca desafiar as percepções tradicionais de música, incentivando o público a experimentar o som de maneiras novas e inesperadas. Através de colaborações com outros artistas e a incorporação de tecnologias emergentes, ¿Música? continua a evoluir como uma plataforma para a experimentação sonora e a expressão artística.
 `,
       image: "/musica_thumb.jpg",
+      images_details: [
+        "/placeholder.jpg",
+        "/placeholder.jpg",
+        "/placeholder.jpg",
+        "/placeholder.jpg",
+      ],
     },
     {
       title: "Móbile de vaca morta com vergalhões de ferro [...]",
@@ -52,6 +78,12 @@ function App() {
       description: `A instalação "Móbile de vaca morta com vergalhões de ferro" utiliza ossos, alto-falantes e vergalhões de ferro para criar uma experiência sonora única. Com áudio de álbuns kitsch de Augusto Piccinini, a obra explora a relação entre o orgânico e o industrial, convidando os espectadores a refletirem sobre a morte, a memória e a transformação dos materiais.
 `,
       image: "/mobile_thumb.jpg",
+      images_details: [
+        "/placeholder.jpg",
+        "/placeholder.jpg",
+        "/placeholder.jpg",
+        "/placeholder.jpg",
+      ],
     },
     {
       title: "Fitosintetizador",
@@ -59,6 +91,12 @@ function App() {
       description: `O "Fitosintetizador" é uma instalação sonora interativa que explora a relação entre natureza e tecnologia. Utilizando plantas como controladoras de síntese sonora, a obra convida os espectadores a interagir com o ambiente de forma única, criando paisagens sonoras dinâmicas e orgânicas. Através de sensores e processamento de sinais, as plantas se tornam instrumentos musicais, desafiando as noções tradicionais de autoria e performance.
 `,
       image: "/fitosintetizador_thumb.jpg",
+      images_details: [
+        "/placeholder.jpg",
+        "/placeholder.jpg",
+        "/placeholder.jpg",
+        "/placeholder.jpg",
+      ],
     },
     {
       title: "Echos of the deep",
@@ -66,6 +104,12 @@ function App() {
       description: `Echos of the deep é um software de sonificação de dados metabólicos de esponjas marinhas, apresentado no contexto da 12th World Sponge Conference. A obra explora as interações entre os organismos marinhos e seu ambiente, utilizando técnicas de sonificação para transformar dados científicos em experiências sonoras imersivas.
 `,
       image: "/sponges_thumb.jpg",
+      images_details: [
+        "/placeholder.jpg",
+        "/placeholder.jpg",
+        "/placeholder.jpg",
+        "/placeholder.jpg",
+      ],
     },
     {
       title: "Discografia",
@@ -73,6 +117,12 @@ function App() {
       description: `A Discografia reúne todos os discos, singles e colaborações de Vinícius Fernandes, apresentando uma visão abrangente de sua trajetória musical e artística. Através de uma seleção cuidadosa de faixas e projetos, a discografia reflete a evolução do artista ao longo dos anos, destacando suas experimentações sonoras e colaborações com outros músicos e artistas.
 `,
       image: "/discografia_thumb.jpg",
+      images_details: [
+        "/placeholder.jpg",
+        "/placeholder.jpg",
+        "/placeholder.jpg",
+        "/placeholder.jpg",
+      ],
     },
   ];
 
@@ -83,6 +133,12 @@ function App() {
       description: `Menis é uma iniciativa dedicada ao desenvolvimento de instrumentos eletrônicos, síntese embarcada e ferramentas para artistas e pesquisadores. Focada na criação de soluções inovadoras, a Menis busca facilitar a experimentação sonora e a exploração musical através de tecnologias acessíveis e personalizáveis. Com uma abordagem colaborativa, a Menis trabalha para capacitar músicos e criadores a expandirem suas práticas artísticas utilizando hardware e software de ponta.
 `,
       image: "/menis_thumb.jpg",
+      images_details: [
+        "/placeholder.jpg",
+        "/placeholder.jpg",
+        "/placeholder.jpg",
+        "/placeholder.jpg",
+      ],
     },
     {
       title: "Granular Player - daisySP",
@@ -106,12 +162,24 @@ function App() {
       text: "Desenvolvimento de backend e frontend para o maior portal de notícias da América Latina.",
       description: `Atuei no desenvolvimento de soluções de backend e frontend para o UOL, o maior portal de notícias da América Latina. Minha experiência inclui a implementação de APIs, integração de sistemas e otimização de performance, sempre buscando oferecer a melhor experiência para os usuários.`,
       image: "/uol_thumb.jpg",
+      images_details: [
+        "/placeholder.jpg",
+        "/placeholder.jpg",
+        "/placeholder.jpg",
+        "/placeholder.jpg",
+      ],
     },
     {
       title: "Nexo Jornal",
       text: "Atualização de stack, integração de dados e desenvolvimento de novas funcionalidades para o portal de notícias.",
       description: `No Nexo Jornal, trabalhei na atualização da stack tecnológica, integração de dados e desenvolvimento de novas funcionalidades para o portal de notícias. Meu foco foi garantir a escalabilidade e a performance do sistema, além de implementar melhorias na experiência do usuário.`,
       image: "/nexo_thumb.jpg",
+      images_details: [
+        "/placeholder.jpg",
+        "/placeholder.jpg",
+        "/placeholder.jpg",
+        "/placeholder.jpg",
+      ],
     },
   ];
 
@@ -122,6 +190,12 @@ function App() {
       text: "Artigo para a revista Norient analisando o cut-up de Burroughs como prática política contra manipulação midiática.",
       description: `O artigo explora as técnicas de cut-up de William Burroughs e sua aplicação como uma forma de resistência contra a manipulação midiática. Através da análise de obras específicas, discute-se como o cut-up pode ser visto como uma prática política que desafia narrativas dominantes e promove uma nova forma de expressão artística.`,
       image: "/cutup_thumb.jpg",
+      images_details: [
+        "/placeholder.jpg",
+        "/placeholder.jpg",
+        "/placeholder.jpg",
+        "/placeholder.jpg",
+      ],
     },
     {
       title:
@@ -129,6 +203,12 @@ function App() {
       text: "Artigo publicado na revista Musica Theorica",
       description: `O artigo investiga a emergência do sujeito na narrativa do Prelúdio Op. 28 no. 14 de Chopin, analisando como elementos musicais e estruturais contribuem para a construção da subjetividade na obra. Através de uma abordagem interdisciplinar, busca-se compreender as implicações estéticas e filosóficas dessa narrativa musical.`,
       image: "/chopin_thumb.jpg",
+      images_details: [
+        "/placeholder.jpg",
+        "/placeholder.jpg",
+        "/placeholder.jpg",
+        "/placeholder.jpg",
+      ],
     },
     {
       title:
@@ -136,6 +216,12 @@ function App() {
       text: "Análise das cut-ups de Burroughs via Groys, apresentada e publicada nos proceedings da Sonologia 2019.",
       description: `O artigo analisa as cut-ups de William Burroughs à luz das ideias de Boris Groys, discutindo como as práticas artísticas contemporâneas podem ser entendidas através da noção de "suspensão submedial". A pesquisa foi apresentada e publicada nos proceedings da Sonologia 2019.`,
       image: "/sonologia_thumb.jpg",
+      images_details: [
+        "/placeholder.jpg",
+        "/placeholder.jpg",
+        "/placeholder.jpg",
+        "/placeholder.jpg",
+      ],
     },
   ];
 
@@ -156,7 +242,11 @@ function App() {
     }
     const onRoute = () => {
       if (location.pathname.startsWith("/item/")) {
-        window.scrollTo({ top: 0, left: 0, behavior: "instant" as ScrollBehavior });
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: "instant" as ScrollBehavior,
+        });
       }
     };
     onRoute();
@@ -170,7 +260,10 @@ function App() {
       <div className="app">
         <Detail />
         <footer className="footer">
-          <p>© {new Date().getFullYear()} Vinícius Fernandes — Arte, som & tecnologia.</p>
+          <p>
+            © {new Date().getFullYear()} Vinícius Fernandes — Arte, som &
+            tecnologia.
+          </p>
         </footer>
       </div>
     );
@@ -243,7 +336,7 @@ function App() {
         <section id="about" className="section">
           <h2>Sobre</h2>
           <p>
-            Vinícius Fernandes é desenvolvedor, pesquisador, músico e artista
+            cius Fernandes é desenvolvedor, pesquisador, músico e artista
             sonoro. Nascido em São Paulo, formou-se em Estudos Literários
             (UNICAMP) e tem título de mestre em Sonologia (USP). Atualmente,
             realiza um doutorado em áudio embarcado em cotutela entre o IME-USP

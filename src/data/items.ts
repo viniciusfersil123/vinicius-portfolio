@@ -5,7 +5,27 @@ function slugify(s: string) {
     .replace(/(^-|-$)/g, "");
 }
 
-export const cards = [
+export type Item = {
+  slug: string;
+  title: Localized;
+  text: Localized;
+  description?: Localized;
+  image?: string;
+  images?: string[];
+  embeds?: string[]; // <-- add embeds support
+};
+
+export const cards: Item[] = withSlug([
+  {
+    title: "TUDOS",
+    text: `Selo dedicado ao lançamento de artistas que trabalham com composição experimental.`,
+    description: `Selo dedicado ao lançamento de artistas que trabalham com composição experimental. Fundado em 2014, já lançou dezenas de álbuns e performances, atuando como plataforma crítica de experimentação sonora.`,
+    image: "/tudos_thumb.jpg",
+    images: ["/placeholder.jpg", "/placeholder.jpg", "/placeholder.jpg"],
+    embeds: [
+      `<iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=1846535594/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://tudos.bandcamp.com/album/tds013-muito-nasty">[tds013] Muito Nasty von Muito Nasty</a></iframe>`
+    ],
+  },
   {
     title: { "pt-br": "Obra / Projeto 1", en: "Work / Project 1", de: "Werk / Projekt 1" },
     text: { "pt-br": "Descrição curtinha, ano, contexto.", en: "Short description, year, context.", de: "Kurze Beschreibung, Jahr, Kontext." },
@@ -26,7 +46,7 @@ export const cards = [
     text: { "pt-br": "Outro trabalho aqui.", en: "Another work here.", de: "Eine weitere Arbeit hier." },
     image: "/cut.jpeg",
   },
-];
+]);
 
 export const techCards = [
   {
