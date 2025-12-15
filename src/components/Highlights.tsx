@@ -4,30 +4,30 @@ import "slick-carousel/slick/slick-theme.css";
 
 const highlights = [
   {
-    title: "Hardware Terceiro Mundo",
-    img: "/teaser_2.jpg",
-    caption: "Curso de Eletrônica (2019)",
-  },
-  {
-    title: "Pássro-concreto",
+    title: "Instalação",
     img: "/teaser_1.jpg",
-    caption: "Apresentação na Casa das Rosas, São Paulo (2016)",
+    caption: "Espaço das Artes, USP, São Paulo (2019)",
   },
   {
-    title: "Hardware musical artesanal",
+    title: "Instalação Interativa",
+    img: "/teaser_2.jpg",
+    caption: "SESC Aveneida Paulista, São Paulo (2020)",
+  },
+  {
+    title: "Curso de eletrônica para síntese sonora",
     img: "/teaser_3.jpg",
     caption: "Fauhaus, São Paulo (2020)",
   },
   {
-    title: "Atelier pessoal",
+    title: "Echos of the deep",
     img: "/teaser_4.jpg",
-    caption: "São Paulo, Brasil (2021)",
+    caption: "Vila do Conde, Portugal (2025)",
   },
   {
-    title: "Echos of the deep",
+    title: "Cassini Trio",
     img: "/teaser_5.jpg",
-    caption: "Vila do Conde, Portugal (2019)",
-  },
+    caption: "Bolderaja, Riga, Letônia (2018)",
+  }
 ];
 
 export default function Highlights() {

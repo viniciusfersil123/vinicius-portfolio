@@ -24,14 +24,28 @@ function App() {
 `,
       image: "/tudos_thumb.jpg",
       images_details: [
-        "/placeholder.jpg",
-        "/placeholder.jpg",
-        "/placeholder.jpg",
-        "/placeholder.jpg",
+        "/tudos_detail_1.jpeg",
+        "/tudos_detail_2.jpg",
+        "/tudos_detail_3.jpg",
+        "/tudos_detail_4.jpg",
+        "/tudos_detail_5.jpg",
+        "/tudos_detail_6.jpg",
+        "/tudos_detail_7.jpg",
       ],
-      embeds: [
-        `<iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=1846535594/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://tudos.bandcamp.com/album/tds013-muito-nasty">[tds013] Muito Nasty von Muito Nasty</a></iframe>`
+      embedsBandcamp: [
+        `<iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=1846535594/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://tudos.bandcamp.com/album/tds013-muito-nasty">[tds013] Muito Nasty von Muito Nasty</a></iframe>`,
+        `<iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=3315268750/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://tudos.bandcamp.com/album/tds015-terror-da-terra">[tds015] Terror da terra von Gabriel Edé</a></iframe>`,
+        `<iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=3896437244/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://tudos.bandcamp.com/album/tds05-the-mystical-sounds-of-historical-materialism">[tds05] The Mystical Sounds of Historical Materialism von Ajnabi</a></iframe>`,
       ],
+      // novo: apenas URLs normais do YouTube (watch/playlist). A tela converte para embed.
+      youtubeUrls: [
+        "https://www.youtube.com/watch?v=d9j1gBxatnM",
+        "https://www.youtube.com/watch?v=tmUvxuYCjfc",
+        "https://www.youtube.com/watch?v=eoajLMbmk6w",
+        "https://www.youtube.com/watch?v=YidEM9CXKeY",
+      ],
+      linkUrl: "https://tudos.bandcamp.com/",
+      linkTitle: "Conheça todo o catálogo dos lançamentos clicando aqui",
     },
     {
       title: "9 chifres",
@@ -225,7 +239,7 @@ function App() {
     },
   ];
 
-  // expõe arrays para a página de detalhe (sem impacto visual)
+  // expõe tudo para a página Detail
   (window as any).__APP_ALL__ = [
     ...cards,
     ...techCards,
