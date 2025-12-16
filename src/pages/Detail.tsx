@@ -1,6 +1,9 @@
 import React, { useMemo, useRef } from "react";
 import Header from "../components/Header";
 import { useParams, useNavigate } from "../lib/routerShim";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 function slugify(s: string) {
   return String(s || "")
@@ -64,6 +67,14 @@ function toYouTubeEmbed(src: string): string {
   }
 }
 
+// setas do carrossel (mesma aparência do restante do site)
+const Prev = (props: any) => (
+  <button className="detail-btn left" aria-label="Slide anterior" onClick={props.onClick}>‹</button>
+);
+const Next = (props: any) => (
+  <button className="detail-btn right" aria-label="Próximo slide" onClick={props.onClick}>›</button>
+);
+
 export default function Detail() {
   const { slug } = useParams() as { slug?: string };
   const navigate = useNavigate();
@@ -72,29 +83,32 @@ export default function Detail() {
   const item =
     allItems.find((it) => slugify(it.title) === (slug || "")) || null;
 
-  const images = useMemo(() => {
-    const arr =
-      item?.images_details && item.images_details.length
-        ? item.images_details
-        : item?.image
-        ? [item.image]
-        : ["/placeholder.jpg", "/placeholder.jpg", "/placeholder.jpg"];
-    return arr.concat(arr);
+  const images = React.useMemo(() => {
+    const arr = item?.images_details?.length
+      ? item.images_details
+      : item?.image
+      ? [item.image]
+      : [];
+    return arr;
   }, [item]);
 
-  const trackRef = useRef<HTMLDivElement | null>(null);
-
-  const scrollBySlide = (dir: "left" | "right") => {
-    const el = trackRef.current;
-    if (!el) return;
-    const slideWidth =
-      el.querySelector<HTMLElement>(".detail-slide")?.offsetWidth || 300;
-    const gap = 12;
-    el.scrollBy({
-      left: dir === "right" ? slideWidth + gap : -(slideWidth + gap),
-      behavior: "smooth",
-    });
-  };
+  const sliderSettings = React.useMemo(
+    () => ({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      arrows: true,
+      infinite: images.length > 1,
+      autoplay: images.length > 1,
+      autoplaySpeed: 6000,
+      speed: 500,
+      pauseOnHover: true,
+      adaptiveHeight: false,
+      centerMode: false,
+      variableWidth: false,
+      // removido nextArrow/prevArrow para usar as setas padrão do slick estilizadas via CSS
+    }),
+    [images.length]
+  );
 
   // normaliza fontes do YouTube: primeiro usa youtubeUrls, depois embedsYoutubeSrc (compat)
   const youtubeEmbeds = useMemo(() => {
@@ -129,15 +143,17 @@ export default function Detail() {
           </p>
         )}
 
-        {/* carrossel */}
+        {/* Carrossel com setas + autoplay */}
         <div className="detail-carousel">
-          <div className="detail-track" ref={trackRef}>
-            {images.map((src, i) => (
-              <div key={`${src}-${i}`} className="detail-slide">
-                <img src={src} alt={`${item?.title || "Imagem"} ${i + 1}`} />
-              </div>
-            ))}
-          </div>
+          {images.length ? (
+            <Slider {...sliderSettings}>
+              {images.map((src, i) => (
+                <div key={`${src}-${i}`} className="detail-slide">
+                  <img src={src} alt={`${item?.title || "Imagem"} ${i + 1}`} />
+                </div>
+              ))}
+            </Slider>
+          ) : null}
         </div>
 
         <article className="detail-content">
