@@ -31,7 +31,18 @@ export default function Header({ onLogoClick }: Props) {
         <a href="#contact">{t("nav.contato")}</a>
       </nav>
 
-      <div style={{ marginLeft: "1rem", display: "flex", alignItems: "center", gap: "0.5rem" }}>
+      <button
+        type="button"
+        className="navbar-mobile-toggle"
+        aria-label={t("header.abrirMenu") || "Abrir menu"}
+      >
+        ☰
+      </button>
+
+      <div
+        className="header-lang-controls"
+        style={{ marginLeft: "1rem", display: "flex", alignItems: "center", gap: "0.5rem" }}
+      >
         <button
           className="lang-open"
           onClick={() => (openLangModal ? openLangModal() : undefined)}

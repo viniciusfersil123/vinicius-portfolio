@@ -335,15 +335,6 @@ function App() {
               arte sonora, síntese, sistemas embarcados e plataformas abertas de
               áudio.
             </p>
-
-            <div className="hero-buttons">
-              <a href="#art" className="button primary">
-                Ver portfolio artístico
-              </a>
-              <a href="#tech" className="button secondary">
-                Ver projetos de tecnologia
-              </a>
-            </div>
           </div>
 
           <div className="hero-highlights-wrapper">
@@ -373,7 +364,7 @@ function App() {
         <section id="about" className="section">
           <h2>Sobre</h2>
           <p>
-            cius Fernandes é desenvolvedor, pesquisador, músico e artista
+            Vinícius Fernandes é desenvolvedor, pesquisador, músico e artista
             sonoro. Nascido em São Paulo, formou-se em Estudos Literários
             (UNICAMP) e tem título de mestre em Sonologia (USP). Atualmente,
             realiza um doutorado em áudio embarcado em cotutela entre o IME-USP
