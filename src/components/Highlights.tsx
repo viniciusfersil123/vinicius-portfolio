@@ -42,7 +42,7 @@ export default function Highlights() {
     fade: true,
     cssEase: "linear",
     pauseOnHover: true,
-    dots: true,
+    dots: false,
   };
 
   return (
