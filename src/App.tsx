@@ -50,14 +50,17 @@ function App() {
     {
       title: "9 chifres",
       text: "Peça eletrônica baseada na canção lituana Kalėdų rytu rožė inžydo, apresentada na 32ª Bienal de São Paulo.",
-      description: `A obra "9 chifres" é uma peça eletrônica que se inspira na canção lituana Kalėdų rytu rožė inžydo. Apresentada na 32ª Bienal de São Paulo, a peça explora a relação entre música e tecnologia, utilizando recursos eletrônicos para criar uma experiência sonora imersiva e inovadora. Através da manipulação de sons e da incorporação de elementos culturais, "9 chifres" convida o público a refletir sobre as conexões entre tradição e modernidade na música contemporânea.
+      description: `"9 antlers" is a piece for guitar and electronics. All of its sound material is motivated by the traditional Lithuanian song Kalėdų rytu rožė inžydo, in which the appearance of a 9-horned deer triggers a flow of images of cosmological updates. Its prime melodic universe is distended in electronic sound textures produced by various techniques of computational synthesis and processing. Inspired by the experiences of the so-called 'verbal composition' in electroacoustic music, such as Karlheinz Stockhausen's Gesang der Jünglinge (1955-1956) or Luciano Berio's Thema (Omaggio a Joyce) (1958), part of '9 horns' is also composed of sounds derived from a female voice singing the song.The piece will be played in a sound system installed in 9 objects created along the #32bienal with mycelia of the fungus Pleurotus ostreatus, part of the work Psychotropic House: Zooetics Pavilion of Ballardian Technologies by Nomeda & Gediminas Urbonas.
 `,
-      image: "/9chifres_thumb.jpg",
+      image: "/9_chifres_thumb.JPG",
       images_details: [
-        "/placeholder.jpg",
-        "/placeholder.jpg",
-        "/placeholder.jpg",
-        "/placeholder.jpg",
+        "/9_chifres_1.JPG",
+        "/9_chifres_2.JPG",
+        "/9_chifres_3.jpg",
+        "/9_chifres_4.JPG",
+        "/9_chifres_5.JPG",
+        "/9_chifres_6.jpg",
+        "/9_chifres_7.jpg",
       ],
     },
     {
@@ -67,10 +70,15 @@ function App() {
 `,
       image: "/metempsicose_thumb.jpg",
       images_details: [
-        "/placeholder.jpg",
-        "/placeholder.jpg",
-        "/placeholder.jpg",
-        "/placeholder.jpg",
+        "/metempsicose_1.jpg",
+        "/metempsicose_2.jpg",
+        "/metempsicose_3.jpg",
+        "/metempsicose_4.jpg",
+        "/metempsicose_5.jpg",
+        "/metempsicose_6.jpg",
+      ],
+      embedsBandcamp: [
+        `<iframe style="border: 0; width: 350px; height: 442px;" src="https://bandcamp.com/EmbeddedPlayer/track=2447535245/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://viniciusfernandesssss.bandcamp.com/track/metempsicose">Metempsicose von Vinícius Fernandes</a></iframe>`,
       ],
     },
     {
@@ -80,25 +88,31 @@ function App() {
 `,
       image: "/musica_thumb.jpg",
       images_details: [
-        "/placeholder.jpg",
-        "/placeholder.jpg",
-        "/placeholder.jpg",
-        "/placeholder.jpg",
+        "/musica_1.JPG",
+        "/musica_2.jpg",
+        "/musica_3.jpg",
+        "/musica_4.jpg",
+        "/musica_5.jpg",
+        "/musica_6.jpg",
       ],
     },
     {
       title: "Móbile de vaca morta com vergalhões de ferro [...]",
       text: "Instalação com ossos, alto-falantes, vergalhões de ferro e com áudio de álbuns kitsch de Augusto Piccinini",
-      description: `A instalação "Móbile de vaca morta com vergalhões de ferro" utiliza ossos, alto-falantes e vergalhões de ferro para criar uma experiência sonora única. Com áudio de álbuns kitsch de Augusto Piccinini, a obra explora a relação entre o orgânico e o industrial, convidando os espectadores a refletirem sobre a morte, a memória e a transformação dos materiais.
+      description: `Six loudspeakers are installed directly on cow bones, in positions suggested plastically by the animal's own bone structure. The sound system plays simultaneously, in subtle volume, Augusto Piccinini’s albums “Vários MIDIs maneiros com timbres mais maneiros ainda intercalados com frases de auto-ajuda narradas por vozes sintetizadas”, “Igual ao album anterior mas desta vez mais radical e mais profundo”, “Just like the last two albums but this time in english in order to appeal to international audiences”. The installation performs a kind of teratogenic resuscitation by reconstituting an animal-building from biological and architectural waste. Precarious and dying structure that forms an ironic oxymoron with the sound material, constituted by the semiotic saturation of the kitsch universe of a literature and musical production obsessed with the obliteration of the fundamental existential anguish of human experience.
 `,
       image: "/mobile_thumb.jpg",
       images_details: [
-        "/placeholder.jpg",
-        "/placeholder.jpg",
-        "/placeholder.jpg",
-        "/placeholder.jpg",
+        "/mobile_1.jpg",
+        "/mobile_2.jpg",
+        "/mobile_3.jpg",
+        "/mobile_4.jpg",
+      ],
+      embedsBandcamp: [
+        `<iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=743014755/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://3edgy5u.bandcamp.com/album/v-rios-midis-maneiros-com-timbres-mais-maneiros-ainda-intercalados-com-frases-de-auto-ajuda-narradas-por-vozes-sintetizadas">Vários MIDIs maneiros com timbres mais maneiros ainda intercalados com frases de auto-ajuda narradas por vozes sintetizadas von 3edgy5u</a></iframe>`,
       ],
     },
+
     {
       title: "Fitosintetizador",
       text: "Instalação sonora interativa que utiliza plantas como controladoras de síntese sonora.",
@@ -106,10 +120,13 @@ function App() {
 `,
       image: "/fitosintetizador_thumb.jpg",
       images_details: [
-        "/placeholder.jpg",
-        "/placeholder.jpg",
-        "/placeholder.jpg",
-        "/placeholder.jpg",
+        "/fitosintetizador_1.jpg",
+        "/fitosintetizador_2.jpg",
+        "/fitosintetizador_3.jpg",
+        "/fitosintetizador_4.jpg",
+        "/fitosintetizador_5.jpg",
+        "/fitosintetizador_6.jpg",
+        "/fitosintetizador_7.jpg",
       ],
     },
     {
@@ -136,6 +153,12 @@ function App() {
         "/placeholder.jpg",
         "/placeholder.jpg",
         "/placeholder.jpg",
+      ],
+      embedsBandcamp: [
+        `<iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=965401561/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://tudos.bandcamp.com/album/tds01-amador">[tds01] amador von Tabutril</a></iframe>`,
+        `<iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=2229382614/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://tudos.bandcamp.com/album/tds09-fontanela">[tds09] Fontanela von Cassini</a></iframe>`,
+        `<iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=1846535594/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://tudos.bandcamp.com/album/tds013-muito-nasty">[tds013] Muito Nasty von Muito Nasty</a></iframe>`,
+        `<iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=981793339/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://passaro-concreto.bandcamp.com/album/p-ssaro-concreto">Pássaro-Concreto von Pássaro-Concreto</a></iframe>`,
       ],
     },
   ];
