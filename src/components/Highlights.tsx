@@ -33,12 +33,12 @@ const highlights = [
 export default function Highlights() {
   const settings = {
     infinite: true,
-    speed: 2000,
+    speed: 1500,
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
     autoplay: true,
-    autoplaySpeed: 5000,
+    autoplaySpeed: 3000,
     fade: true,
     cssEase: "linear",
     pauseOnHover: true,
