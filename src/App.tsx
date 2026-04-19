@@ -396,7 +396,7 @@ function App() {
         </section>
 
         {/* ART */}
-        <section id="art" className="section">
+        <section id="art" className="section section--inverted">
           <h2>Art & Sound</h2>
           <p>
             Uma seleção de performances, instalações sonoras e projetos
@@ -427,7 +427,7 @@ function App() {
         </section>
 
         {/* RESEARCH & PUBLICATIONS (nova seção) */}
-        <section id="publications" className="section">
+        <section id="publications" className="section section--inverted">
           <h2>Pesquisa & Publicações</h2>
           <p>
             Seleção de artigos, capítulos, apresentações e relatórios
@@ -458,7 +458,7 @@ function App() {
         </section>
 
         {/* CONTACT */}
-        <section id="contact" className="section">
+        <section id="contact" className="section section--inverted">
           <h2>Contato</h2>
           <p>
             Quer conversar sobre um projeto, aula, colaboração ou consultoria

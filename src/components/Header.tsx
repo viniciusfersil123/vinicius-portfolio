@@ -10,12 +10,36 @@ export default function Header({ onLogoClick }: Props) {
   const { lang, setLang, openLangModal } = useLanguage();
   const { t } = useTranslation();
 
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (!section) return;
+
+    const header = document.querySelector(".navbar") as HTMLElement | null;
+    const headerHeight = header?.offsetHeight ?? 0;
+    const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+
+    window.scrollTo({
+      top: Math.max(sectionTop - headerHeight, 0),
+      behavior: "smooth",
+    });
+  };
+
+  const onNavClick = (
+    event: React.MouseEvent<HTMLAnchorElement>,
+    sectionId: string,
+  ) => {
+    event.preventDefault();
+    scrollToSection(sectionId);
+  };
+
   return (
     <header className="navbar">
       <div
         className="logo"
         onClick={() =>
-          onLogoClick ? onLogoClick() : window.scrollTo({ top: 0, behavior: "smooth" })
+          onLogoClick
+            ? onLogoClick()
+            : window.scrollTo({ top: 0, behavior: "smooth" })
         }
         style={{ cursor: "pointer" }}
       >
@@ -23,12 +47,24 @@ export default function Header({ onLogoClick }: Props) {
       </div>
 
       <nav>
-        <a href="#about">{t("nav.sobre")}</a>
-        <a href="#art">{t("nav.arte")}</a>
-        <a href="#tech">{t("nav.tech")}</a>
-        <a href="#software">{t("nav.software")}</a>
-        <a href="#research">{t("nav.pesquisa")}</a>
-        <a href="#contact">{t("nav.contato")}</a>
+        <a href="#about" onClick={(e) => onNavClick(e, "about")}>
+          {t("nav.sobre")}
+        </a>
+        <a href="#art" onClick={(e) => onNavClick(e, "art")}>
+          {t("nav.arte")}
+        </a>
+        <a href="#tech" onClick={(e) => onNavClick(e, "tech")}>
+          {t("nav.tech")}
+        </a>
+        <a href="#publications" onClick={(e) => onNavClick(e, "publications")}>
+          {t("nav.pesquisa")}
+        </a>
+        <a href="#software" onClick={(e) => onNavClick(e, "software")}>
+          {t("nav.software")}
+        </a>
+        <a href="#contact" onClick={(e) => onNavClick(e, "contact")}>
+          {t("nav.contato")}
+        </a>
       </nav>
 
       <button
@@ -41,13 +77,23 @@ export default function Header({ onLogoClick }: Props) {
 
       <div
         className="header-lang-controls"
-        style={{ marginLeft: "1rem", display: "flex", alignItems: "center", gap: "0.5rem" }}
+        style={{
+          marginLeft: "1rem",
+          display: "flex",
+          alignItems: "center",
+          gap: "0.5rem",
+        }}
       >
         <button
           className="lang-open"
           onClick={() => (openLangModal ? openLangModal() : undefined)}
           aria-label={t("header.alterarIdioma") || "Alterar idioma"}
-          style={{ background: "transparent", color: "#ddd", border: "none", cursor: "pointer" }}
+          style={{
+            background: "transparent",
+            color: "#ddd",
+            border: "none",
+            cursor: "pointer",
+          }}
         >
           {lang === "pt-br" && "🇧🇷 PT"}
           {lang === "en" && "🇬🇧 EN"}
@@ -57,7 +103,9 @@ export default function Header({ onLogoClick }: Props) {
 
         <select
           value={lang || ""}
-          onChange={(e) => (setLang ? setLang(e.target.value as any) : undefined)}
+          onChange={(e) =>
+            setLang ? setLang(e.target.value as any) : undefined
+          }
           aria-label={t("header.selecaoIdioma") || "Seleção de idioma"}
           style={{
             background: "transparent",
