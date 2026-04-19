@@ -5,6 +5,14 @@ import Carousel from "./components/Carousel";
 import Highlights from "./components/Highlights";
 import Header from "./components/Header";
 import Detail from "./pages/Detail";
+import {
+  FaInstagram,
+  FaGithub,
+  FaLinkedinIn,
+  FaTelegramPlane,
+  FaWhatsapp,
+} from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
 
 function slugify(s: string) {
   return s
@@ -456,14 +464,71 @@ function App() {
             Quer conversar sobre um projeto, aula, colaboração ou consultoria
             técnica?
           </p>
-          <ul>
+          <ul className="contact-links" aria-label="Links de contato">
             <li>
-              E-mail:{" "}
-              <a href="mailto:viniciusfersil@gmail.com">
-                viniciusfersil@gmail.com
+              <a
+                href="https://www.instagram.com/viniciustabu/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                title="Instagram"
+              >
+                <FaInstagram />
               </a>
             </li>
-            {/* depois você pode adicionar GitHub, Instagram, LinkedIn etc. */}
+            <li>
+              <a
+                href="mailto:viniciusfersil@gmail.com"
+                aria-label="E-mail"
+                title="E-mail"
+              >
+                <MdEmail />
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://github.com/viniciusfersil123/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+                title="GitHub"
+              >
+                <FaGithub />
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.linkedin.com/in/viniciusfersil/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                title="LinkedIn"
+              >
+                <FaLinkedinIn />
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://t.me/viniciusfersil"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Telegram"
+                title="Telegram"
+              >
+                <FaTelegramPlane />
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://wa.me/5511971963771"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp"
+                title="WhatsApp"
+              >
+                <FaWhatsapp />
+              </a>
+            </li>
           </ul>
         </section>
       </main>
