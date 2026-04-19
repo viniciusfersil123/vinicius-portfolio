@@ -1,5 +1,4 @@
 import React from "react";
-import { useLanguage } from "../context/LanguageProvider";
 import { useTranslation } from "../hooks/useTranslation";
 
 type Props = {
@@ -7,7 +6,6 @@ type Props = {
 };
 
 export default function Header({ onLogoClick }: Props) {
-  const { lang, setLang, openLangModal } = useLanguage();
   const { t } = useTranslation();
 
   const scrollToSection = (sectionId: string) => {
@@ -30,6 +28,11 @@ export default function Header({ onLogoClick }: Props) {
   ) => {
     event.preventDefault();
     scrollToSection(sectionId);
+  };
+
+  const onLangClick = (lang: "DE" | "EN" | "PT") => {
+    // placeholder temporário
+    console.log(`Idioma clicado: ${lang}`);
   };
 
   return (
@@ -67,6 +70,18 @@ export default function Header({ onLogoClick }: Props) {
         </a>
       </nav>
 
+      <div className="header-lang-actions" aria-label="Seleção de idioma">
+        <button type="button" onClick={() => onLangClick("DE")}>
+          DE
+        </button>
+        <button type="button" onClick={() => onLangClick("EN")}>
+          EN
+        </button>
+        <button type="button" onClick={() => onLangClick("PT")}>
+          PT
+        </button>
+      </div>
+
       <button
         type="button"
         className="navbar-mobile-toggle"
@@ -74,53 +89,6 @@ export default function Header({ onLogoClick }: Props) {
       >
         ☰
       </button>
-
-      <div
-        className="header-lang-controls"
-        style={{
-          marginLeft: "1rem",
-          display: "flex",
-          alignItems: "center",
-          gap: "0.5rem",
-        }}
-      >
-        <button
-          className="lang-open"
-          onClick={() => (openLangModal ? openLangModal() : undefined)}
-          aria-label={t("header.alterarIdioma") || "Alterar idioma"}
-          style={{
-            background: "transparent",
-            color: "#ddd",
-            border: "none",
-            cursor: "pointer",
-          }}
-        >
-          {lang === "pt-br" && "🇧🇷 PT"}
-          {lang === "en" && "🇬🇧 EN"}
-          {lang === "de" && "🇩🇪 DE"}
-          {!lang && "🌐"}
-        </button>
-
-        <select
-          value={lang || ""}
-          onChange={(e) =>
-            setLang ? setLang(e.target.value as any) : undefined
-          }
-          aria-label={t("header.selecaoIdioma") || "Seleção de idioma"}
-          style={{
-            background: "transparent",
-            color: "#ddd",
-            border: "1px solid rgba(255,255,255,0.06)",
-            padding: "0.25rem 0.5rem",
-            borderRadius: "6px",
-          }}
-        >
-          <option value="">{t("header.escolher") || "Escolher"}</option>
-          <option value="pt-br">🇧🇷 PT</option>
-          <option value="en">🇬🇧 EN</option>
-          <option value="de">🇩🇪 DE</option>
-        </select>
-      </div>
     </header>
   );
 }
