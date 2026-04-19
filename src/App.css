@@ -113,8 +113,107 @@ body {
   box-shadow: none;
 }
 
+.mobile-menu-backdrop,
+.mobile-menu-drawer {
+  display: none;
+}
+
+.mobile-menu-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.58);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  z-index: 29;
+}
+
+.mobile-menu-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: min(84vw, 340px);
+  height: 100dvh;
+  background: #000;
+  transform: translateX(100%);
+  transition: transform 0.28s ease;
+  z-index: 30;
+  padding: 1.25rem 1.25rem 1.5rem;
+  box-sizing: border-box;
+  flex-direction: column;
+}
+
+.mobile-menu-backdrop.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-menu-drawer.is-open {
+  transform: translateX(0);
+}
+
+.mobile-menu-close {
+  align-self: flex-end;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  color: #fff;
+  font-size: 1.35rem;
+  cursor: pointer;
+}
+
+.mobile-menu-nav {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.75rem;
+}
+
+.mobile-menu-nav button {
+  border: none;
+  background: transparent;
+  color: #ddd;
+  text-align: left;
+  font-size: 1rem;
+  padding: 0.85rem 0;
+  cursor: pointer;
+
+  ::focus, ::focus-visible {
+    outline: none;
+  }
+}
+
+.mobile-menu-nav button:hover {
+  color: #fff;
+}
+
+.mobile-menu-lang-switch {
+  margin-top: 1.25rem;
+  display: inline-flex;
+  width: 50%;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-menu-lang-switch button {
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: #ddd;
+  padding: 0.6rem 0;
+  cursor: pointer;
+  font-size: 0.92rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mobile-menu-lang-switch button:last-child {
+  border-right: none;
+}
+
 @media (max-width: 970px) {
-  .navbar nav,
+  .navbar > nav,
   .header-lang-actions {
     display: none !important;
   }
@@ -125,6 +224,14 @@ body {
 
   .navbar-mobile-toggle {
     display: inline-flex;
+  }
+
+  .mobile-menu-backdrop {
+    display: block;
+  }
+
+  .mobile-menu-drawer {
+    display: flex;
   }
 }
 
