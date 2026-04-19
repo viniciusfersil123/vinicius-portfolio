@@ -47,7 +47,6 @@ body {
   padding: 1rem 3rem;
   box-sizing: border-box;
 
-
   @media (max-width: 900px) {
     padding: 1rem 2rem;
   }
@@ -85,9 +84,6 @@ body {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-
- 
-  
 }
 
 .navbar-mobile-toggle:hover,
@@ -250,9 +246,9 @@ body {
     padding: 1rem 0 0 5rem;
   }
 
-    @media (max-width: 600px) {
-      padding: 1rem 0 0 3rem;
-    }
+  @media (max-width: 600px) {
+    padding: 1rem 0 0 3rem;
+  }
 }
 
 @media (max-width: 540px) {
@@ -557,7 +553,14 @@ body {
   min-width: 0;
   flex-shrink: 1;
   padding: 1rem 1.2rem;
-  background: rgba(255, 255, 255, 0.03);
+
+  @media (max-width: 900px) {
+    margin: 0 0.5rem;
+  }
+
+  @media (max-width: 600px) {
+    margin: 0; 
+  }
 }
 
 /* Carrossel da home (react-slick) */
@@ -594,10 +597,18 @@ body {
 
 .carousel-wrapper-component .slick-prev {
   left: -60px;
+
+  @media (max-width: 600px) {
+    left: -35px;
+  }
 }
 
 .carousel-wrapper-component .slick-next {
   right: -60px;
+
+  @media (max-width: 600px) {
+    right: -30px;
+  }
 }
 
 .carousel-wrapper-component .slick-arrow:before {
@@ -613,24 +624,6 @@ body {
 
 .carousel-wrapper-component .slick-next:before {
   content: "›";
-}
-
-@media (max-width: 900px) {
-  .carousel-wrapper-component .slick-list {
-    margin: 0;
-  }
-
-  .carousel-wrapper-component .slick-slide > div {
-    padding: 0;
-  }
-
-  .carousel-wrapper-component .slick-prev {
-    left: 6px;
-  }
-
-  .carousel-wrapper-component .slick-next {
-    right: 6px;
-  }
 }
 
 /* garante espaçamento no topo do conteúdo das páginas de item */
@@ -730,15 +723,6 @@ body {
   pointer-events: none;
 }
 
-@media (max-width: 900px) {
-  .detail-carousel .slick-prev {
-    left: 6px;
-  }
-  .detail-carousel .slick-next {
-    right: 6px;
-  }
-}
-
 /* desativa qualquer animação antiga baseada em keyframes */
 .detail-track {
   animation: none !important;
@@ -813,7 +797,6 @@ body {
   font-weight: 500;
   color: #7cc3ff;
   text-decoration: none;
- 
 }
 .detail-link:hover {
   color: #a6d7ff;
