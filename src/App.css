@@ -613,14 +613,13 @@ body {
 }
 
 /* corpo do card ocupa o resto e é clippado */
-.card p {
+.card .card-text {
   margin: 0;
   color: var(--section-card-muted);
   flex: 1 1 auto;
   overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 6; /* linhas visíveis antes de clipear */
-  -webkit-box-orient: vertical;
+  display: block;
+  line-height: 1.45;
 }
 
 /* variante pequena (carrossel) */
