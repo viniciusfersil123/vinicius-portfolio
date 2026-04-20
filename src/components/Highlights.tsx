@@ -1,36 +1,39 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useTranslation } from "../hooks/useTranslation";
 
 const highlights = [
   {
-    title: "Instalação",
+    titleKey: "home.highlights.0.title",
     img: "/teaser_1.jpg",
-    caption: "Espaço das Artes, USP, São Paulo (2019)",
+    captionKey: "home.highlights.0.caption",
   },
   {
-    title: "Instalação Interativa",
+    titleKey: "home.highlights.1.title",
     img: "/teaser_2.jpg",
-    caption: "SESC Aveneida Paulista, São Paulo (2020)",
+    captionKey: "home.highlights.1.caption",
   },
   {
-    title: "Curso de eletrônica para síntese sonora",
+    titleKey: "home.highlights.2.title",
     img: "/teaser_3.jpg",
-    caption: "Fauhaus, São Paulo (2020)",
+    captionKey: "home.highlights.2.caption",
   },
   {
-    title: "Echos of the deep",
+    titleKey: "home.highlights.3.title",
     img: "/teaser_4.jpg",
-    caption: "Vila do Conde, Portugal (2025)",
+    captionKey: "home.highlights.3.caption",
   },
   {
-    title: "Cassini Trio",
+    titleKey: "home.highlights.4.title",
     img: "/teaser_5.jpg",
-    caption: "Bolderaja, Riga, Letônia (2018)",
+    captionKey: "home.highlights.4.caption",
   }
 ];
 
 export default function Highlights() {
+  const { t } = useTranslation();
+
   const settings = {
     infinite: true,
     speed: 2000,
@@ -51,11 +54,11 @@ export default function Highlights() {
         {highlights.map((h, i) => (
           <div key={i} className="highlight-card">
             <div className="highlight-media">
-              <img src={h.img} alt={h.title} />
+              <img src={h.img} alt={t(h.titleKey)} />
             </div>
             <div className="highlight-overlay">
-              <h4>{h.title}</h4>
-              <p>{h.caption}</p>
+              <h4>{t(h.titleKey)}</h4>
+              <p>{t(h.captionKey)}</p>
             </div>
           </div>
         ))}

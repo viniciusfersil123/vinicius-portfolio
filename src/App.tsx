@@ -5,6 +5,7 @@ import Carousel from "./components/Carousel";
 import Highlights from "./components/Highlights";
 import Header from "./components/Header";
 import Detail from "./pages/Detail";
+import { useTranslation } from "./hooks/useTranslation";
 import {
   FaInstagram,
   FaGithub,
@@ -22,6 +23,8 @@ function slugify(s: string) {
 }
 
 function App() {
+  const { t } = useTranslation();
+
   // dados dos cards (fácil de manter e reutilizar)
   const cards = [
     {
@@ -270,12 +273,56 @@ function App() {
     },
   ];
 
+  const cardsWithSlug = cards.map((item) => ({
+    ...item,
+    slug: slugify(item.title),
+  }));
+
+  const techCardsWithSlug = techCards.map((item) => ({
+    ...item,
+    slug: slugify(item.title),
+  }));
+
+  const softwareCardsWithSlug = softwareCards.map((item) => ({
+    ...item,
+    slug: slugify(item.title),
+  }));
+
+  const publicationCardsWithSlug = publicationCards.map((item) => ({
+    ...item,
+    slug: slugify(item.title),
+  }));
+
+  const localizedCards = cardsWithSlug.map((item, index) => ({
+    ...item,
+    titleKey: `home.cards.art.${index}.title`,
+    textKey: `home.cards.art.${index}.text`,
+  }));
+
+  const localizedTechCards = techCardsWithSlug.map((item, index) => ({
+    ...item,
+    titleKey: `home.cards.tech.${index}.title`,
+    textKey: `home.cards.tech.${index}.text`,
+  }));
+
+  const localizedSoftwareCards = softwareCardsWithSlug.map((item, index) => ({
+    ...item,
+    titleKey: `home.cards.software.${index}.title`,
+    textKey: `home.cards.software.${index}.text`,
+  }));
+
+  const localizedPublicationCards = publicationCardsWithSlug.map((item, index) => ({
+    ...item,
+    titleKey: `home.cards.publications.${index}.title`,
+    textKey: `home.cards.publications.${index}.text`,
+  }));
+
   // expõe tudo para a página Detail
   (window as any).__APP_ALL__ = [
-    ...cards,
-    ...techCards,
-    ...softwareCards,
-    ...publicationCards,
+    ...cardsWithSlug,
+    ...techCardsWithSlug,
+    ...softwareCardsWithSlug,
+    ...publicationCardsWithSlug,
   ];
 
   const params = useParams();
@@ -306,8 +353,7 @@ function App() {
         <Detail />
         <footer className="footer">
           <p>
-            © {new Date().getFullYear()} Vinícius Fernandes — Arte, som &
-            tecnologia.
+            © {new Date().getFullYear()} Vinícius Fernandes — {t("home.footer")}
           </p>
         </footer>
       </div>
@@ -316,7 +362,7 @@ function App() {
 
   // quando abrir item via clique (pushState), também subir
   const openItem = (it: any) => {
-    const slug = (it.slug as string) || slugify(it.title || "");
+    const slug = (it.slug as string) || slugify(String(it.title || ""));
     const url = `/item/${slug}`;
     window.history.pushState({}, "", url);
     window.dispatchEvent(new PopStateEvent("popstate"));
@@ -335,13 +381,11 @@ function App() {
         <section className="hero">
           <div className="hero-text">
             <h1>
-              Arte, som & tecnologia
+              {t("hero.title")}
               <br />
             </h1>
             <p>
-              Profissional de áudio/DSP e desenvolvimento web, com atuação em
-              arte sonora, síntese, sistemas embarcados e plataformas abertas de
-              áudio.
+              {t("hero.subtitle")}
             </p>
           </div>
 
@@ -370,41 +414,17 @@ function App() {
 
         {/* ABOUT */}
         <section id="about" className="section">
-          <h2>Sobre</h2>
-          <p>
-            Vinícius Fernandes é desenvolvedor, pesquisador, músico e artista
-            sonoro. Nascido em São Paulo, formou-se em Estudos Literários
-            (UNICAMP) e tem título de mestre em Sonologia (USP). Atualmente,
-            realiza um doutorado em áudio embarcado em cotutela entre o IME-USP
-            e a Technische Universität Berlin (DAAD), investigando plataformas
-            abertas de áudio, DSP em hardware de baixa potência, acessibilidade
-            técnica e práticas de desenvolvimento situadas. Coordena um grupo de
-            pesquisa em sistemas embarcados para música na USP e contribui
-            ativamente para projetos de código aberto, como a DaisySP Library,
-            trabalhando com C/C++, drivers e programação de microcontroladores.
-            Profissionalmente, atuou no Nexo Jornal e na UOL como desenvolvedor
-            web (Node.js, TypeScript, Docker, Next.js). É fundador da Menis Tech
-            Design, criando instrumentos eletrônicos customizados, projetos de
-            tecnologia criativa e cursos em eletrônica, síntese e controladores
-            MIDI. No campo artístico, produz desde 2014 o selo experimental
-            TUDOS e já se apresentou em eventos como o I Colóquio
-            Franco-Brasileiro de Análise e Criação Musicais (ao lado de Gérard
-            Assayag/IRCAM), a 32ª Bienal de São Paulo e turnês europeias com o
-            trio Cassini. Publica regularmente artigos sobre práticas sonoras
-            experimentais, mídia e literatura.{" "}
-          </p>
+          <h2>{t("section.about.title")}</h2>
+          <p>{t("section.about.p1")}</p>
         </section>
 
         {/* ART */}
         <section id="art" className="section section--inverted">
-          <h2>Art & Sound</h2>
-          <p>
-            Uma seleção de performances, instalações sonoras e projetos
-            colaborativos.
-          </p>
+          <h2>{t("home.section.art.title")}</h2>
+          <p>{t("home.section.art.subtitle")}</p>
 
           <Carousel
-            items={cards}
+            items={localizedCards}
             slidesToShow={3}
             autoplay={true}
             onItemClick={openItem}
@@ -413,13 +433,10 @@ function App() {
 
         {/* TECH */}
         <section id="tech" className="section">
-          <h2>Hardware & DSP</h2>
-          <p>
-            Desenvolvimento de instrumentos eletrônicos, síntese embarcada e
-            ferramentas para artistas e pesquisadores.
-          </p>
+          <h2>{t("home.section.tech.title")}</h2>
+          <p>{t("home.section.tech.subtitle")}</p>
           <Carousel
-            items={techCards}
+            items={localizedTechCards}
             slidesToShow={3}
             autoplay={true}
             onItemClick={openItem}
@@ -428,14 +445,11 @@ function App() {
 
         {/* RESEARCH & PUBLICATIONS (nova seção) */}
         <section id="publications" className="section section--inverted">
-          <h2>Pesquisa & Publicações</h2>
-          <p>
-            Seleção de artigos, capítulos, apresentações e relatórios
-            relacionados à pesquisa e produção acadêmica.
-          </p>
+          <h2>{t("home.section.publications.title")}</h2>
+          <p>{t("home.section.publications.subtitle")}</p>
 
           <Carousel
-            items={publicationCards}
+            items={localizedPublicationCards}
             slidesToShow={3}
             autoplay={false}
             onItemClick={openItem}
@@ -444,13 +458,10 @@ function App() {
 
         {/* SOFTWARE */}
         <section id="software" className="section">
-          <h2>Software & Web Development</h2>
-          <p>
-            Atuação como desenvolvedor web e criador de ferramentas digitais
-            para áudio, arte e educação.
-          </p>
+          <h2>{t("home.section.software.title")}</h2>
+          <p>{t("home.section.software.subtitle")}</p>
           <Carousel
-            items={softwareCards}
+            items={localizedSoftwareCards}
             slidesToShow={2}
             autoplay={true}
             onItemClick={openItem}
@@ -459,19 +470,16 @@ function App() {
 
         {/* CONTACT */}
         <section id="contact" className="section section--inverted">
-          <h2>Contato</h2>
-          <p>
-            Quer conversar sobre um projeto, aula, colaboração ou consultoria
-            técnica?
-          </p>
-          <ul className="contact-links" aria-label="Links de contato">
+          <h2>{t("contact.title")}</h2>
+          <p>{t("home.section.contact.subtitle")}</p>
+          <ul className="contact-links" aria-label={t("home.contact.linksAria")}> 
             <li>
               <a
                 href="https://www.instagram.com/viniciustabu/"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Instagram"
-                title="Instagram"
+                aria-label={t("home.contact.instagram")}
+                title={t("home.contact.instagram")}
               >
                 <FaInstagram />
               </a>
@@ -479,8 +487,8 @@ function App() {
             <li>
               <a
                 href="mailto:viniciusfersil@gmail.com"
-                aria-label="E-mail"
-                title="E-mail"
+                aria-label={t("contact.email")}
+                title={t("contact.email")}
               >
                 <MdEmail />
               </a>
@@ -490,8 +498,8 @@ function App() {
                 href="https://github.com/viniciusfersil123/"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="GitHub"
-                title="GitHub"
+                aria-label={t("home.contact.github")}
+                title={t("home.contact.github")}
               >
                 <FaGithub />
               </a>
@@ -501,8 +509,8 @@ function App() {
                 href="https://www.linkedin.com/in/viniciusfersil/"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="LinkedIn"
-                title="LinkedIn"
+                aria-label={t("home.contact.linkedin")}
+                title={t("home.contact.linkedin")}
               >
                 <FaLinkedinIn />
               </a>
@@ -512,8 +520,8 @@ function App() {
                 href="https://t.me/viniciusfersil"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Telegram"
-                title="Telegram"
+                aria-label={t("home.contact.telegram")}
+                title={t("home.contact.telegram")}
               >
                 <FaTelegramPlane />
               </a>
@@ -523,8 +531,8 @@ function App() {
                 href="https://wa.me/5511971963771"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="WhatsApp"
-                title="WhatsApp"
+                aria-label={t("home.contact.whatsapp")}
+                title={t("home.contact.whatsapp")}
               >
                 <FaWhatsapp />
               </a>
@@ -538,8 +546,7 @@ function App() {
 
       <footer className="footer">
         <p>
-          © {new Date().getFullYear()} Vinícius Fernandes — Arte, som &
-          tecnologia.
+          © {new Date().getFullYear()} Vinícius Fernandes — {t("home.footer")}
         </p>
       </footer>
     </div>

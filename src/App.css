@@ -89,6 +89,12 @@ body {
   color: #fff;
 }
 
+.header-lang-actions button:focus,
+.header-lang-actions button:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
 .navbar-mobile-toggle {
   display: none;
   width: 40px;
@@ -210,6 +216,12 @@ body {
 
 .mobile-menu-lang-switch button:last-child {
   border-right: none;
+}
+
+.mobile-menu-lang-switch button:focus,
+.mobile-menu-lang-switch button:focus-visible {
+  outline: none;
+  box-shadow: none;
 }
 
 @media (max-width: 970px) {

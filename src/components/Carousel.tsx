@@ -4,7 +4,6 @@ import "slick-carousel/slick/slick-theme.css";
 import Card from "./Card";
 import { useNavigate } from "../lib/routerShim";
 import { useTranslation } from "../hooks/useTranslation";
-import { useT } from "../context/LanguageProvider"; // adiciona helper de tradução
 
 type Item = { title: any; text: any; image?: string; slug?: string };
 
@@ -26,7 +25,7 @@ export default function Carousel({
   onItemClick,
 }: Props) {
   const navigate = useNavigate();
-  const t = useT(); // função: recebe string ou objeto {pt-br,en,de} e devolve string
+  const { t } = useTranslation();
 
   const settings = {
     infinite: true,
@@ -49,8 +48,8 @@ export default function Carousel({
       <Slider {...settings}>
         {items.map((it, i) => {
           // garante strings para o Card
-          const titleStr = t((it as any).title);
-          const textStr = t((it as any).text);
+          const titleStr = t((it as any).titleKey || (it as any).title);
+          const textStr = t((it as any).textKey || (it as any).text);
           const img = (it as any).image || (it as any).img || undefined;
 
           return (

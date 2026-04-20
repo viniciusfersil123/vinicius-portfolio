@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "../hooks/useTranslation";
+import { useLanguage } from "../context/LanguageContext";
 
 type Props = {
   onLogoClick?: () => void;
@@ -7,6 +8,7 @@ type Props = {
 
 export default function Header({ onLogoClick }: Props) {
   const { t } = useTranslation();
+  const { setLang } = useLanguage();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -49,8 +51,9 @@ export default function Header({ onLogoClick }: Props) {
   };
 
   const onLangClick = (lang: "DE" | "EN" | "PT") => {
-    // placeholder temporário
-    console.log(`Idioma clicado: ${lang}`);
+    if (lang === "DE") setLang("de");
+    if (lang === "EN") setLang("en");
+    if (lang === "PT") setLang("pt-br");
   };
 
   const onMobileNavClick = (sectionId: string) => {
