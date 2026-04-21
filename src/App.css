@@ -16,6 +16,24 @@
 
   /* velocidade do carrossel do detail (pode ajustar) */
   --detail-speed: 40s;
+
+  /* ajuste fino horizontal da imagem em .highlight-media */
+  --highlight-media-offset-x: 0px;
+
+  /* ajuste fino vertical da imagem em .highlight-media (use valores como 0px, 8px, -8px) */
+  --highlight-media-offset-y: -60%;
+}
+
+@media (max-width: 900px) {
+  :root {
+    --highlight-media-offset-x: 0%;
+  }
+}
+
+@media (max-width: 600px) {
+  :root {
+    --highlight-media-offset-x: 40%;
+  }
 }
 
 /* compensar header fixo sem JS */
@@ -46,8 +64,10 @@ body {
   min-height: var(--header-height);
   padding: 1rem 3rem;
   box-sizing: border-box;
+}
 
-  @media (max-width: 900px) {
+@media (max-width: 900px) {
+  .navbar {
     padding: 1rem 2rem;
   }
 }
@@ -183,10 +203,11 @@ body {
   font-size: 1rem;
   padding: 0.85rem 0;
   cursor: pointer;
+}
 
-  ::focus, ::focus-visible {
-    outline: none;
-  }
+.mobile-menu-nav button:focus,
+.mobile-menu-nav button:focus-visible {
+  outline: none;
 }
 
 .mobile-menu-nav button:hover {
@@ -264,6 +285,7 @@ body {
   position: absolute;
   inset: 0;
   z-index: 0;
+  overflow: hidden;
 }
 
 .hero-highlights-wrapper::before {
@@ -297,21 +319,25 @@ body {
   );
 }
 
+.highlight-media {
+  overflow: hidden;
+}
+
 .highlight-media img {
   width: 100%;
   height: 330px;
   object-fit: cover;
+  object-position:
+    calc(50% + var(--highlight-media-offset-x))
+    calc(100% + var(--highlight-media-offset-y));
   display: block;
   filter: grayscale(90%) contrast(105%) brightness(85%);
   transition:
     filter 0.4s ease,
-    transform 0.6s ease;
+    object-position 0.6s ease;
 }
 
-/* .highlight-card:hover .highlight-media img {
-  filter: grayscale(20%) contrast(105%) brightness(95%);
-  transform: scale(1.03);
-} */
+
 
 .highlight-overlay {
   position: absolute;
@@ -330,12 +356,16 @@ body {
   );
   color: #fff;
   gap: 0.75rem;
+}
 
-  @media (max-width: 900px) {
+@media (max-width: 900px) {
+  .highlight-overlay {
     padding: 1rem 5rem;
   }
+}
 
-  @media (max-width: 600px) {
+@media (max-width: 600px) {
+  .highlight-overlay {
     padding: 1rem 3rem;
   }
 }
@@ -373,18 +403,21 @@ body {
 .hero-text {
   position: relative;
   z-index: 1;
-  /* max-width: 50%; */
   padding: 1rem 0 0 10rem;
   display: flex;
   flex-direction: column;
   justify-content: start;
   margin-right: 2.5rem;
+}
 
-  @media (max-width: 900px) {
+@media (max-width: 900px) {
+  .hero-text {
     padding: 1rem 0 0 5rem;
   }
+}
 
-  @media (max-width: 600px) {
+@media (max-width: 600px) {
+  .hero-text {
     padding: 1rem 0 0 3rem;
   }
 }
@@ -481,13 +514,16 @@ body {
   padding: 1.3rem 10rem 3rem;
   background: var(--section-bg);
   color: var(--section-text);
-  /* max-width: 1000px; */
+}
 
-  @media (max-width: 900px) {
+@media (max-width: 900px) {
+  .section {
     padding: 2rem 5rem;
   }
+}
 
-  @media (max-width: 600px) {
+@media (max-width: 600px) {
+  .section {
     padding: 2rem 3rem;
   }
 }
@@ -532,8 +568,10 @@ body {
   color: currentColor;
   text-decoration: none;
   transition: transform 0.2s ease;
+}
 
-  @media (max-width: 600px) {
+@media (max-width: 600px) {
+  .contact-links a {
     width: 2rem;
     height: 2rem;
   }
@@ -574,57 +612,44 @@ body {
   overflow: hidden;
 }
 
-/* título permanece visível (não é cortado) */
 .card h3,
 .card h4 {
   margin: 0 0 0.5rem 0;
   flex: 0 0 auto;
 }
 
-/* padroniza thumbs dos cards */
 .card .card-thumb {
   width: 100%;
-  height: 120px; /* altura padrão para thumbs no card grande */
+  height: 120px;
   overflow: hidden;
   border-radius: 0.8rem;
   margin-bottom: 0.75rem;
   flex: 0 0 auto;
 }
 
-/* thumb para cards pequenos (carrossel) */
 .card.small .card-thumb {
-  height: 90px; /* altura reduzida para variação small */
+  height: 90px;
   margin-bottom: 0.6rem;
 }
 
-/* garante que a imagem ocupe totalmente e seja recortada de forma consistente */
 .card .card-thumb img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* força corte centralizado mantendo proporção */
+  object-fit: cover;
   display: block;
 }
 
-/* opcional: força altura total dos cards para padronizar layout */
 .card {
   padding: 1.2rem;
   border-radius: 1rem;
   background: var(--section-card-bg);
   color: var(--section-card-text);
-  height: 220px; /* altura fixa para padronizar; ajustável */
+  height: 220px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
 }
 
-/* garantir layout consistente e clippagem do texto */
-.card {
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-
-/* corpo do card ocupa o resto e é clippado */
 .card .card-text {
   margin: 0;
   color: var(--section-card-muted);
@@ -634,79 +659,36 @@ body {
   line-height: 1.45;
 }
 
-/* variante pequena (carrossel) */
 .card.small {
   min-width: 240px;
-  height: 240px; /* ajuste para carrossel compacto */
+  height: 240px;
   padding: 1rem;
+  min-width: 0;
+  flex-shrink: 1;
+  padding: 1rem 1.2rem;
+}
+
+@media (max-width: 900px) {
+  .card.small {
+    margin: 0 0.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .card.small {
+    margin: 0;
+  }
 }
 
 .footer {
-  padding: 1rem 3rem 1rem;
+  padding: 1rem 3rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   font-size: 0.8rem;
   color: #aaa;
   text-align: center;
 }
 
-.hero-photo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.hero-photo img {
-  width: 100%;
-  max-width: 370px;
-  aspect-ratio: 4 / 5; /* força um retrato elegante */
-  object-fit: cover; /* recorte bonito */
-  border-radius: 1.2rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 0 32px rgba(0, 0, 0, 0.45);
-
-  /* FILTRO estiloso */
-  filter: grayscale(100%) contrast(110%) brightness(90%);
-  transition: filter 0.4s ease;
-}
-
-/* Efeito hover elegante */
-.hero-photo img:hover {
-  filter: grayscale(20%) contrast(105%);
-}
-
 /* --- CARROSSEL INFINITO (home) --- */
-.carousel {
-  width: 100%;
-  overflow: hidden;
-  margin-top: 1.5rem;
-}
-.carousel-track {
-  display: flex;
-  gap: 1.5rem;
-  width: max-content;
-
-  /* animação infinita */
-  animation: scroll 25s linear infinite;
-}
-@keyframes scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-/* --- CARROSSEL COM SETAS (home) --- */
-
-.carousel-wrapper {
-  position: relative;
-  width: 100%;
-  margin-top: 1.5rem;
-  display: flex;
-  align-items: center;
-}
-
 .carousel {
   display: flex;
   gap: 1.5rem;
@@ -720,7 +702,17 @@ body {
   display: none; /* Chrome, Safari */
 }
 
-.carousel-btn {
+/* Wrapper com setas */
+.carousel-wrapper {
+  position: relative;
+  width: 100%;
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+/* Cards pequenos do carrossel */
+.carousel-wrapper .carousel-btn {
   position: absolute;
   z-index: 5;
   top: 50%;
@@ -739,33 +731,17 @@ body {
     transform 0.2s;
 }
 
-.carousel-btn:hover {
+.carousel-wrapper .carousel-btn:hover {
   background: rgba(255, 255, 255, 0.15);
   transform: translateY(-50%) scale(1.08);
 }
 
-/* posição das setas */
-.carousel-btn.left {
+.carousel-wrapper .carousel-btn.left {
   left: 0;
 }
 
-.carousel-btn.right {
+.carousel-wrapper .carousel-btn.right {
   right: 0;
-}
-
-/* Cards pequenos do carrossel */
-.card.small {
-  min-width: 0;
-  flex-shrink: 1;
-  padding: 1rem 1.2rem;
-
-  @media (max-width: 900px) {
-    margin: 0 0.5rem;
-  }
-
-  @media (max-width: 600px) {
-    margin: 0;
-  }
 }
 
 /* Carrossel da home (react-slick) */
@@ -937,15 +913,24 @@ body {
 .detail-embeds {
   margin-top: 1.5rem;
 }
+
 .detail-embeds-title {
   font-size: 1.25rem;
   margin: 0 0 0.75rem 0;
 }
+
 .detail-embeds-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 0.75rem;
 }
+
+.detail-embeds-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 0.75rem;
+}
+
 .embed-card {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.09);
