@@ -276,10 +276,10 @@ body {
   inset: 0 0 -1rem 0;
   background: linear-gradient(
     180deg,
-    rgba(0, 0, 0, 0.82) 0%,
-    rgba(0, 0, 0, 0.72) 48%,
-    rgba(0, 0, 0, 0.4) 78%,
-    rgba(0, 0, 0, 0.12) 100%
+    rgba(0, 0, 0, 0.34) 0%,
+    rgba(0, 0, 0, 0.26) 48%,
+    rgba(0, 0, 0, 0.14) 78%,
+    rgba(0, 0, 0, 0.04) 100%
   );
   z-index: 1;
   pointer-events: none;

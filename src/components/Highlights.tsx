@@ -43,7 +43,7 @@ const highlights: Highlight[] = [
     offsets: {
       desktop: { x: "0px", y: "-60%" },
       max900: { x: "0px", y: "-60%" },
-      max600: { x: "0px", y: "-60%" },
+      max600: { x: "10%", y: "-60%" },
     },
   },
   {
@@ -51,7 +51,7 @@ const highlights: Highlight[] = [
     img: "/teaser_4.jpg",
     captionKey: "home.highlights.3.caption",
     offsets: {
-      desktop: { x: "0px", y: "-60%" },
+      desktop: { x: "0px", y: "-90%" },
       max900: { x: "0px", y: "-60%" },
       max600: { x: "0px", y: "-60%" },
     },
