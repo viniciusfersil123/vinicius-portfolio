@@ -65,7 +65,7 @@ const highlights: Highlight[] = [
       max900: { x: "0px", y: "-60%" },
       max600: { x: "0px", y: "-60%" },
     },
-  }
+  },
 ];
 
 export default function Highlights() {
@@ -119,14 +119,24 @@ export default function Highlights() {
               <img
                 src={h.img}
                 alt={t(h.titleKey)}
-                style={{
-                  "--highlight-media-offset-x": h.offsets.desktop.x,
-                  "--highlight-media-offset-y": h.offsets.desktop.y,
-                  "--highlight-media-offset-x-900": h.offsets.max900?.x || h.offsets.desktop.x,
-                  "--highlight-media-offset-y-900": h.offsets.max900?.y || h.offsets.desktop.y,
-                  "--highlight-media-offset-x-600": h.offsets.max600?.x || h.offsets.max900?.x || h.offsets.desktop.x,
-                  "--highlight-media-offset-y-600": h.offsets.max600?.y || h.offsets.max900?.y || h.offsets.desktop.y,
-                } as React.CSSProperties}
+                style={
+                  {
+                    "--highlight-media-offset-x": h.offsets.desktop.x,
+                    "--highlight-media-offset-y": h.offsets.desktop.y,
+                    "--highlight-media-offset-x-900":
+                      h.offsets.max900?.x || h.offsets.desktop.x,
+                    "--highlight-media-offset-y-900":
+                      h.offsets.max900?.y || h.offsets.desktop.y,
+                    "--highlight-media-offset-x-600":
+                      h.offsets.max600?.x ||
+                      h.offsets.max900?.x ||
+                      h.offsets.desktop.x,
+                    "--highlight-media-offset-y-600":
+                      h.offsets.max600?.y ||
+                      h.offsets.max900?.y ||
+                      h.offsets.desktop.y,
+                  } as React.CSSProperties
+                }
               />
             </div>
             <div className="highlight-overlay">

@@ -1,14 +1,24 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type CardProps = {
   title: string;
   text: string;
   size?: "small" | "normal";
-  image?: string; // <-- nova prop
+  image?: string;
+  imageOffsetX?: string;
+  imageOffsetY?: string;
   onClick?: () => void;
 };
 
-export default function Card({ title, text, size = "normal", image, onClick }: CardProps) {
+export default function Card({
+  title,
+  text,
+  size = "normal",
+  image,
+  imageOffsetX = "0px",
+  imageOffsetY = "0px",
+  onClick,
+}: CardProps) {
   const textRef = useRef<HTMLParagraphElement | null>(null);
   const [displayText, setDisplayText] = useState(text);
 
@@ -120,10 +130,17 @@ export default function Card({ title, text, size = "normal", image, onClick }: C
     >
       {image && (
         <div className="card-thumb">
-          <img src={image} alt={title} />
+          <img
+            src={image}
+            alt={title}
+            style={{
+              "--card-image-offset-x": imageOffsetX,
+              "--card-image-offset-y": imageOffsetY,
+            } as React.CSSProperties}
+          />
         </div>
       )}
-      <h3>{title}</h3>
+      <h3 className="card-title">{title}</h3>
       <p className="card-text" ref={textRef}>
         {displayText}
       </p>

@@ -98,6 +98,8 @@ function App() {
       description: `¿Música? é uma série de performances e exposições que exploram os limites entre arte sonora e música experimental. Iniciada em 2005, a série apresenta uma variedade de abordagens criativas, desde instalações interativas até composições sonoras inovadoras. Cada evento busca desafiar as percepções tradicionais de música, incentivando o público a experimentar o som de maneiras novas e inesperadas. Através de colaborações com outros artistas e a incorporação de tecnologias emergentes, ¿Música? continua a evoluir como uma plataforma para a experimentação sonora e a expressão artística.
 `,
       image: "/musica_thumb.jpg",
+      imageOffsetX: "50%",
+      imageOffsetY: "40%",
       images_details: [
         "/musica_1.JPG",
         "/musica_2.jpg",
