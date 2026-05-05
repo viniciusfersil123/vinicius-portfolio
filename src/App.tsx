@@ -278,21 +278,25 @@ function App() {
   const cardsWithSlug = cards.map((item) => ({
     ...item,
     slug: slugify(item.title),
+    caption: "Lorem ispu, São Paulo (2026)",
   }));
 
   const techCardsWithSlug = techCards.map((item) => ({
     ...item,
     slug: slugify(item.title),
+    caption: "Lorem ispu, São Paulo (2026)",
   }));
 
   const softwareCardsWithSlug = softwareCards.map((item) => ({
     ...item,
     slug: slugify(item.title),
+    caption: "Lorem ispu, São Paulo (2026)",
   }));
 
   const publicationCardsWithSlug = publicationCards.map((item) => ({
     ...item,
     slug: slugify(item.title),
+    caption: "Lorem ispu, São Paulo (2026)",
   }));
 
   const localizedCards = cardsWithSlug.map((item, index) => ({
@@ -329,6 +333,15 @@ function App() {
 
   const params = useParams();
 
+  // quando estivermos na rota de item, usar dinamicamente o título/texto do item
+  const allItems = (window as any).__APP_ALL__ || [];
+  const currentItem = params.slug
+    ? allItems.find((it: any) => (it.slug as string) === params.slug || slugify(String(it.title || "")) === params.slug)
+    : null;
+
+  const heroTitle = currentItem?.title || t("hero.title");
+  const heroSubtitle = currentItem?.text || t("hero.subtitle");
+
   // força scroll para o topo quando muda a rota (mover acima do early return)
   useEffect(() => {
     if ("scrollRestoration" in window.history) {
@@ -348,20 +361,6 @@ function App() {
     return () => window.removeEventListener("popstate", onRoute);
   }, []);
 
-  // if a slug is present in the URL, show the standalone detail page
-  if (params.slug) {
-    return (
-      <div className="app">
-        <Detail />
-        <footer className="footer">
-          <p>
-            © {new Date().getFullYear()} Vinícius Fernandes — {t("home.footer")}
-          </p>
-        </footer>
-      </div>
-    );
-  }
-
   // quando abrir item via clique (pushState), também subir
   const openItem = (it: any) => {
     const slug = (it.slug as string) || slugify(String(it.title || ""));
@@ -376,19 +375,20 @@ function App() {
 
   return (
     <div className="app">
-      <Header />
+      <Header brandName="Vinícius Fernandes" />
 
       <main>
         {/* HERO */}
         <section className="hero">
           <div className="hero-text">
             <h1>
-              {t("hero.title")}
+              {heroTitle}
               <br />
             </h1>
             <p>
-              {t("hero.subtitle")}
+              {heroSubtitle}
             </p>
+            {/* hero caption reserved for main page only */}
           </div>
 
           <div className="hero-highlights-wrapper">
@@ -542,7 +542,6 @@ function App() {
           </ul>
         </section>
       </main>
-
       {/* Detail overlay / page (shown when URL contains /item/:slug) */}
       {params.slug && <Detail />}
 

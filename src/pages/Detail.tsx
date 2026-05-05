@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useEffect } from "react";
 import Header from "../components/Header";
 import { useParams } from "../lib/routerShim";
 import Slider from "react-slick";
@@ -20,6 +20,7 @@ type Item = {
   images_details?: string[];
   embedsBandcamp?: string[];
   youtubeUrls?: string[];
+  caption?: string;
   // novo:
   linkUrl?: string;
   linkTitle?: string;
@@ -74,6 +75,17 @@ export default function Detail() {
   const item =
     allItems.find((it) => slugify(it.title) === (slug || "")) || null;
 
+  // atualizar título do documento quando um item for exibido
+  useEffect(() => {
+    const prev = document.title;
+    if (item?.title) {
+      document.title = `${item.title} — Vinícius Fernandes`;
+    }
+    return () => {
+      document.title = prev;
+    };
+  }, [item]);
+
   const images = useMemo(() => {
     const arr = item?.images_details?.length
       ? item.images_details
@@ -123,7 +135,12 @@ export default function Detail() {
             >
               ← Voltar
             </button>
-            <h1 className="detail-title">{item?.title || "Item"}</h1>
+            <div>
+              <h1 className="detail-title">{item?.title || "Item"}</h1>
+              {item?.caption && (
+                <p className="detail-caption">{item.caption}</p>
+              )}
+            </div>
           </div>
 
           {item?.linkUrl && (

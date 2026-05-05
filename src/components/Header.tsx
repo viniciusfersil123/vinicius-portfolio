@@ -4,9 +4,10 @@ import { useLanguage } from "../context/LanguageContext";
 
 type Props = {
   onLogoClick?: () => void;
+  brandName?: string;
 };
 
-export default function Header({ onLogoClick }: Props) {
+export default function Header({ onLogoClick, brandName = "Vinícius Fernandes" }: Props) {
   const { t } = useTranslation();
   const { setLang } = useLanguage();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -73,7 +74,7 @@ export default function Header({ onLogoClick }: Props) {
           }
           style={{ cursor: "pointer" }}
         >
-          Vinícius Fernandes
+          {brandName}
         </div>
 
         <nav>

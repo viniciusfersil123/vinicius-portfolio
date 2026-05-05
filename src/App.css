@@ -418,6 +418,13 @@ body {
   margin-bottom: 1rem;
 }
 
+.hero-text .hero-caption {
+  margin-top: 0.5rem;
+  color: rgba(255,255,255,0.7);
+  font-size: 0.95rem;
+  opacity: 0.95;
+}
+
 .hero-text p {
   max-width: 40rem;
   color: #d0d0d0;
