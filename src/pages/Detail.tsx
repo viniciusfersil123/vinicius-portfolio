@@ -1,5 +1,4 @@
 import { useMemo, useEffect } from "react";
-import Header from "../components/Header";
 import { useParams } from "../lib/routerShim";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -278,7 +277,6 @@ export default function Detail() {
 
   return (
     <div className="detail-page">
-      <Header />
       <main className="detail-sections">
         {detailSections.map((section) => (
           <section

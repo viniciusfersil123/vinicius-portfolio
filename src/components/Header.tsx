@@ -43,12 +43,31 @@ export default function Header({ onLogoClick, brandName = "Vinícius Fernandes" 
     });
   };
 
+  const navigateHome = (sectionId?: string) => {
+    const targetPath = sectionId ? `/#${sectionId}` : "/";
+    if (window.location.pathname !== "/" || window.location.hash !== (sectionId ? `#${sectionId}` : "")) {
+      window.history.pushState({}, "", targetPath);
+      window.dispatchEvent(new PopStateEvent("popstate"));
+    }
+
+    if (!sectionId) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        scrollToSection(sectionId);
+      });
+    });
+  };
+
   const onNavClick = (
     event: React.MouseEvent<HTMLAnchorElement>,
     sectionId: string,
   ) => {
     event.preventDefault();
-    scrollToSection(sectionId);
+    navigateHome(sectionId);
   };
 
   const onLangClick = (lang: "DE" | "EN" | "PT") => {
@@ -58,7 +77,7 @@ export default function Header({ onLogoClick, brandName = "Vinícius Fernandes" 
   };
 
   const onMobileNavClick = (sectionId: string) => {
-    scrollToSection(sectionId);
+    navigateHome(sectionId);
     setIsMobileMenuOpen(false);
   };
 
@@ -70,7 +89,7 @@ export default function Header({ onLogoClick, brandName = "Vinícius Fernandes" 
           onClick={() =>
             onLogoClick
               ? onLogoClick()
-              : window.scrollTo({ top: 0, behavior: "smooth" })
+              : navigateHome()
           }
           style={{ cursor: "pointer" }}
         >
