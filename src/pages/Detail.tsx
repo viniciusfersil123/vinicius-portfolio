@@ -1,6 +1,6 @@
-import React, { useMemo, useRef } from "react";
+import { useMemo } from "react";
 import Header from "../components/Header";
-import { useParams, useNavigate } from "../lib/routerShim";
+import { useParams } from "../lib/routerShim";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -67,23 +67,14 @@ function toYouTubeEmbed(src: string): string {
   }
 }
 
-// setas do carrossel (mesma aparência do restante do site)
-const Prev = (props: any) => (
-  <button className="detail-btn left" aria-label="Slide anterior" onClick={props.onClick}>‹</button>
-);
-const Next = (props: any) => (
-  <button className="detail-btn right" aria-label="Próximo slide" onClick={props.onClick}>›</button>
-);
-
 export default function Detail() {
   const { slug } = useParams() as { slug?: string };
-  const navigate = useNavigate();
 
   const allItems: Item[] = (window as any).__APP_ALL__ || [];
   const item =
     allItems.find((it) => slugify(it.title) === (slug || "")) || null;
 
-  const images = React.useMemo(() => {
+  const images = useMemo(() => {
     const arr = item?.images_details?.length
       ? item.images_details
       : item?.image
@@ -92,7 +83,7 @@ export default function Detail() {
     return arr;
   }, [item]);
 
-  const sliderSettings = React.useMemo(
+  const sliderSettings = useMemo(
     () => ({
       slidesToShow: 1,
       slidesToScroll: 1,
@@ -117,98 +108,147 @@ export default function Detail() {
     return [...urls, ...legacy];
   }, [item]);
 
-  return (
-    <div className="detail-page">
-      <Header />
-      <main className="section detail-section">
-        {/* cabeçalho */}
-        <div className="detail-header">
-          <button className="button secondary" onClick={() => history.length > 1 ? history.back() : (location.href = "/")}>
-            ← Voltar
-          </button>
-          <h1 className="detail-title">{item?.title || "Item"}</h1>
-        </div>
+  const detailSections = [
+    {
+      key: "hero",
+      inverted: false,
+      content: (
+        <>
+          <div className="detail-header">
+            <button
+              className="button secondary detail-back-button"
+              onClick={() =>
+                history.length > 1 ? history.back() : (location.href = "/")
+              }
+            >
+              ← Voltar
+            </button>
+            <h1 className="detail-title">{item?.title || "Item"}</h1>
+          </div>
 
-        {/* link externo do item (logo abaixo do título) */}
-        {item?.linkUrl && (
-          <p className="detail-link-row">
+          {item?.linkUrl && (
             <a
-              className="detail-link"
+              className="button primary detail-external-link"
               href={item.linkUrl}
               target="_blank"
               rel="noopener noreferrer"
             >
               {item.linkTitle || item.linkUrl} <span aria-hidden>↗</span>
             </a>
-          </p>
-        )}
-
-        {/* Carrossel com setas + autoplay */}
+          )}
+        </>
+      ),
+    },
+    {
+      key: "gallery",
+      inverted: true,
+      content: images.length ? (
         <div className="detail-carousel">
-          {images.length ? (
-            <Slider {...sliderSettings}>
-              {images.map((src, i) => (
-                <div key={`${src}-${i}`} className="detail-slide">
-                  <img src={src} alt={`${item?.title || "Imagem"} ${i + 1}`} />
-                </div>
-              ))}
-            </Slider>
-          ) : null}
+          <Slider {...sliderSettings}>
+            {images.map((src, i) => (
+              <div key={`${src}-${i}`} className="detail-slide">
+                <img src={src} alt={`${item?.title || "Imagem"} ${i + 1}`} />
+              </div>
+            ))}
+          </Slider>
         </div>
-
+      ) : null,
+    },
+    {
+      key: "description",
+      inverted: false,
+      content: (
         <article className="detail-content">
           <p>{item?.description || item?.text || "Descrição indisponível."}</p>
         </article>
-
-        {/* EMBEDS: aparecem logo abaixo do carrossel/descrição */}
-        {item?.embeds?.length ? (
-          <section className="detail-embeds">
-            <h2 className="detail-embeds-title">Ouça/Veja</h2>
-            <div className="detail-embeds-grid">
-              {item.embeds.map((html, idx) => (
-                <div
-                  key={idx}
-                  className="embed-card"
-                  dangerouslySetInnerHTML={{ __html: html }}
-                />
-              ))}
-            </div>
-          </section>
-        ) : null}
-
-        {/* Bandcamp (se existir) */}
-        {item?.embedsBandcamp?.length ? (
-          <section className="detail-embeds">
-            <h2 className="detail-embeds-title">Bandcamp</h2>
-            <div className="detail-embeds-grid bandcamp-grid">
-              {item.embedsBandcamp.map((html, idx) => (
-                <div key={`bc-${idx}`} className="embed-card bandcamp" dangerouslySetInnerHTML={{ __html: html }} />
-              ))}
-            </div>
-          </section>
-        ) : null}
-
-        {/* YouTube via JSX a partir de URLs (watch/short/playlist) */}
-        {youtubeEmbeds.length ? (
-          <section className="detail-embeds">
-            <h2 className="detail-embeds-title">Vídeos</h2>
-            <div className="detail-embeds-grid youtube-grid">
-              {youtubeEmbeds.map((src, idx) => (
-                <div key={`yt-src-${idx}`} className="embed-card youtube">
-                  <iframe
-                    src={src}
-                    title={`YouTube ${idx + 1}`}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerPolicy="strict-origin-when-cross-origin"
-                    allowFullScreen
-                    loading="lazy"
-                    sandbox="allow-scripts allow-same-origin allow-presentation"
-                  />
+      ),
+    },
+    ...(item?.embeds?.length
+      ? [
+          {
+            key: "embeds",
+            inverted: true,
+            content: (
+              <section className="detail-embeds">
+                <h2 className="detail-embeds-title">Ouça/Veja</h2>
+                <div className="detail-embeds-grid">
+                  {item.embeds.map((html, idx) => (
+                    <div
+                      key={idx}
+                      className="embed-card"
+                      dangerouslySetInnerHTML={{ __html: html }}
+                    />
+                  ))}
                 </div>
-              ))}
-            </div>
+              </section>
+            ),
+          },
+        ]
+      : []),
+    ...(item?.embedsBandcamp?.length
+      ? [
+          {
+            key: "bandcamp",
+            inverted: false,
+            content: (
+              <section className="detail-embeds">
+                <h2 className="detail-embeds-title">Bandcamp</h2>
+                <div className="detail-embeds-grid bandcamp-grid">
+                  {item.embedsBandcamp.map((html, idx) => (
+                    <div
+                      key={`bc-${idx}`}
+                      className="embed-card bandcamp"
+                      dangerouslySetInnerHTML={{ __html: html }}
+                    />
+                  ))}
+                </div>
+              </section>
+            ),
+          },
+        ]
+      : []),
+    ...(youtubeEmbeds.length
+      ? [
+          {
+            key: "youtube",
+            inverted: true,
+            content: (
+              <section className="detail-embeds">
+                <h2 className="detail-embeds-title">Vídeos</h2>
+                <div className="detail-embeds-grid youtube-grid">
+                  {youtubeEmbeds.map((src, idx) => (
+                    <div key={`yt-src-${idx}`} className="embed-card youtube">
+                      <iframe
+                        src={src}
+                        title={`YouTube ${idx + 1}`}
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerPolicy="strict-origin-when-cross-origin"
+                        allowFullScreen
+                        loading="lazy"
+                        sandbox="allow-scripts allow-same-origin allow-presentation"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </section>
+            ),
+          },
+        ]
+      : []),
+  ];
+
+  return (
+    <div className="detail-page">
+      <Header />
+      <main className="detail-sections">
+        {detailSections.map((section) => (
+          <section
+            key={section.key}
+            className={`section detail-section ${section.inverted ? "section--inverted" : ""}`}
+          >
+            {section.content}
           </section>
-        ) : null}
+        ))}
       </main>
     </div>
   );
