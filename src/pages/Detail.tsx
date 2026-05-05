@@ -95,14 +95,14 @@ export default function Detail() {
     const arr = item?.images_details?.length
       ? item.images_details
       : item?.image
-      ? [
-          {
-            src: item.image,
-            title: item.title,
-            caption: item.caption || "Lorem ispsum, São Paulo (2026)",
-          },
-        ]
-      : [];
+        ? [
+            {
+              src: item.image,
+              title: item.title,
+              caption: item.caption || "Lorem ispsum, São Paulo (2026)",
+            },
+          ]
+        : [];
     return arr;
   }, [item]);
 
@@ -121,7 +121,7 @@ export default function Detail() {
       variableWidth: false,
       // removido nextArrow/prevArrow para usar as setas padrão do slick estilizadas via CSS
     }),
-    [images.length]
+    [images.length],
   );
 
   // normaliza fontes do YouTube: primeiro usa youtubeUrls, depois embedsYoutubeSrc (compat)
@@ -137,24 +137,7 @@ export default function Detail() {
       inverted: false,
       content: (
         <>
-          <div className="detail-header">
-            <button
-              className="button secondary detail-back-button"
-              onClick={() =>
-                history.length > 1 ? history.back() : (location.href = "/")
-              }
-            >
-              ← Voltar
-            </button>
-            <div>
-              <h1 className="detail-title">{item?.title || "Item"}</h1>
-              {item?.caption && (
-                <p className="detail-caption">{item.caption}</p>
-              )}
-            </div>
-          </div>
-
-          {item?.linkUrl && (
+{/*           {item?.linkUrl && (
             <a
               className="button primary detail-external-link"
               href={item.linkUrl}
@@ -163,44 +146,11 @@ export default function Detail() {
             >
               {item.linkTitle || item.linkUrl} <span aria-hidden>↗</span>
             </a>
-          )}
+          )} */}
         </>
       ),
     },
-    {
-      key: "gallery",
-      inverted: true,
-      content: images.length ? (
-        <div className="detail-carousel">
-          <Slider {...sliderSettings}>
-            {images.map((img, i) => (
-              <div key={`${img.src}-${i}`} className="detail-slide-card">
-                <div className="detail-slide">
-                  <img src={img.src} alt={img.title || `${item?.title || "Imagem"} ${i + 1}`} />
-                </div>
-                <div className="detail-slide-meta">
-                  <h3 className="detail-slide-meta-title">
-                    {img.title || `${item?.title || "Imagem"} ${i + 1}`}
-                  </h3>
-                  <p className="detail-slide-meta-caption">
-                    {img.caption || "Lorem ispsum, São Paulo (2026)"}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </Slider>
-        </div>
-      ) : null,
-    },
-    {
-      key: "description",
-      inverted: false,
-      content: (
-        <article className="detail-content">
-          <p>{item?.description || item?.text || "Descrição indisponível."}</p>
-        </article>
-      ),
-    },
+
     ...(item?.embeds?.length
       ? [
           {

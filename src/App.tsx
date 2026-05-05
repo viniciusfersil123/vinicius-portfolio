@@ -357,7 +357,7 @@ function App() {
       }))
     : cardsWithSlug.slice(0, 5).map((it) => ({
         title: it.title,
-        caption: it.caption,
+        caption: it.text || it.description || it.caption,
       }));
 
   const highlightImageItems = currentItem?.images_details?.length
@@ -444,8 +444,14 @@ function App() {
 
         {/* ABOUT */}
         <section id="about" className="section">
-          <h2>{t("section.about.title")}</h2>
-          <p>{t("section.about.p1")}</p>
+          {currentItem ? (
+            currentItem.description ? <p>{currentItem.description}</p> : null
+          ) : (
+            <>
+              <h2>{t("section.about.title")}</h2>
+              <p>{t("section.about.p1")}</p>
+            </>
+          )}
         </section>
 
         {/* ART */}
