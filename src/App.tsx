@@ -454,6 +454,8 @@ function App() {
           )}
         </section>
 
+        {!currentItem && (
+          <>
         {/* ART */}
         <section id="art" className="section section--inverted">
           <h2>{t("home.section.art.title")}</h2>
@@ -575,6 +577,8 @@ function App() {
             </li>
           </ul>
         </section>
+          </>
+        )}
       </main>
       {/* Detail overlay / page (shown when URL contains /item/:slug) */}
       {params.slug && <Detail />}

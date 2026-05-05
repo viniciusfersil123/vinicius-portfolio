@@ -155,7 +155,7 @@ export default function Detail() {
       ? [
           {
             key: "embeds",
-            inverted: true,
+            inverted: false,
             content: (
               <section className="detail-embeds">
                 <h2 className="detail-embeds-title">Ouça/Veja</h2>
@@ -177,7 +177,7 @@ export default function Detail() {
       ? [
           {
             key: "bandcamp",
-            inverted: false,
+            inverted: true,
             content: (
               <section className="detail-embeds">
                 <h2 className="detail-embeds-title">Bandcamp</h2>
@@ -199,7 +199,7 @@ export default function Detail() {
       ? [
           {
             key: "youtube",
-            inverted: true,
+            inverted: false,
             content: (
               <section className="detail-embeds">
                 <h2 className="detail-embeds-title">Vídeos</h2>
