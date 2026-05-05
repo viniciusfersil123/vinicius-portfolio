@@ -15,6 +15,15 @@ type Highlight = {
   };
 };
 
+type HighlightTextItem = {
+  title: string;
+  caption: string;
+};
+
+type HighlightImageItem = {
+  src: string;
+};
+
 const highlights: Highlight[] = [
   {
     titleKey: "home.highlights.0.title",
@@ -68,10 +77,23 @@ const highlights: Highlight[] = [
   },
 ];
 
-export default function Highlights() {
+export default function Highlights({
+  textItems,
+  imageItems,
+}: {
+  textItems?: HighlightTextItem[];
+  imageItems?: HighlightImageItem[];
+}) {
   const { t } = useTranslation();
   const sliderRef = useRef<Slider | null>(null);
   const [isPaused, setIsPaused] = useState(false);
+
+  const slides: Highlight[] = imageItems?.length
+    ? imageItems.map((img, index) => ({
+        ...highlights[index % highlights.length],
+        img: img.src,
+      }))
+    : highlights;
 
   const toggleSlideshow = () => {
     setIsPaused((prev) => {
@@ -113,38 +135,47 @@ export default function Highlights() {
       </button>
 
       <Slider ref={sliderRef} {...settings}>
-        {highlights.map((h, i) => (
-          <div key={i} className="highlight-card">
-            <div className="highlight-media">
-              <img
-                src={h.img}
-                alt={t(h.titleKey)}
-                style={
-                  {
-                    "--highlight-media-offset-x": h.offsets.desktop.x,
-                    "--highlight-media-offset-y": h.offsets.desktop.y,
-                    "--highlight-media-offset-x-900":
-                      h.offsets.max900?.x || h.offsets.desktop.x,
-                    "--highlight-media-offset-y-900":
-                      h.offsets.max900?.y || h.offsets.desktop.y,
-                    "--highlight-media-offset-x-600":
-                      h.offsets.max600?.x ||
-                      h.offsets.max900?.x ||
-                      h.offsets.desktop.x,
-                    "--highlight-media-offset-y-600":
-                      h.offsets.max600?.y ||
-                      h.offsets.max900?.y ||
-                      h.offsets.desktop.y,
-                  } as React.CSSProperties
-                }
-              />
+        {slides.map((h, i) => {
+          // texto dinâmico por slide; fallback para tradução antiga
+          // quando não houver item correspondente
+          const dynamicTitle = textItems?.[i]?.title;
+          const dynamicCaption = textItems?.[i]?.caption;
+          const titleText = dynamicTitle || t(h.titleKey);
+          const captionText = dynamicCaption || t(h.captionKey);
+
+          return (
+            <div key={i} className="highlight-card">
+              <div className="highlight-media">
+                <img
+                  src={h.img}
+                  alt={titleText}
+                  style={
+                    {
+                      "--highlight-media-offset-x": h.offsets.desktop.x,
+                      "--highlight-media-offset-y": h.offsets.desktop.y,
+                      "--highlight-media-offset-x-900":
+                        h.offsets.max900?.x || h.offsets.desktop.x,
+                      "--highlight-media-offset-y-900":
+                        h.offsets.max900?.y || h.offsets.desktop.y,
+                      "--highlight-media-offset-x-600":
+                        h.offsets.max600?.x ||
+                        h.offsets.max900?.x ||
+                        h.offsets.desktop.x,
+                      "--highlight-media-offset-y-600":
+                        h.offsets.max600?.y ||
+                        h.offsets.max900?.y ||
+                        h.offsets.desktop.y,
+                    } as React.CSSProperties
+                  }
+                />
+              </div>
+              <div className="highlight-overlay">
+                <h4>{titleText}</h4>
+                <p>{captionText}</p>
+              </div>
             </div>
-            <div className="highlight-overlay">
-              <h4>{t(h.titleKey)}</h4>
-              <p>{t(h.captionKey)}</p>
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </Slider>
     </div>
   );

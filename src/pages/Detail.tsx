@@ -17,9 +17,15 @@ type Item = {
   text: string;
   description?: string;
   image?: string;
-  images_details?: string[];
+  images_details?: Array<{
+    src: string;
+    title: string;
+    caption: string;
+  }>;
+  embeds?: string[];
   embedsBandcamp?: string[];
   youtubeUrls?: string[];
+  embedsYoutubeSrc?: string[];
   caption?: string;
   // novo:
   linkUrl?: string;
@@ -90,7 +96,13 @@ export default function Detail() {
     const arr = item?.images_details?.length
       ? item.images_details
       : item?.image
-      ? [item.image]
+      ? [
+          {
+            src: item.image,
+            title: item.title,
+            caption: item.caption || "Lorem ispsum, São Paulo (2026)",
+          },
+        ]
       : [];
     return arr;
   }, [item]);
@@ -162,9 +174,19 @@ export default function Detail() {
       content: images.length ? (
         <div className="detail-carousel">
           <Slider {...sliderSettings}>
-            {images.map((src, i) => (
-              <div key={`${src}-${i}`} className="detail-slide">
-                <img src={src} alt={`${item?.title || "Imagem"} ${i + 1}`} />
+            {images.map((img, i) => (
+              <div key={`${img.src}-${i}`} className="detail-slide-card">
+                <div className="detail-slide">
+                  <img src={img.src} alt={img.title || `${item?.title || "Imagem"} ${i + 1}`} />
+                </div>
+                <div className="detail-slide-meta">
+                  <h3 className="detail-slide-meta-title">
+                    {img.title || `${item?.title || "Imagem"} ${i + 1}`}
+                  </h3>
+                  <p className="detail-slide-meta-caption">
+                    {img.caption || "Lorem ispsum, São Paulo (2026)"}
+                  </p>
+                </div>
               </div>
             ))}
           </Slider>
@@ -189,7 +211,7 @@ export default function Detail() {
               <section className="detail-embeds">
                 <h2 className="detail-embeds-title">Ouça/Veja</h2>
                 <div className="detail-embeds-grid">
-                  {item.embeds.map((html, idx) => (
+                  {item.embeds.map((html: string, idx: number) => (
                     <div
                       key={idx}
                       className="embed-card"

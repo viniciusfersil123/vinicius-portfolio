@@ -22,6 +22,14 @@ function slugify(s: string) {
     .replace(/(^-|-$)/g, "");
 }
 
+function buildImageDetails(itemTitle: string, srcs: string[]) {
+  return srcs.map((src, index) => ({
+    src,
+    title: `${itemTitle} ${index + 1}`,
+    caption: "Lorem ispsum, São Paulo (2026)",
+  }));
+}
+
 function App() {
   const { t } = useTranslation();
 
@@ -34,7 +42,7 @@ function App() {
       description: `O TUDOS é um selo independente fundado por Vinícius Fernandes em 2014, focado na divulgação de obras experimentais que exploram as fronteiras entre música, arte sonora e tecnologia. O selo busca promover artistas que desafiam convenções sonoras, utilizando técnicas como síntese sonora, manipulação de áudio, instalações interativas e performances ao vivo. Com uma abordagem colaborativa, o TUDOS tem como objetivo criar uma plataforma para a experimentação sonora e a inovação artística, incentivando a troca de ideias e a expansão dos limites da criação musical contemporânea.
 `,
       image: "/tudos_thumb.jpg",
-      images_details: [
+      images_details: buildImageDetails("TUDOS", [
         "/tudos_detail_1.jpeg",
         "/tudos_detail_2.jpg",
         "/tudos_detail_3.jpg",
@@ -42,7 +50,7 @@ function App() {
         "/tudos_detail_5.jpg",
         "/tudos_detail_6.jpg",
         "/tudos_detail_7.jpg",
-      ],
+      ]),
       embedsBandcamp: [
         `<iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=1846535594/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://tudos.bandcamp.com/album/tds013-muito-nasty">[tds013] Muito Nasty von Muito Nasty</a></iframe>`,
         `<iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=3315268750/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://tudos.bandcamp.com/album/tds015-terror-da-terra">[tds015] Terror da terra von Gabriel Edé</a></iframe>`,
@@ -64,7 +72,7 @@ function App() {
       description: `"9 antlers" is a piece for guitar and electronics. All of its sound material is motivated by the traditional Lithuanian song Kalėdų rytu rožė inžydo, in which the appearance of a 9-horned deer triggers a flow of images of cosmological updates. Its prime melodic universe is distended in electronic sound textures produced by various techniques of computational synthesis and processing. Inspired by the experiences of the so-called 'verbal composition' in electroacoustic music, such as Karlheinz Stockhausen's Gesang der Jünglinge (1955-1956) or Luciano Berio's Thema (Omaggio a Joyce) (1958), part of '9 horns' is also composed of sounds derived from a female voice singing the song.The piece will be played in a sound system installed in 9 objects created along the #32bienal with mycelia of the fungus Pleurotus ostreatus, part of the work Psychotropic House: Zooetics Pavilion of Ballardian Technologies by Nomeda & Gediminas Urbonas.
 `,
       image: "/9_chifres_thumb.JPG",
-      images_details: [
+      images_details: buildImageDetails("9 chifres", [
         "/9_chifres_1.JPG",
         "/9_chifres_2.JPG",
         "/9_chifres_3.jpg",
@@ -72,7 +80,7 @@ function App() {
         "/9_chifres_5.JPG",
         "/9_chifres_6.jpg",
         "/9_chifres_7.jpg",
-      ],
+      ]),
     },
     {
       title: "Metempsicose",
@@ -80,14 +88,14 @@ function App() {
       description: `A instalação sonora "Metempsicose" explora a ideia de transformação e reencarnação através do som. Utilizando um rádio sintonizado em uma estação local aleatória, a obra cria uma conexão dinâmica entre o ambiente sonoro capturado e dois alto-falantes modificados, que são conectados a uma guitarra e a um tamtam. Essa interação gera uma paisagem sonora única e em constante evolução, convidando os espectadores a refletirem sobre os ciclos de vida, morte e renascimento presentes na natureza e na experiência humana.
 `,
       image: "/metempsicose_thumb.jpg",
-      images_details: [
+      images_details: buildImageDetails("Metempsicose", [
         "/metempsicose_1.jpg",
         "/metempsicose_2.jpg",
         "/metempsicose_3.jpg",
         "/metempsicose_4.jpg",
         "/metempsicose_5.jpg",
         "/metempsicose_6.jpg",
-      ],
+      ]),
       embedsBandcamp: [
         `<iframe style="border: 0; width: 350px; height: 442px;" src="https://bandcamp.com/EmbeddedPlayer/track=2447535245/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://viniciusfernandesssss.bandcamp.com/track/metempsicose">Metempsicose von Vinícius Fernandes</a></iframe>`,
       ],
@@ -100,14 +108,14 @@ function App() {
       image: "/musica_thumb.jpg",
       imageOffsetX: "50%",
       imageOffsetY: "40%",
-      images_details: [
+      images_details: buildImageDetails("¿Música?", [
         "/musica_1.JPG",
         "/musica_2.jpg",
         "/musica_3.jpg",
         "/musica_4.jpg",
         "/musica_5.jpg",
         "/musica_6.jpg",
-      ],
+      ]),
     },
     {
       title: "Móbile de vaca morta com vergalhões de ferro [...]",
@@ -115,12 +123,12 @@ function App() {
       description: `Six loudspeakers are installed directly on cow bones, in positions suggested plastically by the animal's own bone structure. The sound system plays simultaneously, in subtle volume, Augusto Piccinini’s albums “Vários MIDIs maneiros com timbres mais maneiros ainda intercalados com frases de auto-ajuda narradas por vozes sintetizadas”, “Igual ao album anterior mas desta vez mais radical e mais profundo”, “Just like the last two albums but this time in english in order to appeal to international audiences”. The installation performs a kind of teratogenic resuscitation by reconstituting an animal-building from biological and architectural waste. Precarious and dying structure that forms an ironic oxymoron with the sound material, constituted by the semiotic saturation of the kitsch universe of a literature and musical production obsessed with the obliteration of the fundamental existential anguish of human experience.
 `,
       image: "/mobile_thumb.jpg",
-      images_details: [
+      images_details: buildImageDetails("Móbile de vaca morta com vergalhões de ferro [...]", [
         "/mobile_1.jpg",
         "/mobile_2.jpg",
         "/mobile_3.jpg",
         "/mobile_4.jpg",
-      ],
+      ]),
       embedsBandcamp: [
         `<iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=743014755/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://3edgy5u.bandcamp.com/album/v-rios-midis-maneiros-com-timbres-mais-maneiros-ainda-intercalados-com-frases-de-auto-ajuda-narradas-por-vozes-sintetizadas">Vários MIDIs maneiros com timbres mais maneiros ainda intercalados com frases de auto-ajuda narradas por vozes sintetizadas von 3edgy5u</a></iframe>`,
       ],
@@ -132,7 +140,7 @@ function App() {
       description: `O "Fitosintetizador" é uma instalação sonora interativa que explora a relação entre natureza e tecnologia. Utilizando plantas como controladoras de síntese sonora, a obra convida os espectadores a interagir com o ambiente de forma única, criando paisagens sonoras dinâmicas e orgânicas. Através de sensores e processamento de sinais, as plantas se tornam instrumentos musicais, desafiando as noções tradicionais de autoria e performance.
 `,
       image: "/fitosintetizador_thumb.jpg",
-      images_details: [
+      images_details: buildImageDetails("Fitosintetizador", [
         "/fitosintetizador_1.jpg",
         "/fitosintetizador_2.jpg",
         "/fitosintetizador_3.jpg",
@@ -140,7 +148,7 @@ function App() {
         "/fitosintetizador_5.jpg",
         "/fitosintetizador_6.jpg",
         "/fitosintetizador_7.jpg",
-      ],
+      ]),
     },
     {
       title: "Echos of the deep",
@@ -148,12 +156,12 @@ function App() {
       description: `Echos of the deep é um software de sonificação de dados metabólicos de esponjas marinhas, apresentado no contexto da 12th World Sponge Conference. A obra explora as interações entre os organismos marinhos e seu ambiente, utilizando técnicas de sonificação para transformar dados científicos em experiências sonoras imersivas.
 `,
       image: "/sponges_thumb.jpg",
-      images_details: [
+      images_details: buildImageDetails("Echos of the deep", [
         "/placeholder.jpg",
         "/placeholder.jpg",
         "/placeholder.jpg",
         "/placeholder.jpg",
-      ],
+      ]),
     },
     {
       title: "Discografia",
@@ -161,12 +169,12 @@ function App() {
       description: `A Discografia reúne todos os discos, singles e colaborações de Vinícius Fernandes, apresentando uma visão abrangente de sua trajetória musical e artística. Através de uma seleção cuidadosa de faixas e projetos, a discografia reflete a evolução do artista ao longo dos anos, destacando suas experimentações sonoras e colaborações com outros músicos e artistas.
 `,
       image: "/discografia_thumb.jpg",
-      images_details: [
+      images_details: buildImageDetails("Discografia", [
         "/placeholder.jpg",
         "/placeholder.jpg",
         "/placeholder.jpg",
         "/placeholder.jpg",
-      ],
+      ]),
       embedsBandcamp: [
         `<iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=965401561/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://tudos.bandcamp.com/album/tds01-amador">[tds01] amador von Tabutril</a></iframe>`,
         `<iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=2229382614/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://tudos.bandcamp.com/album/tds09-fontanela">[tds09] Fontanela von Cassini</a></iframe>`,
@@ -183,12 +191,12 @@ function App() {
       description: `Menis é uma iniciativa dedicada ao desenvolvimento de instrumentos eletrônicos, síntese embarcada e ferramentas para artistas e pesquisadores. Focada na criação de soluções inovadoras, a Menis busca facilitar a experimentação sonora e a exploração musical através de tecnologias acessíveis e personalizáveis. Com uma abordagem colaborativa, a Menis trabalha para capacitar músicos e criadores a expandirem suas práticas artísticas utilizando hardware e software de ponta.
 `,
       image: "/menis_thumb.jpg",
-      images_details: [
+      images_details: buildImageDetails("Menis", [
         "/placeholder.jpg",
         "/placeholder.jpg",
         "/placeholder.jpg",
         "/placeholder.jpg",
-      ],
+      ]),
     },
     {
       title: "Granular Player - daisySP",
@@ -212,24 +220,24 @@ function App() {
       text: "Desenvolvimento de backend e frontend para o maior portal de notícias da América Latina.",
       description: `Atuei no desenvolvimento de soluções de backend e frontend para o UOL, o maior portal de notícias da América Latina. Minha experiência inclui a implementação de APIs, integração de sistemas e otimização de performance, sempre buscando oferecer a melhor experiência para os usuários.`,
       image: "/uol_thumb.jpg",
-      images_details: [
+      images_details: buildImageDetails("UOL", [
         "/placeholder.jpg",
         "/placeholder.jpg",
         "/placeholder.jpg",
         "/placeholder.jpg",
-      ],
+      ]),
     },
     {
       title: "Nexo Jornal",
       text: "Atualização de stack, integração de dados e desenvolvimento de novas funcionalidades para o portal de notícias.",
       description: `No Nexo Jornal, trabalhei na atualização da stack tecnológica, integração de dados e desenvolvimento de novas funcionalidades para o portal de notícias. Meu foco foi garantir a escalabilidade e a performance do sistema, além de implementar melhorias na experiência do usuário.`,
       image: "/nexo_thumb.jpg",
-      images_details: [
+      images_details: buildImageDetails("Nexo Jornal", [
         "/placeholder.jpg",
         "/placeholder.jpg",
         "/placeholder.jpg",
         "/placeholder.jpg",
-      ],
+      ]),
     },
   ];
 
@@ -240,12 +248,12 @@ function App() {
       text: "Artigo para a revista Norient analisando o cut-up de Burroughs como prática política contra manipulação midiática.",
       description: `O artigo explora as técnicas de cut-up de William Burroughs e sua aplicação como uma forma de resistência contra a manipulação midiática. Através da análise de obras específicas, discute-se como o cut-up pode ser visto como uma prática política que desafia narrativas dominantes e promove uma nova forma de expressão artística.`,
       image: "/cutup_thumb.jpg",
-      images_details: [
+      images_details: buildImageDetails("Cut-Up as Political Practice", [
         "/placeholder.jpg",
         "/placeholder.jpg",
         "/placeholder.jpg",
         "/placeholder.jpg",
-      ],
+      ]),
     },
     {
       title:
@@ -253,12 +261,12 @@ function App() {
       text: "Artigo publicado na revista Musica Theorica",
       description: `O artigo investiga a emergência do sujeito na narrativa do Prelúdio Op. 28 no. 14 de Chopin, analisando como elementos musicais e estruturais contribuem para a construção da subjetividade na obra. Através de uma abordagem interdisciplinar, busca-se compreender as implicações estéticas e filosóficas dessa narrativa musical.`,
       image: "/chopin_thumb.jpg",
-      images_details: [
+      images_details: buildImageDetails("A Emergência do Sujeito na Narrativa do Prelúdio Op. 28 no. 14 de Chopin", [
         "/placeholder.jpg",
         "/placeholder.jpg",
         "/placeholder.jpg",
         "/placeholder.jpg",
-      ],
+      ]),
     },
     {
       title:
@@ -266,12 +274,12 @@ function App() {
       text: "Análise das cut-ups de Burroughs via Groys, apresentada e publicada nos proceedings da Sonologia 2019.",
       description: `O artigo analisa as cut-ups de William Burroughs à luz das ideias de Boris Groys, discutindo como as práticas artísticas contemporâneas podem ser entendidas através da noção de "suspensão submedial". A pesquisa foi apresentada e publicada nos proceedings da Sonologia 2019.`,
       image: "/sonologia_thumb.jpg",
-      images_details: [
+      images_details: buildImageDetails("The medium becomes infected by the message: Boris Groys' submedial suspicion as viral tropes in William Burroughs.", [
         "/placeholder.jpg",
         "/placeholder.jpg",
         "/placeholder.jpg",
         "/placeholder.jpg",
-      ],
+      ]),
     },
   ];
 
@@ -342,6 +350,23 @@ function App() {
   const heroTitle = currentItem?.title || t("hero.title");
   const heroSubtitle = currentItem?.text || t("hero.subtitle");
 
+  const highlightTextItems = currentItem?.images_details?.length
+    ? currentItem.images_details.slice(0, 5).map((img: any, index: number) => ({
+        title: img?.title || `${currentItem.title} ${index + 1}`,
+        caption: img?.caption || currentItem.caption || "Lorem ispsum, São Paulo (2026)",
+      }))
+    : cardsWithSlug.slice(0, 5).map((it) => ({
+        title: it.title,
+        caption: it.caption,
+      }));
+
+  const highlightImageItems = currentItem?.images_details?.length
+    ? currentItem.images_details
+        .slice(0, 5)
+        .map((img: any) => ({ src: img?.src }))
+        .filter((img: any) => Boolean(img.src))
+    : undefined;
+
   // força scroll para o topo quando muda a rota (mover acima do early return)
   useEffect(() => {
     if ("scrollRestoration" in window.history) {
@@ -392,7 +417,10 @@ function App() {
           </div>
 
           <div className="hero-highlights-wrapper">
-            <Highlights />
+            <Highlights
+              textItems={highlightTextItems}
+              imageItems={highlightImageItems}
+            />
           </div>
 
           {/* <div className="hero-pillars">
