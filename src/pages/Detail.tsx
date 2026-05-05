@@ -91,39 +91,6 @@ export default function Detail() {
     };
   }, [item]);
 
-  const images = useMemo(() => {
-    const arr = item?.images_details?.length
-      ? item.images_details
-      : item?.image
-        ? [
-            {
-              src: item.image,
-              title: item.title,
-              caption: item.caption || "Lorem ispsum, São Paulo (2026)",
-            },
-          ]
-        : [];
-    return arr;
-  }, [item]);
-
-  const sliderSettings = useMemo(
-    () => ({
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      arrows: true,
-      infinite: images.length > 1,
-      autoplay: images.length > 1,
-      autoplaySpeed: 6000,
-      speed: 500,
-      pauseOnHover: true,
-      adaptiveHeight: false,
-      centerMode: false,
-      variableWidth: false,
-      // removido nextArrow/prevArrow para usar as setas padrão do slick estilizadas via CSS
-    }),
-    [images.length],
-  );
-
   // normaliza fontes do YouTube: primeiro usa youtubeUrls, depois embedsYoutubeSrc (compat)
   const youtubeEmbeds = useMemo(() => {
     const urls = (item?.youtubeUrls || []).map(toYouTubeEmbed);
@@ -137,7 +104,7 @@ export default function Detail() {
       inverted: false,
       content: (
         <>
-{/*           {item?.linkUrl && (
+          {/*           {item?.linkUrl && (
             <a
               className="button primary detail-external-link"
               href={item.linkUrl}
@@ -181,15 +148,30 @@ export default function Detail() {
             content: (
               <section className="detail-embeds">
                 <h2 className="detail-embeds-title">Bandcamp</h2>
-                <div className="detail-embeds-grid bandcamp-grid">
+                <Slider
+                  {...{
+                    // Match homepage carousel behavior: always show arrows, autoplay, responsive slidesToShow
+                    infinite: item.embedsBandcamp.length > 1,
+                    speed: 500,
+                    slidesToShow: Math.min(4, item.embedsBandcamp.length),
+                    slidesToScroll: 1,
+                    arrows: true,
+                    autoplay: true,
+                    autoplaySpeed: 7000,
+                    swipeToSlide: true,
+                    responsive: [
+                      { breakpoint: 1200, settings: { slidesToShow: Math.min(3, item.embedsBandcamp.length) } },
+                      { breakpoint: 900, settings: { slidesToShow: Math.min(2, item.embedsBandcamp.length) } },
+                      { breakpoint: 600, settings: { slidesToShow: 1 } },
+                    ],
+                  }}
+                >
                   {item.embedsBandcamp.map((html, idx) => (
-                    <div
-                      key={`bc-${idx}`}
-                      className="embed-card bandcamp"
-                      dangerouslySetInnerHTML={{ __html: html }}
-                    />
+                    <div key={`bc-${idx}`} className="bandcamp-carousel-slide">
+                      <div className="embed-card bandcamp" dangerouslySetInnerHTML={{ __html: html }} />
+                    </div>
                   ))}
-                </div>
+                </Slider>
               </section>
             ),
           },

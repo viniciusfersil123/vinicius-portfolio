@@ -55,6 +55,7 @@ function App() {
         `<iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=1846535594/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://tudos.bandcamp.com/album/tds013-muito-nasty">[tds013] Muito Nasty von Muito Nasty</a></iframe>`,
         `<iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=3315268750/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://tudos.bandcamp.com/album/tds015-terror-da-terra">[tds015] Terror da terra von Gabriel Edé</a></iframe>`,
         `<iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=3896437244/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://tudos.bandcamp.com/album/tds05-the-mystical-sounds-of-historical-materialism">[tds05] The Mystical Sounds of Historical Materialism von Ajnabi</a></iframe>`,
+        `<iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=1951198024/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/track=2292179843/transparent=true/" seamless><a href="https://tudos.bandcamp.com/album/tds04-o-maior-brasileiro-de-todos-os-tempos">[tds04] O Maior Brasileiro de Todos os Tempos von As Colegas de Trabalho</a></iframe>`,
       ],
       // novo: apenas URLs normais do YouTube (watch/playlist). A tela converte para embed.
       youtubeUrls: [
@@ -123,12 +124,10 @@ function App() {
       description: `Six loudspeakers are installed directly on cow bones, in positions suggested plastically by the animal's own bone structure. The sound system plays simultaneously, in subtle volume, Augusto Piccinini’s albums “Vários MIDIs maneiros com timbres mais maneiros ainda intercalados com frases de auto-ajuda narradas por vozes sintetizadas”, “Igual ao album anterior mas desta vez mais radical e mais profundo”, “Just like the last two albums but this time in english in order to appeal to international audiences”. The installation performs a kind of teratogenic resuscitation by reconstituting an animal-building from biological and architectural waste. Precarious and dying structure that forms an ironic oxymoron with the sound material, constituted by the semiotic saturation of the kitsch universe of a literature and musical production obsessed with the obliteration of the fundamental existential anguish of human experience.
 `,
       image: "/mobile_thumb.jpg",
-      images_details: buildImageDetails("Móbile de vaca morta com vergalhões de ferro [...]", [
-        "/mobile_1.jpg",
-        "/mobile_2.jpg",
-        "/mobile_3.jpg",
-        "/mobile_4.jpg",
-      ]),
+      images_details: buildImageDetails(
+        "Móbile de vaca morta com vergalhões de ferro [...]",
+        ["/mobile_1.jpg", "/mobile_2.jpg", "/mobile_3.jpg", "/mobile_4.jpg"],
+      ),
       embedsBandcamp: [
         `<iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=743014755/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://3edgy5u.bandcamp.com/album/v-rios-midis-maneiros-com-timbres-mais-maneiros-ainda-intercalados-com-frases-de-auto-ajuda-narradas-por-vozes-sintetizadas">Vários MIDIs maneiros com timbres mais maneiros ainda intercalados com frases de auto-ajuda narradas por vozes sintetizadas von 3edgy5u</a></iframe>`,
       ],
@@ -261,12 +260,15 @@ function App() {
       text: "Artigo publicado na revista Musica Theorica",
       description: `O artigo investiga a emergência do sujeito na narrativa do Prelúdio Op. 28 no. 14 de Chopin, analisando como elementos musicais e estruturais contribuem para a construção da subjetividade na obra. Através de uma abordagem interdisciplinar, busca-se compreender as implicações estéticas e filosóficas dessa narrativa musical.`,
       image: "/chopin_thumb.jpg",
-      images_details: buildImageDetails("A Emergência do Sujeito na Narrativa do Prelúdio Op. 28 no. 14 de Chopin", [
-        "/placeholder.jpg",
-        "/placeholder.jpg",
-        "/placeholder.jpg",
-        "/placeholder.jpg",
-      ]),
+      images_details: buildImageDetails(
+        "A Emergência do Sujeito na Narrativa do Prelúdio Op. 28 no. 14 de Chopin",
+        [
+          "/placeholder.jpg",
+          "/placeholder.jpg",
+          "/placeholder.jpg",
+          "/placeholder.jpg",
+        ],
+      ),
     },
     {
       title:
@@ -274,12 +276,15 @@ function App() {
       text: "Análise das cut-ups de Burroughs via Groys, apresentada e publicada nos proceedings da Sonologia 2019.",
       description: `O artigo analisa as cut-ups de William Burroughs à luz das ideias de Boris Groys, discutindo como as práticas artísticas contemporâneas podem ser entendidas através da noção de "suspensão submedial". A pesquisa foi apresentada e publicada nos proceedings da Sonologia 2019.`,
       image: "/sonologia_thumb.jpg",
-      images_details: buildImageDetails("The medium becomes infected by the message: Boris Groys' submedial suspicion as viral tropes in William Burroughs.", [
-        "/placeholder.jpg",
-        "/placeholder.jpg",
-        "/placeholder.jpg",
-        "/placeholder.jpg",
-      ]),
+      images_details: buildImageDetails(
+        "The medium becomes infected by the message: Boris Groys' submedial suspicion as viral tropes in William Burroughs.",
+        [
+          "/placeholder.jpg",
+          "/placeholder.jpg",
+          "/placeholder.jpg",
+          "/placeholder.jpg",
+        ],
+      ),
     },
   ];
 
@@ -325,11 +330,13 @@ function App() {
     textKey: `home.cards.software.${index}.text`,
   }));
 
-  const localizedPublicationCards = publicationCardsWithSlug.map((item, index) => ({
-    ...item,
-    titleKey: `home.cards.publications.${index}.title`,
-    textKey: `home.cards.publications.${index}.text`,
-  }));
+  const localizedPublicationCards = publicationCardsWithSlug.map(
+    (item, index) => ({
+      ...item,
+      titleKey: `home.cards.publications.${index}.title`,
+      textKey: `home.cards.publications.${index}.text`,
+    }),
+  );
 
   // expõe tudo para a página Detail
   (window as any).__APP_ALL__ = [
@@ -344,7 +351,11 @@ function App() {
   // quando estivermos na rota de item, usar dinamicamente o título/texto do item
   const allItems = (window as any).__APP_ALL__ || [];
   const currentItem = params.slug
-    ? allItems.find((it: any) => (it.slug as string) === params.slug || slugify(String(it.title || "")) === params.slug)
+    ? allItems.find(
+        (it: any) =>
+          (it.slug as string) === params.slug ||
+          slugify(String(it.title || "")) === params.slug,
+      )
     : null;
 
   const heroTitle = currentItem?.title || t("hero.title");
@@ -353,7 +364,10 @@ function App() {
   const highlightTextItems = currentItem?.images_details?.length
     ? currentItem.images_details.slice(0, 5).map((img: any, index: number) => ({
         title: img?.title || `${currentItem.title} ${index + 1}`,
-        caption: img?.caption || currentItem.caption || "Lorem ispsum, São Paulo (2026)",
+        caption:
+          img?.caption ||
+          currentItem.caption ||
+          "Lorem ispsum, São Paulo (2026)",
       }))
     : cardsWithSlug.slice(0, 5).map((it) => ({
         title: it.title,
@@ -410,9 +424,7 @@ function App() {
               {heroTitle}
               <br />
             </h1>
-            <p>
-              {heroSubtitle}
-            </p>
+            <p>{heroSubtitle}</p>
             {/* hero caption reserved for main page only */}
           </div>
 
@@ -445,7 +457,9 @@ function App() {
         {/* ABOUT */}
         <section id="about" className="section">
           {currentItem ? (
-            currentItem.description ? <p>{currentItem.description}</p> : null
+            currentItem.description ? (
+              <p>{currentItem.description}</p>
+            ) : null
           ) : (
             <>
               <h2>{t("section.about.title")}</h2>
@@ -456,127 +470,130 @@ function App() {
 
         {!currentItem && (
           <>
-        {/* ART */}
-        <section id="art" className="section section--inverted">
-          <h2>{t("home.section.art.title")}</h2>
-          <p>{t("home.section.art.subtitle")}</p>
+            {/* ART */}
+            <section id="art" className="section section--inverted">
+              <h2>{t("home.section.art.title")}</h2>
+              <p>{t("home.section.art.subtitle")}</p>
 
-          <Carousel
-            items={localizedCards}
-            slidesToShow={3}
-            autoplay={true}
-            onItemClick={openItem}
-          />
-        </section>
+              <Carousel
+                items={localizedCards}
+                slidesToShow={3}
+                autoplay={true}
+                onItemClick={openItem}
+              />
+            </section>
 
-        {/* TECH */}
-        <section id="tech" className="section">
-          <h2>{t("home.section.tech.title")}</h2>
-          <p>{t("home.section.tech.subtitle")}</p>
-          <Carousel
-            items={localizedTechCards}
-            slidesToShow={3}
-            autoplay={true}
-            onItemClick={openItem}
-          />
-        </section>
+            {/* TECH */}
+            <section id="tech" className="section">
+              <h2>{t("home.section.tech.title")}</h2>
+              <p>{t("home.section.tech.subtitle")}</p>
+              <Carousel
+                items={localizedTechCards}
+                slidesToShow={3}
+                autoplay={true}
+                onItemClick={openItem}
+              />
+            </section>
 
-        {/* RESEARCH & PUBLICATIONS (nova seção) */}
-        <section id="publications" className="section section--inverted">
-          <h2>{t("home.section.publications.title")}</h2>
-          <p>{t("home.section.publications.subtitle")}</p>
+            {/* RESEARCH & PUBLICATIONS (nova seção) */}
+            <section id="publications" className="section section--inverted">
+              <h2>{t("home.section.publications.title")}</h2>
+              <p>{t("home.section.publications.subtitle")}</p>
 
-          <Carousel
-            items={localizedPublicationCards}
-            slidesToShow={3}
-            autoplay={false}
-            onItemClick={openItem}
-          />
-        </section>
+              <Carousel
+                items={localizedPublicationCards}
+                slidesToShow={3}
+                autoplay={false}
+                onItemClick={openItem}
+              />
+            </section>
 
-        {/* SOFTWARE */}
-        <section id="software" className="section">
-          <h2>{t("home.section.software.title")}</h2>
-          <p>{t("home.section.software.subtitle")}</p>
-          <Carousel
-            items={localizedSoftwareCards}
-            slidesToShow={2}
-            autoplay={true}
-            onItemClick={openItem}
-          />
-        </section>
+            {/* SOFTWARE */}
+            <section id="software" className="section">
+              <h2>{t("home.section.software.title")}</h2>
+              <p>{t("home.section.software.subtitle")}</p>
+              <Carousel
+                items={localizedSoftwareCards}
+                slidesToShow={2}
+                autoplay={true}
+                onItemClick={openItem}
+              />
+            </section>
 
-        {/* CONTACT */}
-        <section id="contact" className="section section--inverted">
-          <h2>{t("contact.title")}</h2>
-          <p>{t("home.section.contact.subtitle")}</p>
-          <ul className="contact-links" aria-label={t("home.contact.linksAria")}> 
-            <li>
-              <a
-                href="https://www.instagram.com/viniciustabu/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={t("home.contact.instagram")}
-                title={t("home.contact.instagram")}
+            {/* CONTACT */}
+            <section id="contact" className="section section--inverted">
+              <h2>{t("contact.title")}</h2>
+              <p>{t("home.section.contact.subtitle")}</p>
+              <ul
+                className="contact-links"
+                aria-label={t("home.contact.linksAria")}
               >
-                <FaInstagram />
-              </a>
-            </li>
-            <li>
-              <a
-                href="mailto:viniciusfersil@gmail.com"
-                aria-label={t("contact.email")}
-                title={t("contact.email")}
-              >
-                <MdEmail />
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://github.com/viniciusfersil123/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={t("home.contact.github")}
-                title={t("home.contact.github")}
-              >
-                <FaGithub />
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.linkedin.com/in/viniciusfersil/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={t("home.contact.linkedin")}
-                title={t("home.contact.linkedin")}
-              >
-                <FaLinkedinIn />
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://t.me/viniciusfersil"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={t("home.contact.telegram")}
-                title={t("home.contact.telegram")}
-              >
-                <FaTelegramPlane />
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://wa.me/5511971963771"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={t("home.contact.whatsapp")}
-                title={t("home.contact.whatsapp")}
-              >
-                <FaWhatsapp />
-              </a>
-            </li>
-          </ul>
-        </section>
+                <li>
+                  <a
+                    href="https://www.instagram.com/viniciustabu/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={t("home.contact.instagram")}
+                    title={t("home.contact.instagram")}
+                  >
+                    <FaInstagram />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="mailto:viniciusfersil@gmail.com"
+                    aria-label={t("contact.email")}
+                    title={t("contact.email")}
+                  >
+                    <MdEmail />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://github.com/viniciusfersil123/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={t("home.contact.github")}
+                    title={t("home.contact.github")}
+                  >
+                    <FaGithub />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.linkedin.com/in/viniciusfersil/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={t("home.contact.linkedin")}
+                    title={t("home.contact.linkedin")}
+                  >
+                    <FaLinkedinIn />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://t.me/viniciusfersil"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={t("home.contact.telegram")}
+                    title={t("home.contact.telegram")}
+                  >
+                    <FaTelegramPlane />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://wa.me/5511971963771"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={t("home.contact.whatsapp")}
+                    title={t("home.contact.whatsapp")}
+                  >
+                    <FaWhatsapp />
+                  </a>
+                </li>
+              </ul>
+            </section>
           </>
         )}
       </main>

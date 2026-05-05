@@ -845,6 +845,66 @@ body {
   content: "›";
 }
 
+/* Bandcamp Carousel in Detail Page */
+.detail-embeds .slick-slider {
+  max-width: 100%;
+  margin: 0;
+}
+
+.detail-embeds .slick-list {
+  margin: 0 -0.75rem;
+}
+
+.bandcamp-carousel-slide {
+  padding: 0 0.75rem;
+}
+
+.detail-embeds .slick-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--section-arrow, #fff);
+}
+
+.detail-embeds .slick-prev {
+  left: -60px;
+}
+
+.detail-embeds .slick-next {
+  right: -60px;
+}
+
+.detail-embeds .slick-arrow:before {
+  font-size: 5rem;
+  line-height: 0;
+  opacity: 1;
+  color: var(--section-arrow, #fff);
+}
+
+.detail-embeds .slick-prev:before {
+  content: "‹";
+}
+
+.detail-embeds .slick-next:before {
+  content: "›";
+}
+
+@media (max-width: 600px) {
+  .detail-embeds .slick-prev {
+    left: -35px;
+  }
+  
+  .detail-embeds .slick-next {
+    right: -30px;
+  }
+}
+
 /* --- DETALHE (página de item) --- */
 .detail-sections {
   width: 100%;
