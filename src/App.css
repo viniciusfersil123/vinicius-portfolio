@@ -863,7 +863,21 @@ body {
   margin: 0.45rem 0 0;
   font-size: 0.78rem;
   line-height: 1.4;
-  color: rgba(245, 245, 245, 0.68);
+  color: var(--section-muted);
+  letter-spacing: 0.02em;
+  text-align: center;
+}
+
+.embed-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.embed-wrapper .embed-caption {
+  margin: 0.45rem 0 0;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: var(--section-muted);
   letter-spacing: 0.02em;
   text-align: center;
 }
@@ -1137,6 +1151,15 @@ body {
 /* YouTube */
 .youtube-carousel-slide {
   padding: 0 0.75rem;
+}
+
+.youtube-carousel-slide .youtube-caption {
+  margin: 0.45rem 0 0;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: var(--section-muted);
+  letter-spacing: 0.02em;
+  text-align: center;
 }
 
 .youtube-carousel-slide .embed-card {

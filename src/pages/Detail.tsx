@@ -21,12 +21,16 @@ type Item = {
     title: string;
     caption: string;
   }>;
-  embeds?: string[];
+  embeds?: Array<{
+    html: string;
+    caption?: string;
+  } | string>;
   embedsBandcamp?: Array<{
     html: string;
     caption?: string;
   }>;
   youtubeUrls?: string[];
+  youtubeCaption?: string[];
   embedsYoutubeSrc?: string[];
   caption?: string;
   // novo:
@@ -130,13 +134,21 @@ export default function Detail() {
               <section className="detail-embeds">
                 <h2 className="detail-embeds-title">Ouça/Veja</h2>
                 <div className="detail-embeds-grid">
-                  {item.embeds.map((html: string, idx: number) => (
-                    <div
-                      key={idx}
-                      className="embed-card"
-                      dangerouslySetInnerHTML={{ __html: html }}
-                    />
-                  ))}
+                  {item.embeds.map((embed, idx: number) => {
+                    const isString = typeof embed === 'string';
+                    const html = isString ? embed : embed.html;
+                    const caption = isString ? undefined : embed.caption;
+                    
+                    return (
+                      <div key={idx} className="embed-wrapper">
+                        <div
+                          className="embed-card"
+                          dangerouslySetInnerHTML={{ __html: html }}
+                        />
+                        {caption ? <p className="embed-caption">{caption}</p> : null}
+                      </div>
+                    );
+                  })}
                 </div>
               </section>
             ),
@@ -215,21 +227,25 @@ export default function Detail() {
                     ],
                   }}
                 >
-                  {youtubeEmbeds.map((src, idx) => (
-                    <div key={`yt-src-${idx}`} className="youtube-carousel-slide">
-                      <div className="embed-card youtube">
-                        <iframe
-                          src={src}
-                          title={`YouTube ${idx + 1}`}
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                          referrerPolicy="strict-origin-when-cross-origin"
-                          allowFullScreen
-                          loading="lazy"
-                          sandbox="allow-scripts allow-same-origin allow-presentation"
-                        />
+                  {youtubeEmbeds.map((src, idx) => {
+                    const caption = item?.youtubeCaption?.[idx];
+                    return (
+                      <div key={`yt-src-${idx}`} className="youtube-carousel-slide">
+                        <div className="embed-card youtube">
+                          <iframe
+                            src={src}
+                            title={`YouTube ${idx + 1}`}
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerPolicy="strict-origin-when-cross-origin"
+                            allowFullScreen
+                            loading="lazy"
+                            sandbox="allow-scripts allow-same-origin allow-presentation"
+                          />
+                        </div>
+                        {caption ? <p className="youtube-caption">{caption}</p> : null}
                       </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </Slider>
               </section>
             ),

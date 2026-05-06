@@ -80,6 +80,12 @@ function App() {
         "https://www.youtube.com/watch?v=eoajLMbmk6w",
         "https://www.youtube.com/watch?v=YidEM9CXKeY",
       ],
+      youtubeCaption: [
+        "Caption do vídeo 1 - Lorem ipsum dolor",
+        "Caption do vídeo 2 - Test caption",
+        "Caption do vídeo 3 - Ouça/Veja",
+        "Caption do vídeo 4 - Youtube embed test",
+      ],
       linkUrl: "https://tudos.bandcamp.com/",
       linkTitle: "Conheça todo o catálogo dos lançamentos clicando aqui",
     },
