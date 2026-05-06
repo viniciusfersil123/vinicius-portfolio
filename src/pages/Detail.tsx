@@ -22,7 +22,10 @@ type Item = {
     caption: string;
   }>;
   embeds?: string[];
-  embedsBandcamp?: string[];
+  embedsBandcamp?: Array<{
+    html: string;
+    caption?: string;
+  }>;
   youtubeUrls?: string[];
   embedsYoutubeSrc?: string[];
   caption?: string;
@@ -166,9 +169,10 @@ export default function Detail() {
                     ],
                   }}
                 >
-                  {item.embedsBandcamp.map((html, idx) => (
+                  {item.embedsBandcamp.map((embed, idx) => (
                     <div key={`bc-${idx}`} className="bandcamp-carousel-slide">
-                      <div className="embed-card bandcamp" dangerouslySetInnerHTML={{ __html: html }} />
+                      <div className="embed-card bandcamp" dangerouslySetInnerHTML={{ __html: embed.html }} />
+                      {embed.caption ? <p className="bandcamp-caption">{embed.caption}</p> : null}
                     </div>
                   ))}
                 </Slider>
@@ -185,21 +189,48 @@ export default function Detail() {
             content: (
               <section className="detail-embeds">
                 <h2 className="detail-embeds-title">Vídeos</h2>
-                <div className="detail-embeds-grid youtube-grid">
+                <Slider
+                  {...{
+                    infinite: youtubeEmbeds.length > 1,
+                    speed: 500,
+                    slidesToShow: Math.min(2, youtubeEmbeds.length),
+                    slidesToScroll: 1,
+                    arrows: true,
+                    autoplay: youtubeEmbeds.length > 1,
+                    autoplaySpeed: 7000,
+                    swipeToSlide: true,
+                    responsive: [
+                      {
+                        breakpoint: 1200,
+                        settings: { slidesToShow: Math.min(2, youtubeEmbeds.length) },
+                      },
+                      {
+                        breakpoint: 900,
+                        settings: { slidesToShow: Math.min(1, youtubeEmbeds.length) },
+                      },
+                      {
+                        breakpoint: 600,
+                        settings: { slidesToShow: 1 },
+                      },
+                    ],
+                  }}
+                >
                   {youtubeEmbeds.map((src, idx) => (
-                    <div key={`yt-src-${idx}`} className="embed-card youtube">
-                      <iframe
-                        src={src}
-                        title={`YouTube ${idx + 1}`}
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerPolicy="strict-origin-when-cross-origin"
-                        allowFullScreen
-                        loading="lazy"
-                        sandbox="allow-scripts allow-same-origin allow-presentation"
-                      />
+                    <div key={`yt-src-${idx}`} className="youtube-carousel-slide">
+                      <div className="embed-card youtube">
+                        <iframe
+                          src={src}
+                          title={`YouTube ${idx + 1}`}
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          referrerPolicy="strict-origin-when-cross-origin"
+                          allowFullScreen
+                          loading="lazy"
+                          sandbox="allow-scripts allow-same-origin allow-presentation"
+                        />
+                      </div>
                     </div>
                   ))}
-                </div>
+                </Slider>
               </section>
             ),
           },

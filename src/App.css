@@ -859,6 +859,15 @@ body {
   padding: 0 0.75rem;
 }
 
+.bandcamp-carousel-slide .bandcamp-caption {
+  margin: 0.45rem 0 0;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: rgba(245, 245, 245, 0.68);
+  letter-spacing: 0.02em;
+  text-align: center;
+}
+
 .bandcamp-carousel-slide .embed-card {
   aspect-ratio: 1 / 1;
   overflow: hidden;
@@ -1126,24 +1135,28 @@ body {
 }
 
 /* YouTube */
-.youtube-grid {
-  grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+.youtube-carousel-slide {
+  padding: 0 0.75rem;
 }
-.embed-card.youtube {
+
+.youtube-carousel-slide .embed-card {
   padding: 0;
-}
-.embed-card.youtube iframe {
-  width: 100%;
   aspect-ratio: 16 / 9;
-  height: auto;
+  overflow: hidden;
+}
+
+.youtube-carousel-slide .embed-card iframe {
+  width: 100% !important;
+  height: 100% !important;
   border: 0;
   border-radius: 12px;
   display: block;
   background: #000;
 }
+
 @media (max-width: 600px) {
-  .youtube-grid {
-    grid-template-columns: 1fr;
+  .youtube-carousel-slide {
+    padding: 0 0.4rem;
   }
 }
 
