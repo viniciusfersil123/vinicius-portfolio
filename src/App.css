@@ -594,7 +594,7 @@ body {
   --section-card-text: #111;
   --section-card-muted: #2d2d2d;
   --section-arrow: #fff;
-  padding: 1.3rem 10rem 1.6rem;
+  padding: 1.3rem 6rem 1.6rem;
   background: var(--section-bg);
   color: var(--section-text);
 }
