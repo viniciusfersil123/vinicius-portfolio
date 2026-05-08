@@ -331,7 +331,8 @@ body {
   z-index: 2;
   pointer-events: none;
   /* White-noise test: make the pseudo overlay almost fully cover the image */
-  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'><filter id='n'><feTurbulence type='turbulence' baseFrequency='0.9' numOctaves='6' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>") repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'><filter id='n'><feTurbulence type='turbulence' baseFrequency='0.9' numOctaves='6' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>")
+    repeat;
   background-size: cover;
   mix-blend-mode: normal;
   filter: contrast(5%) brightness(90%);
@@ -475,6 +476,13 @@ body {
   justify-content: start;
   margin-right: 2.5rem;
 }
+@media (max-width: 1200px) {
+  .highlight-overlay {
+    flex-direction: column;
+    align-items: start;
+    gap: 0;
+  }
+}
 
 @media (max-width: 900px) {
   .hero-text {
@@ -491,7 +499,7 @@ body {
 @media (max-width: 600px) {
   .hero {
     height: 260px;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
   }
 
   .highlight-overlay {
@@ -593,13 +601,13 @@ body {
 
 @media (max-width: 900px) {
   .section {
- padding: 1.3rem 5rem 2rem 5rem;
+    padding: 1.3rem 5rem 2rem 5rem;
   }
 }
 
 @media (max-width: 600px) {
   .section {
- padding: 0rem 3rem 2rem 3rem;
+    padding: 0rem 3rem 2rem 3rem;
   }
 }
 
@@ -1163,7 +1171,6 @@ body {
   padding: 0.5rem;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 }
-
 
 /* Bandcamp */
 .embed-card iframe {

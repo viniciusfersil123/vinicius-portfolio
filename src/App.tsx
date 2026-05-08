@@ -22,34 +22,36 @@ function slugify(s: string) {
     .replace(/(^-|-$)/g, "");
 }
 
-function buildImageDetails(
-  itemTitle: string,
-  srcs: string[],
-  offsets?: Array<{
-    x?: string;
-    y?: string;
-    x900?: string;
-    y900?: string;
-    x600?: string;
-    y600?: string;
-  }>,
-) {
-  return srcs.map((src, index) => {
-    const offset = offsets?.[index];
-    const isPlaceholder = src.includes("placeholder.jpg");
+type ImageDetailInput = {
+  src: string;
+  title: string;
+  caption: string;
+  x?: string;
+  y?: string;
+  x900?: string;
+  y900?: string;
+  x600?: string;
+  y600?: string;
+};
 
-    return {
-      src,
-      title: `${itemTitle} ${index + 1}`,
-      caption: "Lorem ispsum, São Paulo (2026)",
-      imageOffsetX: offset?.x ?? (isPlaceholder ? "0px" : undefined),
-      imageOffsetY: offset?.y ?? (isPlaceholder ? "0px" : undefined),
-      imageOffsetX900: offset?.x900 ?? (isPlaceholder ? "0px" : undefined),
-      imageOffsetY900: offset?.y900 ?? (isPlaceholder ? "0px" : undefined),
-      imageOffsetX600: offset?.x600 ?? (isPlaceholder ? "0px" : undefined),
-      imageOffsetY600: offset?.y600 ?? (isPlaceholder ? "0px" : undefined),
-    };
-  });
+function buildImageDetails(details: ImageDetailInput[]) {
+  return details.map(
+    ({ src, title, caption, x, y, x900, y900, x600, y600 }) => {
+      const isPlaceholder = src.includes("placeholder.jpg");
+
+      return {
+        src,
+        title,
+        caption,
+        imageOffsetX: x ?? (isPlaceholder ? "0px" : undefined),
+        imageOffsetY: y ?? (isPlaceholder ? "0px" : undefined),
+        imageOffsetX900: x900 ?? (isPlaceholder ? "0px" : undefined),
+        imageOffsetY900: y900 ?? (isPlaceholder ? "0px" : undefined),
+        imageOffsetX600: x600 ?? (isPlaceholder ? "0px" : undefined),
+        imageOffsetY600: y600 ?? (isPlaceholder ? "0px" : undefined),
+      };
+    },
+  );
 }
 
 function buildBandcampEmbed(html: string, caption: string) {
@@ -65,79 +67,93 @@ function App() {
       title: "TUDOS",
       text: `Selo dedicado ao lançamento de artistas que trabalham com composição experimental.
 `,
-      description: `O TUDOS é um selo independente fundado por Vinícius Fernandes em 2014, focado na divulgação de obras experimentais que exploram as fronteiras entre música, arte sonora e tecnologia. O selo busca promover artistas que desafiam convenções sonoras, utilizando técnicas como síntese sonora, manipulação de áudio, instalações interativas e performances ao vivo. Com uma abordagem colaborativa, o TUDOS tem como objetivo criar uma plataforma para a experimentação sonora e a inovação artística, incentivando a troca de ideias e a expansão dos limites da criação musical contemporânea.
-`,
+      description: `TUDOS é um selo e produtora co-fundada por Vinícius Fernandes em 2014 voltada ao lançamento de artistas que trabalham com composição experimental. Além disso, o projeto também abrange iniciativas em diferentes vertentes da música experimental, como improvisação livre, música eletrônica, música conceitual e plunderphonics, entre outras.
+TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em mais de 7 países. Em 2015, o projeto recebeu apoio financeiro por meio de um edital da Universidade Estadual de Campinas (UNICAMP)`,
       image: "/tudos_thumb.jpg",
-      images_details: buildImageDetails(
-        "TUDOS",
-        [
-          "/tudos_detail_1.jpeg",
-          "/tudos_detail_2.jpg",
-          "/tudos_detail_3.jpg",
-          "/tudos_detail_4.jpg",
-          "/tudos_detail_5.jpg",
-          "/tudos_detail_6.jpg",
-          "/tudos_detail_7.jpg",
-        ],
-        [
-          {
-            x: "18%",
-            y: "-100%",
-            x900: "18%", // valor para breakpoint 900
-            y900: "-100%",
-            x600: "30%", // valor para breakpoint 600
-            y600: "-100%",
-          },
-          {
-            x: "0px",
-            y: "-40%",
-            x900: "0px",
-            y900: "-50%",
-            x600: "0px",
-            y600: "-50%",
-          },
-          {
-            x: "0px",
-            y: "-45%",
-            x900: "0px",
-            y900: "-50%",
-            x600: "50%",
-            y600: "-50%",
-          },
-          {
-            x: "0px",
-            y: "-70%",
-            x900: "0px",
-            y900: "-40%",
-            x600: "50%",
-            y600: "-40%",
-          },
-          {
-            x: "0px",
-            y: "-90%",
-            x900: "0px",
-            y900: "-50%",
-            x600: "-5%",
-            y600: "-50%",
-          },
-        ],
-      ),
+      images_details: buildImageDetails([
+        {
+          src: "/tudos_detail_1.jpeg",
+          title: "Lucas Rodrigues (Tantão à direita) - TUDOS Mini RJ Tour",
+          caption: "Boca, Rio de Janeiro - RJ, Brasil - 2019",
+          x: "18%",
+          y: "-100%",
+          x900: "18%",
+          y900: "-100%",
+          x600: "30%",
+          y600: "-100%",
+        },
+        {
+          src: "/tudos_detail_2.jpg",
+          title: "Bin Beri Ban",
+          caption:
+            "TUDOS na UNICAMP #3 - II encontro de estudos do canto e da canção popular, Campinas- SP, Brasil - 2015",
+          x: "0px",
+          y: "-40%",
+          x900: "0px",
+          y900: "-50%",
+          x600: "0px",
+          y600: "-50%",
+        },
+        {
+          src: "/tudos_detail_3.jpg",
+          title: "AVC LTDA",
+          caption: "TUDOS na UNICAMP #7, Campinas - SP, Brasil - 2015",
+          x: "0px",
+          y: "-45%",
+          x900: "0px",
+          y900: "-50%",
+          x600: "50%",
+          y600: "-50%",
+        },
+        {
+          src: "/tudos_detail_4.jpg",
+          title: "Maurício Takara",
+          caption: "TUDOS #12 - Bar do Zé, Campinas - SP, Brasil - 2015",
+          x: "0px",
+          y: "-70%",
+          x900: "0px",
+          y900: "-40%",
+          x600: "50%",
+          y600: "-40%",
+        },
+        {
+          src: "/tudos_detail_5.jpg",
+          title: "Minivan",
+          caption: "TUDOS na FAUHAUS #2, São Paulo - SP, Brasil - 2019",
+          x: "0px",
+          y: "-90%",
+          x900: "0px",
+          y900: "-50%",
+          x600: "-5%",
+          y600: "-50%",
+        },
+        {
+          src: "/tudos_detail_6.jpg",
+          title: "TUDOS — detalhe 6",
+          caption: "Detalhe complementar de documentação do projeto TUDOS.",
+        },
+        {
+          src: "/tudos_detail_7.jpg",
+          title: "TUDOS — detalhe 7",
+          caption: "Imagem final da série de registros do selo TUDOS.",
+        },
+      ]),
       embedsBandcamp: [
         buildBandcampEmbed(
           `<iframe style="border: 0; width: 350px; height: 350px;" src="https://bandcamp.com/EmbeddedPlayer/album=1846535594/size=large/bgcol=ffffff/linkcol=0687f5/minimal=true/transparent=true/" seamless><a href="https://tudos.bandcamp.com/album/tds013-muito-nasty">[tds013] Muito Nasty von Muito Nasty</a></iframe>`,
-          "Lorem ipsum dolor sit amet.",
+          "2019 - Muito Nasty - Muito Nasty",
         ),
         buildBandcampEmbed(
           `<iframe style="border: 0; width: 350px; height: 350px;" src="https://bandcamp.com/EmbeddedPlayer/album=3315268750/size=large/bgcol=ffffff/linkcol=0687f5/minimal=true/transparent=true/" seamless><a href="https://tudos.bandcamp.com/album/tds015-terror-da-terra">[tds015] Terror da terra von Gabriel Edé</a></iframe>`,
-          "Lorem ipsum dolor sit amet.",
+          "2020 - Terror da Terra - Gabriel Edé",
         ),
         buildBandcampEmbed(
           `<iframe style="border: 0; width: 350px; height: 350px;" src="https://bandcamp.com/EmbeddedPlayer/album=3896437244/size=large/bgcol=ffffff/linkcol=0687f5/minimal=true/transparent=true/" seamless><a href="https://tudos.bandcamp.com/album/tds05-the-mystical-sounds-of-historical-materialism">[tds05] The Mystical Sounds of Historical Materialism von Ajnabi</a></iframe>`,
-          "Lorem ipsum dolor sit amet.",
+          "2016 - The Mystical Sounds of Historical Materialism - Ajnabi",
         ),
         buildBandcampEmbed(
           `<iframe style="border: 0; width: 350px; height: 350px;" src="https://bandcamp.com/EmbeddedPlayer/album=1951198024/size=large/bgcol=ffffff/linkcol=0687f5/minimal=true/transparent=true/" seamless><a href="https://tudos.bandcamp.com/album/tds04-o-maior-brasileiro-de-todos-os-tempos">[tds04] O Maior Brasileiro de Todos os Tempos von As Colegas de Trabalho</a></iframe>`,
-          "Lorem ipsum dolor sit amet.",
+          "2015 - O Maior Brasileiro de Todos os Tempos - As Colegas de Trabalho",
         ),
       ],
       // novo: apenas URLs normais do YouTube (watch/playlist). A tela converte para embed.
@@ -148,13 +164,13 @@ function App() {
         "https://www.youtube.com/watch?v=YidEM9CXKeY",
       ],
       youtubeCaption: [
-        "Caption do vídeo 1 - Lorem ipsum dolor",
-        "Caption do vídeo 2 - Test caption",
-        "Caption do vídeo 3 - Ouça/Veja",
-        "Caption do vídeo 4 - Youtube embed test",
+        "TUDOS #4 - Bin Beri Ban - Campinas, SP, Brasil - 2014",
+        "TUDOS #3 - Gustavo Torres - Campinas, SP, Brasil - 2014",
+        "TUDOS #2 - Para Leila Khaled - Campinas, SP, Brasil - 2014",
+        "TUDOS na UNICAMP #2 - Tabutril - Campinas, SP, Brasil - 2015",
       ],
       linkUrl: "https://tudos.bandcamp.com/",
-      linkTitle: "Ouça todo o catálogo do TUDOS clicando aqui",
+      linkTitle: "Ouça todo o catálogo clicando aqui",
     },
     {
       title: "9 chifres",
@@ -162,14 +178,42 @@ function App() {
       description: `"9 antlers" is a piece for guitar and electronics. All of its sound material is motivated by the traditional Lithuanian song Kalėdų rytu rožė inžydo, in which the appearance of a 9-horned deer triggers a flow of images of cosmological updates. Its prime melodic universe is distended in electronic sound textures produced by various techniques of computational synthesis and processing. Inspired by the experiences of the so-called 'verbal composition' in electroacoustic music, such as Karlheinz Stockhausen's Gesang der Jünglinge (1955-1956) or Luciano Berio's Thema (Omaggio a Joyce) (1958), part of '9 horns' is also composed of sounds derived from a female voice singing the song.The piece will be played in a sound system installed in 9 objects created along the #32bienal with mycelia of the fungus Pleurotus ostreatus, part of the work Psychotropic House: Zooetics Pavilion of Ballardian Technologies by Nomeda & Gediminas Urbonas.
 `,
       image: "/9_chifres_thumb.JPG",
-      images_details: buildImageDetails("9 chifres", [
-        "/9_chifres_1.JPG",
-        "/9_chifres_2.JPG",
-        "/9_chifres_3.jpg",
-        "/9_chifres_4.JPG",
-        "/9_chifres_5.JPG",
-        "/9_chifres_6.jpg",
-        "/9_chifres_7.jpg",
+      images_details: buildImageDetails([
+        {
+          src: "/9_chifres_1.JPG",
+          title: "9 chifres — imagem 1",
+          caption: "Registro da obra na instalação apresentada na 32ª Bienal.",
+        },
+        {
+          src: "/9_chifres_2.JPG",
+          title: "9 chifres — imagem 2",
+          caption: "Detalhe do conjunto visual e espacial da peça.",
+        },
+        {
+          src: "/9_chifres_3.jpg",
+          title: "9 chifres — imagem 3",
+          caption: "Vista complementar do trabalho em exibição.",
+        },
+        {
+          src: "/9_chifres_4.JPG",
+          title: "9 chifres — imagem 4",
+          caption: "Outro enquadramento da peça eletrônica e seus suportes.",
+        },
+        {
+          src: "/9_chifres_5.JPG",
+          title: "9 chifres — imagem 5",
+          caption: "Detalhe do ambiente de apresentação do trabalho.",
+        },
+        {
+          src: "/9_chifres_6.jpg",
+          title: "9 chifres — imagem 6",
+          caption: "Registro adicional da obra e da sua circulação espacial.",
+        },
+        {
+          src: "/9_chifres_7.jpg",
+          title: "9 chifres — imagem 7",
+          caption: "Última imagem da série de documentação do projeto.",
+        },
       ]),
     },
     {
@@ -178,13 +222,39 @@ function App() {
       description: `A instalação sonora "Metempsicose" explora a ideia de transformação e reencarnação através do som. Utilizando um rádio sintonizado em uma estação local aleatória, a obra cria uma conexão dinâmica entre o ambiente sonoro capturado e dois alto-falantes modificados, que são conectados a uma guitarra e a um tamtam. Essa interação gera uma paisagem sonora única e em constante evolução, convidando os espectadores a refletirem sobre os ciclos de vida, morte e renascimento presentes na natureza e na experiência humana.
 `,
       image: "/metempsicose_thumb.jpg",
-      images_details: buildImageDetails("Metempsicose", [
-        "/metempsicose_1.jpg",
-        "/metempsicose_2.jpg",
-        "/metempsicose_3.jpg",
-        "/metempsicose_4.jpg",
-        "/metempsicose_5.jpg",
-        "/metempsicose_6.jpg",
+      images_details: buildImageDetails([
+        {
+          src: "/metempsicose_1.jpg",
+          title: "Metempsicose — imagem 1",
+          caption:
+            "Instalação sonora com rádio, alto-falantes e instrumentos modificados.",
+        },
+        {
+          src: "/metempsicose_2.jpg",
+          title: "Metempsicose — imagem 2",
+          caption: "Detalhe do arranjo dos componentes eletroacústicos.",
+        },
+        {
+          src: "/metempsicose_3.jpg",
+          title: "Metempsicose — imagem 3",
+          caption: "Outro registro da montagem e da espacialização do som.",
+        },
+        {
+          src: "/metempsicose_4.jpg",
+          title: "Metempsicose — imagem 4",
+          caption: "Vista da obra em interação com o ambiente expositivo.",
+        },
+        {
+          src: "/metempsicose_5.jpg",
+          title: "Metempsicose — imagem 5",
+          caption:
+            "Detalhe dos alto-falantes modificados ligados à guitarra e ao tamtam.",
+        },
+        {
+          src: "/metempsicose_6.jpg",
+          title: "Metempsicose — imagem 6",
+          caption: "Imagem final da documentação da instalação sonora.",
+        },
       ]),
       embedsBandcamp: [
         buildBandcampEmbed(
@@ -201,13 +271,37 @@ function App() {
       image: "/musica_thumb.jpg",
       imageOffsetX: "50%",
       imageOffsetY: "40%",
-      images_details: buildImageDetails("¿Música?", [
-        "/musica_1.JPG",
-        "/musica_2.jpg",
-        "/musica_3.jpg",
-        "/musica_4.jpg",
-        "/musica_5.jpg",
-        "/musica_6.jpg",
+      images_details: buildImageDetails([
+        {
+          src: "/musica_1.JPG",
+          title: "¿Música? — imagem 1",
+          caption: "Registro de uma das ações/performance da série.",
+        },
+        {
+          src: "/musica_2.jpg",
+          title: "¿Música? — imagem 2",
+          caption: "Vista de instalação ligada à pesquisa em arte sonora.",
+        },
+        {
+          src: "/musica_3.jpg",
+          title: "¿Música? — imagem 3",
+          caption: "Documentação de uma exposição ou performance da série.",
+        },
+        {
+          src: "/musica_4.jpg",
+          title: "¿Música? — imagem 4",
+          caption: "Outro momento do projeto ¿Música? em apresentação pública.",
+        },
+        {
+          src: "/musica_5.jpg",
+          title: "¿Música? — imagem 5",
+          caption: "Detalhe de interação entre público, espaço e som.",
+        },
+        {
+          src: "/musica_6.jpg",
+          title: "¿Música? — imagem 6",
+          caption: "Último registro da série de imagens do projeto.",
+        },
       ]),
     },
     {
@@ -216,10 +310,30 @@ function App() {
       description: `Six loudspeakers are installed directly on cow bones, in positions suggested plastically by the animal's own bone structure. The sound system plays simultaneously, in subtle volume, Augusto Piccinini’s albums “Vários MIDIs maneiros com timbres mais maneiros ainda intercalados com frases de auto-ajuda narradas por vozes sintetizadas”, “Igual ao album anterior mas desta vez mais radical e mais profundo”, “Just like the last two albums but this time in english in order to appeal to international audiences”. The installation performs a kind of teratogenic resuscitation by reconstituting an animal-building from biological and architectural waste. Precarious and dying structure that forms an ironic oxymoron with the sound material, constituted by the semiotic saturation of the kitsch universe of a literature and musical production obsessed with the obliteration of the fundamental existential anguish of human experience.
 `,
       image: "/mobile_thumb.jpg",
-      images_details: buildImageDetails(
-        "Móbile de vaca morta com vergalhões de ferro [...]",
-        ["/mobile_1.jpg", "/mobile_2.jpg", "/mobile_3.jpg", "/mobile_4.jpg"],
-      ),
+      images_details: buildImageDetails([
+        {
+          src: "/mobile_1.jpg",
+          title: "Móbile de vaca morta — imagem 1",
+          caption:
+            "Registro da instalação com ossos, alto-falantes e vergalhões.",
+        },
+        {
+          src: "/mobile_2.jpg",
+          title: "Móbile de vaca morta — imagem 2",
+          caption: "Detalhe do suporte e da composição material da obra.",
+        },
+        {
+          src: "/mobile_3.jpg",
+          title: "Móbile de vaca morta — imagem 3",
+          caption:
+            "Vista lateral da instalação sonora e seus elementos plásticos.",
+        },
+        {
+          src: "/mobile_4.jpg",
+          title: "Móbile de vaca morta — imagem 4",
+          caption: "Imagem final da documentação da peça.",
+        },
+      ]),
       embedsBandcamp: [
         buildBandcampEmbed(
           `<iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=743014755/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://3edgy5u.bandcamp.com/album/v-rios-midis-maneiros-com-timbres-mais-maneiros-ainda-intercalados-com-frases-de-auto-ajuda-narradas-por-vozes-sintetizadas">Vários MIDIs maneiros com timbres mais maneiros ainda intercalados com frases de auto-ajuda narradas por vozes sintetizadas von 3edgy5u</a></iframe>`,
@@ -234,14 +348,42 @@ function App() {
       description: `O "Fitosintetizador" é uma instalação sonora interativa que explora a relação entre natureza e tecnologia. Utilizando plantas como controladoras de síntese sonora, a obra convida os espectadores a interagir com o ambiente de forma única, criando paisagens sonoras dinâmicas e orgânicas. Através de sensores e processamento de sinais, as plantas se tornam instrumentos musicais, desafiando as noções tradicionais de autoria e performance.
 `,
       image: "/fitosintetizador_thumb.jpg",
-      images_details: buildImageDetails("Fitosintetizador", [
-        "/fitosintetizador_1.jpg",
-        "/fitosintetizador_2.jpg",
-        "/fitosintetizador_3.jpg",
-        "/fitosintetizador_4.jpg",
-        "/fitosintetizador_5.jpg",
-        "/fitosintetizador_6.jpg",
-        "/fitosintetizador_7.jpg",
+      images_details: buildImageDetails([
+        {
+          src: "/fitosintetizador_1.jpg",
+          title: "Fitosintetizador — imagem 1",
+          caption: "Plantas utilizadas como controladoras da síntese sonora.",
+        },
+        {
+          src: "/fitosintetizador_2.jpg",
+          title: "Fitosintetizador — imagem 2",
+          caption: "Detalhe dos sensores e da interação com o ambiente.",
+        },
+        {
+          src: "/fitosintetizador_3.jpg",
+          title: "Fitosintetizador — imagem 3",
+          caption: "Vista da instalação em funcionamento.",
+        },
+        {
+          src: "/fitosintetizador_4.jpg",
+          title: "Fitosintetizador — imagem 4",
+          caption: "Outro enquadramento da obra interativa com plantas.",
+        },
+        {
+          src: "/fitosintetizador_5.jpg",
+          title: "Fitosintetizador — imagem 5",
+          caption: "Registro do conjunto de síntese e resposta sonora.",
+        },
+        {
+          src: "/fitosintetizador_6.jpg",
+          title: "Fitosintetizador — imagem 6",
+          caption: "Detalhe da materialidade da instalação sonora.",
+        },
+        {
+          src: "/fitosintetizador_7.jpg",
+          title: "Fitosintetizador — imagem 7",
+          caption: "Última imagem da série de documentação do projeto.",
+        },
       ]),
     },
     {
@@ -250,11 +392,27 @@ function App() {
       description: `Echos of the deep é um software de sonificação de dados metabólicos de esponjas marinhas, apresentado no contexto da 12th World Sponge Conference. A obra explora as interações entre os organismos marinhos e seu ambiente, utilizando técnicas de sonificação para transformar dados científicos em experiências sonoras imersivas.
 `,
       image: "/sponges_thumb.jpg",
-      images_details: buildImageDetails("Echos of the deep", [
-        "/placeholder.jpg",
-        "/placeholder.jpg",
-        "/placeholder.jpg",
-        "/placeholder.jpg",
+      images_details: buildImageDetails([
+        {
+          src: "/placeholder.jpg",
+          title: "Echos of the deep — imagem 1",
+          caption: "Espaço reservado para registro visual da sonificação.",
+        },
+        {
+          src: "/placeholder.jpg",
+          title: "Echos of the deep — imagem 2",
+          caption: "Imagem de apoio da apresentação do software.",
+        },
+        {
+          src: "/placeholder.jpg",
+          title: "Echos of the deep — imagem 3",
+          caption: "Documento visual complementar do projeto.",
+        },
+        {
+          src: "/placeholder.jpg",
+          title: "Echos of the deep — imagem 4",
+          caption: "Registro reservado para a conferência e a obra.",
+        },
       ]),
     },
     {
@@ -263,11 +421,27 @@ function App() {
       description: `A Discografia reúne todos os discos, singles e colaborações de Vinícius Fernandes, apresentando uma visão abrangente de sua trajetória musical e artística. Através de uma seleção cuidadosa de faixas e projetos, a discografia reflete a evolução do artista ao longo dos anos, destacando suas experimentações sonoras e colaborações com outros músicos e artistas.
 `,
       image: "/discografia_thumb.jpg",
-      images_details: buildImageDetails("Discografia", [
-        "/placeholder.jpg",
-        "/placeholder.jpg",
-        "/placeholder.jpg",
-        "/placeholder.jpg",
+      images_details: buildImageDetails([
+        {
+          src: "/placeholder.jpg",
+          title: "Discografia — imagem 1",
+          caption: "Espaço reservado para a documentação do catálogo.",
+        },
+        {
+          src: "/placeholder.jpg",
+          title: "Discografia — imagem 2",
+          caption: "Imagem de apoio para releases e álbuns.",
+        },
+        {
+          src: "/placeholder.jpg",
+          title: "Discografia — imagem 3",
+          caption: "Registro complementar da reunião de trabalhos.",
+        },
+        {
+          src: "/placeholder.jpg",
+          title: "Discografia — imagem 4",
+          caption: "Último item visual do bloco de discografia.",
+        },
       ]),
       embedsBandcamp: [
         buildBandcampEmbed(
@@ -297,11 +471,29 @@ function App() {
       description: `Menis é uma iniciativa dedicada ao desenvolvimento de instrumentos eletrônicos, síntese embarcada e ferramentas para artistas e pesquisadores. Focada na criação de soluções inovadoras, a Menis busca facilitar a experimentação sonora e a exploração musical através de tecnologias acessíveis e personalizáveis. Com uma abordagem colaborativa, a Menis trabalha para capacitar músicos e criadores a expandirem suas práticas artísticas utilizando hardware e software de ponta.
 `,
       image: "/menis_thumb.jpg",
-      images_details: buildImageDetails("Menis", [
-        "/placeholder.jpg",
-        "/placeholder.jpg",
-        "/placeholder.jpg",
-        "/placeholder.jpg",
+      images_details: buildImageDetails([
+        {
+          src: "/placeholder.jpg",
+          title: "Menis — imagem 1",
+          caption:
+            "Espaço reservado para documentação de instrumentos eletrônicos.",
+        },
+        {
+          src: "/placeholder.jpg",
+          title: "Menis — imagem 2",
+          caption: "Imagem de apoio para ferramentas de síntese embarcada.",
+        },
+        {
+          src: "/placeholder.jpg",
+          title: "Menis — imagem 3",
+          caption:
+            "Registro complementar do trabalho com hardware para artistas.",
+        },
+        {
+          src: "/placeholder.jpg",
+          title: "Menis — imagem 4",
+          caption: "Último placeholder do conjunto Menis.",
+        },
       ]),
     },
     {
@@ -326,11 +518,28 @@ function App() {
       text: "Desenvolvimento de backend e frontend para o maior portal de notícias da América Latina.",
       description: `Atuei no desenvolvimento de soluções de backend e frontend para o UOL, o maior portal de notícias da América Latina. Minha experiência inclui a implementação de APIs, integração de sistemas e otimização de performance, sempre buscando oferecer a melhor experiência para os usuários.`,
       image: "/uol_thumb.jpg",
-      images_details: buildImageDetails("UOL", [
-        "/placeholder.jpg",
-        "/placeholder.jpg",
-        "/placeholder.jpg",
-        "/placeholder.jpg",
+      images_details: buildImageDetails([
+        {
+          src: "/placeholder.jpg",
+          title: "UOL — imagem 1",
+          caption:
+            "Espaço reservado para documentação do trabalho em backend e frontend.",
+        },
+        {
+          src: "/placeholder.jpg",
+          title: "UOL — imagem 2",
+          caption: "Imagem de apoio relacionada às integrações de sistemas.",
+        },
+        {
+          src: "/placeholder.jpg",
+          title: "UOL — imagem 3",
+          caption: "Registro complementar do desenvolvimento para o portal.",
+        },
+        {
+          src: "/placeholder.jpg",
+          title: "UOL — imagem 4",
+          caption: "Último placeholder do bloco UOL.",
+        },
       ]),
     },
     {
@@ -338,11 +547,29 @@ function App() {
       text: "Atualização de stack, integração de dados e desenvolvimento de novas funcionalidades para o portal de notícias.",
       description: `No Nexo Jornal, trabalhei na atualização da stack tecnológica, integração de dados e desenvolvimento de novas funcionalidades para o portal de notícias. Meu foco foi garantir a escalabilidade e a performance do sistema, além de implementar melhorias na experiência do usuário.`,
       image: "/nexo_thumb.jpg",
-      images_details: buildImageDetails("Nexo Jornal", [
-        "/placeholder.jpg",
-        "/placeholder.jpg",
-        "/placeholder.jpg",
-        "/placeholder.jpg",
+      images_details: buildImageDetails([
+        {
+          src: "/placeholder.jpg",
+          title: "Nexo Jornal — imagem 1",
+          caption:
+            "Espaço reservado para documentação da atualização de stack.",
+        },
+        {
+          src: "/placeholder.jpg",
+          title: "Nexo Jornal — imagem 2",
+          caption:
+            "Imagem de apoio para integração de dados e funcionalidades.",
+        },
+        {
+          src: "/placeholder.jpg",
+          title: "Nexo Jornal — imagem 3",
+          caption: "Registro complementar do portal de notícias.",
+        },
+        {
+          src: "/placeholder.jpg",
+          title: "Nexo Jornal — imagem 4",
+          caption: "Último placeholder do bloco Nexo Jornal.",
+        },
       ]),
     },
   ];
@@ -354,11 +581,28 @@ function App() {
       text: "Artigo para a revista Norient analisando o cut-up de Burroughs como prática política contra manipulação midiática.",
       description: `O artigo explora as técnicas de cut-up de William Burroughs e sua aplicação como uma forma de resistência contra a manipulação midiática. Através da análise de obras específicas, discute-se como o cut-up pode ser visto como uma prática política que desafia narrativas dominantes e promove uma nova forma de expressão artística.`,
       image: "/cutup_thumb.jpg",
-      images_details: buildImageDetails("Cut-Up as Political Practice", [
-        "/placeholder.jpg",
-        "/placeholder.jpg",
-        "/placeholder.jpg",
-        "/placeholder.jpg",
+      images_details: buildImageDetails([
+        {
+          src: "/placeholder.jpg",
+          title: "Cut-Up as Political Practice — imagem 1",
+          caption:
+            "Espaço reservado para material visual do artigo na Norient.",
+        },
+        {
+          src: "/placeholder.jpg",
+          title: "Cut-Up as Political Practice — imagem 2",
+          caption: "Imagem de apoio da pesquisa sobre Burroughs.",
+        },
+        {
+          src: "/placeholder.jpg",
+          title: "Cut-Up as Political Practice — imagem 3",
+          caption: "Registro complementar da prática de cut-up.",
+        },
+        {
+          src: "/placeholder.jpg",
+          title: "Cut-Up as Political Practice — imagem 4",
+          caption: "Último placeholder do artigo para futura substituição.",
+        },
       ]),
     },
     {
@@ -367,15 +611,29 @@ function App() {
       text: "Artigo publicado na revista Musica Theorica",
       description: `O artigo investiga a emergência do sujeito na narrativa do Prelúdio Op. 28 no. 14 de Chopin, analisando como elementos musicais e estruturais contribuem para a construção da subjetividade na obra. Através de uma abordagem interdisciplinar, busca-se compreender as implicações estéticas e filosóficas dessa narrativa musical.`,
       image: "/chopin_thumb.jpg",
-      images_details: buildImageDetails(
-        "A Emergência do Sujeito na Narrativa do Prelúdio Op. 28 no. 14 de Chopin",
-        [
-          "/placeholder.jpg",
-          "/placeholder.jpg",
-          "/placeholder.jpg",
-          "/placeholder.jpg",
-        ],
-      ),
+      images_details: buildImageDetails([
+        {
+          src: "/placeholder.jpg",
+          title: "Chopin — imagem 1",
+          caption:
+            "Espaço reservado para documentação do artigo publicado na Musica Theorica.",
+        },
+        {
+          src: "/placeholder.jpg",
+          title: "Chopin — imagem 2",
+          caption: "Imagem de apoio para a análise do Prelúdio Op. 28 no. 14.",
+        },
+        {
+          src: "/placeholder.jpg",
+          title: "Chopin — imagem 3",
+          caption: "Registro complementar da pesquisa musicológica.",
+        },
+        {
+          src: "/placeholder.jpg",
+          title: "Chopin — imagem 4",
+          caption: "Último placeholder do bloco dedicado a Chopin.",
+        },
+      ]),
     },
     {
       title:
@@ -383,15 +641,29 @@ function App() {
       text: "Análise das cut-ups de Burroughs via Groys, apresentada e publicada nos proceedings da Sonologia 2019.",
       description: `O artigo analisa as cut-ups de William Burroughs à luz das ideias de Boris Groys, discutindo como as práticas artísticas contemporâneas podem ser entendidas através da noção de "suspensão submedial". A pesquisa foi apresentada e publicada nos proceedings da Sonologia 2019.`,
       image: "/sonologia_thumb.jpg",
-      images_details: buildImageDetails(
-        "The medium becomes infected by the message: Boris Groys' submedial suspicion as viral tropes in William Burroughs.",
-        [
-          "/placeholder.jpg",
-          "/placeholder.jpg",
-          "/placeholder.jpg",
-          "/placeholder.jpg",
-        ],
-      ),
+      images_details: buildImageDetails([
+        {
+          src: "/placeholder.jpg",
+          title: "Groys / Burroughs — imagem 1",
+          caption:
+            "Espaço reservado para documentação dos proceedings da Sonologia 2019.",
+        },
+        {
+          src: "/placeholder.jpg",
+          title: "Groys / Burroughs — imagem 2",
+          caption: "Imagem de apoio para a análise dos tropos virais.",
+        },
+        {
+          src: "/placeholder.jpg",
+          title: "Groys / Burroughs — imagem 3",
+          caption: "Registro complementar da apresentação acadêmica.",
+        },
+        {
+          src: "/placeholder.jpg",
+          title: "Groys / Burroughs — imagem 4",
+          caption: "Último placeholder do conjunto de pesquisa.",
+        },
+      ]),
     },
   ];
 
@@ -597,7 +869,9 @@ function App() {
         <section id="about" className="section">
           {currentItem ? (
             <>
-              {currentItem.description ? <p>{currentItem.description}</p> : null}
+              {currentItem.description ? (
+                <p>{currentItem.description}</p>
+              ) : null}
               {currentItem.linkUrl ? (
                 <div className="detail-link-row detail-link-row--hero">
                   <a
@@ -606,7 +880,8 @@ function App() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    {currentItem.linkTitle || currentItem.linkUrl} <span aria-hidden>↗</span>
+                    {currentItem.linkTitle || currentItem.linkUrl}{" "}
+                    <span aria-hidden>↗</span>
                   </a>
                 </div>
               ) : null}
