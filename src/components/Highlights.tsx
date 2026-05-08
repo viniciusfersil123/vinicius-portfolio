@@ -22,7 +22,23 @@ type HighlightTextItem = {
 
 type HighlightImageItem = {
   src: string;
+  offsets?: Highlight["offsets"];
 };
+
+function mergeOffsets(
+  base: Highlight["offsets"],
+  override?: Highlight["offsets"],
+) {
+  const desktop = override?.desktop || base.desktop;
+  const max900 = override?.max900 || desktop;
+  const max600 = override?.max600 || max900;
+
+  return {
+    desktop,
+    max900,
+    max600,
+  };
+}
 
 const highlights: Highlight[] = [
   {
@@ -92,6 +108,10 @@ export default function Highlights({
     ? imageItems.map((img, index) => ({
         ...highlights[index % highlights.length],
         img: img.src,
+        offsets: mergeOffsets(
+          highlights[index % highlights.length].offsets,
+          img.offsets,
+        ),
       }))
     : highlights;
 

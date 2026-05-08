@@ -20,6 +20,12 @@ type Item = {
     src: string;
     title: string;
     caption: string;
+    imageOffsetX?: string;
+    imageOffsetY?: string;
+    imageOffsetX900?: string;
+    imageOffsetY900?: string;
+    imageOffsetX600?: string;
+    imageOffsetY600?: string;
   }>;
   embeds?: Array<{
     html: string;

@@ -22,12 +22,34 @@ function slugify(s: string) {
     .replace(/(^-|-$)/g, "");
 }
 
-function buildImageDetails(itemTitle: string, srcs: string[]) {
-  return srcs.map((src, index) => ({
-    src,
-    title: `${itemTitle} ${index + 1}`,
-    caption: "Lorem ispsum, São Paulo (2026)",
-  }));
+function buildImageDetails(
+  itemTitle: string,
+  srcs: string[],
+  offsets?: Array<{
+    x?: string;
+    y?: string;
+    x900?: string;
+    y900?: string;
+    x600?: string;
+    y600?: string;
+  }>,
+) {
+  return srcs.map((src, index) => {
+    const offset = offsets?.[index];
+    const isPlaceholder = src.includes("placeholder.jpg");
+
+    return {
+      src,
+      title: `${itemTitle} ${index + 1}`,
+      caption: "Lorem ispsum, São Paulo (2026)",
+      imageOffsetX: offset?.x ?? (isPlaceholder ? "0px" : undefined),
+      imageOffsetY: offset?.y ?? (isPlaceholder ? "0px" : undefined),
+      imageOffsetX900: offset?.x900 ?? (isPlaceholder ? "0px" : undefined),
+      imageOffsetY900: offset?.y900 ?? (isPlaceholder ? "0px" : undefined),
+      imageOffsetX600: offset?.x600 ?? (isPlaceholder ? "0px" : undefined),
+      imageOffsetY600: offset?.y600 ?? (isPlaceholder ? "0px" : undefined),
+    };
+  });
 }
 
 function buildBandcampEmbed(html: string, caption: string) {
@@ -46,15 +68,60 @@ function App() {
       description: `O TUDOS é um selo independente fundado por Vinícius Fernandes em 2014, focado na divulgação de obras experimentais que exploram as fronteiras entre música, arte sonora e tecnologia. O selo busca promover artistas que desafiam convenções sonoras, utilizando técnicas como síntese sonora, manipulação de áudio, instalações interativas e performances ao vivo. Com uma abordagem colaborativa, o TUDOS tem como objetivo criar uma plataforma para a experimentação sonora e a inovação artística, incentivando a troca de ideias e a expansão dos limites da criação musical contemporânea.
 `,
       image: "/tudos_thumb.jpg",
-      images_details: buildImageDetails("TUDOS", [
-        "/tudos_detail_1.jpeg",
-        "/tudos_detail_2.jpg",
-        "/tudos_detail_3.jpg",
-        "/tudos_detail_4.jpg",
-        "/tudos_detail_5.jpg",
-        "/tudos_detail_6.jpg",
-        "/tudos_detail_7.jpg",
-      ]),
+      images_details: buildImageDetails(
+        "TUDOS",
+        [
+          "/tudos_detail_1.jpeg",
+          "/tudos_detail_2.jpg",
+          "/tudos_detail_3.jpg",
+          "/tudos_detail_4.jpg",
+          "/tudos_detail_5.jpg",
+          "/tudos_detail_6.jpg",
+          "/tudos_detail_7.jpg",
+        ],
+        [
+          {
+            x: "18%",
+            y: "-100%",
+            x900: "18%", // valor para breakpoint 900
+            y900: "-100%",
+            x600: "30%", // valor para breakpoint 600
+            y600: "-100%",
+          },
+          {
+            x: "0px",
+            y: "-40%",
+            x900: "0px",
+            y900: "-50%",
+            x600: "0px",
+            y600: "-50%",
+          },
+          {
+            x: "0px",
+            y: "-45%",
+            x900: "0px",
+            y900: "-50%",
+            x600: "50%",
+            y600: "-50%",
+          },
+          {
+            x: "0px",
+            y: "-70%",
+            x900: "0px",
+            y900: "-40%",
+            x600: "50%",
+            y600: "-40%",
+          },
+          {
+            x: "0px",
+            y: "-90%",
+            x900: "0px",
+            y900: "-50%",
+            x600: "-5%",
+            y600: "-50%",
+          },
+        ],
+      ),
       embedsBandcamp: [
         buildBandcampEmbed(
           `<iframe style="border: 0; width: 350px; height: 350px;" src="https://bandcamp.com/EmbeddedPlayer/album=1846535594/size=large/bgcol=ffffff/linkcol=0687f5/minimal=true/transparent=true/" seamless><a href="https://tudos.bandcamp.com/album/tds013-muito-nasty">[tds013] Muito Nasty von Muito Nasty</a></iframe>`,
@@ -417,7 +484,39 @@ function App() {
   const highlightImageItems = currentItem?.images_details?.length
     ? currentItem.images_details
         .slice(0, 5)
-        .map((img: any) => ({ src: img?.src }))
+        .map((img: any) => ({
+          src: img?.src,
+          offsets:
+            img?.imageOffsetX ||
+            img?.imageOffsetY ||
+            img?.imageOffsetX900 ||
+            img?.imageOffsetY900 ||
+            img?.imageOffsetX600 ||
+            img?.imageOffsetY600
+              ? {
+                  desktop: {
+                    x: img?.imageOffsetX || "0px",
+                    y: img?.imageOffsetY || "-60%",
+                  },
+                  max900: {
+                    x: img?.imageOffsetX900 || img?.imageOffsetX || "0px",
+                    y: img?.imageOffsetY900 || img?.imageOffsetY || "-60%",
+                  },
+                  max600: {
+                    x:
+                      img?.imageOffsetX600 ||
+                      img?.imageOffsetX900 ||
+                      img?.imageOffsetX ||
+                      "0px",
+                    y:
+                      img?.imageOffsetY600 ||
+                      img?.imageOffsetY900 ||
+                      img?.imageOffsetY ||
+                      "-60%",
+                  },
+                }
+              : undefined,
+        }))
         .filter((img: any) => Boolean(img.src))
     : undefined;
 

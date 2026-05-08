@@ -322,7 +322,41 @@ body {
 }
 
 .highlight-media {
+  position: relative;
   overflow: hidden;
+  isolation: isolate;
+}
+
+.highlight-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  /* White-noise test: make the pseudo overlay almost fully cover the image */
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'><filter id='n'><feTurbulence type='turbulence' baseFrequency='0.9' numOctaves='6' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>") repeat;
+  background-size: cover;
+  mix-blend-mode: normal;
+  filter: contrast(5%) brightness(100%);
+  opacity: 0.2;
+  will-change: opacity;
+}
+
+@media (max-width: 900px) {
+  .highlight-media::after {
+    opacity: 0.95;
+  }
+}
+
+@media (max-width: 600px) {
+  .highlight-media::after {
+    opacity: 0.95;
+  }
+}
+
+.highlight-media img {
+  position: relative;
+  z-index: 1;
 }
 
 .highlight-media img {
