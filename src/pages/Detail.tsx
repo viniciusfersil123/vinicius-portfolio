@@ -112,25 +112,6 @@ export default function Detail() {
   }, [item]);
 
   const detailSections = [
-    {
-      key: "hero",
-      inverted: false,
-      content: (
-        <>
-          {/*           {item?.linkUrl && (
-            <a
-              className="button primary detail-external-link"
-              href={item.linkUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {item.linkTitle || item.linkUrl} <span aria-hidden>↗</span>
-            </a>
-          )} */}
-        </>
-      ),
-    },
-
     ...(item?.embeds?.length
       ? [
           {

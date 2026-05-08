@@ -19,9 +19,6 @@
 }
 
 /* compensar header fixo sem JS */
-.detail-page .detail-sections {
-  padding-top: var(--header-offset);
-}
 
 body {
   margin: 0;
@@ -337,12 +334,12 @@ body {
   background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'><filter id='n'><feTurbulence type='turbulence' baseFrequency='0.9' numOctaves='6' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>") repeat;
   background-size: cover;
   mix-blend-mode: normal;
-  filter: contrast(5%) brightness(100%);
-  opacity: 0.2;
+  filter: contrast(5%) brightness(90%);
+  opacity: 0.18;
   will-change: opacity;
 }
 
-@media (max-width: 900px) {
+/* @media (max-width: 900px) {
   .highlight-media::after {
     opacity: 0.95;
   }
@@ -352,7 +349,7 @@ body {
   .highlight-media::after {
     opacity: 0.95;
   }
-}
+} */
 
 .highlight-media img {
   position: relative;
@@ -428,6 +425,7 @@ body {
 @media (max-width: 600px) {
   .highlight-overlay {
     padding: 1rem 3rem;
+    margin-bottom: 20px;
   }
 }
 
@@ -588,20 +586,20 @@ body {
   --section-card-text: #111;
   --section-card-muted: #2d2d2d;
   --section-arrow: #fff;
-  padding: 1.3rem 10rem 3rem;
+  padding: 1.3rem 10rem 1.6rem;
   background: var(--section-bg);
   color: var(--section-text);
 }
 
 @media (max-width: 900px) {
   .section {
-    padding: 2rem 5rem;
+ padding: 1.3rem 5rem 2rem 5rem;
   }
 }
 
 @media (max-width: 600px) {
   .section {
-    padding: 2rem 3rem;
+ padding: 0rem 3rem 2rem 3rem;
   }
 }
 
@@ -968,11 +966,11 @@ body {
 
 @media (max-width: 600px) {
   .detail-embeds .slick-prev {
-    left: -35px;
+    left: -40px;
   }
 
   .detail-embeds .slick-next {
-    right: -30px;
+    right: -40px;
   }
 }
 
@@ -1221,15 +1219,28 @@ body {
 .detail-link-row {
   margin: 0.25rem 0 0.75rem;
 }
+
+.detail-link-row--hero {
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
 .detail-link {
   display: inline-flex;
   gap: 0.35rem;
   align-items: center;
   font-weight: 500;
-  color: #7cc3ff;
+  color: #fff;
   text-decoration: none;
+  opacity: 0.92;
 }
+
+.detail-hero-link {
+  font-size: 0.98rem;
+}
+
 .detail-link:hover {
-  color: #a6d7ff;
+  color: #fff;
+  opacity: 1;
   border-bottom-color: currentColor;
 }

@@ -154,7 +154,7 @@ function App() {
         "Caption do vídeo 4 - Youtube embed test",
       ],
       linkUrl: "https://tudos.bandcamp.com/",
-      linkTitle: "Conheça todo o catálogo dos lançamentos clicando aqui",
+      linkTitle: "Ouça todo o catálogo do TUDOS clicando aqui",
     },
     {
       title: "9 chifres",
@@ -596,9 +596,21 @@ function App() {
         {/* ABOUT */}
         <section id="about" className="section">
           {currentItem ? (
-            currentItem.description ? (
-              <p>{currentItem.description}</p>
-            ) : null
+            <>
+              {currentItem.description ? <p>{currentItem.description}</p> : null}
+              {currentItem.linkUrl ? (
+                <div className="detail-link-row detail-link-row--hero">
+                  <a
+                    className="detail-link detail-hero-link"
+                    href={currentItem.linkUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {currentItem.linkTitle || currentItem.linkUrl} <span aria-hidden>↗</span>
+                  </a>
+                </div>
+              ) : null}
+            </>
           ) : (
             <>
               <h2>{t("section.about.title")}</h2>
