@@ -254,8 +254,10 @@ TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em 
     {
       title: "Metempsicose",
       text: "Instalação sonora. Um rádio sintonizado em uma estação local aleatória controla dois alto-falantes modificados conectados a uma guitarra e a um tamtam.",
-      description: `A instalação sonora "Metempsicose" explora a ideia de transformação e reencarnação através do som. Utilizando um rádio sintonizado em uma estação local aleatória, a obra cria uma conexão dinâmica entre o ambiente sonoro capturado e dois alto-falantes modificados, que são conectados a uma guitarra e a um tamtam. Essa interação gera uma paisagem sonora única e em constante evolução, convidando os espectadores a refletirem sobre os ciclos de vida, morte e renascimento presentes na natureza e na experiência humana.
-`,
+      description: `A instalação sonora “Metempsicose” investiga processos de transformação sonora a partir da circulação e da retransmissão de sinais de áudio. A obra utiliza um rádio sintonizado em uma estação local aleatória como fonte de material sonoro, que é reproduzido por dois alto-falantes modificados acoplados a uma guitarra e a um tamtam.
+
+    A vibração mecânica desses objetos altera o comportamento do som transmitido, produzindo variações tímbricas, ressonâncias e interferências determinadas pelas propriedades físicas dos materiais e pelas condições do ambiente. Em vez de representar simbolicamente ideias de transcendência, a obra enfatiza a transformação concreta da matéria sonora através de processos eletromecânicos e acústicos.
+    `,
       image: "/metempsicose_thumb.jpg",
       images_details: buildImageDetails([
         {
@@ -263,38 +265,39 @@ TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em 
           title: "Metempsicose",
           caption:
             "Instalação sonora com rádio, alto-falantes e instrumentos modificados.",
-        },
+            x: "0px",
+            y: "-75%",
+          },
         {
           src: "/metempsicose_2.jpg",
           title: "Metempsicose — imagem 2",
           caption: "Detalhe do arranjo dos componentes eletroacústicos.",
+          y: "-30%",
         },
         {
           src: "/metempsicose_3.jpg",
           title: "Metempsicose — imagem 3",
           caption: "Outro registro da montagem e da espacialização do som.",
+          y: "-30%",
         },
         {
           src: "/metempsicose_4.jpg",
           title: "Metempsicose — imagem 4",
           caption: "Vista da obra em interação com o ambiente expositivo.",
+          y: "-65%",
         },
         {
           src: "/metempsicose_5.jpg",
           title: "Metempsicose — imagem 5",
           caption:
             "Detalhe dos alto-falantes modificados ligados à guitarra e ao tamtam.",
-        },
-        {
-          src: "/metempsicose_6.jpg",
-          title: "Metempsicose — imagem 6",
-          caption: "Imagem final da documentação da instalação sonora.",
+            y: "-50%",
         },
       ]),
       embedsBandcamp: [
         buildBandcampEmbed(
-          `<iframe style="border: 0; width: 350px; height: 442px;" src="https://bandcamp.com/EmbeddedPlayer/track=2447535245/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://viniciusfernandesssss.bandcamp.com/track/metempsicose">Metempsicose von Vinícius Fernandes</a></iframe>`,
-          "Lorem ipsum dolor sit amet.",
+          `<iframe style="border: 0; width: 350px; height: 350px;" src="https://bandcamp.com/EmbeddedPlayer/track=2447535245/size=large/bgcol=ffffff/linkcol=0687f5/minimal=true/transparent=true/" seamless><a href="https://viniciusfernandesssss.bandcamp.com/track/metempsicose">Metempsicose von Vinícius Fernandes</a></iframe>`,
+          "2016 - Metempsicose - Vinícius Fernandes - Registro em áudio",
         ),
       ],
     },

@@ -899,6 +899,12 @@ body {
   padding: 0 0.75rem;
 }
 
+.bandcamp-single {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .bandcamp-carousel-slide .bandcamp-caption {
   margin: 0.45rem 0 0;
   font-size: 0.78rem;
@@ -923,6 +929,15 @@ body {
 }
 
 .bandcamp-carousel-slide .embed-card {
+  width: min(100%, 350px);
+  margin: 0 auto;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.bandcamp-single .embed-card {
+  width: min(100%, 350px);
+  margin: 0 auto;
   aspect-ratio: 1 / 1;
   overflow: hidden;
 }
@@ -934,6 +949,8 @@ body {
   border-radius: 8px;
   display: block;
   background: #111;
+  transform: scale(1.14);
+  transform-origin: top center;
 }
 
 .detail-embeds .slick-arrow {
@@ -1181,6 +1198,12 @@ body {
   display: block;
   background: #111;
 }
+
+.bandcamp-single .embed-card iframe,
+.bandcamp-carousel-slide .embed-card iframe {
+  height: 100% !important;
+}
+
 @media (max-width: 600px) {
   .embed-card iframe {
     height: 380px;

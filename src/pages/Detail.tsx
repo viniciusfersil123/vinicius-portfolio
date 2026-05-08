@@ -111,6 +111,9 @@ export default function Detail() {
     return [...urls, ...legacy];
   }, [item]);
 
+  const bandcampEmbeds = item?.embedsBandcamp || [];
+  const hasMultipleBandcampEmbeds = bandcampEmbeds.length > 1;
+
   const detailSections = [
     ...(item?.embeds?.length
       ? [
@@ -142,7 +145,7 @@ export default function Detail() {
           },
         ]
       : []),
-    ...(item?.embedsBandcamp?.length
+    ...(bandcampEmbeds.length
       ? [
           {
             key: "bandcamp",
@@ -150,31 +153,38 @@ export default function Detail() {
             content: (
               <section className="detail-embeds">
                 <h2 className="detail-embeds-title">Bandcamp</h2>
-                <Slider
-                  {...{
-                    // Match homepage carousel behavior: always show arrows, autoplay, responsive slidesToShow
-                    infinite: item.embedsBandcamp.length > 1,
-                    speed: 500,
-                    slidesToShow: Math.min(4, item.embedsBandcamp.length),
-                    slidesToScroll: 1,
-                    arrows: true,
-                    autoplay: true,
-                    autoplaySpeed: 7000,
-                    swipeToSlide: true,
-                    responsive: [
-                      { breakpoint: 1200, settings: { slidesToShow: Math.min(3, item.embedsBandcamp.length) } },
-                      { breakpoint: 900, settings: { slidesToShow: Math.min(2, item.embedsBandcamp.length) } },
-                      { breakpoint: 600, settings: { slidesToShow: 1 } },
-                    ],
-                  }}
-                >
-                  {item.embedsBandcamp.map((embed, idx) => (
-                    <div key={`bc-${idx}`} className="bandcamp-carousel-slide">
-                      <div className="embed-card bandcamp" dangerouslySetInnerHTML={{ __html: embed.html }} />
-                      {embed.caption ? <p className="bandcamp-caption">{embed.caption}</p> : null}
-                    </div>
-                  ))}
-                </Slider>
+                {hasMultipleBandcampEmbeds ? (
+                  <Slider
+                    {...{
+                      // Match homepage carousel behavior: always show arrows, autoplay, responsive slidesToShow
+                      infinite: true,
+                      speed: 500,
+                      slidesToShow: Math.min(4, bandcampEmbeds.length),
+                      slidesToScroll: 1,
+                      arrows: true,
+                      autoplay: true,
+                      autoplaySpeed: 7000,
+                      swipeToSlide: true,
+                      responsive: [
+                        { breakpoint: 1200, settings: { slidesToShow: Math.min(3, bandcampEmbeds.length) } },
+                        { breakpoint: 900, settings: { slidesToShow: Math.min(2, bandcampEmbeds.length) } },
+                        { breakpoint: 600, settings: { slidesToShow: 1 } },
+                      ],
+                    }}
+                  >
+                    {bandcampEmbeds.map((embed, idx) => (
+                      <div key={`bc-${idx}`} className="bandcamp-carousel-slide">
+                        <div className="embed-card bandcamp" dangerouslySetInnerHTML={{ __html: embed.html }} />
+                        {embed.caption ? <p className="bandcamp-caption">{embed.caption}</p> : null}
+                      </div>
+                    ))}
+                  </Slider>
+                ) : (
+                  <div className="bandcamp-single">
+                    <div className="embed-card bandcamp" dangerouslySetInnerHTML={{ __html: bandcampEmbeds[0].html }} />
+                    {bandcampEmbeds[0].caption ? <p className="bandcamp-caption">{bandcampEmbeds[0].caption}</p> : null}
+                  </div>
+                )}
               </section>
             ),
           },
