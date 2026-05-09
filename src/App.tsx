@@ -398,7 +398,7 @@ TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em 
       embedsBandcamp: [
         buildBandcampEmbed(
           `<iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=743014755/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://3edgy5u.bandcamp.com/album/v-rios-midis-maneiros-com-timbres-mais-maneiros-ainda-intercalados-com-frases-de-auto-ajuda-narradas-por-vozes-sintetizadas">Vários MIDIs maneiros com timbres mais maneiros ainda intercalados com frases de auto-ajuda narradas por vozes sintetizadas von 3edgy5u</a></iframe>`,
-          "Lorem ipsum dolor sit amet.",
+          "Album - Vários MIDIs maneiros com timbres mais maneiros ainda intercalados com frases de auto-ajuda narradas por vozes sintetizadas - Augusto Piccinini",
         ),
       ],
     },
@@ -474,42 +474,45 @@ TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em 
       image: "/discografia_thumb.jpg",
       images_details: buildImageDetails([
         {
-          src: "/placeholder.jpg",
-          title: "Discografia — imagem 1",
-          caption: "Espaço reservado para a documentação do catálogo.",
+          src: "/discografia_1.jpg",
+          title: "Tabutril",
+          caption: "Bar do Zé, Campinas - SP, Brasil - 2015",
+          y: "-50%",
         },
         {
-          src: "/placeholder.jpg",
-          title: "Discografia — imagem 2",
-          caption: "Imagem de apoio para releases e álbuns.",
+          src: "/discografia_2.jpg",
+          title: "Cassini",
+          caption: " Bolderaja, Riga, Letônia - 2018",
         },
         {
-          src: "/placeholder.jpg",
-          title: "Discografia — imagem 3",
-          caption: "Registro complementar da reunião de trabalhos.",
+          src: "/discografia_3.jpg",
+          title: "Muito Nasty",
+          caption: "Fauhaus, São Paulo - SP, Brasil - 2018",
+          y: "-20%",
         },
         {
-          src: "/placeholder.jpg",
-          title: "Discografia — imagem 4",
-          caption: "Último item visual do bloco de discografia.",
+          src: "/discografia_4.jpg",
+          title: "Pássaro-Concreto",
+          caption: "Casa das Rosas, São Paulo - SP, Brasil - 2016",
+          y: "-70%",
         },
       ]),
       embedsBandcamp: [
         buildBandcampEmbed(
           `<iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=965401561/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://tudos.bandcamp.com/album/tds01-amador">[tds01] amador von Tabutril</a></iframe>`,
-          "Lorem ipsum dolor sit amet.",
+          "Amador - 2015 - Tabutril",
         ),
         buildBandcampEmbed(
           `<iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=2229382614/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://tudos.bandcamp.com/album/tds09-fontanela">[tds09] Fontanela von Cassini</a></iframe>`,
-          "Lorem ipsum dolor sit amet.",
+          "Fontanela - 2018 - Cassini",
         ),
         buildBandcampEmbed(
           `<iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=1846535594/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://tudos.bandcamp.com/album/tds013-muito-nasty">[tds013] Muito Nasty von Muito Nasty</a></iframe>`,
-          "Lorem ipsum dolor sit amet.",
+          "Muito Nasty - 2018 - Muito Nasty",
         ),
         buildBandcampEmbed(
           `<iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=981793339/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://passaro-concreto.bandcamp.com/album/p-ssaro-concreto">Pássaro-Concreto von Pássaro-Concreto</a></iframe>`,
-          "Lorem ipsum dolor sit amet.",
+          "Pássaro-Concreto - 2016 - Pássaro-Concreto",
         ),
       ],
     },
