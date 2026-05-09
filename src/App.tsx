@@ -372,7 +372,8 @@ TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em 
         {
           src: "/mobile_2.jpg",
           title: "Registro da Instalação",
-          caption: "Espaço das Artes, Universidade de São Paulo - SP, Brasil - 2019",
+          caption:
+            "Espaço das Artes, Universidade de São Paulo - SP, Brasil - 2019",
           y: "-50%",
         },
         {
@@ -386,12 +387,14 @@ TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em 
         {
           src: "/mobile_4.jpg",
           title: "Registro da Instalação",
-          caption: "Espaço das Artes, Universidade de São Paulo - SP, Brasil - 2019.",
+          caption:
+            "Espaço das Artes, Universidade de São Paulo - SP, Brasil - 2019.",
           y: "-70%",
         },
       ]),
       linkTitle: "Saiba mais",
-      linkUrl: "https://revistapesquisa.fapesp.br/na-onda-da-musica-e-da-tecnologia/",
+      linkUrl:
+        "https://revistapesquisa.fapesp.br/na-onda-da-musica-e-da-tecnologia/",
       embedsBandcamp: [
         buildBandcampEmbed(
           `<iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=743014755/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://3edgy5u.bandcamp.com/album/v-rios-midis-maneiros-com-timbres-mais-maneiros-ainda-intercalados-com-frases-de-auto-ajuda-narradas-por-vozes-sintetizadas">Vários MIDIs maneiros com timbres mais maneiros ainda intercalados com frases de auto-ajuda narradas por vozes sintetizadas von 3edgy5u</a></iframe>`,
@@ -403,46 +406,51 @@ TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em 
     {
       title: "Fitosintetizador",
       text: "Instalação sonora interativa que utiliza plantas como controladoras de síntese sonora.",
-      description: `O "Fitosintetizador" é uma instalação sonora interativa que explora a relação entre natureza e tecnologia. Utilizando plantas como controladoras de síntese sonora, a obra convida os espectadores a interagir com o ambiente de forma única, criando paisagens sonoras dinâmicas e orgânicas. Através de sensores e processamento de sinais, as plantas se tornam instrumentos musicais, desafiando as noções tradicionais de autoria e performance.
+      description: `O “Fitosintetizador” é uma instalação sonora interativa que utiliza o perfil de cores de folhas e plantas para gerar composições em um piano digital. Por meio de processamento de imagem e análise cromática, diferentes tonalidades e padrões vegetais são convertidos em informações musicais, criando paisagens sonoras variáveis a partir das características visuais das plantas. A obra convida o público a trazer folhas e interagir livremente com o sistema, permitindo diferentes formas de experimentação e composição sonora. O trabalho explora relações entre natureza, tecnologia e interação, transformando elementos vegetais em interfaces musicais e deslocando noções tradicionais de instrumento, autoria e performance. O projeto foi concebido por Vinícius Fernandes em parceria com Lidia Ganhito, Gabriel Urazaki e Vitor Barão durante uma residência artística na Red Bull Station, onde um primeiro protótipo foi apresentado, e posteriormente exibido em sua versão completa no Sesc Avenida Paulista.
 `,
       image: "/fitosintetizador_thumb.jpg",
       images_details: buildImageDetails([
         {
           src: "/fitosintetizador_1.jpg",
-          title: "Fitosintetizador — imagem 1",
-          caption: "Plantas utilizadas como controladoras da síntese sonora.",
+          title: "Registro da Instalação",
+          caption: "SESC Avenida Paulista, São Paulo - SP, Brasil - 2020",
         },
         {
           src: "/fitosintetizador_2.jpg",
-          title: "Fitosintetizador — imagem 2",
-          caption: "Detalhe dos sensores e da interação com o ambiente.",
+          title: "Registro da Instalação",
+          caption: "SESC Avenida Paulista, São Paulo - SP, Brasil - 2020",
+          y: "-70%",
         },
         {
           src: "/fitosintetizador_3.jpg",
-          title: "Fitosintetizador — imagem 3",
-          caption: "Vista da instalação em funcionamento.",
+          title: "Registro da Instalação",
+          caption: "SESC Avenida Paulista, São Paulo - SP, Brasil - 2020",
+          y: "-60%",
         },
         {
           src: "/fitosintetizador_4.jpg",
-          title: "Fitosintetizador — imagem 4",
-          caption: "Outro enquadramento da obra interativa com plantas.",
+          title: "Registro da Instalação",
+          caption: "SESC Avenida Paulista, São Paulo - SP, Brasil - 2020",
+          y: "-10%",
         },
         {
           src: "/fitosintetizador_5.jpg",
-          title: "Fitosintetizador — imagem 5",
-          caption: "Registro do conjunto de síntese e resposta sonora.",
+          title: "Registro da Instalação",
+          caption: "SESC Avenida Paulista, São Paulo - SP, Brasil - 2020",
         },
         {
           src: "/fitosintetizador_6.jpg",
-          title: "Fitosintetizador — imagem 6",
-          caption: "Detalhe da materialidade da instalação sonora.",
-        },
-        {
-          src: "/fitosintetizador_7.jpg",
-          title: "Fitosintetizador — imagem 7",
-          caption: "Última imagem da série de documentação do projeto.",
+          title: "Registro da Instalação",
+          caption: "SESC Avenida Paulista, São Paulo - SP, Brasil - 2020",
         },
       ]),
+      youtubeUrls: [
+        "https://www.youtube.com/watch?v=APvD8IhDLcA",
+
+      ],
+      youtubeCaption: [
+        "Fitosintetizador — amostra de funcionamento do patch",
+      ],
     },
     {
       title: "Echos of the deep",

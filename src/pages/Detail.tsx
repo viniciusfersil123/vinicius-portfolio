@@ -113,6 +113,7 @@ export default function Detail() {
 
   const bandcampEmbeds = item?.embedsBandcamp || [];
   const hasMultipleBandcampEmbeds = bandcampEmbeds.length > 1;
+  const hasMultipleYoutubeEmbeds = youtubeEmbeds.length > 1;
 
   const detailSections = [
     ...(item?.embeds?.length
@@ -198,52 +199,69 @@ export default function Detail() {
             content: (
               <section className="detail-embeds">
                 <h2 className="detail-embeds-title">Vídeos</h2>
-                <Slider
-                  {...{
-                    infinite: youtubeEmbeds.length > 1,
-                    speed: 500,
-                    slidesToShow: Math.min(2, youtubeEmbeds.length),
-                    slidesToScroll: 1,
-                    arrows: true,
-                    autoplay: youtubeEmbeds.length > 1,
-                    autoplaySpeed: 7000,
-                    swipeToSlide: true,
-                    responsive: [
-                      {
-                        breakpoint: 1200,
-                        settings: { slidesToShow: Math.min(2, youtubeEmbeds.length) },
-                      },
-                      {
-                        breakpoint: 900,
-                        settings: { slidesToShow: Math.min(1, youtubeEmbeds.length) },
-                      },
-                      {
-                        breakpoint: 600,
-                        settings: { slidesToShow: 1 },
-                      },
-                    ],
-                  }}
-                >
-                  {youtubeEmbeds.map((src, idx) => {
-                    const caption = item?.youtubeCaption?.[idx];
-                    return (
-                      <div key={`yt-src-${idx}`} className="youtube-carousel-slide">
-                        <div className="embed-card youtube">
-                          <iframe
-                            src={src}
-                            title={`YouTube ${idx + 1}`}
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerPolicy="strict-origin-when-cross-origin"
-                            allowFullScreen
-                            loading="lazy"
-                            sandbox="allow-scripts allow-same-origin allow-presentation"
-                          />
+                {hasMultipleYoutubeEmbeds ? (
+                  <Slider
+                    {...{
+                      infinite: true,
+                      speed: 500,
+                      slidesToShow: Math.min(2, youtubeEmbeds.length),
+                      slidesToScroll: 1,
+                      arrows: true,
+                      autoplay: true,
+                      autoplaySpeed: 7000,
+                      swipeToSlide: true,
+                      responsive: [
+                        {
+                          breakpoint: 1200,
+                          settings: { slidesToShow: Math.min(2, youtubeEmbeds.length) },
+                        },
+                        {
+                          breakpoint: 900,
+                          settings: { slidesToShow: Math.min(1, youtubeEmbeds.length) },
+                        },
+                        {
+                          breakpoint: 600,
+                          settings: { slidesToShow: 1 },
+                        },
+                      ],
+                    }}
+                  >
+                    {youtubeEmbeds.map((src, idx) => {
+                      const caption = item?.youtubeCaption?.[idx];
+                      return (
+                        <div key={`yt-src-${idx}`} className="youtube-carousel-slide">
+                          <div className="embed-card youtube">
+                            <iframe
+                              src={src}
+                              title={`YouTube ${idx + 1}`}
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                              referrerPolicy="strict-origin-when-cross-origin"
+                              allowFullScreen
+                              loading="lazy"
+                              sandbox="allow-scripts allow-same-origin allow-presentation"
+                            />
+                          </div>
+                          {caption ? <p className="youtube-caption">{caption}</p> : null}
                         </div>
-                        {caption ? <p className="youtube-caption">{caption}</p> : null}
-                      </div>
-                    );
-                  })}
-                </Slider>
+                      );
+                    })}
+                  </Slider>
+                ) : (
+                  <div className="youtube-single">
+                    <div className="embed-card youtube">
+                      <iframe
+                        src={youtubeEmbeds[0]}
+                        title="YouTube"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerPolicy="strict-origin-when-cross-origin"
+                        allowFullScreen
+                        loading="lazy"
+                        sandbox="allow-scripts allow-same-origin allow-presentation"
+                      />
+                    </div>
+                    {item?.youtubeCaption?.[0] ? <p className="youtube-caption">{item.youtubeCaption[0]}</p> : null}
+                  </div>
+                )}
               </section>
             ),
           },
