@@ -353,7 +353,7 @@ TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em 
       linkTitle: "Saiba mais",
     },
     {
-      title: "Móbile de vaca morta com vergalhões de ferro [...]",
+      title: "Móbile de vaca morta com vergalhões de ferro e frases de auto-ajuda narradas por vozes sintetizadas intercaladas à canções motivacionais com timbres maneiros",
       text: "Instalação com ossos, alto-falantes, vergalhões de ferro e com áudio de álbuns kitsch de Augusto Piccinini",
       description: `Six loudspeakers are installed directly on cow bones, in positions suggested plastically by the animal's own bone structure. The sound system plays simultaneously, in subtle volume, Augusto Piccinini’s albums “Vários MIDIs maneiros com timbres mais maneiros ainda intercalados com frases de auto-ajuda narradas por vozes sintetizadas”, “Igual ao album anterior mas desta vez mais radical e mais profundo”, “Just like the last two albums but this time in english in order to appeal to international audiences”. The installation performs a kind of teratogenic resuscitation by reconstituting an animal-building from biological and architectural waste. Precarious and dying structure that forms an ironic oxymoron with the sound material, constituted by the semiotic saturation of the kitsch universe of a literature and musical production obsessed with the obliteration of the fundamental existential anguish of human experience.
 `,
@@ -369,17 +369,21 @@ TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em 
           src: "/mobile_2.jpg",
           title: "Móbile de vaca morta — imagem 2",
           caption: "Detalhe do suporte e da composição material da obra.",
+          y: "-50%",
         },
         {
           src: "/mobile_3.jpg",
           title: "Móbile de vaca morta — imagem 3",
           caption:
             "Vista lateral da instalação sonora e seus elementos plásticos.",
+          y: "-30%",
+          x600: "50%",
         },
         {
           src: "/mobile_4.jpg",
           title: "Móbile de vaca morta — imagem 4",
           caption: "Imagem final da documentação da peça.",
+          y: "-70%",
         },
       ]),
       embedsBandcamp: [
