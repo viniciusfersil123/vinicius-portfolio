@@ -609,91 +609,53 @@ TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em 
     {
       title: "Cut-Up as Political Practice",
       text: "Artigo para a revista Norient analisando o cut-up de Burroughs como prática política contra manipulação midiática.",
-      description: `O artigo explora as técnicas de cut-up de William Burroughs e sua aplicação como uma forma de resistência contra a manipulação midiática. Através da análise de obras específicas, discute-se como o cut-up pode ser visto como uma prática política que desafia narrativas dominantes e promove uma nova forma de expressão artística.`,
+      description: `O artigo Cut-Up as Political Practice, publicado pela Norient em 2020, investiga a técnica de cut-up desenvolvida por William S. Burroughs como uma prática estética e política relacionada à manipulação de signos, mídia e percepção. No texto, Vinícius Fernandes analisa como os experimentos de Burroughs com fragmentação, recombinação e deformação de textos e fitas magnéticas anteciparam fenômenos contemporâneos ligados à manipulação algorítmica da informação, como o escândalo Cambridge Analytica e o uso de dados para propaganda política direcionada. A partir de referências em teoria da mídia, estudos do som e crítica cultural, o artigo discute como técnicas de sampling e edição sonora podem revelar as estruturas materiais e ideológicas ocultas por trás da aparente normalidade dos meios de comunicação. O texto propõe o cut-up não apenas como procedimento artístico experimental, mas como ferramenta crítica capaz de suspender a “normalidade semiótica” dos ambientes midiáticos e tornar perceptíveis os mecanismos de controle, poder e produção de subjetividade presentes nas tecnologias contemporâneas.`,
       image: "/cutup_thumb.jpg",
       images_details: buildImageDetails([
         {
-          src: "/placeholder.jpg",
-          title: "Cut-Up as Political Practice — imagem 1",
-          caption:
-            "Espaço reservado para material visual do artigo na Norient.",
-        },
-        {
-          src: "/placeholder.jpg",
-          title: "Cut-Up as Political Practice — imagem 2",
-          caption: "Imagem de apoio da pesquisa sobre Burroughs.",
-        },
-        {
-          src: "/placeholder.jpg",
-          title: "Cut-Up as Political Practice — imagem 3",
-          caption: "Registro complementar da prática de cut-up.",
-        },
-        {
-          src: "/placeholder.jpg",
-          title: "Cut-Up as Political Practice — imagem 4",
-          caption: "Último placeholder do artigo para futura substituição.",
+          src: "/norient_01.png",
+          title: "_",
+          caption: "_",
+          y: "-10%",
         },
       ]),
+      linkUrl: "https://norient.com/vinicius-fernandes/cut-political-practice",
+      linkTitle: "Leia o artigo na íntegra aqui",
     },
     {
       title:
         "A Emergência do Sujeito na Narrativa do Prelúdio Op. 28 no. 14 de Chopin",
-      text: "Artigo publicado na revista Musica Theorica",
-      description: `O artigo investiga a emergência do sujeito na narrativa do Prelúdio Op. 28 no. 14 de Chopin, analisando como elementos musicais e estruturais contribuem para a construção da subjetividade na obra. Através de uma abordagem interdisciplinar, busca-se compreender as implicações estéticas e filosóficas dessa narrativa musical.`,
-      image: "/chopin_thumb.jpg",
+      text: "_",
+      description: `O artigo A Emergência do Sujeito na Narrativa do Prelúdio Op. 28 nº 14 de Chopin, publicado na revista acadêmica Associação Brasileira de Teoria e Análise Musical, investiga o prelúdio de Frédéric Chopin a partir das teorias de narratividade musical de Byron Almén, Eero Tarasti e da semiótica estrutural de Greimas. Escrito por Vinícius Fernandes, Guto Brambilla e Fernando Iazzetta, o trabalho propõe uma leitura da peça como uma polifonia latente construída pela tensão entre duas vozes interdependentes: uma linha melódica que busca autonomia e um baixo que exerce uma força integradora. A análise demonstra como o conflito entre essas isotopias musicais estrutura uma narrativa de individuação e emergência do sujeito, associada às questões centrais da poética romântica do século XIX, como singularidade, subjetividade e ruptura com ordens hierárquicas estáveis. Ao articular análise musical, semiótica e teoria da narratividade, o artigo propõe uma abordagem interdisciplinar para compreender a música não apenas como organização formal de sons, mas como estrutura expressiva capaz de incorporar conflitos simbólicos, psicológicos e culturais.`,
+      image: "/chopin_thumb.png",
       images_details: buildImageDetails([
         {
-          src: "/placeholder.jpg",
-          title: "Chopin — imagem 1",
-          caption:
-            "Espaço reservado para documentação do artigo publicado na Musica Theorica.",
-        },
-        {
-          src: "/placeholder.jpg",
-          title: "Chopin — imagem 2",
-          caption: "Imagem de apoio para a análise do Prelúdio Op. 28 no. 14.",
-        },
-        {
-          src: "/placeholder.jpg",
-          title: "Chopin — imagem 3",
-          caption: "Registro complementar da pesquisa musicológica.",
-        },
-        {
-          src: "/placeholder.jpg",
-          title: "Chopin — imagem 4",
-          caption: "Último placeholder do bloco dedicado a Chopin.",
+          src: "/chopin_thumb.png",
+          title: "_",
+          caption: "_",
         },
       ]),
+      linkUrl:
+        "https://revistamusicatheorica.tema.mus.br/index.php/musica-theorica/article/view/49",
+      linkTitle: "Leia o artigo na íntegra aqui",
     },
     {
       title:
-        "The medium becomes infected by the message: Boris Groys' submedial suspicion as viral tropes in William Burroughs.",
-      text: "Análise das cut-ups de Burroughs via Groys, apresentada e publicada nos proceedings da Sonologia 2019.",
-      description: `O artigo analisa as cut-ups de William Burroughs à luz das ideias de Boris Groys, discutindo como as práticas artísticas contemporâneas podem ser entendidas através da noção de "suspensão submedial". A pesquisa foi apresentada e publicada nos proceedings da Sonologia 2019.`,
+        "The medium becomes infected by the message[...]",
+      text: "_",
+      description: `O artigo The Medium Becomes Infected by the Message: Boris Groys’ Submedial Suspicion as Viral Tropes in William Burroughs, escrito por Vinícius Fernandes, investiga as relações entre teoria da mídia, som experimental e linguagem a partir da aproximação entre a filosofia de Boris Groys e os experimentos de cut-up realizados por William S. Burroughs com fitas magnéticas nas décadas de 1960 e 1970. O texto analisa como as manipulações sonoras de Burroughs — baseadas em cortes, recombinações, deformações e danos físicos aplicados ao suporte fonográfico — operam como estratégias para revelar aquilo que Groys denomina “suspeita submedial”: a existência de uma subjetividade oculta que atua por trás dos meios de comunicação e da circulação dos signos. A partir da ideia burroughsiana de que a linguagem funciona como um “vírus” que coloniza o pensamento humano, o artigo argumenta que as técnicas de cut-up produzem uma erosão da coerência semântica e expõem a materialidade do meio sonoro, suspendendo temporariamente a normalidade da linguagem. Dialogando com autores como Friedrich Kittler, Roland Barthes e Fernando Iazzetta, o trabalho propõe uma leitura crítica das tecnologias de gravação sonora como dispositivos capazes tanto de reforçar mecanismos de controle quanto de produzir rupturas perceptivas e políticas através do ruído, da distorção e da manipulação material dos sinais.`,
       image: "/sonologia_thumb.jpg",
       images_details: buildImageDetails([
         {
-          src: "/placeholder.jpg",
-          title: "Groys / Burroughs — imagem 1",
+          src: "/sonologia_01.png",
+          title: "_",
           caption:
-            "Espaço reservado para documentação dos proceedings da Sonologia 2019.",
-        },
-        {
-          src: "/placeholder.jpg",
-          title: "Groys / Burroughs — imagem 2",
-          caption: "Imagem de apoio para a análise dos tropos virais.",
-        },
-        {
-          src: "/placeholder.jpg",
-          title: "Groys / Burroughs — imagem 3",
-          caption: "Registro complementar da apresentação acadêmica.",
-        },
-        {
-          src: "/placeholder.jpg",
-          title: "Groys / Burroughs — imagem 4",
-          caption: "Último placeholder do conjunto de pesquisa.",
+            "_",
+            y: "-90%",
         },
       ]),
+      linkUrl:"https://sonologia2019.eca.usp.br/?page_id=1469",
+      linkTitle: "Leia o artigo na íntegra aqui",
     },
   ];
 
