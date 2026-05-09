@@ -325,7 +325,8 @@ TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em 
         {
           src: "/musica_2.jpg",
           title: "Luís Fernando Cirne, Gustavo Branco e Paulo Assis",
-          caption: "Planos de Saturação — performance em ¿Música? #13, São Paulo - SP, Brasil - 2017",
+          caption:
+            "Planos de Saturação — performance em ¿Música? #13, São Paulo - SP, Brasil - 2017",
           y: "-54%",
           y900: "-80%",
           x600: "-15%",
@@ -333,59 +334,64 @@ TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em 
         {
           src: "/musica_3.jpg",
           title: "Denis Abranches e Alessandra Bono Vox",
-          caption: "Duo Movente — performance em ¿Música? #13, São Paulo - SP, Brasil - 2017",
+          caption:
+            "Duo Movente — performance em ¿Música? #13, São Paulo - SP, Brasil - 2017",
           y: "-75%",
           x600: "-30%",
         },
         {
           src: "/musica_4.jpg",
           title: "¿Música? 13",
-          caption: "Público durante a 13ª edição da série ¿Música?, São Paulo - SP, Brasil - 2017",
+          caption:
+            "Público durante a 13ª edição da série ¿Música?, São Paulo - SP, Brasil - 2017",
           y: "-60%",
         },
         {
           src: "/musica_5.jpg",
           title: "Henrique Rocha",
-          caption: "Ainda, Performance em ¿Música? #13, São Paulo - SP, Brasil - 2017",
+          caption:
+            "Ainda, Performance em ¿Música? #13, São Paulo - SP, Brasil - 2017",
         },
       ]),
       linkUrl: "https://nusom.eca.usp.br/producoes-musica",
       linkTitle: "Saiba mais",
     },
     {
-      title: "Móbile de vaca morta com vergalhões de ferro e frases de auto-ajuda narradas por vozes sintetizadas intercaladas à canções motivacionais com timbres maneiros",
+      title: "Móbile de vaca morta com vergalhões [...]",
       text: "Instalação com ossos, alto-falantes, vergalhões de ferro e com áudio de álbuns kitsch de Augusto Piccinini",
-      description: `Six loudspeakers are installed directly on cow bones, in positions suggested plastically by the animal's own bone structure. The sound system plays simultaneously, in subtle volume, Augusto Piccinini’s albums “Vários MIDIs maneiros com timbres mais maneiros ainda intercalados com frases de auto-ajuda narradas por vozes sintetizadas”, “Igual ao album anterior mas desta vez mais radical e mais profundo”, “Just like the last two albums but this time in english in order to appeal to international audiences”. The installation performs a kind of teratogenic resuscitation by reconstituting an animal-building from biological and architectural waste. Precarious and dying structure that forms an ironic oxymoron with the sound material, constituted by the semiotic saturation of the kitsch universe of a literature and musical production obsessed with the obliteration of the fundamental existential anguish of human experience.
+      description: `Móbile de vaca morta com vergalhões de ferro e frases de auto-ajuda narradas por vozes sintetizadas intercaladas à canções motivacionais com timbres maneiros é uma instalação na qual seis alto-falantes são instalados diretamente sobre ossos bovinos, em posições sugeridas pela própria estrutura óssea do animal. O sistema reproduz simultaneamente, em baixo volume, os álbuns de Augusto Piccinini “Vários MIDIs maneiros com timbres mais maneiros ainda intercalados com frases de auto-ajuda narradas por vozes sintetizadas”, “Igual ao álbum anterior mas desta vez mais radical e mais profundo” e “Just like the last two albums but this time in english in order to appeal to international audiences”. A instalação combina restos biológicos e materiais descartados na construção de uma estrutura sonora precária, situada entre decomposição e reconstrução. O trabalho cria um contraste entre essa materialidade desgastada e um universo sonoro marcado por frases motivacionais, timbres MIDI e excesso de informação. A obra propõe uma reflexão sobre formas de produção cultural que transformam ansiedade, desgaste e frustração em entretenimento, consumo e estímulo constante. A instalação foi concebida por Vinícius Fernandes em parceria com Augusto Piccinini e João Mascaro.
 `,
       image: "/mobile_thumb.jpg",
       images_details: buildImageDetails([
         {
           src: "/mobile_1.jpg",
-          title: "Móbile de vaca morta — imagem 1",
+          title: "Registro da Instalação",
           caption:
-            "Registro da instalação com ossos, alto-falantes e vergalhões.",
+            "Espaço das Artes, Universidade de São Paulo - SP, Brasil - 2019",
         },
         {
           src: "/mobile_2.jpg",
-          title: "Móbile de vaca morta — imagem 2",
-          caption: "Detalhe do suporte e da composição material da obra.",
+          title: "Registro da Instalação",
+          caption: "Espaço das Artes, Universidade de São Paulo - SP, Brasil - 2019",
           y: "-50%",
         },
         {
           src: "/mobile_3.jpg",
-          title: "Móbile de vaca morta — imagem 3",
+          title: "Registro da Instalação",
           caption:
-            "Vista lateral da instalação sonora e seus elementos plásticos.",
+            "Espaço das Artes, Universidade de São Paulo - SP, Brasil - 2019",
           y: "-30%",
           x600: "50%",
         },
         {
           src: "/mobile_4.jpg",
-          title: "Móbile de vaca morta — imagem 4",
-          caption: "Imagem final da documentação da peça.",
+          title: "Registro da Instalação",
+          caption: "Espaço das Artes, Universidade de São Paulo - SP, Brasil - 2019.",
           y: "-70%",
         },
       ]),
+      linkTitle: "Saiba mais",
+      linkUrl: "https://revistapesquisa.fapesp.br/na-onda-da-musica-e-da-tecnologia/",
       embedsBandcamp: [
         buildBandcampEmbed(
           `<iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=743014755/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://3edgy5u.bandcamp.com/album/v-rios-midis-maneiros-com-timbres-mais-maneiros-ainda-intercalados-com-frases-de-auto-ajuda-narradas-por-vozes-sintetizadas">Vários MIDIs maneiros com timbres mais maneiros ainda intercalados com frases de auto-ajuda narradas por vozes sintetizadas von 3edgy5u</a></iframe>`,
