@@ -527,41 +527,50 @@ TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em 
       images_details: buildImageDetails([
         {
           src: "/placeholder.jpg",
-          title: "Menis — imagem 1",
+          title: "Em construção",
           caption:
-            "Espaço reservado para documentação de instrumentos eletrônicos.",
-        },
-        {
-          src: "/placeholder.jpg",
-          title: "Menis — imagem 2",
-          caption: "Imagem de apoio para ferramentas de síntese embarcada.",
-        },
-        {
-          src: "/placeholder.jpg",
-          title: "Menis — imagem 3",
-          caption:
-            "Registro complementar do trabalho com hardware para artistas.",
-        },
-        {
-          src: "/placeholder.jpg",
-          title: "Menis — imagem 4",
-          caption: "Último placeholder do conjunto Menis.",
+            "_",
         },
       ]),
+      linkUrl: "https://www.instagram.com/menis______/",
+      linkTitle: "Veja o perfil da Menis no Instagram",
     },
     {
       title: "Granular Player - daisySP",
-      text: "Contribuição para a DaisySP Library com um player granular otimizado para hardware Daisy.",
+      text: "_",
+      images_details: buildImageDetails([
+        {
+          src: "/granular_thumb.jpg",
+          title: "_",
+          caption: "_",
+          y: "0%",
+        },
+      ]),
+      linkUrl: "https://daisy.audio/DaisySP/classdaisysp_1_1GranularPlayer/",
+      linkTitle: "Veja a documentação da classe aqui",
       description: `O "Granular Player" é uma contribuição para a DaisySP Library, oferecendo um player granular otimizado para hardware Daisy. Esta ferramenta permite a manipulação avançada de áudio através de técnicas de síntese granular, possibilitando aos usuários criar texturas sonoras complexas e dinâmicas em tempo real. Projetado para eficiência e desempenho, o Granular Player amplia as capacidades do hardware Daisy, tornando-o uma opção poderosa para músicos e desenvolvedores interessados em exploração sonora e design de som.
 `,
       image: "/granular_thumb.jpg",
+      imageOffsetX: "-50%",
     },
     {
       title: "Grupo de Embarcados IME-USP",
-      text: "Grupo de pesquisa e desenvolvimento em sistemas embarcados para música e áudio.",
+      text: "_",
+      images_details: buildImageDetails([
+        {
+          src: "/embarcados_thumb.jpg",
+          title: "_",
+          caption: "_",
+          y: "-100%",
+        },
+      ]),
+      linkUrl:
+        "https://github.com/viniciusfersil123/ime-embarcados-lib/blob/main/main/ime-embarcados-lib.cpp",
+      linkTitle: "Veja o repositório do grupo no GitHub",
       description: `O Grupo de Embarcados IME-USP é um coletivo de pesquisa e desenvolvimento focado em sistemas embarcados para música e áudio. Composto por estudantes, pesquisadores e profissionais da área, o grupo trabalha na criação de soluções inovadoras que combinam hardware e software para aplicações musicais. Suas atividades incluem o desenvolvimento de instrumentos eletrônicos, interfaces de controle, algoritmos de processamento de sinal e plataformas abertas, promovendo a experimentação sonora e a disseminação do conhecimento técnico na comunidade acadêmica e artística.
 `,
       image: "/embarcados_thumb.jpg",
+      imageOffsetX: "-50%",
     },
   ];
 
@@ -640,8 +649,7 @@ TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em 
       linkTitle: "Leia o artigo na íntegra aqui",
     },
     {
-      title:
-        "The medium becomes infected by the message[...]",
+      title: "The medium becomes infected by the message[...]",
       text: "_",
       description: `O artigo The Medium Becomes Infected by the Message: Boris Groys’ Submedial Suspicion as Viral Tropes in William Burroughs, escrito por Vinícius Fernandes, investiga as relações entre teoria da mídia, som experimental e linguagem a partir da aproximação entre a filosofia de Boris Groys e os experimentos de cut-up realizados por William S. Burroughs com fitas magnéticas nas décadas de 1960 e 1970. O texto analisa como as manipulações sonoras de Burroughs — baseadas em cortes, recombinações, deformações e danos físicos aplicados ao suporte fonográfico — operam como estratégias para revelar aquilo que Groys denomina “suspeita submedial”: a existência de uma subjetividade oculta que atua por trás dos meios de comunicação e da circulação dos signos. A partir da ideia burroughsiana de que a linguagem funciona como um “vírus” que coloniza o pensamento humano, o artigo argumenta que as técnicas de cut-up produzem uma erosão da coerência semântica e expõem a materialidade do meio sonoro, suspendendo temporariamente a normalidade da linguagem. Dialogando com autores como Friedrich Kittler, Roland Barthes e Fernando Iazzetta, o trabalho propõe uma leitura crítica das tecnologias de gravação sonora como dispositivos capazes tanto de reforçar mecanismos de controle quanto de produzir rupturas perceptivas e políticas através do ruído, da distorção e da manipulação material dos sinais.`,
       image: "/sonologia_thumb.jpg",
@@ -649,12 +657,11 @@ TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em 
         {
           src: "/sonologia_01.png",
           title: "_",
-          caption:
-            "_",
-            y: "-90%",
+          caption: "_",
+          y: "-90%",
         },
       ]),
-      linkUrl:"https://sonologia2019.eca.usp.br/?page_id=1469",
+      linkUrl: "https://sonologia2019.eca.usp.br/?page_id=1469",
       linkTitle: "Leia o artigo na íntegra aqui",
     },
   ];
