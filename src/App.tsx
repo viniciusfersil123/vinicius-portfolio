@@ -461,7 +461,6 @@ TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em 
             "World Sponge Conference 2025, Vila do Conde, Portugal - 2025",
           y: "-80%",
         },
-      
       ]),
       linkUrl: "https://worldspongecommunity.com/program/",
       linkTitle: "Saiba mais",
@@ -570,61 +569,38 @@ TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em 
     {
       title: "UOL",
       text: "Desenvolvimento de backend e frontend para o maior portal de notícias da América Latina.",
-      description: `Atuei no desenvolvimento de soluções de backend e frontend para o UOL, o maior portal de notícias da América Latina. Minha experiência inclui a implementação de APIs, integração de sistemas e otimização de performance, sempre buscando oferecer a melhor experiência para os usuários.`,
+      description: `UOL é uma das maiores empresas brasileiras de tecnologia, mídia e serviços digitais, responsável pelo maior portal de conteúdo em língua portuguesa do Brasil, com milhões de usuários mensais e atuação em áreas como jornalismo digital, streaming, cloud computing, hospedagem e pagamentos online. Durante sua atuação como engenheiro de software na empresa, Vinícius Fernandes trabalhou no desenvolvimento e manutenção de aplicações web utilizando tecnologias como JavaScript, TypeScript, Vue.js, Node.js, Docker e SCSS, atuando em arquiteturas de microsserviços e no desenvolvimento de interfaces e sistemas escaláveis para plataformas de grande alcance. Seu trabalho envolveu integração entre equipes multidisciplinares, otimização de aplicações e desenvolvimento de soluções para ambientes de alta demanda e grande volume de acesso.`,
       image: "/uol_thumb.jpg",
+      imageOffsetY: "-35%",
       images_details: buildImageDetails([
         {
-          src: "/placeholder.jpg",
-          title: "UOL — imagem 1",
-          caption:
-            "Espaço reservado para documentação do trabalho em backend e frontend.",
-        },
-        {
-          src: "/placeholder.jpg",
-          title: "UOL — imagem 2",
-          caption: "Imagem de apoio relacionada às integrações de sistemas.",
-        },
-        {
-          src: "/placeholder.jpg",
-          title: "UOL — imagem 3",
-          caption: "Registro complementar do desenvolvimento para o portal.",
-        },
-        {
-          src: "/placeholder.jpg",
-          title: "UOL — imagem 4",
-          caption: "Último placeholder do bloco UOL.",
+          src: "/uol_01.jpg",
+          title: "_",
+          caption: "_",
+          y: "-60%",
         },
       ]),
+      linkUrl:
+        "https://noticias.uol.com.br/ultimas-noticias/agencia-estado/2026/05/08/moraes-e-sorteado-relator-de-duas-acoes-que-questionam-a-validade-da-lei-da-dosimetria-no-stf.htm",
+      linkTitle:
+        "Veja um exemplo de uma página do portal UOL em que Vinícius atuou no desenvolvimento de frontend e backend.",
     },
     {
       title: "Nexo Jornal",
       text: "Atualização de stack, integração de dados e desenvolvimento de novas funcionalidades para o portal de notícias.",
-      description: `No Nexo Jornal, trabalhei na atualização da stack tecnológica, integração de dados e desenvolvimento de novas funcionalidades para o portal de notícias. Meu foco foi garantir a escalabilidade e a performance do sistema, além de implementar melhorias na experiência do usuário.`,
+      description: `Nexo Jornal é um veículo brasileiro de jornalismo digital independente reconhecido por sua abordagem analítica e contextualizada sobre política, economia, cultura, ciência e tecnologia. Fundado em 2015 em São Paulo, o Nexo se destacou internacionalmente por seu foco em jornalismo visual, experiência digital e modelos independentes de financiamento baseados em assinatura. Durante sua atuação no jornal, Vinícius Fernandes trabalhou como desenvolvedor e Product Owner, desenvolvendo aplicações web com React.js, Next.js, JavaScript e TypeScript, além de atuar com CSS, Styled-components e integração de serviços em nuvem via AWS. Seu trabalho envolveu desenvolvimento front-end, design de interfaces responsivas, revisão de código, colaboração em equipes multidisciplinares e criação de soluções digitais voltadas à experiência editorial e à distribuição de conteúdo em uma das principais iniciativas de jornalismo digital independente do Brasil.`,
       image: "/nexo_thumb.jpg",
       images_details: buildImageDetails([
         {
-          src: "/placeholder.jpg",
-          title: "Nexo Jornal — imagem 1",
-          caption:
-            "Espaço reservado para documentação da atualização de stack.",
-        },
-        {
-          src: "/placeholder.jpg",
-          title: "Nexo Jornal — imagem 2",
-          caption:
-            "Imagem de apoio para integração de dados e funcionalidades.",
-        },
-        {
-          src: "/placeholder.jpg",
-          title: "Nexo Jornal — imagem 3",
-          caption: "Registro complementar do portal de notícias.",
-        },
-        {
-          src: "/placeholder.jpg",
-          title: "Nexo Jornal — imagem 4",
-          caption: "Último placeholder do bloco Nexo Jornal.",
+          src: "/nexo_thumb.jpg",
+          title: "São Paulo, Brasil",
+          caption: "Imagem da redação do Nexo Jornal",
         },
       ]),
+      linkUrl:
+        "https://www.nexojornal.com.br/expresso/2026/05/08/chefe-da-casa-civil-bolsonaro-ciro-nogueira-operacao-pf-banco-master",
+      linkTitle:
+        "Veja um exemplo de uma página do portal Nexo Jornal em que Vinícius atuou no desenvolvimento de frontend e backend.",
     },
   ];
 
