@@ -172,7 +172,7 @@ TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em 
       linkUrl: "https://tudos.bandcamp.com/",
       linkTitle: "Ouça todo o catálogo clicando aqui",
     },
-        {
+    {
       title: "9 chifres",
       text: "Peça eletrônica baseada na canção lituana Kalėdų rytu rožė inžydo, apresentada na 32ª Bienal de São Paulo.",
       description: `"9 chifres" é uma peça para guitarra e eletrônica, apresentada em performance no dia 11 de dezembro de 2016 (16h–17h), no Pavilhão da Bienal, Psychotropic House (1º andar), durante a 32ª Bienal de São Paulo. Todo o material sonoro parte da canção tradicional lituana Kalėdų rytu rožė inžydo, em que a aparição de um cervo de nove chifres desencadeia imagens de atualização cosmológica. O universo melódico da canção é expandido em texturas eletrônicas geradas por diferentes técnicas de síntese e processamento computacional. Inspirada em experiências de "composição verbal" da música eletroacústica — como Gesang der Jünglinge (1955–1956), de Karlheinz Stockhausen, e Thema (Omaggio a Joyce) (1958), de Luciano Berio — a obra também utiliza sons derivados da voz feminina que canta a canção. A peça foi difundida em um sistema sonoro instalado em 9 objetos com micélio do fungo Pleurotus ostreatus, integrando o trabalho Psychotropic House: Zooetics Pavilion of Ballardian Technologies, de Nomeda & Gediminas Urbonas.
@@ -184,14 +184,16 @@ TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em 
         {
           src: "/9_chifres_1.JPG",
           title: "9 chifres",
-          caption: "Registro da performance 9 chifres na 32ª Bienal de São Paulo, São Paulo, Brasil, 2016",
+          caption:
+            "Registro da performance 9 chifres na 32ª Bienal de São Paulo, São Paulo, Brasil, 2016",
           x: "8%",
           y: "-25%",
         },
         {
           src: "/9_chifres_2.JPG",
           title: "9 chifres",
-          caption: "Registro da performance 9 chifres na 32ª Bienal de São Paulo, São Paulo, Brasil, 2016",
+          caption:
+            "Registro da performance 9 chifres na 32ª Bienal de São Paulo, São Paulo, Brasil, 2016",
           x: "0px",
           y: "-80%",
           x600: "-25%",
@@ -200,15 +202,16 @@ TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em 
         {
           src: "/9_chifres_3.jpg",
           title: "9 chifres",
-          caption: "Registro da performance 9 chifres na 32ª Bienal de São Paulo, São Paulo, Brasil, 2016",
+          caption:
+            "Registro da performance 9 chifres na 32ª Bienal de São Paulo, São Paulo, Brasil, 2016",
           x: "12%",
           y: "-55%",
-
         },
         {
           src: "/9_chifres_4.JPG",
           title: "9 chifres",
-          caption: "Registro da performance 9 chifres na 32ª Bienal de São Paulo, São Paulo, Brasil, 2016",
+          caption:
+            "Registro da performance 9 chifres na 32ª Bienal de São Paulo, São Paulo, Brasil, 2016",
           x: "-6%",
           y: "-50%",
           x900: "-4%",
@@ -219,7 +222,8 @@ TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em 
         {
           src: "/9_chifres_5.JPG",
           title: "9 chifres",
-          caption: "Registro da performance 9 chifres na 32ª Bienal de São Paulo, São Paulo, Brasil, 2016",
+          caption:
+            "Registro da performance 9 chifres na 32ª Bienal de São Paulo, São Paulo, Brasil, 2016",
           x: "10%",
           y: "-70%",
           x900: "6%",
@@ -230,7 +234,8 @@ TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em 
         {
           src: "/9_chifres_6.jpg",
           title: "9 chifres",
-          caption: "Registro da performance 9 chifres na 32ª Bienal de São Paulo, São Paulo, Brasil, 2016",
+          caption:
+            "Registro da performance 9 chifres na 32ª Bienal de São Paulo, São Paulo, Brasil, 2016",
           x: "0px",
           y: "-55%",
           x900: "0px",
@@ -241,7 +246,8 @@ TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em 
         {
           src: "/9_chifres_7.jpg",
           title: "9 chifres",
-          caption: "Registro da performance 9 chifres na 32ª Bienal de São Paulo, São Paulo, Brasil, 2016",
+          caption:
+            "Registro da performance 9 chifres na 32ª Bienal de São Paulo, São Paulo, Brasil, 2016",
           x: "14%",
           y: "-60%",
           x900: "10%",
@@ -265,9 +271,9 @@ TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em 
           title: "Metempsicose",
           caption:
             "Instalação sonora com rádio, alto-falantes e instrumentos modificados.",
-            x: "0px",
-            y: "-75%",
-          },
+          x: "0px",
+          y: "-75%",
+        },
         {
           src: "/metempsicose_2.jpg",
           title: "Metempsicose — imagem 2",
@@ -291,7 +297,7 @@ TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em 
           title: "Metempsicose — imagem 5",
           caption:
             "Detalhe dos alto-falantes modificados ligados à guitarra e ao tamtam.",
-            y: "-50%",
+          y: "-50%",
         },
       ]),
       embedsBandcamp: [
@@ -304,43 +310,47 @@ TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em 
     {
       title: "¿Música?",
       text: "Série de performances/exposições de arte sonora/música experimental realizada desde 2005",
-      description: `¿Música? é uma série de performances e exposições que exploram os limites entre arte sonora e música experimental. Iniciada em 2005, a série apresenta uma variedade de abordagens criativas, desde instalações interativas até composições sonoras inovadoras. Cada evento busca desafiar as percepções tradicionais de música, incentivando o público a experimentar o som de maneiras novas e inesperadas. Através de colaborações com outros artistas e a incorporação de tecnologias emergentes, ¿Música? continua a evoluir como uma plataforma para a experimentação sonora e a expressão artística.
-`,
+      description: `¿Música? é uma série de performances realizada desde 2005 que toma produções sonoras e musicais como ponto de discussão e reflexão sobre a produção musical contemporânea. O evento reúne trabalhos ligados ao experimentalismo, ao uso crítico de tecnologias de produção sonora, à integração entre elementos visuais, gestuais e sonoros, ao emprego de técnicas de improvisação e à exploração dos espaços de performance. Vinícius Fernandes atuou como curador da 12ª e 13ª edições da série.`,
       image: "/musica_thumb.jpg",
       imageOffsetX: "50%",
       imageOffsetY: "40%",
       images_details: buildImageDetails([
         {
           src: "/musica_1.JPG",
-          title: "¿Música? — imagem 1",
-          caption: "Registro de uma das ações/performance da série.",
+          title: "Mariana Carvalho",
+          caption: "Perfomance em ¿Música? #12, São Paulo - SP, Brasil - 2017",
+          y: "-84%",
+          x600: "50%",
         },
         {
           src: "/musica_2.jpg",
-          title: "¿Música? — imagem 2",
-          caption: "Vista de instalação ligada à pesquisa em arte sonora.",
+          title: "Luís Fernando Cirne, Gustavo Branco e Paulo Assis",
+          caption: "Planos de Saturação — performance em ¿Música? #13, São Paulo - SP, Brasil - 2017",
+          y: "-54%",
+          y900: "-80%",
+          x600: "-15%",
         },
         {
           src: "/musica_3.jpg",
-          title: "¿Música? — imagem 3",
-          caption: "Documentação de uma exposição ou performance da série.",
+          title: "Denis Abranches e Alessandra Bono Vox",
+          caption: "Duo Movente — performance em ¿Música? #13, São Paulo - SP, Brasil - 2017",
+          y: "-75%",
+          x600: "-30%",
         },
         {
           src: "/musica_4.jpg",
-          title: "¿Música? — imagem 4",
-          caption: "Outro momento do projeto ¿Música? em apresentação pública.",
+          title: "¿Música? 13",
+          caption: "Público durante a 13ª edição da série ¿Música?, São Paulo - SP, Brasil - 2017",
+          y: "-60%",
         },
         {
           src: "/musica_5.jpg",
-          title: "¿Música? — imagem 5",
-          caption: "Detalhe de interação entre público, espaço e som.",
-        },
-        {
-          src: "/musica_6.jpg",
-          title: "¿Música? — imagem 6",
-          caption: "Último registro da série de imagens do projeto.",
+          title: "Henrique Rocha",
+          caption: "Ainda, Performance em ¿Música? #13, São Paulo - SP, Brasil - 2017",
         },
       ]),
+      linkUrl: "https://nusom.eca.usp.br/producoes-musica",
+      linkTitle: "Saiba mais",
     },
     {
       title: "Móbile de vaca morta com vergalhões de ferro [...]",
