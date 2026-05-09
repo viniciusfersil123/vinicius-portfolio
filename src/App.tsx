@@ -444,42 +444,27 @@ TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em 
           caption: "SESC Avenida Paulista, São Paulo - SP, Brasil - 2020",
         },
       ]),
-      youtubeUrls: [
-        "https://www.youtube.com/watch?v=APvD8IhDLcA",
-
-      ],
-      youtubeCaption: [
-        "Fitosintetizador — amostra de funcionamento do patch",
-      ],
+      youtubeUrls: ["https://www.youtube.com/watch?v=APvD8IhDLcA"],
+      youtubeCaption: ["Fitosintetizador — amostra de funcionamento do patch"],
     },
     {
       title: "Echos of the deep",
-      text: "Software de sonificação de dados metabólicos de esponjas marinhas. Apresentado no contexto 12th World Sponge Conference",
-      description: `Echos of the deep é um software de sonificação de dados metabólicos de esponjas marinhas, apresentado no contexto da 12th World Sponge Conference. A obra explora as interações entre os organismos marinhos e seu ambiente, utilizando técnicas de sonificação para transformar dados científicos em experiências sonoras imersivas.
-`,
+      text: "Software de sonificação de dados metabólicos de esponjas marinhas",
+      description: `Echoes of the Deep: Sonifying the Hidden World of Sponges é um projeto interdisciplinar de arte e ciência desenvolvido por Julie Semoroz e Vinícius Fernandes em colaboração com pesquisadores do CNRS e da Marine Station of Endoume. Baseado em pesquisas metabolômicas, genéticas e taxonômicas sobre esponjas marinhas do Mediterrâneo e do Atlântico, o projeto transforma dados científicos em experiências imersivas de som e vibração por meio de um sistema de sonificação desenvolvido em Python e Pure Data. Dados de concentração química extraídos de heatmaps metabolômicos são convertidos em frequências e sintetizados em formas de onda complexas, gerando “assinaturas sonoras” únicas para oito espécies de esponjas. Essas identidades auditivas revelam similaridades e diferenças bioquímicas entre espécies, tornando perceptíveis aspectos invisíveis da biodiversidade marinha através da escuta e da vibração corporal. Ao combinar processamento digital de sinais, arte sonora experimental e biologia marinha, a obra propõe uma forma alternativa de visualização científica e engajamento público, buscando ampliar a conscientização sobre ecossistemas subaquáticos ameaçados pelas mudanças climáticas, perda de biodiversidade e ondas extremas de calor marinho.`,
       image: "/sponges_thumb.jpg",
       images_details: buildImageDetails([
         {
-          src: "/placeholder.jpg",
-          title: "Echos of the deep — imagem 1",
-          caption: "Espaço reservado para registro visual da sonificação.",
+          src: "/sea_sponges_1.JPG",
+          title:
+            "Vinícius Fernandes e Julie Semoroz durante a apresentação de Echoes of the Deep",
+          caption:
+            "World Sponge Conference 2025, Vila do Conde, Portugal - 2025",
+          y: "-80%",
         },
-        {
-          src: "/placeholder.jpg",
-          title: "Echos of the deep — imagem 2",
-          caption: "Imagem de apoio da apresentação do software.",
-        },
-        {
-          src: "/placeholder.jpg",
-          title: "Echos of the deep — imagem 3",
-          caption: "Documento visual complementar do projeto.",
-        },
-        {
-          src: "/placeholder.jpg",
-          title: "Echos of the deep — imagem 4",
-          caption: "Registro reservado para a conferência e a obra.",
-        },
+      
       ]),
+      linkUrl: "https://worldspongecommunity.com/program/",
+      linkTitle: "Saiba mais",
     },
     {
       title: "Discografia",
