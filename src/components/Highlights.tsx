@@ -1,4 +1,3 @@
-import { useRef, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -106,8 +105,6 @@ export default function Highlights({
   imageItems?: HighlightImageItem[];
 }) {
   const { t } = useTranslation();
-  const sliderRef = useRef<Slider | null>(null);
-  const [isPaused, setIsPaused] = useState(false);
 
   const slides: HighlightSlide[] = imageItems?.length
     ? imageItems.map((img, index) => ({
@@ -122,27 +119,13 @@ export default function Highlights({
       }))
     : highlights;
 
-  const toggleSlideshow = () => {
-    setIsPaused((prev) => {
-      const next = !prev;
-
-      if (next) {
-        sliderRef.current?.slickPause();
-      } else {
-        sliderRef.current?.slickPlay();
-      }
-
-      return next;
-    });
-  };
-
   const settings = {
     infinite: true,
     speed: 2000,
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
-    autoplay: !isPaused,
+    autoplay: true,
     autoplaySpeed: 5000,
     fade: true,
     cssEase: "linear",
@@ -152,16 +135,7 @@ export default function Highlights({
 
   return (
     <div className="hero-highlights">
-      <button
-        type="button"
-        className="highlights-pause-toggle"
-        onClick={toggleSlideshow}
-        aria-pressed={isPaused}
-      >
-        {isPaused ? "▶ Play" : "⏸ Pause"}
-      </button>
-
-      <Slider ref={sliderRef} {...settings}>
+      <Slider {...settings}>
         {slides.map((h, i) => {
           const titleText = h.title || textItems?.[i]?.title || t(h.titleKey);
           const captionText = h.caption || textItems?.[i]?.caption || t(h.captionKey);

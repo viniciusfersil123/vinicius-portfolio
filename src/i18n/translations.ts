@@ -103,6 +103,9 @@ export const translations: Record<string, Record<string, string>> = {
     "home.cards.software.1.title": "Nexo Jornal",
     "home.cards.software.1.text":
       "Atualização de stack, integração de dados e desenvolvimento de novas funcionalidades para o portal de notícias.",
+    "detail.listen": "Ouça/Veja",
+    "detail.bandcamp": "Bandcamp",
+    "detail.videos": "Vídeos",
   },
   en: {
     "nav.sobre": "About",
@@ -208,6 +211,9 @@ export const translations: Record<string, Record<string, string>> = {
     "home.cards.software.1.title": "Nexo Jornal",
     "home.cards.software.1.text":
       "Stack modernization, data integration and development of new features for the news portal.",
+    "detail.listen": "Listen/Watch",
+    "detail.bandcamp": "Bandcamp",
+    "detail.videos": "Videos",
   },
   de: {
     "nav.sobre": "Über",
@@ -313,5 +319,8 @@ export const translations: Record<string, Record<string, string>> = {
     "home.cards.software.1.title": "Nexo Jornal",
     "home.cards.software.1.text":
       "Stack-Modernisierung, Datenintegration und Entwicklung neuer Funktionen für das Nachrichtenportal.",
+    "detail.listen": "Anhören/Ansehen",
+    "detail.bandcamp": "Bandcamp",
+    "detail.videos": "Videos",
   },
 };

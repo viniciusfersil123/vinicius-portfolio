@@ -59,7 +59,7 @@ function buildBandcampEmbed(html: string, caption: string) {
 }
 
 function App() {
-  const { t } = useTranslation();
+  const { t, lang } = useTranslation();
 
   // dados dos cards (fácil de manter e reutilizar)
   const cards = [
@@ -69,6 +69,14 @@ function App() {
 `,
       description: `TUDOS é um selo e produtora co-fundada por Vinícius Fernandes em 2014 voltada ao lançamento de artistas que trabalham com composição experimental. Além disso, o projeto também abrange iniciativas em diferentes vertentes da música experimental, como improvisação livre, música eletrônica, música conceitual e plunderphonics, entre outras.
 TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em mais de 7 países. Em 2015, o projeto recebeu apoio financeiro por meio de um edital da Universidade Estadual de Campinas (UNICAMP)`,
+            description_i18n: {
+        "pt-br": `TUDOS é um selo e produtora co-fundada por Vinícius Fernandes em 2014 voltada ao lançamento de artistas que trabalham com composição experimental. Além disso, o projeto também abrange iniciativas em diferentes vertentes da música experimental, como improvisação livre, música eletrônica, música conceitual e plunderphonics, entre outras.
+      TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em mais de 7 países. Em 2015, o projeto recebeu apoio financeiro por meio de um edital da Universidade Estadual de Campinas (UNICAMP)`,
+        en: `TUDOS is a label and producer co-founded by Vinícius Fernandes in 2014 focused on releasing artists working with experimental composition. The project also embraces initiatives across different strands of experimental music, such as free improvisation, electronic music, conceptual music and plunderphonics, among others.
+      TUDOS has released 17 albums and produced over 30 events with its artists in more than 7 countries. In 2015 the project received funding through a grant from the State University of Campinas (UNICAMP).`,
+        de: `TUDOS ist ein Label und Produzent, das 2014 von Vinícius Fernandes mitbegründet wurde und sich auf die Veröffentlichung von Künstlern konzentriert, die experimentelle Kompositionen arbeiten. Das Projekt umfasst auch Initiativen in verschiedenen Bereichen der experimentellen Musik, wie freie Improvisation, elektronische Musik, konzeptuelle Musik und Plunderphonics, unter anderem.
+      TUDOS hat 17 Alben veröffentlicht und über 30 Veranstaltungen mit seinen Künstlern in mehr als 7 Ländern produziert. 2015 erhielt das Projekt eine finanzielle Förderung durch ein Stipendium der Staatlichen Universität von Campinas (UNICAMP).`,
+            },
       image: "/tudos_thumb.jpg",
       images_details: buildImageDetails([
         {
@@ -139,22 +147,42 @@ TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em 
         },
       ]),
       embedsBandcamp: [
-        buildBandcampEmbed(
-          `<iframe style="border: 0; width: 350px; height: 350px;" src="https://bandcamp.com/EmbeddedPlayer/album=1846535594/size=large/bgcol=ffffff/linkcol=0687f5/minimal=true/transparent=true/" seamless><a href="https://tudos.bandcamp.com/album/tds013-muito-nasty">[tds013] Muito Nasty von Muito Nasty</a></iframe>`,
-          "2019 - Muito Nasty - Muito Nasty",
-        ),
-        buildBandcampEmbed(
-          `<iframe style="border: 0; width: 350px; height: 350px;" src="https://bandcamp.com/EmbeddedPlayer/album=3315268750/size=large/bgcol=ffffff/linkcol=0687f5/minimal=true/transparent=true/" seamless><a href="https://tudos.bandcamp.com/album/tds015-terror-da-terra">[tds015] Terror da terra von Gabriel Edé</a></iframe>`,
-          "2020 - Terror da Terra - Gabriel Edé",
-        ),
-        buildBandcampEmbed(
-          `<iframe style="border: 0; width: 350px; height: 350px;" src="https://bandcamp.com/EmbeddedPlayer/album=3896437244/size=large/bgcol=ffffff/linkcol=0687f5/minimal=true/transparent=true/" seamless><a href="https://tudos.bandcamp.com/album/tds05-the-mystical-sounds-of-historical-materialism">[tds05] The Mystical Sounds of Historical Materialism von Ajnabi</a></iframe>`,
-          "2016 - The Mystical Sounds of Historical Materialism - Ajnabi",
-        ),
-        buildBandcampEmbed(
-          `<iframe style="border: 0; width: 350px; height: 350px;" src="https://bandcamp.com/EmbeddedPlayer/album=1951198024/size=large/bgcol=ffffff/linkcol=0687f5/minimal=true/transparent=true/" seamless><a href="https://tudos.bandcamp.com/album/tds04-o-maior-brasileiro-de-todos-os-tempos">[tds04] O Maior Brasileiro de Todos os Tempos von As Colegas de Trabalho</a></iframe>`,
-          "2015 - O Maior Brasileiro de Todos os Tempos - As Colegas de Trabalho",
-        ),
+        {
+          html: `<iframe style="border: 0; width: 350px; height: 350px;" src="https://bandcamp.com/EmbeddedPlayer/album=1846535594/size=large/bgcol=ffffff/linkcol=0687f5/minimal=true/transparent=true/" seamless><a href="https://tudos.bandcamp.com/album/tds013-muito-nasty">[tds013] Muito Nasty von Muito Nasty</a></iframe>`,
+          caption: "2019 - Muito Nasty - Muito Nasty",
+          caption_i18n: {
+            "pt-br": "2019 - Muito Nasty - Muito Nasty",
+            en: "2019 - Muito Nasty - Muito Nasty",
+            de: "2019 - Muito Nasty - Muito Nasty",
+          },
+        },
+        {
+          html: `<iframe style="border: 0; width: 350px; height: 350px;" src="https://bandcamp.com/EmbeddedPlayer/album=3315268750/size=large/bgcol=ffffff/linkcol=0687f5/minimal=true/transparent=true/" seamless><a href="https://tudos.bandcamp.com/album/tds015-terror-da-terra">[tds015] Terror da terra von Gabriel Edé</a></iframe>`,
+          caption: "2020 - Terror da Terra - Gabriel Edé",
+          caption_i18n: {
+            "pt-br": "2020 - Terror da Terra - Gabriel Edé",
+            en: "2020 - Terror da Terra - Gabriel Edé",
+            de: "2020 - Terror da Terra - Gabriel Edé",
+          },
+        },
+        {
+          html: `<iframe style="border: 0; width: 350px; height: 350px;" src="https://bandcamp.com/EmbeddedPlayer/album=3896437244/size=large/bgcol=ffffff/linkcol=0687f5/minimal=true/transparent=true/" seamless><a href="https://tudos.bandcamp.com/album/tds05-the-mystical-sounds-of-historical-materialism">[tds05] The Mystical Sounds of Historical Materialism von Ajnabi</a></iframe>`,
+          caption: "2016 - The Mystical Sounds of Historical Materialism - Ajnabi",
+          caption_i18n: {
+            "pt-br": "2016 - The Mystical Sounds of Historical Materialism - Ajnabi",
+            en: "2016 - The Mystical Sounds of Historical Materialism - Ajnabi",
+            de: "2016 - The Mystical Sounds of Historical Materialism - Ajnabi",
+          },
+        },
+        {
+          html: `<iframe style="border: 0; width: 350px; height: 350px;" src="https://bandcamp.com/EmbeddedPlayer/album=1951198024/size=large/bgcol=ffffff/linkcol=0687f5/minimal=true/transparent=true/" seamless><a href="https://tudos.bandcamp.com/album/tds04-o-maior-brasileiro-de-todos-os-tempos">[tds04] O Maior Brasileiro de Todos os Tempos von As Colegas de Trabalho</a></iframe>`,
+          caption: "2015 - O Maior Brasileiro de Todos os Tempos - As Colegas de Trabalho",
+          caption_i18n: {
+            "pt-br": "2015 - O Maior Brasileiro de Todos os Tempos - As Colegas de Trabalho",
+            en: "2015 - O Maior Brasileiro de Todos os Tempos - As Colegas de Trabalho",
+            de: "2015 - O Maior Brasileiro de Todos os Tempos - As Colegas de Trabalho",
+          },
+        },
       ],
       // novo: apenas URLs normais do YouTube (watch/playlist). A tela converte para embed.
       youtubeUrls: [
@@ -169,8 +197,33 @@ TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em 
         "TUDOS #2 - Para Leila Khaled - Campinas, SP, Brasil - 2014",
         "TUDOS na UNICAMP #2 - Tabutril - Campinas, SP, Brasil - 2015",
       ],
+      youtubeCaption_i18n: {
+        "pt-br": [
+          "TUDOS #4 - Bin Beri Ban - Campinas, SP, Brasil - 2014",
+          "TUDOS #3 - Gustavo Torres - Campinas, SP, Brasil - 2014",
+          "TUDOS #2 - Para Leila Khaled - Campinas, SP, Brasil - 2014",
+          "TUDOS na UNICAMP #2 - Tabutril - Campinas, SP, Brasil - 2015",
+        ],
+        en: [
+          "TUDOS #4 - Bin Beri Ban - Campinas, SP, Brazil - 2014",
+          "TUDOS #3 - Gustavo Torres - Campinas, SP, Brazil - 2014",
+          "TUDOS #2 - Para Leila Khaled - Campinas, SP, Brazil - 2014",
+          "TUDOS at UNICAMP #2 - Tabutril - Campinas, SP, Brazil - 2015",
+        ],
+        de: [
+          "TUDOS #4 - Bin Beri Ban - Campinas, SP, Brasilien - 2014",
+          "TUDOS #3 - Gustavo Torres - Campinas, SP, Brasilien - 2014",
+          "TUDOS #2 - Para Leila Khaled - Campinas, SP, Brasilien - 2014",
+          "TUDOS na UNICAMP #2 - Tabutril - Campinas, SP, Brasilien - 2015",
+        ],
+      },
       linkUrl: "https://tudos.bandcamp.com/",
       linkTitle: "Ouça todo o catálogo clicando aqui",
+      linkTitle_i18n: {
+        "pt-br": "Ouça todo o catálogo clicando aqui",
+        en: "Listen to the full catalog by clicking here",
+        de: "Hören Sie den gesamten Katalog, indem Sie hier klicken",
+      },
     },
     {
       title: "9 chifres",
@@ -908,7 +961,7 @@ TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em 
           {currentItem ? (
             <>
               {currentItem.description ? (
-                <p>{currentItem.description}</p>
+                <p>{currentItem.description_i18n?.[lang] ?? currentItem.description}</p>
               ) : null}
               {currentItem.linkUrl ? (
                 <div className="detail-link-row detail-link-row--hero">
@@ -918,7 +971,7 @@ TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em 
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    {currentItem.linkTitle || currentItem.linkUrl}{" "}
+                    {(currentItem.linkTitle_i18n?.[lang] ?? currentItem.linkTitle) || currentItem.linkUrl} {" "}
                     <span aria-hidden>↗</span>
                   </a>
                 </div>

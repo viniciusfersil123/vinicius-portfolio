@@ -3,6 +3,7 @@ import { useParams } from "../lib/routerShim";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useTranslation } from "../hooks/useTranslation";
 
 function slugify(s: string) {
   return String(s || "")
@@ -20,6 +21,7 @@ type Item = {
     src: string;
     title: string;
     caption: string;
+    caption_i18n?: Record<string, string>;
     imageOffsetX?: string;
     imageOffsetY?: string;
     imageOffsetX900?: string;
@@ -30,18 +32,23 @@ type Item = {
   embeds?: Array<{
     html: string;
     caption?: string;
+    caption_i18n?: Record<string, string>;
   } | string>;
   embedsBandcamp?: Array<{
     html: string;
     caption?: string;
+    caption_i18n?: Record<string, string>;
   }>;
   youtubeUrls?: string[];
   youtubeCaption?: string[];
+  youtubeCaption_i18n?: Record<string, string[]>;
   embedsYoutubeSrc?: string[];
   caption?: string;
   // novo:
   linkUrl?: string;
   linkTitle?: string;
+  linkTitle_i18n?: Record<string, string>;
+  description_i18n?: Record<string, string>;
 };
 
 // converte URLs "watch" / "youtu.be" / "playlist" para embed
@@ -89,6 +96,8 @@ function toYouTubeEmbed(src: string): string {
 export default function Detail() {
   const { slug } = useParams() as { slug?: string };
 
+  const { t, lang } = useTranslation();
+
   const allItems: Item[] = (window as any).__APP_ALL__ || [];
   const item =
     allItems.find((it) => slugify(it.title) === (slug || "")) || null;
@@ -123,12 +132,11 @@ export default function Detail() {
             inverted: false,
             content: (
               <section className="detail-embeds">
-                <h2 className="detail-embeds-title">Ouça/Veja</h2>
+                <h2 className="detail-embeds-title">{t("detail.listen")}</h2>
                 <div className="detail-embeds-grid">
                   {item.embeds.map((embed, idx: number) => {
                     const isString = typeof embed === 'string';
                     const html = isString ? embed : embed.html;
-                    const caption = isString ? undefined : embed.caption;
                     
                     return (
                       <div key={idx} className="embed-wrapper">
@@ -136,7 +144,9 @@ export default function Detail() {
                           className="embed-card"
                           dangerouslySetInnerHTML={{ __html: html }}
                         />
-                        {caption ? <p className="embed-caption">{caption}</p> : null}
+                        {(embed as any).caption_i18n?.[lang] || (embed as any).caption ? (
+                          <p className="embed-caption">{(embed as any).caption_i18n?.[lang] ?? (embed as any).caption}</p>
+                        ) : null}
                       </div>
                     );
                   })}
@@ -153,7 +163,7 @@ export default function Detail() {
             inverted: true,
             content: (
               <section className="detail-embeds">
-                <h2 className="detail-embeds-title">Bandcamp</h2>
+                <h2 className="detail-embeds-title">{t("detail.bandcamp")}</h2>
                 {hasMultipleBandcampEmbeds ? (
                   <Slider
                     {...{
@@ -176,7 +186,9 @@ export default function Detail() {
                     {bandcampEmbeds.map((embed, idx) => (
                       <div key={`bc-${idx}`} className="bandcamp-carousel-slide">
                         <div className="embed-card bandcamp" dangerouslySetInnerHTML={{ __html: embed.html }} />
-                        {embed.caption ? <p className="bandcamp-caption">{embed.caption}</p> : null}
+                        {(embed as any).caption_i18n?.[lang] || (embed as any).caption ? (
+                          <p className="bandcamp-caption">{(embed as any).caption_i18n?.[lang] ?? (embed as any).caption}</p>
+                        ) : null}
                       </div>
                     ))}
                   </Slider>
@@ -198,7 +210,7 @@ export default function Detail() {
             inverted: false,
             content: (
               <section className="detail-embeds">
-                <h2 className="detail-embeds-title">Vídeos</h2>
+                <h2 className="detail-embeds-title">{t("detail.videos")}</h2>
                 {hasMultipleYoutubeEmbeds ? (
                   <Slider
                     {...{
@@ -227,7 +239,7 @@ export default function Detail() {
                     }}
                   >
                     {youtubeEmbeds.map((src, idx) => {
-                      const caption = item?.youtubeCaption?.[idx];
+                      const caption = item?.youtubeCaption_i18n?.[lang]?.[idx] ?? item?.youtubeCaption?.[idx];
                       return (
                         <div key={`yt-src-${idx}`} className="youtube-carousel-slide">
                           <div className="embed-card youtube">
@@ -259,7 +271,9 @@ export default function Detail() {
                         sandbox="allow-scripts allow-same-origin allow-presentation"
                       />
                     </div>
-                    {item?.youtubeCaption?.[0] ? <p className="youtube-caption">{item.youtubeCaption[0]}</p> : null}
+                    { (item?.youtubeCaption_i18n?.[lang]?.[0] ?? item?.youtubeCaption?.[0]) ? (
+                      <p className="youtube-caption">{item.youtubeCaption_i18n?.[lang]?.[0] ?? item.youtubeCaption?.[0]}</p>
+                    ) : null }
                   </div>
                 )}
               </section>
