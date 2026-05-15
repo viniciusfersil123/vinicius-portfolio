@@ -22,7 +22,14 @@ type HighlightTextItem = {
 
 type HighlightImageItem = {
   src: string;
+  title?: string;
+  caption?: string;
   offsets?: Highlight["offsets"];
+};
+
+type HighlightSlide = Highlight & {
+  title?: string;
+  caption?: string;
 };
 
 function mergeOffsets(
@@ -74,7 +81,7 @@ const highlights: Highlight[] = [
     img: "/teaser_4.jpg",
     captionKey: "home.highlights.3.caption",
     offsets: {
-      desktop: { x: "0px", y: "-90%" },
+      desktop: { x: "0px", y: "-80%" },
       max900: { x: "0px", y: "-60%" },
       max600: { x: "0px", y: "-60%" },
     },
@@ -102,10 +109,12 @@ export default function Highlights({
   const sliderRef = useRef<Slider | null>(null);
   const [isPaused, setIsPaused] = useState(false);
 
-  const slides: Highlight[] = imageItems?.length
+  const slides: HighlightSlide[] = imageItems?.length
     ? imageItems.map((img, index) => ({
         ...highlights[index % highlights.length],
         img: img.src,
+        title: img.title,
+        caption: img.caption,
         offsets: mergeOffsets(
           highlights[index % highlights.length].offsets,
           img.offsets,
@@ -154,12 +163,8 @@ export default function Highlights({
 
       <Slider ref={sliderRef} {...settings}>
         {slides.map((h, i) => {
-          // texto dinâmico por slide; fallback para tradução antiga
-          // quando não houver item correspondente
-          const dynamicTitle = textItems?.[i]?.title;
-          const dynamicCaption = textItems?.[i]?.caption;
-          const titleText = dynamicTitle || t(h.titleKey);
-          const captionText = dynamicCaption || t(h.captionKey);
+          const titleText = h.title || textItems?.[i]?.title || t(h.titleKey);
+          const captionText = h.caption || textItems?.[i]?.caption || t(h.captionKey);
 
           return (
             <div key={i} className="highlight-card">

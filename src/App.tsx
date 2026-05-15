@@ -521,15 +521,25 @@ TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em 
     {
       title: "Menis",
       text: "Desenvolvimento de instrumentos eletrônicos, síntese embarcada e ferramentas para artistas e pesquisadores.",
-      description: `Menis é uma iniciativa dedicada ao desenvolvimento de instrumentos eletrônicos, síntese embarcada e ferramentas para artistas e pesquisadores. Focada na criação de soluções inovadoras, a Menis busca facilitar a experimentação sonora e a exploração musical através de tecnologias acessíveis e personalizáveis. Com uma abordagem colaborativa, a Menis trabalha para capacitar músicos e criadores a expandirem suas práticas artísticas utilizando hardware e software de ponta.
+      description: `A Menis é uma pequena empresa dedicada ao desenvolvimento de sintetizadores, pedais e ferramentas voltadas à música eletrônica, unindo pesquisa técnica, experimentação sonora e educação tecnológica em uma abordagem acessível e independente. Atuando na interseção entre arte, eletrônica e desenvolvimento de hardware, a empresa produz instrumentos autorais comercializados no Brasil e também na Europa, buscando oferecer soluções criativas e de baixo custo para músicos, artistas, estudantes e entusiastas da síntese sonora. Além da fabricação de instrumentos, a Menis também desenvolve atividades educacionais relacionadas à construção de hardware, eletrônica aplicada à música e computação musical, tendo realizado mais de uma dezena de cursos e workshops em diferentes contextos. A proposta da empresa envolve não apenas a criação de equipamentos, mas também a difusão de conhecimento técnico e artístico, incentivando a autonomia tecnológica, o aprendizado prático e o acesso mais amplo às ferramentas de produção sonora contemporânea. 
 `,
       image: "/menis_thumb.jpg",
       images_details: buildImageDetails([
         {
-          src: "/placeholder.jpg",
-          title: "Em construção",
-          caption:
-            "_",
+          src: "/menis_01.png",
+          title: "Kenopsia",
+          caption: "Fototheremin lançado em 2020",
+        },
+        {
+          src: "/menis_02.png",
+          title: "Janus",
+          caption: "Sintetizador lançado em 2020",
+        },
+        {
+          src: "/menis_03.png",
+          title: "Fase Racional",
+          caption: "Pedal de distorção lançado em 2021",
+          y: "-70%",
         },
       ]),
       linkUrl: "https://www.instagram.com/menis______/",
@@ -716,6 +726,34 @@ TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em 
     }),
   );
 
+  const homeHighlightItems = [
+    {
+      src: "/teaser_1.jpg",
+      title: t("home.highlights.0.title"),
+      caption: t("home.highlights.0.caption"),
+    },
+    {
+      src: "/teaser_2.jpg",
+      title: t("home.highlights.1.title"),
+      caption: t("home.highlights.1.caption"),
+    },
+    {
+      src: "/teaser_3.jpg",
+      title: t("home.highlights.2.title"),
+      caption: t("home.highlights.2.caption"),
+    },
+    {
+      src: "/teaser_4.jpg",
+      title: t("home.highlights.3.title"),
+      caption: t("home.highlights.3.caption"),
+    },
+    {
+      src: "/teaser_5.jpg",
+      title: t("home.highlights.4.title"),
+      caption: t("home.highlights.4.caption"),
+    },
+  ];
+
   // expõe tudo para a página Detail
   (window as any).__APP_ALL__ = [
     ...cardsWithSlug,
@@ -747,10 +785,7 @@ TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em 
           currentItem.caption ||
           "Lorem ispsum, São Paulo (2026)",
       }))
-    : cardsWithSlug.slice(0, 5).map((it) => ({
-        title: it.title,
-        caption: it.text || it.description || it.caption,
-      }));
+    : undefined;
 
   const highlightImageItems = currentItem?.images_details?.length
     ? currentItem.images_details
@@ -790,6 +825,10 @@ TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em 
         }))
         .filter((img: any) => Boolean(img.src))
     : undefined;
+
+  const heroHighlightItems = currentItem?.images_details?.length
+    ? highlightImageItems
+    : homeHighlightItems;
 
   // força scroll para o topo quando muda a rota (mover acima do early return)
   useEffect(() => {
@@ -841,7 +880,7 @@ TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em 
           <div className="hero-highlights-wrapper">
             <Highlights
               textItems={highlightTextItems}
-              imageItems={highlightImageItems}
+              imageItems={heroHighlightItems}
             />
           </div>
 
