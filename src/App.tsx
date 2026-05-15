@@ -69,14 +69,6 @@ function App() {
 `,
       description: `TUDOS é um selo e produtora co-fundada por Vinícius Fernandes em 2014 voltada ao lançamento de artistas que trabalham com composição experimental. Além disso, o projeto também abrange iniciativas em diferentes vertentes da música experimental, como improvisação livre, música eletrônica, música conceitual e plunderphonics, entre outras.
 TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em mais de 7 países. Em 2015, o projeto recebeu apoio financeiro por meio de um edital da Universidade Estadual de Campinas (UNICAMP)`,
-            description_i18n: {
-        "pt-br": `TUDOS é um selo e produtora co-fundada por Vinícius Fernandes em 2014 voltada ao lançamento de artistas que trabalham com composição experimental. Além disso, o projeto também abrange iniciativas em diferentes vertentes da música experimental, como improvisação livre, música eletrônica, música conceitual e plunderphonics, entre outras.
-      TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em mais de 7 países. Em 2015, o projeto recebeu apoio financeiro por meio de um edital da Universidade Estadual de Campinas (UNICAMP)`,
-        en: `TUDOS is a label and producer co-founded by Vinícius Fernandes in 2014 focused on releasing artists working with experimental composition. The project also embraces initiatives across different strands of experimental music, such as free improvisation, electronic music, conceptual music and plunderphonics, among others.
-      TUDOS has released 17 albums and produced over 30 events with its artists in more than 7 countries. In 2015 the project received funding through a grant from the State University of Campinas (UNICAMP).`,
-        de: `TUDOS ist ein Label und Produzent, das 2014 von Vinícius Fernandes mitbegründet wurde und sich auf die Veröffentlichung von Künstlern konzentriert, die experimentelle Kompositionen arbeiten. Das Projekt umfasst auch Initiativen in verschiedenen Bereichen der experimentellen Musik, wie freie Improvisation, elektronische Musik, konzeptuelle Musik und Plunderphonics, unter anderem.
-      TUDOS hat 17 Alben veröffentlicht und über 30 Veranstaltungen mit seinen Künstlern in mehr als 7 Ländern produziert. 2015 erhielt das Projekt eine finanzielle Förderung durch ein Stipendium der Staatlichen Universität von Campinas (UNICAMP).`,
-            },
       image: "/tudos_thumb.jpg",
       images_details: buildImageDetails([
         {
@@ -230,6 +222,14 @@ TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em 
       text: "Peça eletrônica baseada na canção lituana Kalėdų rytu rožė inžydo, apresentada na 32ª Bienal de São Paulo.",
       description: `"9 chifres" é uma peça para guitarra e eletrônica, apresentada em performance no dia 11 de dezembro de 2016 (16h–17h), no Pavilhão da Bienal, Psychotropic House (1º andar), durante a 32ª Bienal de São Paulo. Todo o material sonoro parte da canção tradicional lituana Kalėdų rytu rožė inžydo, em que a aparição de um cervo de nove chifres desencadeia imagens de atualização cosmológica. O universo melódico da canção é expandido em texturas eletrônicas geradas por diferentes técnicas de síntese e processamento computacional. Inspirada em experiências de "composição verbal" da música eletroacústica — como Gesang der Jünglinge (1955–1956), de Karlheinz Stockhausen, e Thema (Omaggio a Joyce) (1958), de Luciano Berio — a obra também utiliza sons derivados da voz feminina que canta a canção. A peça foi difundida em um sistema sonoro instalado em 9 objetos com micélio do fungo Pleurotus ostreatus, integrando o trabalho Psychotropic House: Zooetics Pavilion of Ballardian Technologies, de Nomeda & Gediminas Urbonas.
     `,
+      description_i18n: {
+        "pt-br": `"9 chifres" é uma peça para guitarra e eletrônica, apresentada em performance no dia 11 de dezembro de 2016 (16h–17h), no Pavilhão da Bienal, Psychotropic House (1º andar), durante a 32ª Bienal de São Paulo. Todo o material sonoro parte da canção tradicional lituana Kalėdų rytu rožė inžydo, em que a aparição de um cervo de nove chifres desencadeia imagens de atualização cosmológica. O universo melódico da canção é expandido em texturas eletrônicas geradas por diferentes técnicas de síntese e processamento computacional. Inspirada em experiências de "composição verbal" da música eletroacústica — como Gesang der Jünglinge (1955–1956), de Karlheinz Stockhausen, e Thema (Omaggio a Joyce) (1958), de Luciano Berio — a obra também utiliza sons derivados da voz feminina que canta a canção. A peça foi difundida em um sistema sonoro instalado em 9 objetos com micélio do fungo Pleurotus ostreatus, integrando o trabalho Psychotropic House: Zooetics Pavilion of Ballardian Technologies, de Nomeda & Gediminas Urbonas.
+        `,
+        en: `"9 chifres" is a piece for guitar and electronics, performed on December 11, 2016 (4–5pm) at the Bienal Pavilion, Psychotropic House (1st floor), during the 32nd São Paulo Biennial. All sonic material stems from the traditional Lithuanian song Kalėdų rytu rožė inžydo, in which the appearance of a nine‑antlered deer triggers images of cosmological renewal. The song's melodic universe is expanded into electronic textures generated by different techniques of synthesis and computational processing. Inspired by 'verbal composition' experiments of electroacoustic music — such as Karlheinz Stockhausen's Gesang der Jünglinge (1955–1956) and Luciano Berio's Thema (Omaggio a Joyce) (1958) — the work also uses sounds derived from the female voice that sings the song. The piece was presented through a sound system installed in nine objects with mycelium of the fungus Pleurotus ostreatus, integrating the Psychotropic House: Zooetics Pavilion of Ballardian Technologies by Nomeda & Gediminas Urbonas.
+        `,
+        de: `"9 chifres" ist ein Stück für Gitarre und Elektronik, aufgeführt am 11. Dezember 2016 (16–17 Uhr) im Pavillon der Biennale, Psychotropic House (1. Stock), während der 32. Biennale von São Paulo. Das gesamte Klangmaterial basiert auf dem traditionellen litauischen Lied Kalėdų rytu rožė inžydo, in dem das Erscheinen eines neungehörnten Hirsches Bilder kosmologischer Erneuerung auslöst. Das melodische Universum des Liedes wird in elektronische Texturen erweitert, die durch verschiedene Techniken der Synthese und computergestützten Verarbeitung erzeugt werden. Inspiriert von Experimenten der 'verbalen Komposition' in der elektroakustischen Musik — wie Karlheinz Stockhausens Gesang der Jünglinge (1955–1956) und Luciano Berios Thema (Omaggio a Joyce) (1958) — verwendet das Werk auch Klänge, die von der weiblichen Stimme abgeleitet sind, die das Lied singt. Das Stück wurde auf einem Klangsystem präsentiert, das in neun Objekten mit Myzel des Pilzes Pleurotus ostreatus installiert war und in das Werk Psychotropic House: Zooetics Pavilion of Ballardian Technologies von Nomeda & Gediminas Urbonas integriert ist.
+        `,
+      },
       image: "/9_chifres_thumb.JPG",
       linkUrl: "http://www.32bienal.org.br/en/event/o/3308/",
       linkTitle: "Saiba mais",
@@ -834,9 +834,7 @@ TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em 
     ? currentItem.images_details.slice(0, 5).map((img: any, index: number) => ({
         title: img?.title || `${currentItem.title} ${index + 1}`,
         caption:
-          img?.caption ||
-          currentItem.caption ||
-          "Lorem ispsum, São Paulo (2026)",
+          img?.caption_i18n?.[lang] ?? img?.caption ?? currentItem.caption ?? "Lorem ispu, São Paulo (2026)",
       }))
     : undefined;
 
@@ -960,10 +958,10 @@ TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em 
         <section id="about" className="section">
           {currentItem ? (
             <>
-              {currentItem.description ? (
-                <p>{currentItem.description_i18n?.[lang] ?? currentItem.description}</p>
-              ) : null}
-              {currentItem.linkUrl ? (
+                    {currentItem.description ? (
+                      <p>{currentItem.description_i18n?.[lang] ?? currentItem.description}</p>
+                    ) : null}
+                    {currentItem.linkUrl ? (
                 <div className="detail-link-row detail-link-row--hero">
                   <a
                     className="detail-link detail-hero-link"
@@ -971,7 +969,7 @@ TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em 
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    {(currentItem.linkTitle_i18n?.[lang] ?? currentItem.linkTitle) || currentItem.linkUrl} {" "}
+                          {(currentItem.linkTitle_i18n?.[lang] ?? currentItem.linkTitle) || currentItem.linkUrl} {" "}
                     <span aria-hidden>↗</span>
                   </a>
                 </div>
