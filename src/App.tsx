@@ -767,33 +767,68 @@ Die mechanische Vibration dieser Objekte verändert das Verhalten des übertrage
     {
       title: "Menis",
       text: "Desenvolvimento de instrumentos eletrônicos, síntese embarcada e ferramentas para artistas e pesquisadores.",
+      text_i18n: {
+        "pt-br": "Desenvolvimento de instrumentos eletrônicos, síntese embarcada e ferramentas para artistas e pesquisadores.",
+        en: "Development of electronic instruments, embedded synthesis and tools for artists and researchers.",
+        de: "Entwicklung elektronischer Instrumente, eingebettete Synthese und Werkzeuge für Künstler und Forscher.",
+      },
       description: `A Menis é uma pequena empresa dedicada ao desenvolvimento de sintetizadores, pedais e ferramentas voltadas à música eletrônica, unindo pesquisa técnica, experimentação sonora e educação tecnológica em uma abordagem acessível e independente. Atuando na interseção entre arte, eletrônica e desenvolvimento de hardware, a empresa produz instrumentos autorais comercializados no Brasil e também na Europa, buscando oferecer soluções criativas e de baixo custo para músicos, artistas, estudantes e entusiastas da síntese sonora. Além da fabricação de instrumentos, a Menis também desenvolve atividades educacionais relacionadas à construção de hardware, eletrônica aplicada à música e computação musical, tendo realizado mais de uma dezena de cursos e workshops em diferentes contextos. A proposta da empresa envolve não apenas a criação de equipamentos, mas também a difusão de conhecimento técnico e artístico, incentivando a autonomia tecnológica, o aprendizado prático e o acesso mais amplo às ferramentas de produção sonora contemporânea. 
 `,
+      description_i18n: {
+        "pt-br": `A Menis é uma pequena empresa dedicada ao desenvolvimento de sintetizadores, pedais e ferramentas voltadas à música eletrônica, unindo pesquisa técnica, experimentação sonora e educação tecnológica em uma abordagem acessível e independente. Atuando na interseção entre arte, eletrônica e desenvolvimento de hardware, a empresa produz instrumentos autorais comercializados no Brasil e também na Europa, buscando oferecer soluções criativas e de baixo custo para músicos, artistas, estudantes e entusiastas da síntese sonora. Além da fabricação de instrumentos, a Menis também desenvolve atividades educacionais relacionadas à construção de hardware, eletrônica aplicada à música e computação musical, tendo realizado mais de uma dezena de cursos e workshops em diferentes contextos. A proposta da empresa envolve não apenas a criação de equipamentos, mas também a difusão de conhecimento técnico e artístico, incentivando a autonomia tecnológica, o aprendizado prático e o acesso mais amplo às ferramentas de produção sonora contemporânea.`,
+        en: `Menis is a small company dedicated to the development of synthesizers, pedals and tools for electronic music, combining technical research, sound experimentation and technological education in an accessible and independent approach. Operating at the intersection of art, electronics and hardware development, the company produces original instruments sold in Brazil and also in Europe, seeking to offer creative and low-cost solutions for musicians, artists, students and enthusiasts of sound synthesis. In addition to instrument manufacturing, Menis also develops educational activities related to hardware construction, electronics applied to music and music computing, having conducted more than a dozen courses and workshops in different contexts. The company's proposal involves not only the creation of equipment, but also the dissemination of technical and artistic knowledge, encouraging technological autonomy, practical learning and broader access to contemporary sound production tools.`,
+        de: `Menis ist ein kleines Unternehmen, das sich der Entwicklung von Synthesizern, Pedalen und Werkzeugen für elektronische Musik widmet und technische Forschung, Soundexperimente und technologische Bildung in einem zugänglichen und unabhängigen Ansatz verbindet. Das Unternehmen arbeitet an der Schnittstelle zwischen Kunst, Elektronik und Hardware-Entwicklung und produziert Originalinstrumente, die in Brasilien und Europa verkauft werden. Es versucht, kreative und kostengünstige Lösungen für Musiker, Künstler, Studenten und Enthusiasten der Soundsynthese anzubieten. Neben der Herstellung von Instrumenten entwickelt Menis auch Bildungsaktivitäten im Zusammenhang mit Hardware-Konstruktion, Elektronik in der Musik und Musikcomputing und hat mehr als ein Dutzend Kurse und Workshops in verschiedenen Kontexten durchgeführt. Der Ansatz des Unternehmens umfasst nicht nur die Schaffung von Ausrüstung, sondern auch die Verbreitung von technischem und künstlerischem Wissen, die Förderung technologischer Autonomie, praktisches Lernen und breiterer Zugang zu zeitgenössischen Soundproduktionswerkzeugen.`,
+      },
       image: "/menis_thumb.jpg",
       images_details: buildImageDetails([
         {
           src: "/menis_01.png",
           title: "Kenopsia",
           caption: "Fototheremin lançado em 2020",
+          caption_i18n: {
+            "pt-br": "Fototheremin lançado em 2020",
+            en: "Phototheremin released in 2020",
+            de: "Fotothereminen veröffentlicht 2020",
+          },
         },
         {
           src: "/menis_02.png",
           title: "Janus",
           caption: "Sintetizador lançado em 2020",
+          caption_i18n: {
+            "pt-br": "Sintetizador lançado em 2020",
+            en: "Synthesizer released in 2020",
+            de: "Synthesizer veröffentlicht 2020",
+          },
         },
         {
           src: "/menis_03.png",
           title: "Fase Racional",
           caption: "Pedal de distorção lançado em 2021",
+          caption_i18n: {
+            "pt-br": "Pedal de distorção lançado em 2021",
+            en: "Distortion pedal released in 2021",
+            de: "Distortionspedal veröffentlicht 2021",
+          },
           y: "-70%",
         },
       ]),
       linkUrl: "https://www.instagram.com/menis______/",
       linkTitle: "Veja o perfil da Menis no Instagram",
+      linkTitle_i18n: {
+        "pt-br": "Veja o perfil da Menis no Instagram",
+        en: "View Menis' Instagram profile",
+        de: "Menis' Instagram-Profil anzeigen",
+      },
     },
     {
       title: "Granular Player - daisySP",
       text: "_",
+      text_i18n: {
+        "pt-br": "_",
+        en: "_",
+        de: "_",
+      },
       images_details: buildImageDetails([
         {
           src: "/granular_thumb.jpg",
@@ -804,14 +839,29 @@ Die mechanische Vibration dieser Objekte verändert das Verhalten des übertrage
       ]),
       linkUrl: "https://daisy.audio/DaisySP/classdaisysp_1_1GranularPlayer/",
       linkTitle: "Veja a documentação da classe aqui",
+      linkTitle_i18n: {
+        "pt-br": "Veja a documentação da classe aqui",
+        en: "View the class documentation here",
+        de: "Hier dokumentation der Klasse ansehen",
+      },
       description: `O "Granular Player" é uma contribuição para a DaisySP Library, oferecendo um player granular otimizado para hardware Daisy. Esta ferramenta permite a manipulação avançada de áudio através de técnicas de síntese granular, possibilitando aos usuários criar texturas sonoras complexas e dinâmicas em tempo real. Projetado para eficiência e desempenho, o Granular Player amplia as capacidades do hardware Daisy, tornando-o uma opção poderosa para músicos e desenvolvedores interessados em exploração sonora e design de som.
 `,
+      description_i18n: {
+        "pt-br": `O "Granular Player" é uma contribuição para a DaisySP Library, oferecendo um player granular otimizado para hardware Daisy. Esta ferramenta permite a manipulação avançada de áudio através de técnicas de síntese granular, possibilitando aos usuários criar texturas sonoras complexas e dinâmicas em tempo real. Projetado para eficiência e desempenho, o Granular Player amplia as capacidades do hardware Daisy, tornando-o uma opção poderosa para músicos e desenvolvedores interessados em exploração sonora e design de som.`,
+        en: `"Granular Player" is a contribution to the DaisySP Library, offering a granular player optimized for Daisy hardware. This tool enables advanced audio manipulation through granular synthesis techniques, allowing users to create complex and dynamic sound textures in real time. Designed for efficiency and performance, Granular Player expands the capabilities of Daisy hardware, making it a powerful option for musicians and developers interested in sound exploration and sound design.`,
+        de: `Der "Granular Player" ist ein Beitrag zur DaisySP Library und bietet einen granularen Player, der für Daisy-Hardware optimiert ist. Dieses Werkzeug ermöglicht die erweiterte Audiobearbeitung durch Granularsynthese-Techniken und ermöglicht es Benutzern, komplexe und dynamische Klangtexturen in Echtzeit zu erstellen. Der Granular Player wurde auf Effizienz und Leistung ausgelegt und erweitert die Fähigkeiten der Daisy-Hardware, was es zu einer leistungsstarken Option für Musiker und Entwickler macht, die an Sounderforschung und Sounddesign interessiert sind.`,
+      },
       image: "/granular_thumb.jpg",
       imageOffsetX: "-50%",
     },
     {
       title: "Grupo de Embarcados IME-USP",
       text: "_",
+      text_i18n: {
+        "pt-br": "_",
+        en: "_",
+        de: "_",
+      },
       images_details: buildImageDetails([
         {
           src: "/embarcados_thumb.jpg",
@@ -823,8 +873,18 @@ Die mechanische Vibration dieser Objekte verändert das Verhalten des übertrage
       linkUrl:
         "https://github.com/viniciusfersil123/ime-embarcados-lib/blob/main/main/ime-embarcados-lib.cpp",
       linkTitle: "Veja o repositório do grupo no GitHub",
+      linkTitle_i18n: {
+        "pt-br": "Veja o repositório do grupo no GitHub",
+        en: "View the group's repository on GitHub",
+        de: "Sehen Sie sich das Repository der Gruppe auf GitHub an",
+      },
       description: `O Grupo de Embarcados IME-USP é um coletivo de pesquisa e desenvolvimento focado em sistemas embarcados para música e áudio. Composto por estudantes, pesquisadores e profissionais da área, o grupo trabalha na criação de soluções inovadoras que combinam hardware e software para aplicações musicais. Suas atividades incluem o desenvolvimento de instrumentos eletrônicos, interfaces de controle, algoritmos de processamento de sinal e plataformas abertas, promovendo a experimentação sonora e a disseminação do conhecimento técnico na comunidade acadêmica e artística.
 `,
+      description_i18n: {
+        "pt-br": `O Grupo de Embarcados IME-USP é um coletivo de pesquisa e desenvolvimento focado em sistemas embarcados para música e áudio. Composto por estudantes, pesquisadores e profissionais da área, o grupo trabalha na criação de soluções inovadoras que combinam hardware e software para aplicações musicais. Suas atividades incluem o desenvolvimento de instrumentos eletrônicos, interfaces de controle, algoritmos de processamento de sinal e plataformas abertas, promovendo a experimentação sonora e a disseminação do conhecimento técnico na comunidade acadêmica e artística.`,
+        en: `The IME-USP Embedded Systems Group is a research and development collective focused on embedded systems for music and audio. Composed of students, researchers and professionals in the field, the group works on creating innovative solutions that combine hardware and software for musical applications. Its activities include the development of electronic instruments, control interfaces, signal processing algorithms and open platforms, promoting sound experimentation and the dissemination of technical knowledge in the academic and artistic community.`,
+        de: `Die IME-USP Embedded Systems Group ist ein Forschungs- und Entwicklungskollektiv, das sich auf eingebettete Systeme für Musik und Audio konzentriert. Die Gruppe besteht aus Studenten, Forschern und Fachleuten aus diesem Bereich und arbeitet an der Schaffung innovativer Lösungen, die Hardware und Software für Musikanwendungen kombinieren. Ihre Aktivitäten umfassen die Entwicklung elektronischer Instrumente, Steuerungsschnittstellen, Signalverarbeitungsalgorithmen und offener Plattformen und fördern Soundexperimente und die Verbreitung von technischem Wissen in der akademischen und künstlerischen Gemeinschaft.`,
+      },
       image: "/embarcados_thumb.jpg",
       imageOffsetX: "-50%",
     },
@@ -834,7 +894,17 @@ Die mechanische Vibration dieser Objekte verändert das Verhalten des übertrage
     {
       title: "UOL",
       text: "Desenvolvimento de backend e frontend para o maior portal de notícias da América Latina.",
+      text_i18n: {
+        "pt-br": "Desenvolvimento de backend e frontend para o maior portal de notícias da América Latina.",
+        en: "Backend and frontend development for the largest news portal in Latin America.",
+        de: "Backend- und Frontend-Entwicklung für das größte Nachrichtenportal in Lateinamerika.",
+      },
       description: `UOL é uma das maiores empresas brasileiras de tecnologia, mídia e serviços digitais, responsável pelo maior portal de conteúdo em língua portuguesa do Brasil, com milhões de usuários mensais e atuação em áreas como jornalismo digital, streaming, cloud computing, hospedagem e pagamentos online. Durante sua atuação como engenheiro de software na empresa, Vinícius Fernandes trabalhou no desenvolvimento e manutenção de aplicações web utilizando tecnologias como JavaScript, TypeScript, Vue.js, Node.js, Docker e SCSS, atuando em arquiteturas de microsserviços e no desenvolvimento de interfaces e sistemas escaláveis para plataformas de grande alcance. Seu trabalho envolveu integração entre equipes multidisciplinares, otimização de aplicações e desenvolvimento de soluções para ambientes de alta demanda e grande volume de acesso.`,
+      description_i18n: {
+        "pt-br": `UOL é uma das maiores empresas brasileiras de tecnologia, mídia e serviços digitais. Durante sua atuação como engenheiro de software na empresa, Vinícius Fernandes trabalhou no desenvolvimento e manutenção de aplicações web com JavaScript, TypeScript, Vue.js, Node.js, Docker e SCSS, atuando em arquiteturas de microsserviços e em sistemas escaláveis.`,
+        en: `UOL is one of Brazil's largest technology, media and digital services companies. During his work as a software engineer at the company, Vinícius Fernandes developed and maintained web applications with JavaScript, TypeScript, Vue.js, Node.js, Docker and SCSS, working on microservices architectures and scalable systems.`,
+        de: `UOL ist eines der größten brasilianischen Unternehmen für Technologie, Medien und digitale Dienste. Während seiner Tätigkeit als Softwareentwickler im Unternehmen arbeitete Vinícius Fernandes an Webanwendungen mit JavaScript, TypeScript, Vue.js, Node.js, Docker und SCSS und an skalierbaren Systemen auf Microservices-Basis.`,
+      },
       image: "/uol_thumb.jpg",
       imageOffsetY: "-35%",
       images_details: buildImageDetails([
@@ -849,11 +919,26 @@ Die mechanische Vibration dieser Objekte verändert das Verhalten des übertrage
         "https://noticias.uol.com.br/ultimas-noticias/agencia-estado/2026/05/08/moraes-e-sorteado-relator-de-duas-acoes-que-questionam-a-validade-da-lei-da-dosimetria-no-stf.htm",
       linkTitle:
         "Veja um exemplo de uma página do portal UOL em que Vinícius atuou no desenvolvimento de frontend e backend.",
+      linkTitle_i18n: {
+        "pt-br": "Veja um exemplo de uma página do portal UOL em que Vinícius atuou no desenvolvimento de frontend e backend.",
+        en: "See an example page from the UOL portal where Vinícius worked on frontend and backend development.",
+        de: "Sehen Sie sich eine Beispielseite des UOL-Portals an, an der Vinícius an der Frontend- und Backend-Entwicklung gearbeitet hat.",
+      },
     },
     {
       title: "Nexo Jornal",
       text: "Atualização de stack, integração de dados e desenvolvimento de novas funcionalidades para o portal de notícias.",
+      text_i18n: {
+        "pt-br": "Atualização de stack, integração de dados e desenvolvimento de novas funcionalidades para o portal de notícias.",
+        en: "Stack updates, data integration and development of new features for the news portal.",
+        de: "Aktualisierung des Tech-Stacks, Datenintegration und Entwicklung neuer Funktionen für das Nachrichtenportal.",
+      },
       description: `Nexo Jornal é um veículo brasileiro de jornalismo digital independente reconhecido por sua abordagem analítica e contextualizada sobre política, economia, cultura, ciência e tecnologia. Fundado em 2015 em São Paulo, o Nexo se destacou internacionalmente por seu foco em jornalismo visual, experiência digital e modelos independentes de financiamento baseados em assinatura. Durante sua atuação no jornal, Vinícius Fernandes trabalhou como desenvolvedor e Product Owner, desenvolvendo aplicações web com React.js, Next.js, JavaScript e TypeScript, além de atuar com CSS, Styled-components e integração de serviços em nuvem via AWS. Seu trabalho envolveu desenvolvimento front-end, design de interfaces responsivas, revisão de código, colaboração em equipes multidisciplinares e criação de soluções digitais voltadas à experiência editorial e à distribuição de conteúdo em uma das principais iniciativas de jornalismo digital independente do Brasil.`,
+      description_i18n: {
+        "pt-br": `Nexo Jornal é um veículo brasileiro de jornalismo digital independente reconhecido por sua abordagem analítica e contextualizada sobre política, economia, cultura, ciência e tecnologia. Fundado em 2015 em São Paulo, o Nexo se destacou internacionalmente por seu foco em jornalismo visual, experiência digital e modelos independentes de financiamento baseados em assinatura. Durante sua atuação no jornal, Vinícius Fernandes trabalhou como desenvolvedor e Product Owner, desenvolvendo aplicações web com React.js, Next.js, JavaScript e TypeScript, além de atuar com CSS, Styled-components e integração de serviços em nuvem via AWS. Seu trabalho envolveu desenvolvimento front-end, design de interfaces responsivas, revisão de código, colaboração em equipes multidisciplinares e criação de soluções digitais voltadas à experiência editorial e à distribuição de conteúdo em uma das principais iniciativas de jornalismo digital independente do Brasil.`,
+        en: `Nexo Jornal is an independent Brazilian digital journalism outlet known for its analytical and contextual approach to politics, economy, culture, science and technology. Founded in 2015 in São Paulo, Nexo gained international recognition for its focus on visual journalism, digital experience and subscription-based independent funding models. During his time at the newspaper, Vinícius Fernandes worked as a developer and Product Owner, building web applications with React.js, Next.js, JavaScript and TypeScript, as well as working with CSS, Styled-components and cloud service integration via AWS. His work involved frontend development, responsive interface design, code review, collaboration in multidisciplinary teams and the creation of digital solutions oriented to editorial experience and content distribution in one of Brazil's main independent digital journalism initiatives.`,
+        de: `Nexo Jornal ist ein unabhängiges brasilianisches digitales Nachrichtenmedium, das für seinen analytischen und kontextualisierten Ansatz in Politik, Wirtschaft, Kultur, Wissenschaft und Technologie bekannt ist. 2015 in São Paulo gegründet, erlangte Nexo internationale Aufmerksamkeit durch den Fokus auf visuellen Journalismus, digitale Nutzererfahrung und unabhängige Finanzierungsmodelle auf Abonnementbasis. Während seiner Tätigkeit bei der Zeitung arbeitete Vinícius Fernandes als Entwickler und Product Owner und entwickelte Webanwendungen mit React.js, Next.js, JavaScript und TypeScript sowie mit CSS, Styled-components und Cloud-Service-Integration über AWS. Seine Arbeit umfasste Frontend-Entwicklung, responsives Interface-Design, Code-Reviews, Zusammenarbeit in multidisziplinären Teams und die Entwicklung digitaler Lösungen für das redaktionelle Erlebnis und die Verbreitung von Inhalten in einer der wichtigsten unabhängigen digitalen Journalismus-Initiativen Brasiliens.`,
+      },
       image: "/nexo_thumb.jpg",
       images_details: buildImageDetails([
         {
@@ -866,6 +951,11 @@ Die mechanische Vibration dieser Objekte verändert das Verhalten des übertrage
         "https://www.nexojornal.com.br/expresso/2026/05/08/chefe-da-casa-civil-bolsonaro-ciro-nogueira-operacao-pf-banco-master",
       linkTitle:
         "Veja um exemplo de uma página do portal Nexo Jornal em que Vinícius atuou no desenvolvimento de frontend e backend.",
+      linkTitle_i18n: {
+        "pt-br": "Veja um exemplo de uma página do portal Nexo Jornal em que Vinícius atuou no desenvolvimento de frontend e backend.",
+        en: "See an example page from the Nexo Jornal portal where Vinícius worked on frontend and backend development.",
+        de: "Sehen Sie sich eine Beispielseite des Nexo Jornal-Portals an, an der Vinícius an der Frontend- und Backend-Entwicklung gearbeitet hat.",
+      },
     },
   ];
 
@@ -874,7 +964,17 @@ Die mechanische Vibration dieser Objekte verändert das Verhalten des übertrage
     {
       title: "Cut-Up as Political Practice",
       text: "Artigo para a revista Norient analisando o cut-up de Burroughs como prática política contra manipulação midiática.",
-      description: `O artigo Cut-Up as Political Practice, publicado pela Norient em 2020, investiga a técnica de cut-up desenvolvida por William S. Burroughs como uma prática estética e política relacionada à manipulação de signos, mídia e percepção. No texto, Vinícius Fernandes analisa como os experimentos de Burroughs com fragmentação, recombinação e deformação de textos e fitas magnéticas anteciparam fenômenos contemporâneos ligados à manipulação algorítmica da informação, como o escândalo Cambridge Analytica e o uso de dados para propaganda política direcionada. A partir de referências em teoria da mídia, estudos do som e crítica cultural, o artigo discute como técnicas de sampling e edição sonora podem revelar as estruturas materiais e ideológicas ocultas por trás da aparente normalidade dos meios de comunicação. O texto propõe o cut-up não apenas como procedimento artístico experimental, mas como ferramenta crítica capaz de suspender a “normalidade semiótica” dos ambientes midiáticos e tornar perceptíveis os mecanismos de controle, poder e produção de subjetividade presentes nas tecnologias contemporâneas.`,
+      text_i18n: {
+        "pt-br": "Artigo para a revista Norient analisando o cut-up de Burroughs como prática política contra manipulação midiática.",
+        en: "Article for Norient magazine analyzing Burroughs' cut-up as a political practice against media manipulation.",
+        de: "Artikel für das Norient-Magazin, der Burroughs' Cut-Up als politische Praxis gegen Medienmaniulation analysiert.",
+      },
+      description: `O artigo Cut-Up as Political Practice, publicado pela Norient em 2020, investiga a técnica de cut-up desenvolvida por William S. Burroughs como uma prática estética e política relacionada à manipulação de signos, mídia e percepção. No texto, Vinícius Fernandes analisa como os experimentos de Burroughs com fragmentação, recombinação e deformação de textos e fitas magnéticas anteciparam fenômenos contemporâneos ligados à manipulação algorítmica da informação, como o escândalo Cambridge Analytica e o uso de dados para propaganda política direcionada. A partir de referências em teoria da mídia, estudos do som e crítica cultural, o artigo discute como técnicas de sampling e edição sonora podem revelar as estruturas materiais e ideológicas ocultas por trás da aparente normalidade dos meios de comunicação. O texto propõe o cut-up não apenas como procedimento artístico experimental, mas como ferramenta crítica capaz de suspender a "normalidade semiótica" dos ambientes midiáticos e tornar perceptíveis os mecanismos de controle, poder e produção de subjetividade presentes nas tecnologias contemporâneas.`,
+      description_i18n: {
+        "pt-br": `O artigo Cut-Up as Political Practice, publicado pela Norient em 2020, investiga a técnica de cut-up desenvolvida por William S. Burroughs como uma prática estética e política relacionada à manipulação de signos, mídia e percepção. No texto, Vinícius Fernandes analisa como os experimentos de Burroughs com fragmentação, recombinação e deformação de textos e fitas magnéticas anteciparam fenômenos contemporâneos ligados à manipulação algorítmica da informação, como o escândalo Cambridge Analytica e o uso de dados para propaganda política direcionada. A partir de referências em teoria da mídia, estudos do som e crítica cultural, o artigo discute como técnicas de sampling e edição sonora podem revelar as estruturas materiais e ideológicas ocultas por trás da aparente normalidade dos meios de comunicação. O texto propõe o cut-up não apenas como procedimento artístico experimental, mas como ferramenta crítica capaz de suspender a "normalidade semiótica" dos ambientes midiáticos e tornar perceptíveis os mecanismos de controle, poder e produção de subjetividade presentes nas tecnologias contemporâneas.`,
+        en: `The article Cut-Up as Political Practice, published by Norient in 2020, investigates the cut-up technique developed by William S. Burroughs as an aesthetic and political practice related to the manipulation of signs, media and perception. In the text, Vinícius Fernandes analyzes how Burroughs' experiments with fragmentation, recombination and deformation of texts and magnetic tapes anticipated contemporary phenomena related to algorithmic information manipulation, such as the Cambridge Analytica scandal and the use of data for targeted political propaganda. Drawing on references in media theory, sound studies and cultural criticism, the article discusses how sampling and sound editing techniques can reveal the material and ideological structures hidden behind the apparent normality of the media. The text proposes cut-up not only as an experimental artistic procedure, but as a critical tool capable of suspending the "semiotic normality" of media environments and making perceptible the mechanisms of control, power and production of subjectivity present in contemporary technologies.`,
+        de: `Der Artikel Cut-Up as Political Practice, veröffentlicht von Norient 2020, untersucht die von William S. Burroughs entwickelte Cut-Up-Technik als ästhetische und politische Praxis im Zusammenhang mit der Manipulation von Zeichen, Medien und Wahrnehmung. Im Text analysiert Vinícius Fernandes, wie Burroughs' Experimente mit Fragmentierung, Rekombination und Verformung von Texten und Magnetbändern zeitgenössische Phänomene im Zusammenhang mit algorithmischer Informationsmanipulation wie der Cambridge-Analytica-Skandal und die Verwendung von Daten für gezielte politische Propaganda vorwegnahmen. Mit Bezug auf Medientheorie, Sound Studies und Kulturkritik erörtert der Artikel, wie Sampling- und Soundbearbeitungstechniken die materiellen und ideologischen Strukturen offenbaren können, die hinter der scheinbaren Normalität der Medien verborgen sind. Der Text schlägt Cut-Up nicht nur als experimentelles künstlerisches Verfahren vor, sondern als kritisches Werkzeug, das die „semiotische Normalität" von Medienumgebungen aufheben und die Mechanismen der Kontrolle, Macht und Produktion von Subjektivität in zeitgenössischen Technologien wahrnehmbar machen kann.`,
+      },
       image: "/cutup_thumb.jpg",
       images_details: buildImageDetails([
         {
@@ -886,12 +986,27 @@ Die mechanische Vibration dieser Objekte verändert das Verhalten des übertrage
       ]),
       linkUrl: "https://norient.com/vinicius-fernandes/cut-political-practice",
       linkTitle: "Leia o artigo na íntegra aqui",
+      linkTitle_i18n: {
+        "pt-br": "Leia o artigo na íntegra aqui",
+        en: "Read the full article here",
+        de: "Lesen Sie den vollständigen Artikel hier",
+      },
     },
     {
       title:
         "A Emergência do Sujeito na Narrativa do Prelúdio Op. 28 no. 14 de Chopin",
       text: "_",
-      description: `O artigo A Emergência do Sujeito na Narrativa do Prelúdio Op. 28 nº 14 de Chopin, publicado na revista acadêmica Associação Brasileira de Teoria e Análise Musical, investiga o prelúdio de Frédéric Chopin a partir das teorias de narratividade musical de Byron Almén, Eero Tarasti e da semiótica estrutural de Greimas. Escrito por Vinícius Fernandes, Guto Brambilla e Fernando Iazzetta, o trabalho propõe uma leitura da peça como uma polifonia latente construída pela tensão entre duas vozes interdependentes: uma linha melódica que busca autonomia e um baixo que exerce uma força integradora. A análise demonstra como o conflito entre essas isotopias musicais estrutura uma narrativa de individuação e emergência do sujeito, associada às questões centrais da poética romântica do século XIX, como singularidade, subjetividade e ruptura com ordens hierárquicas estáveis. Ao articular análise musical, semiótica e teoria da narratividade, o artigo propõe uma abordagem interdisciplinar para compreender a música não apenas como organização formal de sons, mas como estrutura expressiva capaz de incorporar conflitos simbólicos, psicológicos e culturais.`,
+      text_i18n: {
+        "pt-br": "_",
+        en: "_",
+        de: "_",
+      },
+      description: `O artigo sobre o prelúdio Op. 28 nº 14 de Chopin analisa a emergência do sujeito a partir da narratividade musical e da semiótica.`,
+      description_i18n: {
+        "pt-br": `O artigo sobre o prelúdio Op. 28 nº 14 de Chopin analisa a emergência do sujeito a partir da narratividade musical e da semiótica.`,
+        en: `The article on Chopin's Prelude Op. 28 No. 14 analyzes the emergence of the subject through musical narrativity and semiotics.`,
+        de: `Der Artikel über Chopins Prélude Op. 28 Nr. 14 untersucht die Entstehung des Subjekts anhand musikalischer Narrativität und Semiotik.`,
+      },
       image: "/chopin_thumb.png",
       images_details: buildImageDetails([
         {
@@ -903,11 +1018,26 @@ Die mechanische Vibration dieser Objekte verändert das Verhalten des übertrage
       linkUrl:
         "https://revistamusicatheorica.tema.mus.br/index.php/musica-theorica/article/view/49",
       linkTitle: "Leia o artigo na íntegra aqui",
+      linkTitle_i18n: {
+        "pt-br": "Leia o artigo na íntegra aqui",
+        en: "Read the full article here",
+        de: "Lesen Sie den vollständigen Artikel hier",
+      },
     },
     {
       title: "The medium becomes infected by the message[...]",
       text: "_",
-      description: `O artigo The Medium Becomes Infected by the Message: Boris Groys’ Submedial Suspicion as Viral Tropes in William Burroughs, escrito por Vinícius Fernandes, investiga as relações entre teoria da mídia, som experimental e linguagem a partir da aproximação entre a filosofia de Boris Groys e os experimentos de cut-up realizados por William S. Burroughs com fitas magnéticas nas décadas de 1960 e 1970. O texto analisa como as manipulações sonoras de Burroughs — baseadas em cortes, recombinações, deformações e danos físicos aplicados ao suporte fonográfico — operam como estratégias para revelar aquilo que Groys denomina “suspeita submedial”: a existência de uma subjetividade oculta que atua por trás dos meios de comunicação e da circulação dos signos. A partir da ideia burroughsiana de que a linguagem funciona como um “vírus” que coloniza o pensamento humano, o artigo argumenta que as técnicas de cut-up produzem uma erosão da coerência semântica e expõem a materialidade do meio sonoro, suspendendo temporariamente a normalidade da linguagem. Dialogando com autores como Friedrich Kittler, Roland Barthes e Fernando Iazzetta, o trabalho propõe uma leitura crítica das tecnologias de gravação sonora como dispositivos capazes tanto de reforçar mecanismos de controle quanto de produzir rupturas perceptivas e políticas através do ruído, da distorção e da manipulação material dos sinais.`,
+      text_i18n: {
+        "pt-br": "_",
+        en: "_",
+        de: "_",
+      },
+      description: `Artigo de Vinícius Fernandes sobre mídia, som experimental e linguagem a partir de Boris Groys e William S. Burroughs.`,
+      description_i18n: {
+        "pt-br": `Artigo de Vinícius Fernandes sobre mídia, som experimental e linguagem a partir de Boris Groys e William S. Burroughs.`,
+        en: `Article by Vinícius Fernandes on media, experimental sound and language through Boris Groys and William S. Burroughs.`,
+        de: `Artikel von Vinícius Fernandes über Medien, experimentellen Klang und Sprache im Dialog mit Boris Groys und William S. Burroughs.`,
+      },
       image: "/sonologia_thumb.jpg",
       images_details: buildImageDetails([
         {
@@ -919,6 +1049,11 @@ Die mechanische Vibration dieser Objekte verändert das Verhalten des übertrage
       ]),
       linkUrl: "https://sonologia2019.eca.usp.br/?page_id=1469",
       linkTitle: "Leia o artigo na íntegra aqui",
+      linkTitle_i18n: {
+        "pt-br": "Leia o artigo na íntegra aqui",
+        en: "Read the full article here",
+        de: "Lesen Sie den vollständigen Artikel hier",
+      },
     },
   ];
 
