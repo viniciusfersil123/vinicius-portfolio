@@ -26,6 +26,7 @@ type ImageDetailInput = {
   src: string;
   title: string;
   caption: string;
+  caption_i18n?: Record<string, string>;
   x?: string;
   y?: string;
   x900?: string;
@@ -36,13 +37,14 @@ type ImageDetailInput = {
 
 function buildImageDetails(details: ImageDetailInput[]) {
   return details.map(
-    ({ src, title, caption, x, y, x900, y900, x600, y600 }) => {
+    ({ src, title, caption, caption_i18n, x, y, x900, y900, x600, y600 }) => {
       const isPlaceholder = src.includes("placeholder.jpg");
 
       return {
         src,
         title,
         caption,
+        caption_i18n,
         imageOffsetX: x ?? (isPlaceholder ? "0px" : undefined),
         imageOffsetY: y ?? (isPlaceholder ? "0px" : undefined),
         imageOffsetX900: x900 ?? (isPlaceholder ? "0px" : undefined),
@@ -52,10 +54,6 @@ function buildImageDetails(details: ImageDetailInput[]) {
       };
     },
   );
-}
-
-function buildBandcampEmbed(html: string, caption: string) {
-  return { html, caption };
 }
 
 function App() {
@@ -317,6 +315,20 @@ TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em 
 
     A vibração mecânica desses objetos altera o comportamento do som transmitido, produzindo variações tímbricas, ressonâncias e interferências determinadas pelas propriedades físicas dos materiais e pelas condições do ambiente. Em vez de representar simbolicamente ideias de transcendência, a obra enfatiza a transformação concreta da matéria sonora através de processos eletromecânicos e acústicos.
     `,
+      description_i18n: {
+        "pt-br": `A instalação sonora “Metempsicose” investiga processos de transformação sonora a partir da circulação e da retransmissão de sinais de áudio. A obra utiliza um rádio sintonizado em uma estação local aleatória como fonte de material sonoro, que é reproduzido por dois alto-falantes modificados acoplados a uma guitarra e a um tamtam.
+
+A vibração mecânica desses objetos altera o comportamento do som transmitido, produzindo variações tímbricas, ressonâncias e interferências determinadas pelas propriedades físicas dos materiais e pelas condições do ambiente. Em vez de representar simbolicamente ideias de transcendência, a obra enfatiza a transformação concreta da matéria sonora através de processos eletromecânicos e acústicos.
+        `,
+        en: `The sound installation “Metempsicose” investigates processes of sonic transformation arising from the circulation and retransmission of audio signals. The work uses a radio tuned to a random local station as a source of sonic material, which is reproduced through two modified loudspeakers coupled to a guitar and a tamtam.
+
+The mechanical vibration of these objects alters the behavior of the transmitted sound, producing timbral variations, resonances and interferences determined by the physical properties of the materials and the environmental conditions. Rather than symbolically representing ideas of transcendence, the work emphasises the concrete transformation of sonic matter through electromechanical and acoustic processes.
+        `,
+        de: `Die Klanginstallation „Metempsicose" untersucht Prozesse klanglicher Transformation, die sich aus der Zirkulation und der erneuten Übertragung von Audiosignalen ergeben. Das Werk verwendet ein auf einen zufälligen lokalen Sender eingestelltes Radio als Quelle des Klangmaterials, das über zwei modifizierte Lautsprecher wiedergegeben wird, die mit einer Gitarre und einem Tam‑Tam gekoppelt sind.
+
+Die mechanische Vibration dieser Objekte verändert das Verhalten des übertragenen Klangs und erzeugt klangliche Variationen, Resonanzen und Interferenzen, die durch die physikalischen Eigenschaften der Materialien und die Bedingungen der Umgebung bestimmt werden. Anstatt symbolisch Vorstellungen von Transzendenz darzustellen, betont das Werk die konkrete Transformation klanglicher Materie durch elektromechanische und akustische Prozesse.
+        `,
+      },
       image: "/metempsicose_thumb.jpg",
       images_details: buildImageDetails([
         {
@@ -324,6 +336,11 @@ TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em 
           title: "Metempsicose",
           caption:
             "Instalação sonora com rádio, alto-falantes e instrumentos modificados.",
+          caption_i18n: {
+            "pt-br": "Instalação sonora com rádio, alto-falantes e instrumentos modificados.",
+            en: "Sound installation with radio, loudspeakers and modified instruments.",
+            de: "Klanginstallation mit Radio, Lautsprechern und modifizierten Instrumenten.",
+          },
           x: "0px",
           y: "-75%",
         },
@@ -331,18 +348,33 @@ TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em 
           src: "/metempsicose_2.jpg",
           title: "Metempsicose — imagem 2",
           caption: "Detalhe do arranjo dos componentes eletroacústicos.",
+          caption_i18n: {
+            "pt-br": "Detalhe do arranjo dos componentes eletroacústicos.",
+            en: "Detail of the arrangement of electroacoustic components.",
+            de: "Detail der Anordnung elektroakustischer Komponenten.",
+          },
           y: "-30%",
         },
         {
           src: "/metempsicose_3.jpg",
           title: "Metempsicose — imagem 3",
           caption: "Outro registro da montagem e da espacialização do som.",
+          caption_i18n: {
+            "pt-br": "Outro registro da montagem e da espacialização do som.",
+            en: "Another record of the setup and spatialization of the sound.",
+            de: "Weitere Dokumentation des Aufbaus und der Räumlichkeitsgestaltung des Klangs.",
+          },
           y: "-30%",
         },
         {
           src: "/metempsicose_4.jpg",
           title: "Metempsicose — imagem 4",
           caption: "Vista da obra em interação com o ambiente expositivo.",
+          caption_i18n: {
+            "pt-br": "Vista da obra em interação com o ambiente expositivo.",
+            en: "View of the work interacting with the exhibition environment.",
+            de: "Ansicht des Werks in Interaktion mit der Ausstellungsumgebung.",
+          },
           y: "-65%",
         },
         {
@@ -350,20 +382,35 @@ TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em 
           title: "Metempsicose — imagem 5",
           caption:
             "Detalhe dos alto-falantes modificados ligados à guitarra e ao tamtam.",
+          caption_i18n: {
+            "pt-br": "Detalhe dos alto-falantes modificados ligados à guitarra e ao tamtam.",
+            en: "Detail of the modified loudspeakers connected to the guitar and tamtam.",
+            de: "Detail der modifizierten Lautsprecher, die mit Gitarre und Tam‑Tam verbunden sind.",
+          },
           y: "-50%",
         },
       ]),
       embedsBandcamp: [
-        buildBandcampEmbed(
-          `<iframe style="border: 0; width: 350px; height: 350px;" src="https://bandcamp.com/EmbeddedPlayer/track=2447535245/size=large/bgcol=ffffff/linkcol=0687f5/minimal=true/transparent=true/" seamless><a href="https://viniciusfernandesssss.bandcamp.com/track/metempsicose">Metempsicose von Vinícius Fernandes</a></iframe>`,
-          "2016 - Metempsicose - Vinícius Fernandes - Registro em áudio",
-        ),
+        {
+          html: `<iframe style="border: 0; width: 350px; height: 350px;" src="https://bandcamp.com/EmbeddedPlayer/track=2447535245/size=large/bgcol=ffffff/linkcol=0687f5/minimal=true/transparent=true/" seamless><a href="https://viniciusfernandesssss.bandcamp.com/track/metempsicose">Metempsicose von Vinícius Fernandes</a></iframe>`,
+          caption: "2016 - Metempsicose - Vinícius Fernandes - Registro em áudio",
+          caption_i18n: {
+            "pt-br": "2016 - Metempsicose - Vinícius Fernandes - Registro em áudio",
+            en: "2016 - Metempsicose - Vinícius Fernandes - Audio recording",
+            de: "2016 - Metempsicose - Vinícius Fernandes - Audioaufzeichnung",
+          },
+        },
       ],
     },
     {
       title: "¿Música?",
       text: "Série de performances/exposições de arte sonora/música experimental realizada desde 2005",
       description: `¿Música? é uma série de performances realizada desde 2005 que toma produções sonoras e musicais como ponto de discussão e reflexão sobre a produção musical contemporânea. O evento reúne trabalhos ligados ao experimentalismo, ao uso crítico de tecnologias de produção sonora, à integração entre elementos visuais, gestuais e sonoros, ao emprego de técnicas de improvisação e à exploração dos espaços de performance. Vinícius Fernandes atuou como curador da 12ª e 13ª edições da série.`,
+      description_i18n: {
+        "pt-br": `¿Música? é uma série de performances realizada desde 2005 que toma produções sonoras e musicais como ponto de discussão e reflexão sobre a produção musical contemporânea. O evento reúne trabalhos ligados ao experimentalismo, ao uso crítico de tecnologias de produção sonora, à integração entre elementos visuais, gestuais e sonoros, ao emprego de técnicas de improvisação e à exploração dos espaços de performance. Vinícius Fernandes atuou como curador da 12ª e 13ª edições da série.`,
+        en: `¿Música? is a series of performances held since 2005 that takes sound and musical productions as a point of discussion and reflection on contemporary music production. The event gathers works related to experimentalism, the critical use of sound production technologies, the integration of visual, gestural and sonic elements, the use of improvisation techniques and the exploration of performance spaces. Vinícius Fernandes curated the 12th and 13th editions of the series.`,
+        de: `¿Música? ist eine Reihe von Performances, die seit 2005 stattfindet und Klang- und Musikproduktionen als Anlass für Diskussionen und Reflexionen über zeitgenössische Musikproduktion nimmt. Die Veranstaltung versammelt Arbeiten, die mit Experimentalismus, dem kritischen Einsatz von Klangproduktionstechnologien, der Integration visueller, gestischer und klanglicher Elemente, dem Einsatz von Improvisationstechniken und der Erforschung von Aufführungsräumen verbunden sind. Vinícius Fernandes war Kurator der 12. und 13. Ausgabe der Reihe.`,
+      },
       image: "/musica_thumb.jpg",
       imageOffsetX: "50%",
       imageOffsetY: "40%",
@@ -372,6 +419,11 @@ TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em 
           src: "/musica_1.JPG",
           title: "Mariana Carvalho",
           caption: "Perfomance em ¿Música? #12, São Paulo - SP, Brasil - 2017",
+          caption_i18n: {
+            "pt-br": "Perfomance em ¿Música? #12, São Paulo - SP, Brasil - 2017",
+            en: "Performance at ¿Música? #12, São Paulo - SP, Brazil - 2017",
+            de: "Performance auf ¿Música? #12, São Paulo - SP, Brasilien - 2017",
+          },
           y: "-84%",
           x600: "50%",
         },
@@ -380,6 +432,11 @@ TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em 
           title: "Luís Fernando Cirne, Gustavo Branco e Paulo Assis",
           caption:
             "Planos de Saturação — performance em ¿Música? #13, São Paulo - SP, Brasil - 2017",
+          caption_i18n: {
+            "pt-br": "Planos de Saturação — performance em ¿Música? #13, São Paulo - SP, Brasil - 2017",
+            en: "Planos de Saturação — performance at ¿Música? #13, São Paulo - SP, Brazil - 2017",
+            de: "Planos de Saturação — Performance auf ¿Música? #13, São Paulo - SP, Brasilien - 2017",
+          },
           y: "-54%",
           y900: "-80%",
           x600: "-15%",
@@ -389,6 +446,11 @@ TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em 
           title: "Denis Abranches e Alessandra Bono Vox",
           caption:
             "Duo Movente — performance em ¿Música? #13, São Paulo - SP, Brasil - 2017",
+          caption_i18n: {
+            "pt-br": "Duo Movente — performance em ¿Música? #13, São Paulo - SP, Brasil - 2017",
+            en: "Duo Movente — performance at ¿Música? #13, São Paulo - SP, Brazil - 2017",
+            de: "Duo Movente — Performance auf ¿Música? #13, São Paulo - SP, Brasilien - 2017",
+          },
           y: "-75%",
           x600: "-30%",
         },
@@ -397,6 +459,11 @@ TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em 
           title: "¿Música? 13",
           caption:
             "Público durante a 13ª edição da série ¿Música?, São Paulo - SP, Brasil - 2017",
+          caption_i18n: {
+            "pt-br": "Público durante a 13ª edição da série ¿Música?, São Paulo - SP, Brasil - 2017",
+            en: "Audience during the 13th edition of the ¿Música? series, São Paulo - SP, Brazil - 2017",
+            de: "Publikum während der 13. Ausgabe der Reihe ¿Música?, São Paulo - SP, Brasilien - 2017",
+          },
           y: "-60%",
         },
         {
@@ -404,16 +471,34 @@ TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em 
           title: "Henrique Rocha",
           caption:
             "Ainda, Performance em ¿Música? #13, São Paulo - SP, Brasil - 2017",
+          caption_i18n: {
+            "pt-br": "Ainda, Performance em ¿Música? #13, São Paulo - SP, Brasil - 2017",
+            en: "Also, Performance at ¿Música? #13, São Paulo - SP, Brazil - 2017",
+            de: "Auch, Performance auf ¿Música? #13, São Paulo - SP, Brasilien - 2017",
+          },
         },
       ]),
       linkUrl: "https://nusom.eca.usp.br/producoes-musica",
       linkTitle: "Saiba mais",
+      linkTitle_i18n: {
+        "pt-br": "Saiba mais",
+        en: "Learn more",
+        de: "Mehr erfahren",
+      },
     },
     {
       title: "Móbile de vaca morta com vergalhões [...]",
       text: "Instalação com ossos, alto-falantes, vergalhões de ferro e com áudio de álbuns kitsch de Augusto Piccinini",
       description: `Móbile de vaca morta com vergalhões de ferro e frases de auto-ajuda narradas por vozes sintetizadas intercaladas à canções motivacionais com timbres maneiros é uma instalação na qual seis alto-falantes são instalados diretamente sobre ossos bovinos, em posições sugeridas pela própria estrutura óssea do animal. O sistema reproduz simultaneamente, em baixo volume, os álbuns de Augusto Piccinini “Vários MIDIs maneiros com timbres mais maneiros ainda intercalados com frases de auto-ajuda narradas por vozes sintetizadas”, “Igual ao álbum anterior mas desta vez mais radical e mais profundo” e “Just like the last two albums but this time in english in order to appeal to international audiences”. A instalação combina restos biológicos e materiais descartados na construção de uma estrutura sonora precária, situada entre decomposição e reconstrução. O trabalho cria um contraste entre essa materialidade desgastada e um universo sonoro marcado por frases motivacionais, timbres MIDI e excesso de informação. A obra propõe uma reflexão sobre formas de produção cultural que transformam ansiedade, desgaste e frustração em entretenimento, consumo e estímulo constante. A instalação foi concebida por Vinícius Fernandes em parceria com Augusto Piccinini e João Mascaro.
 `,
+      description_i18n: {
+        "pt-br": `Móbile de vaca morta com vergalhões de ferro e frases de auto-ajuda narradas por vozes sintetizadas intercaladas à canções motivacionais com timbres maneiros é uma instalação na qual seis alto-falantes são instalados diretamente sobre ossos bovinos, em posições sugeridas pela própria estrutura óssea do animal. O sistema reproduz simultaneamente, em baixo volume, os álbuns de Augusto Piccinini “Vários MIDIs maneiros com timbres mais maneiros ainda intercalados com frases de auto-ajuda narradas por vozes sintetizadas”, “Igual ao álbum anterior mas desta vez mais radical e mais profundo” e “Just like the last two albums but this time in english in order to appeal to international audiences”. A instalação combina restos biológicos e materiais descartados na construção de uma estrutura sonora precária, situada entre decomposição e reconstrução. O trabalho cria um contraste entre essa materialidade desgastada e um universo sonoro marcado por frases motivacionais, timbres MIDI e excesso de informação. A obra propõe uma reflexão sobre formas de produção cultural que transformam ansiedade, desgaste e frustração em entretenimento, consumo e estímulo constante. A instalação foi concebida por Vinícius Fernandes em parceria com Augusto Piccinini e João Mascaro.
+        `,
+        en: `Dead cow mobile with iron rebars and self-help phrases narrated by synthesized voices interleaved with motivational songs with kitschy timbres is an installation in which six loudspeakers are installed directly on bovine bones, in positions suggested by the animal's own skeletal structure. The system reproduces, simultaneously at low volume, albums by Augusto Piccinini — “Vários MIDIs maneiros com timbres mais maneiros ainda intercalados com frases de auto-ajuda narradas por vozes sintetizadas”, “Igual ao álbum anterior mas desta vez mais radical e mais profundo” and “Just like the last two albums but this time in english in order to appeal to international audiences” — (album titles left untranslated). The installation combines biological remains and discarded construction materials to create a precarious sonic structure situated between decomposition and reconstruction. The work creates a contrast between this worn materiality and a sonic universe marked by motivational phrases, MIDI timbres and information overload. The piece proposes a reflection on cultural production formats that transform anxiety, wear and frustration into entertainment, consumption and constant stimulation. The installation was conceived by Vinícius Fernandes in partnership with Augusto Piccinini and João Mascaro.
+        `,
+        de: `Móbile de vaca morta mit Eisenstangen und Selbsthilfesätzen, die von synthetischen Stimmen erzählt werden und mit motivierenden Liedern mit kitschigen Klangfarben durchsetzt sind, ist eine Installation, in der sechs Lautsprecher direkt auf Rinderknochen installiert werden, in Positionen, die durch die Knochenstruktur des Tieres vorgegeben sind. Das System reproduziert gleichzeitig in niedriger Lautstärke Alben von Augusto Piccinini — „Vários MIDIs maneiros com timbres mais maneiros ainda intercalados com frases de auto-ajuda narradas por vozes sintetizadas“, „Igual ao álbum anterior mas desta vez mais radical e mais profundo“ und „Just like the last two albums but this time in english in order to appeal to international audiences“ — (Albentitel unverändert gelassen). Die Installation kombiniert biologische Überreste und weggeworfene Baumaterialien zur Konstruktion einer prekären Klangstruktur, die zwischen Zersetzung und Wiederaufbau angesiedelt ist. Die Arbeit stellt einen Kontrast zwischen dieser abgenutzten Materialität und einem klanglichen Universum dar, das von motivierenden Phrasen, MIDI‑Klangfarben und Informationsüberflutung geprägt ist. Das Werk wurde von Vinícius Fernandes in Zusammenarbeit mit Augusto Piccinini und João Mascaro konzipiert.
+        `,
+      },
       image: "/mobile_thumb.jpg",
       images_details: buildImageDetails([
         {
@@ -421,12 +506,22 @@ TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em 
           title: "Registro da Instalação",
           caption:
             "Espaço das Artes, Universidade de São Paulo - SP, Brasil - 2019",
+          caption_i18n: {
+            "pt-br": "Espaço das Artes, Universidade de São Paulo - SP, Brasil - 2019",
+            en: "Espaço das Artes, University of São Paulo - SP, Brazil - 2019",
+            de: "Espaço das Artes, Universität São Paulo - SP, Brasilien - 2019",
+          },
         },
         {
           src: "/mobile_2.jpg",
           title: "Registro da Instalação",
           caption:
             "Espaço das Artes, Universidade de São Paulo - SP, Brasil - 2019",
+          caption_i18n: {
+            "pt-br": "Espaço das Artes, Universidade de São Paulo - SP, Brasil - 2019",
+            en: "Espaço das Artes, University of São Paulo - SP, Brazil - 2019",
+            de: "Espaço das Artes, Universität São Paulo - SP, Brasilien - 2019",
+          },
           y: "-50%",
         },
         {
@@ -434,6 +529,11 @@ TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em 
           title: "Registro da Instalação",
           caption:
             "Espaço das Artes, Universidade de São Paulo - SP, Brasil - 2019",
+          caption_i18n: {
+            "pt-br": "Espaço das Artes, Universidade de São Paulo - SP, Brasil - 2019",
+            en: "Espaço das Artes, University of São Paulo - SP, Brazil - 2019",
+            de: "Espaço das Artes, Universität São Paulo - SP, Brasilien - 2019",
+          },
           y: "-30%",
           x600: "50%",
         },
@@ -442,17 +542,32 @@ TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em 
           title: "Registro da Instalação",
           caption:
             "Espaço das Artes, Universidade de São Paulo - SP, Brasil - 2019.",
+          caption_i18n: {
+            "pt-br": "Espaço das Artes, Universidade de São Paulo - SP, Brasil - 2019.",
+            en: "Espaço das Artes, University of São Paulo - SP, Brazil - 2019.",
+            de: "Espaço das Artes, Universität São Paulo - SP, Brasilien - 2019.",
+          },
           y: "-70%",
         },
       ]),
       linkTitle: "Saiba mais",
+      linkTitle_i18n: {
+        "pt-br": "Saiba mais",
+        en: "Learn more",
+        de: "Mehr erfahren",
+      },
       linkUrl:
         "https://revistapesquisa.fapesp.br/na-onda-da-musica-e-da-tecnologia/",
       embedsBandcamp: [
-        buildBandcampEmbed(
-          `<iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=743014755/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://3edgy5u.bandcamp.com/album/v-rios-midis-maneiros-com-timbres-mais-maneiros-ainda-intercalados-com-frases-de-auto-ajuda-narradas-por-vozes-sintetizadas">Vários MIDIs maneiros com timbres mais maneiros ainda intercalados com frases de auto-ajuda narradas por vozes sintetizadas von 3edgy5u</a></iframe>`,
-          "Album - Vários MIDIs maneiros com timbres mais maneiros ainda intercalados com frases de auto-ajuda narradas por vozes sintetizadas - Augusto Piccinini",
-        ),
+        {
+          html: `<iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=743014755/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://3edgy5u.bandcamp.com/album/v-rios-midis-maneiros-com-timbres-mais-maneiros-ainda-intercalados-com-frases-de-auto-ajuda-narradas-por-vozes-sintetizadas">Vários MIDIs maneiros com timbres mais maneiros ainda intercalados com frases de auto-ajuda narradas por vozes sintetizadas von 3edgy5u</a></iframe>`,
+          caption: "Album - Vários MIDIs maneiros com timbres mais maneiros ainda intercalados com frases de auto-ajuda narradas por vozes sintetizadas - Augusto Piccinini",
+          caption_i18n: {
+            "pt-br": "Album - Vários MIDIs maneiros com timbres mais maneiros ainda intercalados com frases de auto-ajuda narradas por vozes sintetizadas - Augusto Piccinini",
+            en: "Album - Vários MIDIs maneiros com timbres mais maneiros ainda intercalados com frases de auto-ajuda narradas por vozes sintetizadas - Augusto Piccinini",
+            de: "Album - Vários MIDIs maneiros com timbres mais maneiros ainda intercalados com frases de auto-ajuda narradas por vozes sintetizadas - Augusto Piccinini",
+          },
+        },
       ],
     },
 
@@ -461,49 +576,99 @@ TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em 
       text: "Instalação sonora interativa que utiliza plantas como controladoras de síntese sonora.",
       description: `O “Fitosintetizador” é uma instalação sonora interativa que utiliza o perfil de cores de folhas e plantas para gerar composições em um piano digital. Por meio de processamento de imagem e análise cromática, diferentes tonalidades e padrões vegetais são convertidos em informações musicais, criando paisagens sonoras variáveis a partir das características visuais das plantas. A obra convida o público a trazer folhas e interagir livremente com o sistema, permitindo diferentes formas de experimentação e composição sonora. O trabalho explora relações entre natureza, tecnologia e interação, transformando elementos vegetais em interfaces musicais e deslocando noções tradicionais de instrumento, autoria e performance. O projeto foi concebido por Vinícius Fernandes em parceria com Lidia Ganhito, Gabriel Urazaki e Vitor Barão durante uma residência artística na Red Bull Station, onde um primeiro protótipo foi apresentado, e posteriormente exibido em sua versão completa no Sesc Avenida Paulista.
 `,
+      description_i18n: {
+        "pt-br": `O “Fitosintetizador” é uma instalação sonora interativa que utiliza o perfil de cores de folhas e plantas para gerar composições em um piano digital. Por meio de processamento de imagem e análise cromática, diferentes tonalidades e padrões vegetais são convertidos em informações musicais, criando paisagens sonoras variáveis a partir das características visuais das plantas. A obra convida o público a trazer folhas e interagir livremente com o sistema, permitindo diferentes formas de experimentação e composição sonora. O trabalho explora relações entre natureza, tecnologia e interação, transformando elementos vegetais em interfaces musicais e deslocando noções tradicionais de instrumento, autoria e performance. O projeto foi concebido por Vinícius Fernandes em parceria com Lidia Ganhito, Gabriel Urazaki e Vitor Barão durante uma residência artística na Red Bull Station, onde um primeiro protótipo foi apresentado, e posteriormente exibido em sua versão completa no Sesc Avenida Paulista.`,
+        en: `The “Phytosynthesizer” is an interactive sound installation that uses the color profile of leaves and plants to generate compositions on a digital piano. Through image processing and chromatic analysis, different hues and vegetal patterns are translated into musical information, creating variable soundscapes based on the plants' visual characteristics. The work invites the public to bring leaves and interact freely with the system, enabling different forms of experimentation and sonic composition. The project explores relationships between nature, technology and interaction, transforming vegetal elements into musical interfaces and displacing traditional notions of instrument, authorship and performance. The project was conceived by Vinícius Fernandes in partnership with Lidia Ganhito, Gabriel Urazaki and Vitor Barão during an artist residency at Red Bull Station, where an initial prototype was presented, and later shown in its complete version at Sesc Avenida Paulista.`,
+        de: `Der „Phytosynthesizer" ist eine interaktive Klanginstallation, die das Farbprofil von Blättern und Pflanzen nutzt, um Kompositionen auf einem digitalen Klavier zu erzeugen. Durch Bildverarbeitung und chromatische Analyse werden unterschiedliche Farbtöne und pflanzliche Muster in musikalische Informationen übersetzt, wodurch variable Klanglandschaften entstehen, die auf den visuellen Merkmalen der Pflanzen basieren. Die Arbeit lädt das Publikum ein, Blätter mitzubringen und frei mit dem System zu interagieren, wodurch verschiedene Formen der Experimentation und klanglichen Komposition ermöglicht werden. Das Projekt untersucht die Beziehungen zwischen Natur, Technologie und Interaktion, verwandelt pflanzliche Elemente in musikalische Schnittstellen und verschiebt traditionelle Vorstellungen von Instrument, Autorschaft und Aufführung. Das Projekt wurde von Vinícius Fernandes in Zusammenarbeit mit Lidia Ganhito, Gabriel Urazaki und Vitor Barão während eines Künstlerresidenzprogramms in der Red Bull Station konzipiert, wo ein erster Prototyp gezeigt wurde, und später in seiner vollständigen Version im Sesc Avenida Paulista präsentiert.`,
+      },
       image: "/fitosintetizador_thumb.jpg",
       images_details: buildImageDetails([
         {
           src: "/fitosintetizador_1.jpg",
           title: "Registro da Instalação",
           caption: "SESC Avenida Paulista, São Paulo - SP, Brasil - 2020",
+          caption_i18n: {
+            "pt-br": "SESC Avenida Paulista, São Paulo - SP, Brasil - 2020",
+            en: "SESC Avenida Paulista, São Paulo - SP, Brazil - 2020",
+            de: "SESC Avenida Paulista, São Paulo - SP, Brasilien - 2020",
+          },
         },
         {
           src: "/fitosintetizador_2.jpg",
           title: "Registro da Instalação",
           caption: "SESC Avenida Paulista, São Paulo - SP, Brasil - 2020",
+          caption_i18n: {
+            "pt-br": "SESC Avenida Paulista, São Paulo - SP, Brasil - 2020",
+            en: "SESC Avenida Paulista, São Paulo - SP, Brazil - 2020",
+            de: "SESC Avenida Paulista, São Paulo - SP, Brasilien - 2020",
+          },
           y: "-70%",
         },
         {
           src: "/fitosintetizador_3.jpg",
           title: "Registro da Instalação",
           caption: "SESC Avenida Paulista, São Paulo - SP, Brasil - 2020",
+          caption_i18n: {
+            "pt-br": "SESC Avenida Paulista, São Paulo - SP, Brasil - 2020",
+            en: "SESC Avenida Paulista, São Paulo - SP, Brazil - 2020",
+            de: "SESC Avenida Paulista, São Paulo - SP, Brasilien - 2020",
+          },
           y: "-60%",
         },
         {
           src: "/fitosintetizador_4.jpg",
           title: "Registro da Instalação",
           caption: "SESC Avenida Paulista, São Paulo - SP, Brasil - 2020",
+          caption_i18n: {
+            "pt-br": "SESC Avenida Paulista, São Paulo - SP, Brasil - 2020",
+            en: "SESC Avenida Paulista, São Paulo - SP, Brazil - 2020",
+            de: "SESC Avenida Paulista, São Paulo - SP, Brasilien - 2020",
+          },
           y: "-10%",
         },
         {
           src: "/fitosintetizador_5.jpg",
           title: "Registro da Instalação",
           caption: "SESC Avenida Paulista, São Paulo - SP, Brasil - 2020",
+          caption_i18n: {
+            "pt-br": "SESC Avenida Paulista, São Paulo - SP, Brasil - 2020",
+            en: "SESC Avenida Paulista, São Paulo - SP, Brazil - 2020",
+            de: "SESC Avenida Paulista, São Paulo - SP, Brasilien - 2020",
+          },
         },
         {
           src: "/fitosintetizador_6.jpg",
           title: "Registro da Instalação",
           caption: "SESC Avenida Paulista, São Paulo - SP, Brasil - 2020",
+          caption_i18n: {
+            "pt-br": "SESC Avenida Paulista, São Paulo - SP, Brasil - 2020",
+            en: "SESC Avenida Paulista, São Paulo - SP, Brazil - 2020",
+            de: "SESC Avenida Paulista, São Paulo - SP, Brasilien - 2020",
+          },
         },
       ]),
       youtubeUrls: ["https://www.youtube.com/watch?v=APvD8IhDLcA"],
       youtubeCaption: ["Fitosintetizador — amostra de funcionamento do patch"],
+      youtubeCaption_i18n: {
+        "pt-br": ["Fitosintetizador — amostra de funcionamento do patch"],
+        en: ["Phytosynthesizer — demo of the patch in operation"],
+        de: ["Phytosynthesizer — Demonstration des Patches in Betrieb"],
+      },
     },
     {
       title: "Echos of the deep",
       text: "Software de sonificação de dados metabólicos de esponjas marinhas",
+      text_i18n: {
+        "pt-br": "Software de sonificação de dados metabólicos de esponjas marinhas",
+        en: "Software for sonification of metabolic data from marine sponges",
+        de: "Software zur Sonifizierung metabolischer Daten von Meeres-Schwämmen",
+      },
       description: `Echoes of the Deep: Sonifying the Hidden World of Sponges é um projeto interdisciplinar de arte e ciência desenvolvido por Julie Semoroz e Vinícius Fernandes em colaboração com pesquisadores do CNRS e da Marine Station of Endoume. Baseado em pesquisas metabolômicas, genéticas e taxonômicas sobre esponjas marinhas do Mediterrâneo e do Atlântico, o projeto transforma dados científicos em experiências imersivas de som e vibração por meio de um sistema de sonificação desenvolvido em Python e Pure Data. Dados de concentração química extraídos de heatmaps metabolômicos são convertidos em frequências e sintetizados em formas de onda complexas, gerando “assinaturas sonoras” únicas para oito espécies de esponjas. Essas identidades auditivas revelam similaridades e diferenças bioquímicas entre espécies, tornando perceptíveis aspectos invisíveis da biodiversidade marinha através da escuta e da vibração corporal. Ao combinar processamento digital de sinais, arte sonora experimental e biologia marinha, a obra propõe uma forma alternativa de visualização científica e engajamento público, buscando ampliar a conscientização sobre ecossistemas subaquáticos ameaçados pelas mudanças climáticas, perda de biodiversidade e ondas extremas de calor marinho.`,
+      description_i18n: {
+        "pt-br": `Echoes of the Deep: Sonifying the Hidden World of Sponges é um projeto interdisciplinar de arte e ciência desenvolvido por Julie Semoroz e Vinícius Fernandes em colaboração com pesquisadores do CNRS e da Marine Station of Endoume. Baseado em pesquisas metabolômicas, genéticas e taxonômicas sobre esponjas marinhas do Mediterrâneo e do Atlântico, o projeto transforma dados científicos em experiências imersivas de som e vibração por meio de um sistema de sonificação desenvolvido em Python e Pure Data. Dados de concentração química extraídos de heatmaps metabolômicos são convertidos em frequências e sintetizados em formas de onda complexas, gerando “assinaturas sonoras” únicas para oito espécies de esponjas. Essas identidades auditivas revelam similaridades e diferenças bioquímicas entre espécies, tornando perceptíveis aspectos invisíveis da biodiversidade marinha através da escuta e da vibração corporal. Ao combinar processamento digital de sinais, arte sonora experimental e biologia marinha, a obra propõe uma forma alternativa de visualização científica e engajamento público, buscando ampliar a conscientização sobre ecossistemas subaquáticos ameaçados pelas mudanças climáticas, perda de biodiversidade e ondas extremas de calor marinho.`,
+        en: `Echoes of the Deep: Sonifying the Hidden World of Sponges is an interdisciplinary art-and-science project developed by Julie Semoroz and Vinícius Fernandes in collaboration with researchers from the CNRS and the Marine Station of Endoume. Based on metabolomic, genetic and taxonomic research on marine sponges from the Mediterranean and the Atlantic, the project transforms scientific data into immersive sound and vibration experiences through a sonification system developed in Python and Pure Data. Concentration data extracted from metabolomic heatmaps are converted to frequencies and synthesized into complex waveforms, generating unique “sonic signatures” for eight sponge species. These auditory identities reveal biochemical similarities and differences between species, making invisible aspects of marine biodiversity perceptible through listening and bodily vibration. By combining digital signal processing, experimental sound art and marine biology, the work proposes an alternative form of scientific visualization and public engagement, aiming to raise awareness about underwater ecosystems threatened by climate change, biodiversity loss and extreme marine heat waves.`,
+        de: `Echoes of the Deep: Sonifying the Hidden World of Sponges ist ein interdisziplinäres Kunst-und-Wissenschaftsprojekt, entwickelt von Julie Semoroz und Vinícius Fernandes in Zusammenarbeit mit Forschern des CNRS und der Marine Station of Endoume. Basierend auf metabolomischen, genetischen und taxonomischen Studien über Meeres-Schwämme aus dem Mittelmeer und dem Atlantik verwandelt das Projekt wissenschaftliche Daten in immersive Klang- und Vibrations­erfahrungen mithilfe eines Sonifizierungssystems, das in Python und Pure Data entwickelt wurde. Konzentrationsdaten, die aus metabolomischen Heatmaps extrahiert wurden, werden in Frequenzen umgewandelt und zu komplexen Wellenformen synthetisiert, wodurch einzigartige „klangliche Signaturen“ für acht Schwammarten entstehen. Diese auditiven Identitäten zeigen biochemische Ähnlichkeiten und Unterschiede zwischen den Arten und machen unsichtbare Aspekte der marinen Biodiversität durch Zuhören und körperliche Vibration wahrnehmbar. Durch die Kombination von digitaler Signalverarbeitung, experimenteller Klangkunst und Meeresbiologie schlägt das Werk eine alternative Form der wissenschaftlichen Visualisierung und des öffentlichen Engagements vor und zielt darauf ab, das Bewusstsein für Unterwasserökosysteme zu schärfen, die durch den Klimawandel, den Verlust der Biodiversität und extreme marine Hitzewellen bedroht sind.`,
+      },
       image: "/sponges_thumb.jpg",
       images_details: buildImageDetails([
         {
@@ -512,60 +677,88 @@ TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em 
             "Vinícius Fernandes e Julie Semoroz durante a apresentação de Echoes of the Deep",
           caption:
             "World Sponge Conference 2025, Vila do Conde, Portugal - 2025",
+          caption_i18n: {
+            "pt-br": "World Sponge Conference 2025, Vila do Conde, Portugal - 2025",
+            en: "World Sponge Conference 2025, Vila do Conde, Portugal - 2025",
+            de: "World Sponge Conference 2025, Vila do Conde, Portugal - 2025",
+          },
           y: "-80%",
         },
       ]),
       linkUrl: "https://worldspongecommunity.com/program/",
       linkTitle: "Saiba mais",
+      linkTitle_i18n: {
+        "pt-br": "Saiba mais",
+        en: "Learn more",
+        de: "Mehr erfahren",
+      },
     },
     {
       title: "Discografia",
       text: "Reunião de todos discos, singles e colaborações",
+      text_i18n: {
+        "pt-br": "Reunião de todos discos, singles e colaborações",
+        en: "Collection of all albums, singles and collaborations",
+        de: "Sammlung aller Alben, Singles und Zusammenarbeiten",
+      },
       description: `A Discografia reúne todos os discos, singles e colaborações de Vinícius Fernandes, apresentando uma visão abrangente de sua trajetória musical e artística. Através de uma seleção cuidadosa de faixas e projetos, a discografia reflete a evolução do artista ao longo dos anos, destacando suas experimentações sonoras e colaborações com outros músicos e artistas.
 `,
+      description_i18n: {
+        "pt-br": `A Discografia reúne todos os discos, singles e colaborações de Vinícius Fernandes, apresentando uma visão abrangente de sua trajetória musical e artística. Através de uma seleção cuidadosa de faixas e projetos, a discografia reflete a evolução do artista ao longo dos anos, destacando suas experimentações sonoras e colaborações com outros músicos e artistas.`,
+        en: `The Discography brings together all albums, singles and collaborations by Vinícius Fernandes, presenting a comprehensive overview of his musical and artistic journey. Through a careful selection of tracks and projects, the discography reflects the artist's evolution over the years, highlighting his sound experiments and collaborations with other musicians and artists.`,
+        de: `Die Diskographie vereint alle Alben, Singles und Zusammenarbeiten von Vinícius Fernandes und bietet einen umfassenden Überblick über seine musikalische und künstlerische Laufbahn. Durch eine sorgfältige Auswahl von Titeln und Projekten spiegelt die Diskographie die Entwicklung des Künstlers im Laufe der Jahre wider und hebt seine Klangexperimente und Zusammenarbeiten mit anderen Musikern und Künstlern hervor.`,
+      },
       image: "/discografia_thumb.jpg",
       images_details: buildImageDetails([
         {
           src: "/discografia_1.jpg",
           title: "Tabutril",
           caption: "Bar do Zé, Campinas - SP, Brasil - 2015",
+          caption_i18n: {
+            "pt-br": "Bar do Zé, Campinas - SP, Brasil - 2015",
+            en: "Bar do Zé, Campinas - SP, Brazil - 2015",
+            de: "Bar do Zé, Campinas - SP, Brasilien - 2015",
+          },
           y: "-50%",
         },
         {
           src: "/discografia_2.jpg",
           title: "Cassini",
           caption: " Bolderaja, Riga, Letônia - 2018",
+          caption_i18n: {
+            "pt-br": "Bolderaja, Riga, Letônia - 2018",
+            en: "Bolderaja, Riga, Latvia - 2018",
+            de: "Bolderaja, Riga, Lettland - 2018",
+          },
         },
         {
           src: "/discografia_3.jpg",
           title: "Muito Nasty",
           caption: "Fauhaus, São Paulo - SP, Brasil - 2018",
+          caption_i18n: {
+            "pt-br": "Fauhaus, São Paulo - SP, Brasil - 2018",
+            en: "Fauhaus, São Paulo - SP, Brazil - 2018",
+            de: "Fauhaus, São Paulo - SP, Brasilien - 2018",
+          },
           y: "-20%",
         },
         {
           src: "/discografia_4.jpg",
           title: "Pássaro-Concreto",
           caption: "Casa das Rosas, São Paulo - SP, Brasil - 2016",
+          caption_i18n: {
+            "pt-br": "Casa das Rosas, São Paulo - SP, Brasil - 2016",
+            en: "Casa das Rosas, São Paulo - SP, Brazil - 2016",
+            de: "Casa das Rosas, São Paulo - SP, Brasilien - 2016",
+          },
           y: "-70%",
         },
       ]),
       embedsBandcamp: [
-        buildBandcampEmbed(
-          `<iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=965401561/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://tudos.bandcamp.com/album/tds01-amador">[tds01] amador von Tabutril</a></iframe>`,
-          "Amador - 2015 - Tabutril",
-        ),
-        buildBandcampEmbed(
-          `<iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=2229382614/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://tudos.bandcamp.com/album/tds09-fontanela">[tds09] Fontanela von Cassini</a></iframe>`,
-          "Fontanela - 2018 - Cassini",
-        ),
-        buildBandcampEmbed(
-          `<iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=1846535594/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://tudos.bandcamp.com/album/tds013-muito-nasty">[tds013] Muito Nasty von Muito Nasty</a></iframe>`,
-          "Muito Nasty - 2018 - Muito Nasty",
-        ),
-        buildBandcampEmbed(
-          `<iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=981793339/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://passaro-concreto.bandcamp.com/album/p-ssaro-concreto">Pássaro-Concreto von Pássaro-Concreto</a></iframe>`,
-          "Pássaro-Concreto - 2016 - Pássaro-Concreto",
-        ),
+        { html: `<iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=965401561/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://tudos.bandcamp.com/album/tds01-amador">[tds01] amador von Tabutril</a></iframe>`, caption: "Amador - 2015 - Tabutril", caption_i18n: { "pt-br": "Amador - 2015 - Tabutril", en: "Amador - 2015 - Tabutril", de: "Amador - 2015 - Tabutril" } },
+        { html: `<iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=2229382614/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://tudos.bandcamp.com/album/tds09-fontanela">[tds09] Fontanela von Cassini</a></iframe>`, caption: "Fontanela - 2018 - Cassini", caption_i18n: { "pt-br": "Fontanela - 2018 - Cassini", en: "Fontanela - 2018 - Cassini", de: "Fontanela - 2018 - Cassini" } },
+        { html: `<iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=1846535594/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://tudos.bandcamp.com/album/tds013-muito-nasty">[tds013] Muito Nasty von Muito Nasty</a></iframe>`, caption: "Muito Nasty - 2018 - Muito Nasty", caption_i18n: { "pt-br": "Muito Nasty - 2018 - Muito Nasty", en: "Muito Nasty - 2018 - Muito Nasty", de: "Muito Nasty - 2018 - Muito Nasty" } },
+        { html: `<iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=981793339/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://passaro-concreto.bandcamp.com/album/p-ssaro-concreto">Pássaro-Concreto von Pássaro-Concreto</a></iframe>`, caption: "Pássaro-Concreto - 2016 - Pássaro-Concreto", caption_i18n: { "pt-br": "Pássaro-Concreto - 2016 - Pássaro-Concreto", en: "Pássaro-Concreto - 2016 - Pássaro-Concreto", de: "Pássaro-Concreto - 2016 - Pássaro-Concreto" } },
       ],
     },
   ];
