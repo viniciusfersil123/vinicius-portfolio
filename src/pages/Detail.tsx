@@ -4,6 +4,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useTranslation } from "../hooks/useTranslation";
+import Image from "../components/Image";
 
 function slugify(s: string) {
   return String(s || "")
@@ -125,6 +126,79 @@ export default function Detail() {
   const hasMultipleYoutubeEmbeds = youtubeEmbeds.length > 1;
 
   const detailSections = [
+    ...(item?.images_details?.length
+      ? [
+          {
+            key: "images",
+            inverted: true,
+            content: (
+              <section className="detail-gallery">
+                <h2 className="detail-gallery-title">{t("detail.gallery") || "Gallery"}</h2>
+                {item.images_details.length > 1 ? (
+                  <Slider
+                    {...{
+                      infinite: true,
+                      speed: 500,
+                      slidesToShow: 1,
+                      slidesToScroll: 1,
+                      arrows: true,
+                      autoplay: true,
+                      autoplaySpeed: 5000,
+                      swipeToSlide: true,
+                    }}
+                  >
+                    {item.images_details.map((imgDetail, idx) => (
+                      <div key={idx} className="gallery-slide">
+                        <div className="gallery-image-wrapper">
+                          <Image
+                            src={imgDetail.src}
+                            alt={imgDetail.title}
+                            style={{
+                              "--card-image-offset-x": imgDetail.imageOffsetX,
+                              "--card-image-offset-y": imgDetail.imageOffsetY,
+                            } as React.CSSProperties}
+                          />
+                        </div>
+                        <div className="gallery-info">
+                          {imgDetail.title && <h3 className="gallery-image-title">{imgDetail.title}</h3>}
+                          {imgDetail.caption && (
+                            <p className="gallery-image-caption">
+                              {imgDetail.caption_i18n?.[lang] || imgDetail.caption}
+                            </p>
+                          )}
+                        </div>
+                      </div>
+                    ))}
+                  </Slider>
+                ) : (
+                  <div className="gallery-single">
+                    <div className="gallery-image-wrapper">
+                      <Image
+                        src={item.images_details[0].src}
+                        alt={item.images_details[0].title}
+                        style={{
+                          "--card-image-offset-x": item.images_details[0].imageOffsetX,
+                          "--card-image-offset-y": item.images_details[0].imageOffsetY,
+                        } as React.CSSProperties}
+                      />
+                    </div>
+                    <div className="gallery-info">
+                      {item.images_details[0].title && (
+                        <h3 className="gallery-image-title">{item.images_details[0].title}</h3>
+                      )}
+                      {item.images_details[0].caption && (
+                        <p className="gallery-image-caption">
+                          {item.images_details[0].caption_i18n?.[lang] || item.images_details[0].caption}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                )}
+              </section>
+            ),
+          },
+        ]
+      : []),
     ...(item?.embeds?.length
       ? [
           {
