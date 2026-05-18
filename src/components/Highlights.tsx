@@ -2,6 +2,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useTranslation } from "../hooks/useTranslation";
+import Image from "./Image";
 
 type Highlight = {
   titleKey: string;
@@ -143,7 +144,7 @@ export default function Highlights({
           return (
             <div key={i} className="highlight-card">
               <div className="highlight-media">
-                <img
+                <Image
                   src={h.img}
                   alt={titleText}
                   style={

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import Image from "./Image";
 
 type CardProps = {
   title: string;
@@ -130,7 +131,7 @@ export default function Card({
     >
       {image && (
         <div className="card-thumb">
-          <img
+          <Image
             src={image}
             alt={title}
             style={{
