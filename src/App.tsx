@@ -1231,7 +1231,8 @@ Die mechanische Vibration dieser Objekte verändert das Verhalten des übertrage
   // quando abrir item via clique (pushState), também subir
   const openItem = (it: any) => {
     const slug = (it.slug as string) || slugify(String(it.title || ""));
-    const url = `/item/${slug}`;
+    const basePath = import.meta.env.BASE_URL.replace(/\/$/, "");
+    const url = `${basePath}/item/${slug}`;
     window.history.pushState({}, "", url);
     window.dispatchEvent(new PopStateEvent("popstate"));
     // garante topo em navegação programática
