@@ -3,6 +3,6 @@ import react from '@vitejs/plugin-react'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/vinicius-portfolio/',
+  base: process.env.NODE_ENV === 'production' ? '/vinicius-portfolio/' : '/',
   plugins: [react()],
 })

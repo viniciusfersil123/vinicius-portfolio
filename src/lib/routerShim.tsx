@@ -8,7 +8,9 @@ export function BrowserRouter({ children }: PropsWithChildren) {
 export function useNavigate() {
   return (to: string | number) => {
     if (typeof to === "number") return window.history.go(to);
-    window.history.pushState({}, "", String(to));
+    const basePath = import.meta.env.BASE_URL.replace(/\/$/, "");
+    const fullPath = basePath + String(to);
+    window.history.pushState({}, "", fullPath);
     // dispatch event so listeners can react
     window.dispatchEvent(new PopStateEvent("popstate"));
   };
@@ -17,14 +19,18 @@ export function useNavigate() {
 export function useParams() {
   const [params, setParams] = useState<Record<string, string | undefined>>(() => {
     const path = window.location.pathname;
-    const m = path.match(/\/vinicius-portfolio\/item\/(.+)/);
+    const basePath = import.meta.env.BASE_URL.replace(/\/$/, "");
+    const pattern = new RegExp(`^${basePath}/item/(.+)`);
+    const m = path.match(pattern);
     return { slug: m ? decodeURIComponent(m[1]) : undefined };
   });
 
   useEffect(() => {
     const onPop = () => {
       const path = window.location.pathname;
-      const m = path.match(/\/vinicius-portfolio\/item\/(.+)/);
+      const basePath = import.meta.env.BASE_URL.replace(/\/$/, "");
+      const pattern = new RegExp(`^${basePath}/item/(.+)`);
+      const m = path.match(pattern);
       setParams({ slug: m ? decodeURIComponent(m[1]) : undefined });
     };
     window.addEventListener("popstate", onPop);
