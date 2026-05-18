@@ -5,15 +5,27 @@ function slugify(s: string) {
     .replace(/(^-|-$)/g, "");
 }
 
-export type Item = {
-  slug: string;
+type Localized = string | Record<string, string>;
+
+type ItemBase = {
   title: Localized;
   text: Localized;
   description?: Localized;
   image?: string;
   images?: string[];
-  embeds?: string[]; // <-- add embeds support
+  embeds?: string[];
 };
+
+export type Item = ItemBase & {
+  slug: string;
+};
+
+function withSlug(items: ItemBase[]): Item[] {
+  return items.map((item) => ({
+    ...item,
+    slug: slugify(typeof item.title === "string" ? item.title : item.title["pt-br"]),
+  }));
+}
 
 export const cards: Item[] = withSlug([
   {

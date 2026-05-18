@@ -17,14 +17,14 @@ export function useNavigate() {
 export function useParams() {
   const [params, setParams] = useState<Record<string, string | undefined>>(() => {
     const path = window.location.pathname;
-    const m = path.match(/\/item\/(.+)/);
+    const m = path.match(/\/vinicius-portfolio\/item\/(.+)/);
     return { slug: m ? decodeURIComponent(m[1]) : undefined };
   });
 
   useEffect(() => {
     const onPop = () => {
       const path = window.location.pathname;
-      const m = path.match(/\/item\/(.+)/);
+      const m = path.match(/\/vinicius-portfolio\/item\/(.+)/);
       setParams({ slug: m ? decodeURIComponent(m[1]) : undefined });
     };
     window.addEventListener("popstate", onPop);
