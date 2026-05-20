@@ -167,7 +167,7 @@ export const translations: Record<string, Record<string, string>> = {
     "home.cards.art.1.title": "9 Antlers",
     "home.cards.art.1.text":
       "Electronic piece based on the Lithuanian song Kalėdų rytu rožė inžydo, presented at the 32nd São Paulo Biennial.",
-    "home.cards.art.2.title": "Metempsychosis",
+    "home.cards.art.2.title": "Metempsicose",
     "home.cards.art.2.text":
       "Sound installation. A radio tuned to a random local station controls two modified loudspeakers connected to a guitar and a tamtam.",
     "home.cards.art.3.title": "¿Music?",
@@ -238,7 +238,7 @@ export const translations: Record<string, Record<string, string>> = {
     "header.abrirMenu": "Menü öffnen",
     "header.fecharMenu": "Menü schließen",
     "home.footer": "Kunst, Klang & Technologie.",
-    "home.section.art.title": "Kunst & Klang",
+    "home.section.art.title": "Kunst",
     "home.section.art.subtitle":
       "Eine Auswahl an Performances, Klanginstallationen und kollaborativen Projekten.",
     "home.section.tech.title": "Hardware & DSP",
@@ -272,13 +272,13 @@ export const translations: Record<string, Record<string, string>> = {
     "home.cards.art.0.title": "TUDOS",
     "home.cards.art.0.text":
       "Label zur Veröffentlichung von Künstlern, die mit experimenteller Komposition arbeiten.",
-    "home.cards.art.1.title": "9 Geweihe",
+    "home.cards.art.1.title": "9 Antlers",
     "home.cards.art.1.text":
       "Elektronisches Stück basierend auf dem litauischen Lied Kalėdų rytu rožė inžydo, präsentiert auf der 32. Biennale von São Paulo.",
-    "home.cards.art.2.title": "Metempsychose",
+    "home.cards.art.2.title": "Metempsicose",
     "home.cards.art.2.text":
       "Klanginstallation. Ein auf einen zufälligen lokalen Sender abgestimmtes Radio steuert zwei modifizierte Lautsprecher, die mit einer Gitarre und einem Tamtam verbunden sind.",
-    "home.cards.art.3.title": "¿Musik?",
+    "home.cards.art.3.title": "¿Música?",
     "home.cards.art.3.text":
       "Seit 2005 stattfindende Reihe von Performances/Ausstellungen zu Klangkunst und experimenteller Musik.",
     "home.cards.art.4.title": "Mobile aus toter Kuh mit Eisenstangen [...]",

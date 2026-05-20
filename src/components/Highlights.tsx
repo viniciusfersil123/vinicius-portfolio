@@ -53,8 +53,8 @@ const highlights: Highlight[] = [
     img: "/teaser_1.jpg",
     captionKey: "home.highlights.0.caption",
     offsets: {
-      desktop: { x: "0px", y: "-65%" },
-      max900: { x: "50%", y: "-100%" },
+      desktop: { x: "50%", y: "-65%" },
+      max900: { x: "100px", y: "-100%" },
       max600: { x: "50%", y: "0%" },
     },
   },

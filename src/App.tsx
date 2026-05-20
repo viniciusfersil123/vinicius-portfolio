@@ -67,6 +67,14 @@ function App() {
 `,
       description: `TUDOS é um selo e produtora co-fundada por Vinícius Fernandes em 2014 voltada ao lançamento de artistas que trabalham com composição experimental. Além disso, o projeto também abrange iniciativas em diferentes vertentes da música experimental, como improvisação livre, música eletrônica, música conceitual e plunderphonics, entre outras.
 TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em mais de 7 países. Em 2015, o projeto recebeu apoio financeiro por meio de um edital da Universidade Estadual de Campinas (UNICAMP)`,
+      description_i18n: {
+        "pt-br": `TUDOS é um selo e produtora co-fundada por Vinícius Fernandes em 2014 voltada ao lançamento de artistas que trabalham com composição experimental. Além disso, o projeto também abrange iniciativas em diferentes vertentes da música experimental, como improvisação livre, música eletrônica, música conceitual e plunderphonics, entre outras.
+      TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em mais de 7 países. Em 2015, o projeto recebeu apoio financeiro por meio de um edital da Universidade Estadual de Campinas (UNICAMP)`,
+        en: `TUDOS is a label and production platform co-founded by Vinícius Fernandes in 2014, focused on releasing artists who work with experimental composition. In addition, the project also encompasses initiatives across different strands of experimental music, such as free improvisation, electronic music, conceptual music, and plunderphonics, among others.
+      TUDOS has released 17 albums and produced more than 30 events with its artists in over 7 countries. In 2015, the project received financial support through a public call from the University of Campinas (UNICAMP).`,
+        de: `TUDOS ist ein Label und eine Produktionsplattform, die 2014 von Vinícius Fernandes mitgegründet wurde und sich auf die Veröffentlichung von Künstlern konzentriert, die mit experimenteller Komposition arbeiten. Darüber hinaus umfasst das Projekt Initiativen in verschiedenen Bereichen der experimentellen Musik, darunter freie Improvisation, elektronische Musik, Konzeptmusik und Plunderphonics.
+      TUDOS hat bereits 17 Alben veröffentlicht und mit seinen Künstlern mehr als 30 Veranstaltungen in über 7 Ländern produziert. Im Jahr 2015 erhielt das Projekt finanzielle Unterstützung über eine Ausschreibung der Staatlichen Universität Campinas (UNICAMP).`,
+      },
       image: "/tudos_thumb.jpg",
       images_details: buildImageDetails([
         {
@@ -157,18 +165,22 @@ TUDOS já lançou 17 álbuns e produziu mais de 30 eventos com seus artistas em 
         },
         {
           html: `<iframe style="border: 0; width: 350px; height: 350px;" src="https://bandcamp.com/EmbeddedPlayer/album=3896437244/size=large/bgcol=ffffff/linkcol=0687f5/minimal=true/transparent=true/" seamless><a href="https://tudos.bandcamp.com/album/tds05-the-mystical-sounds-of-historical-materialism">[tds05] The Mystical Sounds of Historical Materialism von Ajnabi</a></iframe>`,
-          caption: "2016 - The Mystical Sounds of Historical Materialism - Ajnabi",
+          caption:
+            "2016 - The Mystical Sounds of Historical Materialism - Ajnabi",
           caption_i18n: {
-            "pt-br": "2016 - The Mystical Sounds of Historical Materialism - Ajnabi",
+            "pt-br":
+              "2016 - The Mystical Sounds of Historical Materialism - Ajnabi",
             en: "2016 - The Mystical Sounds of Historical Materialism - Ajnabi",
             de: "2016 - The Mystical Sounds of Historical Materialism - Ajnabi",
           },
         },
         {
           html: `<iframe style="border: 0; width: 350px; height: 350px;" src="https://bandcamp.com/EmbeddedPlayer/album=1951198024/size=large/bgcol=ffffff/linkcol=0687f5/minimal=true/transparent=true/" seamless><a href="https://tudos.bandcamp.com/album/tds04-o-maior-brasileiro-de-todos-os-tempos">[tds04] O Maior Brasileiro de Todos os Tempos von As Colegas de Trabalho</a></iframe>`,
-          caption: "2015 - O Maior Brasileiro de Todos os Tempos - As Colegas de Trabalho",
+          caption:
+            "2015 - O Maior Brasileiro de Todos os Tempos - As Colegas de Trabalho",
           caption_i18n: {
-            "pt-br": "2015 - O Maior Brasileiro de Todos os Tempos - As Colegas de Trabalho",
+            "pt-br":
+              "2015 - O Maior Brasileiro de Todos os Tempos - As Colegas de Trabalho",
             en: "2015 - O Maior Brasileiro de Todos os Tempos - As Colegas de Trabalho",
             de: "2015 - O Maior Brasileiro de Todos os Tempos - As Colegas de Trabalho",
           },
@@ -337,7 +349,8 @@ Die mechanische Vibration dieser Objekte verändert das Verhalten des übertrage
           caption:
             "Instalação sonora com rádio, alto-falantes e instrumentos modificados.",
           caption_i18n: {
-            "pt-br": "Instalação sonora com rádio, alto-falantes e instrumentos modificados.",
+            "pt-br":
+              "Instalação sonora com rádio, alto-falantes e instrumentos modificados.",
             en: "Sound installation with radio, loudspeakers and modified instruments.",
             de: "Klanginstallation mit Radio, Lautsprechern und modifizierten Instrumenten.",
           },
@@ -383,7 +396,8 @@ Die mechanische Vibration dieser Objekte verändert das Verhalten des übertrage
           caption:
             "Detalhe dos alto-falantes modificados ligados à guitarra e ao tamtam.",
           caption_i18n: {
-            "pt-br": "Detalhe dos alto-falantes modificados ligados à guitarra e ao tamtam.",
+            "pt-br":
+              "Detalhe dos alto-falantes modificados ligados à guitarra e ao tamtam.",
             en: "Detail of the modified loudspeakers connected to the guitar and tamtam.",
             de: "Detail der modifizierten Lautsprecher, die mit Gitarre und Tam‑Tam verbunden sind.",
           },
@@ -393,9 +407,11 @@ Die mechanische Vibration dieser Objekte verändert das Verhalten des übertrage
       embedsBandcamp: [
         {
           html: `<iframe style="border: 0; width: 350px; height: 350px;" src="https://bandcamp.com/EmbeddedPlayer/track=2447535245/size=large/bgcol=ffffff/linkcol=0687f5/minimal=true/transparent=true/" seamless><a href="https://viniciusfernandesssss.bandcamp.com/track/metempsicose">Metempsicose von Vinícius Fernandes</a></iframe>`,
-          caption: "2016 - Metempsicose - Vinícius Fernandes - Registro em áudio",
+          caption:
+            "2016 - Metempsicose - Vinícius Fernandes - Registro em áudio",
           caption_i18n: {
-            "pt-br": "2016 - Metempsicose - Vinícius Fernandes - Registro em áudio",
+            "pt-br":
+              "2016 - Metempsicose - Vinícius Fernandes - Registro em áudio",
             en: "2016 - Metempsicose - Vinícius Fernandes - Audio recording",
             de: "2016 - Metempsicose - Vinícius Fernandes - Audioaufzeichnung",
           },
@@ -420,7 +436,8 @@ Die mechanische Vibration dieser Objekte verändert das Verhalten des übertrage
           title: "Mariana Carvalho",
           caption: "Perfomance em ¿Música? #12, São Paulo - SP, Brasil - 2017",
           caption_i18n: {
-            "pt-br": "Perfomance em ¿Música? #12, São Paulo - SP, Brasil - 2017",
+            "pt-br":
+              "Perfomance em ¿Música? #12, São Paulo - SP, Brasil - 2017",
             en: "Performance at ¿Música? #12, São Paulo - SP, Brazil - 2017",
             de: "Performance auf ¿Música? #12, São Paulo - SP, Brasilien - 2017",
           },
@@ -433,7 +450,8 @@ Die mechanische Vibration dieser Objekte verändert das Verhalten des übertrage
           caption:
             "Planos de Saturação — performance em ¿Música? #13, São Paulo - SP, Brasil - 2017",
           caption_i18n: {
-            "pt-br": "Planos de Saturação — performance em ¿Música? #13, São Paulo - SP, Brasil - 2017",
+            "pt-br":
+              "Planos de Saturação — performance em ¿Música? #13, São Paulo - SP, Brasil - 2017",
             en: "Planos de Saturação — performance at ¿Música? #13, São Paulo - SP, Brazil - 2017",
             de: "Planos de Saturação — Performance auf ¿Música? #13, São Paulo - SP, Brasilien - 2017",
           },
@@ -447,7 +465,8 @@ Die mechanische Vibration dieser Objekte verändert das Verhalten des übertrage
           caption:
             "Duo Movente — performance em ¿Música? #13, São Paulo - SP, Brasil - 2017",
           caption_i18n: {
-            "pt-br": "Duo Movente — performance em ¿Música? #13, São Paulo - SP, Brasil - 2017",
+            "pt-br":
+              "Duo Movente — performance em ¿Música? #13, São Paulo - SP, Brasil - 2017",
             en: "Duo Movente — performance at ¿Música? #13, São Paulo - SP, Brazil - 2017",
             de: "Duo Movente — Performance auf ¿Música? #13, São Paulo - SP, Brasilien - 2017",
           },
@@ -460,7 +479,8 @@ Die mechanische Vibration dieser Objekte verändert das Verhalten des übertrage
           caption:
             "Público durante a 13ª edição da série ¿Música?, São Paulo - SP, Brasil - 2017",
           caption_i18n: {
-            "pt-br": "Público durante a 13ª edição da série ¿Música?, São Paulo - SP, Brasil - 2017",
+            "pt-br":
+              "Público durante a 13ª edição da série ¿Música?, São Paulo - SP, Brasil - 2017",
             en: "Audience during the 13th edition of the ¿Música? series, São Paulo - SP, Brazil - 2017",
             de: "Publikum während der 13. Ausgabe der Reihe ¿Música?, São Paulo - SP, Brasilien - 2017",
           },
@@ -472,7 +492,8 @@ Die mechanische Vibration dieser Objekte verändert das Verhalten des übertrage
           caption:
             "Ainda, Performance em ¿Música? #13, São Paulo - SP, Brasil - 2017",
           caption_i18n: {
-            "pt-br": "Ainda, Performance em ¿Música? #13, São Paulo - SP, Brasil - 2017",
+            "pt-br":
+              "Ainda, Performance em ¿Música? #13, São Paulo - SP, Brasil - 2017",
             en: "Also, Performance at ¿Música? #13, São Paulo - SP, Brazil - 2017",
             de: "Auch, Performance auf ¿Música? #13, São Paulo - SP, Brasilien - 2017",
           },
@@ -506,8 +527,10 @@ Die mechanische Vibration dieser Objekte verändert das Verhalten des übertrage
           title: "Registro da Instalação",
           caption:
             "Espaço das Artes, Universidade de São Paulo - SP, Brasil - 2019",
+
           caption_i18n: {
-            "pt-br": "Espaço das Artes, Universidade de São Paulo - SP, Brasil - 2019",
+            "pt-br":
+              "Espaço das Artes, Universidade de São Paulo - SP, Brasil - 2019",
             en: "Espaço das Artes, University of São Paulo - SP, Brazil - 2019",
             de: "Espaço das Artes, Universität São Paulo - SP, Brasilien - 2019",
           },
@@ -518,7 +541,8 @@ Die mechanische Vibration dieser Objekte verändert das Verhalten des übertrage
           caption:
             "Espaço das Artes, Universidade de São Paulo - SP, Brasil - 2019",
           caption_i18n: {
-            "pt-br": "Espaço das Artes, Universidade de São Paulo - SP, Brasil - 2019",
+            "pt-br":
+              "Espaço das Artes, Universidade de São Paulo - SP, Brasil - 2019",
             en: "Espaço das Artes, University of São Paulo - SP, Brazil - 2019",
             de: "Espaço das Artes, Universität São Paulo - SP, Brasilien - 2019",
           },
@@ -530,7 +554,8 @@ Die mechanische Vibration dieser Objekte verändert das Verhalten des übertrage
           caption:
             "Espaço das Artes, Universidade de São Paulo - SP, Brasil - 2019",
           caption_i18n: {
-            "pt-br": "Espaço das Artes, Universidade de São Paulo - SP, Brasil - 2019",
+            "pt-br":
+              "Espaço das Artes, Universidade de São Paulo - SP, Brasil - 2019",
             en: "Espaço das Artes, University of São Paulo - SP, Brazil - 2019",
             de: "Espaço das Artes, Universität São Paulo - SP, Brasilien - 2019",
           },
@@ -543,7 +568,8 @@ Die mechanische Vibration dieser Objekte verändert das Verhalten des übertrage
           caption:
             "Espaço das Artes, Universidade de São Paulo - SP, Brasil - 2019.",
           caption_i18n: {
-            "pt-br": "Espaço das Artes, Universidade de São Paulo - SP, Brasil - 2019.",
+            "pt-br":
+              "Espaço das Artes, Universidade de São Paulo - SP, Brasil - 2019.",
             en: "Espaço das Artes, University of São Paulo - SP, Brazil - 2019.",
             de: "Espaço das Artes, Universität São Paulo - SP, Brasilien - 2019.",
           },
@@ -561,9 +587,11 @@ Die mechanische Vibration dieser Objekte verändert das Verhalten des übertrage
       embedsBandcamp: [
         {
           html: `<iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=743014755/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://3edgy5u.bandcamp.com/album/v-rios-midis-maneiros-com-timbres-mais-maneiros-ainda-intercalados-com-frases-de-auto-ajuda-narradas-por-vozes-sintetizadas">Vários MIDIs maneiros com timbres mais maneiros ainda intercalados com frases de auto-ajuda narradas por vozes sintetizadas von 3edgy5u</a></iframe>`,
-          caption: "Album - Vários MIDIs maneiros com timbres mais maneiros ainda intercalados com frases de auto-ajuda narradas por vozes sintetizadas - Augusto Piccinini",
+          caption:
+            "Album - Vários MIDIs maneiros com timbres mais maneiros ainda intercalados com frases de auto-ajuda narradas por vozes sintetizadas - Augusto Piccinini",
           caption_i18n: {
-            "pt-br": "Album - Vários MIDIs maneiros com timbres mais maneiros ainda intercalados com frases de auto-ajuda narradas por vozes sintetizadas - Augusto Piccinini",
+            "pt-br":
+              "Album - Vários MIDIs maneiros com timbres mais maneiros ainda intercalados com frases de auto-ajuda narradas por vozes sintetizadas - Augusto Piccinini",
             en: "Album - Vários MIDIs maneiros com timbres mais maneiros ainda intercalados com frases de auto-ajuda narradas por vozes sintetizadas - Augusto Piccinini",
             de: "Album - Vários MIDIs maneiros com timbres mais maneiros ainda intercalados com frases de auto-ajuda narradas por vozes sintetizadas - Augusto Piccinini",
           },
@@ -659,7 +687,8 @@ Die mechanische Vibration dieser Objekte verändert das Verhalten des übertrage
       title: "Echos of the deep",
       text: "Software de sonificação de dados metabólicos de esponjas marinhas",
       text_i18n: {
-        "pt-br": "Software de sonificação de dados metabólicos de esponjas marinhas",
+        "pt-br":
+          "Software de sonificação de dados metabólicos de esponjas marinhas",
         en: "Software for sonification of metabolic data from marine sponges",
         de: "Software zur Sonifizierung metabolischer Daten von Meeres-Schwämmen",
       },
@@ -678,7 +707,8 @@ Die mechanische Vibration dieser Objekte verändert das Verhalten des übertrage
           caption:
             "World Sponge Conference 2025, Vila do Conde, Portugal - 2025",
           caption_i18n: {
-            "pt-br": "World Sponge Conference 2025, Vila do Conde, Portugal - 2025",
+            "pt-br":
+              "World Sponge Conference 2025, Vila do Conde, Portugal - 2025",
             en: "World Sponge Conference 2025, Vila do Conde, Portugal - 2025",
             de: "World Sponge Conference 2025, Vila do Conde, Portugal - 2025",
           },
@@ -755,10 +785,42 @@ Die mechanische Vibration dieser Objekte verändert das Verhalten des übertrage
         },
       ]),
       embedsBandcamp: [
-        { html: `<iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=965401561/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://tudos.bandcamp.com/album/tds01-amador">[tds01] amador von Tabutril</a></iframe>`, caption: "Amador - 2015 - Tabutril", caption_i18n: { "pt-br": "Amador - 2015 - Tabutril", en: "Amador - 2015 - Tabutril", de: "Amador - 2015 - Tabutril" } },
-        { html: `<iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=2229382614/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://tudos.bandcamp.com/album/tds09-fontanela">[tds09] Fontanela von Cassini</a></iframe>`, caption: "Fontanela - 2018 - Cassini", caption_i18n: { "pt-br": "Fontanela - 2018 - Cassini", en: "Fontanela - 2018 - Cassini", de: "Fontanela - 2018 - Cassini" } },
-        { html: `<iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=1846535594/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://tudos.bandcamp.com/album/tds013-muito-nasty">[tds013] Muito Nasty von Muito Nasty</a></iframe>`, caption: "Muito Nasty - 2018 - Muito Nasty", caption_i18n: { "pt-br": "Muito Nasty - 2018 - Muito Nasty", en: "Muito Nasty - 2018 - Muito Nasty", de: "Muito Nasty - 2018 - Muito Nasty" } },
-        { html: `<iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=981793339/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://passaro-concreto.bandcamp.com/album/p-ssaro-concreto">Pássaro-Concreto von Pássaro-Concreto</a></iframe>`, caption: "Pássaro-Concreto - 2016 - Pássaro-Concreto", caption_i18n: { "pt-br": "Pássaro-Concreto - 2016 - Pássaro-Concreto", en: "Pássaro-Concreto - 2016 - Pássaro-Concreto", de: "Pássaro-Concreto - 2016 - Pássaro-Concreto" } },
+        {
+          html: `<iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=965401561/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://tudos.bandcamp.com/album/tds01-amador">[tds01] amador von Tabutril</a></iframe>`,
+          caption: "Amador - 2015 - Tabutril",
+          caption_i18n: {
+            "pt-br": "Amador - 2015 - Tabutril",
+            en: "Amador - 2015 - Tabutril",
+            de: "Amador - 2015 - Tabutril",
+          },
+        },
+        {
+          html: `<iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=2229382614/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://tudos.bandcamp.com/album/tds09-fontanela">[tds09] Fontanela von Cassini</a></iframe>`,
+          caption: "Fontanela - 2018 - Cassini",
+          caption_i18n: {
+            "pt-br": "Fontanela - 2018 - Cassini",
+            en: "Fontanela - 2018 - Cassini",
+            de: "Fontanela - 2018 - Cassini",
+          },
+        },
+        {
+          html: `<iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=1846535594/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://tudos.bandcamp.com/album/tds013-muito-nasty">[tds013] Muito Nasty von Muito Nasty</a></iframe>`,
+          caption: "Muito Nasty - 2018 - Muito Nasty",
+          caption_i18n: {
+            "pt-br": "Muito Nasty - 2018 - Muito Nasty",
+            en: "Muito Nasty - 2018 - Muito Nasty",
+            de: "Muito Nasty - 2018 - Muito Nasty",
+          },
+        },
+        {
+          html: `<iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=981793339/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://passaro-concreto.bandcamp.com/album/p-ssaro-concreto">Pássaro-Concreto von Pássaro-Concreto</a></iframe>`,
+          caption: "Pássaro-Concreto - 2016 - Pássaro-Concreto",
+          caption_i18n: {
+            "pt-br": "Pássaro-Concreto - 2016 - Pássaro-Concreto",
+            en: "Pássaro-Concreto - 2016 - Pássaro-Concreto",
+            de: "Pássaro-Concreto - 2016 - Pássaro-Concreto",
+          },
+        },
       ],
     },
   ];
@@ -768,7 +830,8 @@ Die mechanische Vibration dieser Objekte verändert das Verhalten des übertrage
       title: "Menis",
       text: "Desenvolvimento de instrumentos eletrônicos, síntese embarcada e ferramentas para artistas e pesquisadores.",
       text_i18n: {
-        "pt-br": "Desenvolvimento de instrumentos eletrônicos, síntese embarcada e ferramentas para artistas e pesquisadores.",
+        "pt-br":
+          "Desenvolvimento de instrumentos eletrônicos, síntese embarcada e ferramentas para artistas e pesquisadores.",
         en: "Development of electronic instruments, embedded synthesis and tools for artists and researchers.",
         de: "Entwicklung elektronischer Instrumente, eingebettete Synthese und Werkzeuge für Künstler und Forscher.",
       },
@@ -895,7 +958,8 @@ Die mechanische Vibration dieser Objekte verändert das Verhalten des übertrage
       title: "UOL",
       text: "Desenvolvimento de backend e frontend para o maior portal de notícias da América Latina.",
       text_i18n: {
-        "pt-br": "Desenvolvimento de backend e frontend para o maior portal de notícias da América Latina.",
+        "pt-br":
+          "Desenvolvimento de backend e frontend para o maior portal de notícias da América Latina.",
         en: "Backend and frontend development for the largest news portal in Latin America.",
         de: "Backend- und Frontend-Entwicklung für das größte Nachrichtenportal in Lateinamerika.",
       },
@@ -920,7 +984,8 @@ Die mechanische Vibration dieser Objekte verändert das Verhalten des übertrage
       linkTitle:
         "Veja um exemplo de uma página do portal UOL em que Vinícius atuou no desenvolvimento de frontend e backend.",
       linkTitle_i18n: {
-        "pt-br": "Veja um exemplo de uma página do portal UOL em que Vinícius atuou no desenvolvimento de frontend e backend.",
+        "pt-br":
+          "Veja um exemplo de uma página do portal UOL em que Vinícius atuou no desenvolvimento de frontend e backend.",
         en: "See an example page from the UOL portal where Vinícius worked on frontend and backend development.",
         de: "Sehen Sie sich eine Beispielseite des UOL-Portals an, an der Vinícius an der Frontend- und Backend-Entwicklung gearbeitet hat.",
       },
@@ -929,7 +994,8 @@ Die mechanische Vibration dieser Objekte verändert das Verhalten des übertrage
       title: "Nexo Jornal",
       text: "Atualização de stack, integração de dados e desenvolvimento de novas funcionalidades para o portal de notícias.",
       text_i18n: {
-        "pt-br": "Atualização de stack, integração de dados e desenvolvimento de novas funcionalidades para o portal de notícias.",
+        "pt-br":
+          "Atualização de stack, integração de dados e desenvolvimento de novas funcionalidades para o portal de notícias.",
         en: "Stack updates, data integration and development of new features for the news portal.",
         de: "Aktualisierung des Tech-Stacks, Datenintegration und Entwicklung neuer Funktionen für das Nachrichtenportal.",
       },
@@ -952,7 +1018,8 @@ Die mechanische Vibration dieser Objekte verändert das Verhalten des übertrage
       linkTitle:
         "Veja um exemplo de uma página do portal Nexo Jornal em que Vinícius atuou no desenvolvimento de frontend e backend.",
       linkTitle_i18n: {
-        "pt-br": "Veja um exemplo de uma página do portal Nexo Jornal em que Vinícius atuou no desenvolvimento de frontend e backend.",
+        "pt-br":
+          "Veja um exemplo de uma página do portal Nexo Jornal em que Vinícius atuou no desenvolvimento de frontend e backend.",
         en: "See an example page from the Nexo Jornal portal where Vinícius worked on frontend and backend development.",
         de: "Sehen Sie sich eine Beispielseite des Nexo Jornal-Portals an, an der Vinícius an der Frontend- und Backend-Entwicklung gearbeitet hat.",
       },
@@ -965,7 +1032,8 @@ Die mechanische Vibration dieser Objekte verändert das Verhalten des übertrage
       title: "Cut-Up as Political Practice",
       text: "Artigo para a revista Norient analisando o cut-up de Burroughs como prática política contra manipulação midiática.",
       text_i18n: {
-        "pt-br": "Artigo para a revista Norient analisando o cut-up de Burroughs como prática política contra manipulação midiática.",
+        "pt-br":
+          "Artigo para a revista Norient analisando o cut-up de Burroughs como prática política contra manipulação midiática.",
         en: "Article for Norient magazine analyzing Burroughs' cut-up as a political practice against media manipulation.",
         de: "Artikel für das Norient-Magazin, der Burroughs' Cut-Up als politische Praxis gegen Medienmaniulation analysiert.",
       },
@@ -1137,10 +1205,10 @@ Die mechanische Vibration dieser Objekte verändert das Verhalten des übertrage
 
   // expõe tudo para a página Detail
   (window as any).__APP_ALL__ = [
-    ...cardsWithSlug,
-    ...techCardsWithSlug,
-    ...softwareCardsWithSlug,
-    ...publicationCardsWithSlug,
+    ...localizedCards,
+    ...localizedTechCards,
+    ...localizedSoftwareCards,
+    ...localizedPublicationCards,
   ];
 
   const params = useParams();
@@ -1155,14 +1223,26 @@ Die mechanische Vibration dieser Objekte verändert das Verhalten des übertrage
       )
     : null;
 
-  const heroTitle = currentItem?.title || t("hero.title");
-  const heroSubtitle = currentItem?.text || t("hero.subtitle");
+  const heroTitle = currentItem
+    ? currentItem.titleKey
+      ? t(currentItem.titleKey)
+      : (currentItem.title_i18n?.[lang] ?? currentItem.title)
+    : t("hero.title");
+
+  const heroSubtitle = currentItem
+    ? currentItem.textKey
+      ? t(currentItem.textKey)
+      : (currentItem.text_i18n?.[lang] ?? currentItem.text)
+    : t("hero.subtitle");
 
   const highlightTextItems = currentItem?.images_details?.length
     ? currentItem.images_details.slice(0, 5).map((img: any, index: number) => ({
         title: img?.title || `${currentItem.title} ${index + 1}`,
         caption:
-          img?.caption_i18n?.[lang] ?? img?.caption ?? currentItem.caption ?? "Lorem ispu, São Paulo (2026)",
+          img?.caption_i18n?.[lang] ??
+          img?.caption ??
+          currentItem.caption ??
+          "Lorem ispu, São Paulo (2026)",
       }))
     : undefined;
 
@@ -1287,10 +1367,13 @@ Die mechanische Vibration dieser Objekte verändert das Verhalten des übertrage
         <section id="about" className="section">
           {currentItem ? (
             <>
-                    {currentItem.description ? (
-                      <p>{currentItem.description_i18n?.[lang] ?? currentItem.description}</p>
-                    ) : null}
-                    {currentItem.linkUrl ? (
+              {currentItem.description ? (
+                <p>
+                  {currentItem.description_i18n?.[lang] ??
+                    currentItem.description}
+                </p>
+              ) : null}
+              {currentItem.linkUrl ? (
                 <div className="detail-link-row detail-link-row--hero">
                   <a
                     className="detail-link detail-hero-link"
@@ -1298,7 +1381,9 @@ Die mechanische Vibration dieser Objekte verändert das Verhalten des übertrage
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                          {(currentItem.linkTitle_i18n?.[lang] ?? currentItem.linkTitle) || currentItem.linkUrl} {" "}
+                    {(currentItem.linkTitle_i18n?.[lang] ??
+                      currentItem.linkTitle) ||
+                      currentItem.linkUrl}{" "}
                     <span aria-hidden>↗</span>
                   </a>
                 </div>
