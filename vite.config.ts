@@ -2,7 +2,7 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
 // https://vite.dev/config/
-export default defineConfig({
-  base: process.env.NODE_ENV === 'production' ? '/vinicius-portfolio/' : '/',
+export default defineConfig(({ command }) => ({
+  base: command === 'build' ? '/vinicius-portfolio/' : '/',
   plugins: [react()],
-})
+}))
